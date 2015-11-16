@@ -62,6 +62,14 @@ keystone.set('nav', {
 	'users': 'users'
 });
 
+// Cloudinary CDN config
+keystone.set('cloudinary config', { cloud_name: 'engagement-lab-home', api_key: '851373748637243', api_secret: 'uTK26M1JKJjOsesQ9vZsXasj9cw' });
+ 
+// prefix all built-in tags with 'keystone_'
+keystone.set('cloudinary prefix', 'keystone');
+ 
+// prefix each image public_id with [{prefix}]/{list.path}/{field.path}/
+keystone.set('cloudinary folders', true);
+ 
 // Start Keystone to connect to your database and initialise the web server
-
 keystone.start();
