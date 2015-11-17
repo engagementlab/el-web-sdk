@@ -22,6 +22,15 @@ var Types = keystone.Field.Types;
  */
 var Project = new keystone.List('Project');
 
+/**
+ * Field Validators
+ * @main Project
+ */
+var bylineValidator = validate({
+								    validator: 'isLength',
+								    arguments: [1, 250],
+								    message: 'Byline cannot exceed 250 characters'
+								  });
 var urlValidator = validate({
 								    validator: 'isURL',
 								    arguments: { protocols: ['http','https'], require_tld: true, require_protocol: false, allow_underscores: true },
@@ -34,14 +43,17 @@ var urlValidator = validate({
  */
 Project.add({
 	name: { type: String, label: 'Project Name', required: true, index: true },
-	byline: { type: Types.Markdown, label: 'Byline Description', initial: true, required: true },
+	byline: { type: String, label: 'Byline Description', validate: bylineValidator, initial: true, required: true },
 	overview: { type: Types.Markdown, label: 'Project Narrative', initial: true, required: true },
 	highlights: { type: Types.TextArray, label: 'Key Features and Highlights' },
 
 	headerImage: { type: Types.CloudinaryImage, label: 'Header Image (large)', folder: 'research/home', autoCleanup : true },
-	slugImage: { type: Types.CloudinaryImages, label: 'Project Images', folder: 'research/projects', autoCleanup : true },
+	projectImages: { type: Types.CloudinaryImages, label: 'Project Images', folder: 'research/projects', autoCleanup : true },
+	
+	videoUrl: { type: Types.Url, label: 'Project Video URL', validate: urlValidator },
+	videoData: { type: Types.Embedly, from: 'videoUrl', options: {width: 750, height: 420}, hidden: true },
 
-	externalLink: { type: Types.Url, label: 'External Link', validate: urlValidator },
+	externalLinkUrl: { type: Types.Url, label: 'External Link URL', validate: urlValidator },
 	
 	projectFiles: { 
 		type: Types.LocalFiles, label: 'Project Files',
@@ -53,7 +65,7 @@ Project.add({
 		}
 	},
 	
-	createdAt: { type: Date, default: Date.now, noedit: true }
+	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
 
 /**

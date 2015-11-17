@@ -348,6 +348,19 @@ module.exports = function() {
 	_helpers.underscoreFormat = function (obj, underscoreMethod) {
 		return obj._[underscoreMethod].format();
 	}
-	
+
+	//  ### json string format help
+	// Used for debugging purpose of pretty-printing JSON object to template
+	//
+	//  @obj: The data object to print
+	//
+	//  *Usage example:*
+	//  `{{jsonPrint data}}
+
+	_helpers.jsonPrint = function (obj) {
+
+		return JSON.stringify(obj, null, 2);
+	}
+
 	return _helpers;
 };

@@ -1,0 +1,34 @@
+{{!< default}}
+<!-- See Project model for fields -->
+<!-- Use {{jsonPrint project}} to print entire json...DEBUG ONLY -->
+<div class="container">
+		<h1>Project: {{project.name}}</h1>
+
+		{{{project.byline.html}}}
+		{{{project.narrative.html}}}
+		{{!-- {{{jsonPrint project.videoData.html}}} --}}
+
+		<img alt="Project image for {{project.name}}" src="{{{cloudinaryUrl project.headerImage width=640 height=480}}}" />
+
+		<ul>
+			{{# each project.highlights}}
+				<li> {{ this }}</li>
+			{{/each}}
+		</ul>
+
+		{{# each project.projectFiles}}
+
+			<a href="{{path}}/{{filename}}">Project File {{@index}}</a><br />
+
+		{{/each}}
+
+		{{# each project.projectImages}}
+
+			<img alt="Project image" src="{{{cloudinaryUrl width=320 height=180}}}" />
+
+		{{/each}}
+
+		{{{ project.videoData.html }}}
+
+	</div>
+</div>
