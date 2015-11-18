@@ -31,9 +31,17 @@ exports = module.exports = function(req, res) {
 		
 		var q = Project.model.findById(locals.filters._id);
 		
+		// Setup the locals to be used inside view
 		q.exec(function(err, result) {
 			locals.project = result;
-			next(err);
+
+			// Combine feature text and images
+			locals.projectFeatures = result.highlights.map(function(str, ind) { 
+																return {text: str, image: result.headerImages[ind]} 
+															 });
+			locals.projectDates = result._.startDate.format("MMMM Do YYYY - ") + 
+														( (result.endDate === undefined) ? "Current" : result.endDate.format("MMMM Do YYYY") );
+			next(err); 
 		});
 		
 	});

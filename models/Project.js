@@ -36,6 +36,9 @@ var urlValidator = validate({
 								    arguments: { protocols: ['http','https'], require_tld: true, require_protocol: false, allow_underscores: true },
 								    message: 'Invalid external link URL'
 								  });
+var emailValidator = validate({
+								    validator: 'isEmail'
+								  });
 
 /**
  * Model Fields
@@ -45,15 +48,24 @@ Project.add({
 	name: { type: String, label: 'Project Name', required: true, index: true },
 	byline: { type: String, label: 'Byline Description', validate: bylineValidator, initial: true, required: true },
 	overview: { type: Types.Markdown, label: 'Project Narrative', initial: true, required: true },
-	highlights: { type: Types.TextArray, label: 'Key Features and Highlights' },
-
-	headerImage: { type: Types.CloudinaryImage, label: 'Header Image (large)', folder: 'research/home', autoCleanup : true },
-	projectImages: { type: Types.CloudinaryImages, label: 'Project Images', folder: 'research/projects', autoCleanup : true },
 	
-	videoUrl: { type: Types.Url, label: 'Project Video URL', validate: urlValidator },
+	startDate: { type: Date, label: 'Project Start Date', initial: true, required: true },
+	endDate: { type: Date, label: 'Project End Date' },
+
+	highlights: { type: Types.TextArray, label: 'Key Features and Highlights' },	
+	tabHeadings: { type: Types.TextArray, label: 'Detail Tab Headings' },
+	tabText: { type: Types.TextArray, label: 'Detail Tab Text' },
+
+	headerImages: { type: Types.CloudinaryImages, label: 'Header Images (large)', folder: 'research/projects', autoCleanup : true },
+	projectImages: { type: Types.CloudinaryImages, label: 'Project Images', folder: 'research/projects', autoCleanup : true },
+	projectImageCaptions: { type: Types.TextArray, label: 'Project Image Captions' },
+	
+	videoUrl: { type: Types.Url, label: 'Project Video URL' },
 	videoData: { type: Types.Embedly, from: 'videoUrl', options: {width: 750, height: 420}, hidden: true },
 
 	externalLinkUrl: { type: Types.Url, label: 'External Link URL', validate: urlValidator },
+	contactName: { type: String, default: 'Engagement Lab', label: 'Contact Name', required: true },
+	contactEmail: { type: String, default: 'info@elab.emerson.edu', label: 'Contact Email', validate: emailValidator, required: true },
 	
 	projectFiles: { 
 		type: Types.LocalFiles, label: 'Project Files',

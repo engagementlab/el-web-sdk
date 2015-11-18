@@ -349,7 +349,7 @@ module.exports = function() {
 		return obj._[underscoreMethod].format();
 	}
 
-	//  ### json string format help
+	//  ### json string format helper
 	// Used for debugging purpose of pretty-printing JSON object to template
 	//
 	//  @obj: The data object to print
@@ -360,6 +360,38 @@ module.exports = function() {
 	_helpers.jsonPrint = function (obj) {
 
 		return JSON.stringify(obj, null, 2);
+	}
+
+	//  ### href link helper
+	// Used for creating an href link with a URL
+	//
+	//  @text: The text of the link
+	//  @url: The URL of the link
+	//
+	//  *Usage example:*
+	//  `{{"See more..." story.url}}
+
+	_helpers.link = function(text, url) {
+	  
+	  url = hbs.escapeExpression(url);
+	  text = hbs.escapeExpression(text);
+
+	  return new hbs.SafeString(
+	    "<a href='" + url + "'>" + text + "</a>"
+	  );
+
+	}
+	//  ### index offset helper
+	// Used for increasing index by one
+	//
+	//  @ind: The index to use
+	//
+	//  *Usage example:*
+	//  `{{indIndex @index}}
+
+	_helpers.incIndex = function (ind) {
+
+		return parseInt(ind) + 1;
 	}
 
 	return _helpers;

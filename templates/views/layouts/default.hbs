@@ -1,62 +1,257 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Engagement Lab</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-		<link href="/styles/site.css" rel="stylesheet">
+		<meta name="description" content="We are an applied research lab dedicated to innovating the ways people participate in civic life and expanding the study of citizenship in a digital era.">
+		<meta name="author" content="Engagement Lab">
+
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Favicon -->
+		<link rel="shortcut icon" href="/images/favicon.ico">
+
+		<!-- Web Fonts -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+
+		<!-- Bootstrap core CSS -->
+		<link href="/css/bootstrap/bootstrap.css" rel="stylesheet">
+
+		<!-- Font Awesome CSS -->
+		<link href="/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+		<!-- Fontello CSS -->
+		<link href="/fonts/fontello/css/fontello.css" rel="stylesheet">
+
+		<!-- Plugins -->
+		<link href="/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<link href="/plugins/rs-plugin/css/settings.css" rel="stylesheet">
+		<link href="/css/animations.css" rel="stylesheet">
+		<link href="/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+		<link href="/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+		<link href="/plugins/hover/hover-min.css" rel="stylesheet">		
+
+		<!-- the project core CSS file -->
+		<link href="/css/style.css" rel="stylesheet" >
+
+		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
+		<link href="/css/skins/light_blue.css" rel="stylesheet">
+
+		<!-- Custom css --> 
+		<link href="/css/custom.css" rel="stylesheet">
 
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 			- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
 
-		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-		//- Safely remove this block if you are not targeting IE8 --}}
-		<!--[if lt IE 9]>
-			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
-			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
 	</head>
-	<body>
-		<div id="header">
-			<div class="container">
-				<div role="navigation" class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-							</button>
-							<a href="/" class="navbar-brand">
-								<button>
-									<img src="/images/logo.png" width="240">
-								</button>
-							</a>
-						</div>
-						<div class="collapse navbar-collapse">
-							<ul class="nav navbar-nav navbar-left">
-									{{# each navLinks}}
-									<li {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
-										<a href="{{ href }}">{{ label }}</a>
-									</li>
-								{{/each}}
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-								{{#if user}}
-								<li><a href="/keystone/signout">Sign Out</a></li>
-								{{else}}
-								<li><a href="/keystone/signin">Sign In</a></li>
-								{{/if}}
-							</ul>
+	<!-- body classes:  -->
+	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+	<body class="no-trans   ">
+
+		<!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+		
+		<!-- page wrapper start -->
+		<!-- ================ -->
+		<div class="page-wrapper">
+		
+
+			<!-- header-container start -->
+			<div class="header-container">
+			
+				
+				<!-- header start -->
+				<!-- classes:  -->
+				<!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
+				<!-- "dark": dark version of header e.g. class="header dark clearfix" -->
+				<!-- "full-width": mandatory class for the full-width menu layout -->
+				<!-- "centered": mandatory class for the centered logo layout -->
+				<!-- ================ --> 
+				<header class="header  fixed   clearfix">
+					
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3">
+								<!-- header-left start -->
+								<!-- ================ -->
+								<div class="header-left clearfix">
+
+									<!-- logo -->
+									<div id="logo" class="logo">
+										<a href="index.html"><img id="logo_img" src="/images/logo.png" alt="Engagement Lab"></a>
+									</div>
+
+									<!-- name-and-slogan -->
+									<div class="site-slogan">
+									</div>
+									
+								</div>
+								<!-- header-left end -->
+
+							</div>
+							<div class="col-md-9">
+					
+								<!-- header-right start -->
+								<!-- ================ -->
+								<div class="header-right clearfix">
+									
+								<!-- main-navigation start -->
+								<!-- classes: -->
+								<!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
+								<!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
+								<!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
+								<!-- ================ -->
+								<div class="main-navigation  animated with-dropdown-buttons">
+
+									<!-- navbar start -->
+									<!-- ================ -->
+									<nav class="navbar navbar-default" role="navigation">
+										<div class="container-fluid">
+
+											<!-- Toggle get grouped for better mobile display -->
+											<div class="navbar-header">
+												<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+													<span class="sr-only">Toggle navigation</span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+													<span class="icon-bar"></span>
+												</button>
+												
+											</div>
+
+											<!-- Collect the nav links, forms, and other content for toggling -->
+											<div class="collapse navbar-collapse" id="navbar-collapse-1">
+												<!-- main-menu -->
+												<ul class="nav navbar-nav ">
+
+												{{# each navLinks}}
+													<li class="mega-menu {{#ifeq ../section key}}active{{else}}{{/ifeq}}">
+														<a href="{{ href }}">{{ label }}</a>
+													</li>
+												{{/each}}
+
+													<!-- mega-menu start -->
+													{{!-- <li class="dropdown active mega-menu">
+														<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+														<ul class="dropdown-menu">
+															<li>
+																<div class="row">
+																	<div class="col-lg-8 col-md-9">
+																		<h4 class="title">Pages</h4>
+																		<div class="row">
+																			<div class="col-sm-4">
+																				<div class="divider"></div>
+																				<ul class="menu">
+																					<li ><a href="page-about.html"><i class="fa fa-angle-right"></i>About Us 1</a></li>
+																					<li ><a href="page-about-2.html"><i class="fa fa-angle-right"></i>About Us 2</a></li>
+																					<li ><a href="page-about-3.html"><i class="fa fa-angle-right"></i>About Us 3</a></li>
+																					<li ><a href="page-about-4.html"><i class="fa fa-angle-right"></i>About Us 4</a></li>
+																					<li ><a href="page-about-me.html"><i class="fa fa-angle-right"></i>About Me</a></li>
+																					<li ><a href="page-team.html"><i class="fa fa-angle-right"></i>Our Team - Options 1</a></li>
+																					<li ><a href="page-team-2.html"><i class="fa fa-angle-right"></i>Our Team - Options 2</a></li>
+																					<li ><a href="page-team-3.html"><i class="fa fa-angle-right"></i>Our Team - Options 3</a></li>
+																					<li ><a href="page-coming-soon.html"><i class="fa fa-angle-right"></i>Coming Soon Page</a></li>
+																					<li ><a href="page-faq.html"><i class="fa fa-angle-right"></i>FAQ page</a></li>
+																				</ul>
+																			</div>
+																			<div class="col-sm-4">
+																				<div class="divider"></div>
+																				<ul class="menu">
+																					<li ><a href="page-services.html"><i class="fa fa-angle-right"></i>Services 1</a></li>
+																					<li class="active"><a href="page-services-2.html"><i class="fa fa-angle-right"></i>Services 2</a></li>
+																					<li ><a href="page-services-3.html"><i class="fa fa-angle-right"></i>Services 3</a></li>
+																					<li ><a href="page-contact.html"><i class="fa fa-angle-right"></i>Contact 1</a></li>
+																					<li ><a href="page-contact-2.html"><i class="fa fa-angle-right"></i>Contact 2</a></li>
+																					<li ><a href="page-contact-3.html"><i class="fa fa-angle-right"></i>Contact 3</a></li>
+																					<li ><a href="page-login.html"><i class="fa fa-angle-right"></i>Login 1</a></li>
+																					<li ><a href="page-login-2.html"><i class="fa fa-angle-right"></i>Login 2 - Fullsreen</a></li>
+																					<li ><a href="page-signup.html"><i class="fa fa-angle-right"></i>Sign Up 1</a></li>
+																					<li ><a href="page-signup-2.html"><i class="fa fa-angle-right"></i>Sign Up 2 - Fullsreen</a></li>
+																				</ul>
+																			</div>
+																			<div class="col-sm-4">
+																				<div class="divider"></div>
+																				<ul class="menu">
+																					<li ><a href="page-404.html"><i class="fa fa-angle-right"></i>404 error</a></li>
+																					<li ><a href="page-404-2.html"><i class="fa fa-angle-right"></i>404 error - Parallax</a></li>
+																					<li ><a href="page-affix-sidebar.html"><i class="fa fa-angle-right"></i>Sidebar - Affix Menu</a></li>
+																					<li ><a href="page-left-sidebar.html"><i class="fa fa-angle-right"></i>Left Sidebar</a></li>
+																					<li ><a href="page-right-sidebar.html"><i class="fa fa-angle-right"></i>Right Sidebar</a></li>
+																					<li ><a href="page-two-sidebars.html"><i class="fa fa-angle-right"></i>Two Sidebars</a></li>
+																					<li ><a href="page-two-sidebars-left.html"><i class="fa fa-angle-right"></i>Two Sidebars Left</a></li>
+																					<li ><a href="page-two-sidebars-right.html"><i class="fa fa-angle-right"></i>Two Sidebars Right</a></li>
+																					<li ><a href="page-no-sidebars.html"><i class="fa fa-angle-right"></i>No Sidebars</a></li>
+																					<li ><a href="page-sitemap.html"><i class="fa fa-angle-right"></i>Sitemap</a></li>
+																				</ul>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-4 col-md-3 hidden-sm">
+																		<h4 class="title">Premium HTML5 Template</h4>
+																		<p class="mb-10">The Project is perfectly suitable for corporate, business and company webpages.</p>
+																		<img src="/images/section-image-3.png" alt="The Project">
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</li> --}}
+												</ul>
+												<!-- main-menu end -->
+												
+												<!-- header dropdown buttons -->
+												<div class="header-dropdown-buttons hidden-xs ">
+
+													<div class="btn-group dropdown">
+														<button type="button" class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-user-1"></i></button>
+														<ul class="dropdown-menu dropdown-menu-right dropdown-animation cart">
+															<li>
+																<div class="panel-body text-right">	
+																	{{#if user}}
+																		<a href="/keystone" class="btn btn-group btn-gray btn-sm">Go to Content Management</a>
+																		<a href="/keystone/signout" class="btn btn-group btn-gray btn-sm">Sign Out</a>
+																	{{else}}
+																		<a href="/keystone/signin" class="btn btn-group btn-gray btn-sm">Sign In</a>
+																	{{/if}}
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+												<!-- header dropdown buttons end-->
+												
+											</div>
+
+										</div>
+									</nav>
+									<!-- navbar end -->
+
+								</div>
+								<!-- main-navigation end -->	
+								</div>
+								<!-- header-right end -->
+					
+							</div>
 						</div>
 					</div>
-				</div>
+					
+				</header>
+				<!-- header end -->
 			</div>
-		</div>
-		<div id="body">
+			<!-- header-container end -->
+
 			<!--
 				Flash messages allow you to display once-off status messages to users, e.g. form
 				validation errors, success messages, etc
@@ -85,25 +280,75 @@
 				{{/if}}
 			</div>
 			{{/if}}
-			<!-- The content block should contain the body of your template's content-->
-			{{{body}}}
+
+				<!-- BODY CONTENT START -->
+				{{{body}}}
+			
+			<!-- Project information (Add "dark" class to #footer in order to enable dark footer). I edited this of a footer template which is why it is refering to the footer class FYI - Jordan -->
+			<!-- ================ -->
+			<footer id="footer" class="clearfix ">
+
+				<!-- .subfooter start -->
+				<!-- ================ -->
+				<div class="subfooter">
+					<div class="container">
+						<div class="subfooter-inner">
+							<div class="row">
+								<div class="col-md-12">
+									<p class="text-center">We are an applied research lab dedicated to innovating the ways people participate in civic life and expanding the study of citizenship in a digital era.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- .subfooter end -->
 		</div>
-		<div class="container">
-			<div id="footer">
-				Engagement Lab | Facebook | Twitter</p>
-			</div>
-		</div>
-		{{!--
-			//- jQuery 1.11.3 is included by default, and required by both Bootstrap
-			//- and the KeystoneJS Content Editor. If you are not targeting IE8,
-			//- you can upgrade to 2.1.4 (also bundled) for better performance.
-		--}}
-		<script src="/js/jquery/jquery-1.11.3.min.js"></script>
-		{{!--
-			//- Customise which Bootstrap javascript files are served by including
-			//- them specifically here, instead of bootstrap-3.3.5.min.js
-		--}}
-		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+		<!-- page-wrapper end -->
+
+			<!-- JavaScript files placed at the end of the document so the pages load faster -->
+		<!-- ================================================== -->
+		<!-- Jquery and Bootstap core js files -->
+		<script type="text/javascript" src="/plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+
+		<!-- Modernizr javascript -->
+		<script type="text/javascript" src="/plugins/modernizr.js"></script>
+
+		<!-- jQuery Revolution Slider  -->
+		<script type="text/javascript" src="/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+		<script type="text/javascript" src="/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+		<!-- Isotope javascript -->
+		<script type="text/javascript" src="/plugins/isotope/isotope.pkgd.min.js"></script>
+		
+		<!-- Magnific Popup javascript -->
+		<script type="text/javascript" src="/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+		
+		<!-- Appear javascript -->
+		<script type="text/javascript" src="/plugins/waypoints/jquery.waypoints.min.js"></script>
+
+		<!-- Count To javascript -->
+		<script type="text/javascript" src="/plugins/jquery.countTo.js"></script>
+		
+		<!-- Parallax javascript -->
+		<script src="/plugins/jquery.parallax-1.1.3.js"></script>
+
+		<!-- Contact form -->
+		<script src="/plugins/jquery.validate.js"></script>
+
+		<!-- Owl carousel javascript -->
+		<script type="text/javascript" src="/plugins/owl-carousel/owl.carousel.js"></script>
+		
+		<!-- SmoothScroll javascript -->
+		<script type="text/javascript" src="/plugins/jquery.browser.js"></script>
+		<script type="text/javascript" src="/plugins/SmoothScroll.js"></script>
+
+		<!-- Initialization of Plugins -->
+		<script type="text/javascript" src="/js/template.js"></script>
+
+		<!-- Custom Scripts -->
+		<script type="text/javascript" src="/js/custom.js"></script>
+
 		{{{isAdminEditorJS user}}}
 	</body>
 </html>
