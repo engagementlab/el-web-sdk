@@ -1,0 +1,89 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Project Page Template 
+ * - See Project model for fields
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+
+<!-- TEAM START -->
+
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+
+	<div class="container">
+		<div class="row">
+
+			<!-- main start -->
+			<!-- ================ -->
+			<div class="main col-md-12">
+
+				<!-- page-title start -->
+				<!-- ================ -->
+				<h1 class="page-title">Our Team</h1>
+				<div class="separator-2"></div>
+				<!-- page-title end -->
+
+
+				<h2>Faculty and Management Directors</h2>
+				<div class="row grid-space-10">
+
+					{{!-- Show directors --}}
+					{{#each directors}}
+							{{> team_member person=this}}
+					{{/each}}
+
+				</div>
+				<br>
+				<h2>Lab Team</h2>
+				<div class="separator-2"></div>
+				<div class="row grid-space-10">
+
+					{{!-- Show lab team --}}
+					{{#each lab}}
+							{{> team_member person=this}}
+					{{/each}}
+
+				</div>
+				<br/>
+				<h2>Student Lab Assistants</h2>
+				<div class="separator-2"></div>
+				<div class="row grid-space-10">
+
+					{{!-- Show assistants --}}
+					{{#each assistants}}
+							{{> team_member person=this}}
+					{{/each}}
+
+				</div>
+				<br/>
+				<h2>Fellows</h2>
+				<div class="separator-2"></div>
+				<div class="row grid-space-10">
+
+					{{!-- Show fellows --}}
+					{{#each fellows}}
+							{{> team_member person=this}}
+					{{/each}}
+
+				</div>
+				<br/>
+				<h2>Advisors</h2>
+				<div class="separator-2"></div>
+				<div class="row grid-space-10">
+
+
+				</div>
+			<!-- main end -->
+				
+		</div>
+	</div>
+</section>
+<!-- main-container end -->

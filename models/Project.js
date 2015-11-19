@@ -19,8 +19,12 @@ var Types = keystone.Field.Types;
 /**
  * @module project
  * @constructor
+ * See: http://keystonejs.com/docs/database/#lists-options
  */
-var Project = new keystone.List('Project');
+var Project = new keystone.List('Project',
+															{
+																sortable: true
+															});
 
 /**
  * Field Validators
@@ -60,7 +64,11 @@ Project.add({
 	projectImages: { type: Types.CloudinaryImages, label: 'Project Images', folder: 'research/projects', autoCleanup : true },
 	projectImageCaptions: { type: Types.TextArray, label: 'Project Image Captions' },
 	
+	// articleUrl: { type: Types.Url, label: 'Project Article URL' },
+	articleUrls: { type: Types.Relationship, ref: 'Article', label: 'External Articles', many: true },
+
 	videoUrl: { type: Types.Url, label: 'Project Video URL' },
+	// articleData: { type: Types.Embedly, from: 'articleUrl', hidden: true },
 	videoData: { type: Types.Embedly, from: 'videoUrl', options: {width: 750, height: 420}, hidden: true },
 
 	externalLinkUrl: { type: Types.Url, label: 'External Link URL', validate: urlValidator },
