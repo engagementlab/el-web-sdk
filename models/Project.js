@@ -26,6 +26,14 @@ var Project = new keystone.List('Project',
 																sortable: true
 															});
 
+var projectCategories = [
+													'civic media',
+													'digital literacy', 
+													'games for social change',
+													'community, data and art',
+													'participation and engagement'
+												];
+
 /**
  * Field Validators
  * @main Project
@@ -50,6 +58,7 @@ var emailValidator = validate({
  */
 Project.add({
 	name: { type: String, label: 'Project Name', required: true, index: true },
+  category: { type: Types.Relationship, ref: 'ProjectCategory', required: true, initial: true },
 	byline: { type: String, label: 'Byline Description', validate: bylineValidator, initial: true, required: true },
 	overview: { type: Types.Markdown, label: 'Project Narrative', initial: true, required: true },
 	

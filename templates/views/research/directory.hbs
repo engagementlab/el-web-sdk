@@ -1,0 +1,59 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Project Category directory Page Template 
+ * - See ProjectCategory model for fields
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+	<div class="container">
+		<div class="row">
+			<!-- main start -->
+			<!-- ================ -->
+			<div class="main col-md-12">
+				<!-- page-title start -->
+				<!-- ================ -->
+				<div class="call-to-action default-bg p-20">
+					<h1 class="page-title">Research</h1>
+					<div class="separator-2"></div>
+					<!-- page-title end -->
+					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit Illo quaerat <br> commodi excepturi dignissimos!</p>
+				</div>
+				<br>
+
+				{{#each categories}}
+					<div class="image-box style-3-b">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="overlay-container">
+									{{{image}}}
+				{{jsonPrint this}}
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="body">
+									<h3 class="title"><a href="/research/{{key}}">{{name}}</a></h3>
+									
+									<div class="separator-2"></div>
+									<p class="mb-10">{{{description.html}}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+				
+			</div>
+			<!-- main end -->
+		</div>
+	</div>
+</section>
+<!-- main-container end -->

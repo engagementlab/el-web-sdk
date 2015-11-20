@@ -2,11 +2,12 @@
  * Engagement Lab Website
  * Developed by Engagement Lab, 2015
  * ==============
- * Research projects directory view controller.
+ * Research projects category view controller.
  * 
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  * 
- * @class project
+ * @module research
+ * @class category
  * @static
  * @author Johnny Richardson
  *
@@ -22,31 +23,30 @@ exports = module.exports = function(req, res) {
 	
 	locals.data = {
 		projects: []
+	};	
+	locals.filters = {
+		_category: req.params.category.replace('-', ' ')
 	};
 	
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'projects';
+	locals.section = 'category';
 	
-	// Load project categories
-	/*view.on('init', function(next) {
+	// Load category's projects
+	view.on('init', function(next) {
 		
-		var q = keystone.list('Project').paginate({
-				page: req.query.page || 1,
- 				perPage: 10,
- 				maxPages: 10
-		});
+		var q = Project.model.find({category: locals.filters._category});
 		
-		q.exec(function(err, results) {
-			locals.data.projects = results;
+		q.exec(function(err, result) {
+			locals.data.projects = result;
 			next(err);
 		});
 		
-	});*/
+	});
 
   view.query('projects', keystone.list('Project').model.find());  
 
 	// Render the view
-	view.render('projects');
+	view.render('research/category');
 	
 };

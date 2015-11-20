@@ -6,6 +6,7 @@
  * 
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  * 
+ * @module research
  * @class project
  * @static
  * @author Johnny Richardson
@@ -47,6 +48,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('project');
+	view.render('research/project');
 	
 }
