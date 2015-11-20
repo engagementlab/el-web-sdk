@@ -64,12 +64,9 @@ Project.add({
 	projectImages: { type: Types.CloudinaryImages, label: 'Project Images', folder: 'research/projects', autoCleanup : true },
 	projectImageCaptions: { type: Types.TextArray, label: 'Project Image Captions' },
 	
-	// articleUrl: { type: Types.Url, label: 'Project Article URL' },
+	// Resource model reference for articles and videos
 	articles: { type: Types.Relationship, ref: 'Resource', label: 'External Articles', filters: { type: 'article' }, many: true },
  	videos: { type: Types.Relationship, ref: 'Resource', label: 'Project Videos', filters: { type: 'video' }, many: true },
-
-	// articleData: { type: Types.Embedly, from: 'articleUrl', hidden: true },
-	videoData: { type: Types.Embedly, from: 'videoUrl', options: {width: 750, height: 420}, hidden: true },
 
 	externalLinkUrl: { type: Types.Url, label: 'External Link URL', validate: urlValidator },
 	contactName: { type: String, default: 'Engagement Lab', label: 'Contact Name', required: true },
