@@ -65,9 +65,9 @@ Project.add({
 	projectImageCaptions: { type: Types.TextArray, label: 'Project Image Captions' },
 	
 	// articleUrl: { type: Types.Url, label: 'Project Article URL' },
-	articleUrls: { type: Types.Relationship, ref: 'Article', label: 'External Articles', many: true },
+	articles: { type: Types.Relationship, ref: 'Resource', label: 'External Articles', filters: { type: 'article' }, many: true },
+ 	videos: { type: Types.Relationship, ref: 'Resource', label: 'Project Videos', filters: { type: 'video' }, many: true },
 
-	videoUrl: { type: Types.Url, label: 'Project Video URL' },
 	// articleData: { type: Types.Embedly, from: 'articleUrl', hidden: true },
 	videoData: { type: Types.Embedly, from: 'videoUrl', options: {width: 750, height: 420}, hidden: true },
 
