@@ -5,14 +5,12 @@
  * Developed by Engagement Lab, 2015
  * ==============
  * 
- * Programs Page Template 
- * - See Project model for fields
+ * Programs directory Page Template 
+ * - See Programs model for fields
  * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
  * ==========
  */
 --}}
-
-<!-- PROGRAMS START -->
 
 <!-- main-container start -->
 <!-- ================ -->
@@ -25,96 +23,32 @@
 				<!-- page-title start -->
 				<!-- ================ -->
 				<div class="call-to-action default-bg p-20">
-					<h1 class="page-title">Research</h1>
+					<h1 class="page-title">Programs</h1>
 					<div class="separator-2"></div>
 					<!-- page-title end -->
 					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit Illo quaerat <br> commodi excepturi dignissimos!</p>
 				</div>
 				<br>
-				<div class="image-box style-3-b">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="overlay-container">
-								<img src="images/CMP.png" alt="">
+
+				{{#each programs}}
+					<div class="image-box style-3-b">
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="overlay-container">
+									{{{image}}}
+								</div>
 							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="body">
-								<h3 class="title"><a href="WIREFRAMES_ResearchCivicMedia.html">Civic Media</a></h3>
-								
-								<div class="separator-2"></div>
-								<p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="image-box style-3-b">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="overlay-container">
-								<a href="file:///Local/Users/egl_admin/Documents/Websites/ELwebsite_Template_1/html/template/2_WIREFRAMES_emergingCitizens.html#">	<img src="images/mountainpeople.png" alt=""></a>
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="body">
-								<h3 class="title"><a href="file:///Local/Users/egl_admin/Documents/Websites/ELwebsite_Template_1/html/template/2_WIREFRAMES_emergingCitizens.html#">Digital Literacy</a></h3>
-								<div class="separator-2"></div>
-								<p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet.</p>
+							<div class="col-sm-6">
+								<div class="body">
+									<h3 class="title"><a href="/research/{{key}}">{{name}}</a></h3>
+									
+									<div class="separator-2"></div>
+									<p class="mb-10">{{{description.html}}}</p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="image-box style-3-b">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="overlay-container">
-								<img src="images/upriver1.jpg" alt="">
-								
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="body">
-								<h3 class="title"><a href="WIREFRAMES_ResearchGames.html">Games for Social Change</a></h3>
-								<div class="separator-2"></div>
-								<p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="image-box style-3-b">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="overlay-container">
-								<img src="images/portfolio-4.jpg" alt="">
-								
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="body">
-								<h3 class="title"><a href="WIREFRAMES_ResearchCommDataArt.html">Community, Data, and Art</a></h3>
-								<div class="separator-2"></div>
-								<p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="image-box style-3-b">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="overlay-container">
-								<img src="images/portfolio-5.jpg" alt="">
-								
-							</div>
-						</div>
-						<div class="col-sm-6">
-							<div class="body">
-								<h3 class="title"><a href="WIREFRAMES_ResearchEngage.html">Participation and Engagement</a></h3>
-								<div class="separator-2"></div>
-								<p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe. Nam laudantium, provident culpa saepe. Lorem ipsum dolor sit amet.</p>
-							</div>
-						</div>
-					</div>
-				</div>
+				{{/each}}
 				
 			</div>
 			<!-- main end -->

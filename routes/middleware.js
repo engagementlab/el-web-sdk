@@ -8,8 +8,14 @@
  * modules in your project's /lib directory.
  */
 
+var keystone = require('keystone');
 var _ = require('underscore');
 
+/** 
+	DB Models for use on nav
+*/
+var Category = keystone.list('Category');
+var queryCategory = Category.model.find({}, 'key name');
 
 /**
 	Initialises the standard view locals
@@ -19,29 +25,33 @@ var _ = require('underscore');
 	or replace it with your own templates / logic.
 */
 
-exports.initLocals = function(req, res, next) {
-	
-	var locals = res.locals;
-	
-	locals.navLinks = [
-		{ label: 'About',		key: 'about',		href: '/about' },
-		{ label: 'Research',		key: 'research',		href: '/research', 
-			sub: 
-			[
-				{label: 'Civic Media',		key: 'civic',		href: '/research/civic'},
-				{label: 'Digital Literacy',		key: 'digital',		href: '/research/digital'},
-			]  
-		},
-		{ label: 'People',		key: 'people',		href: '/people' },
-		{ label: 'Programs',		key: 'programs',		href: '/programs' }
-	];
-	
-	locals.user = req.user;
-	
-	next();
-	
-};
+	exports.initLocals = function(req, res, next) {
+		
+		var locals = res.locals;
+		queryCategory.exec(function(err, resultCategory) {
 
+			var researchSub = _.map(resultCategory, function(cat) {
+
+				return { label: cat.name,		key: cat.key,		href: '/research/' + cat.key };
+
+			});
+	
+			locals.navLinks = [
+				{ label: 'About',		key: 'about',		href: '/about' },
+				{ label: 'Research',		key: 'research',		href: '/research', 
+					subLinks: researchSub
+				},
+				{ label: 'People',		key: 'people',		href: '/people' },
+				{ label: 'Programs',		key: 'programs',		href: '/programs' }
+			];
+			
+			locals.user = req.user;
+			
+			next();
+
+		});
+		
+	};
 
 /**
 	Fetches and clears the flashMessages before a view is rendered

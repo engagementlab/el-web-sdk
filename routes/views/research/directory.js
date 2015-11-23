@@ -14,7 +14,7 @@
  * ==========
  */
 var keystone = require('keystone');
-var ProjectCategory = keystone.list('ProjectCategory');
+var Category = keystone.list('Category');
 var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
@@ -24,21 +24,18 @@ exports = module.exports = function(req, res) {
 
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'directory';
+	locals.section = 'research';
 	
 	// Load research categories
 	view.on('init', function(next) {
 		
-		var q = ProjectCategory.model.find({});
+		var q = Category.model.find({});
 		
 		q.exec(function(err, result) {
 			_.map(result, function(cat) {
 
 				// Get image code
 				cat.image = cat._.image.format();
-				cat.url = cat.key;
-
-				console.log(cat.key)
 
 				return cat;
 

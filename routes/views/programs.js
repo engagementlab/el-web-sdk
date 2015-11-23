@@ -6,45 +6,46 @@
  * 
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  * 
- * @class programs
+ * @module programs
+ * @class directory
  * @static
  * @author Johnny Richardson
  *
  * ==========
  */
 var keystone = require('keystone');
-var Project = keystone.list('Project');
+var Program = keystone.list('Program');
+var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
 	
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-	
-	locals.data = {
-		programs: []
-	};
-	
+
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
-	locals.section = 'programss';
+	locals.section = 'programs';
 	
-	// Load programs categories
-	/*view.on('init', function(next) {
+	// Load research categories
+	view.on('init', function(next) {
 		
-		var q = keystone.list('Project').paginate({
-				page: req.query.page || 1,
- 				perPage: 10,
- 				maxPages: 10
-		});
+		var q = Program.model.find({});
 		
-		q.exec(function(err, results) {
-			locals.data.programss = results;
+		q.exec(function(err, result) {
+			_.map(result, function(cat) {
+
+				// Get image code
+				cat.image = cat._.image.format();
+
+				return cat;
+
+			});
+
+			locals.programs = result;
 			next(err);
 		});
 		
-	});*/
-
-  view.query('programs', keystone.list('Project').model.find());  
+	});
 
 	// Render the view
 	view.render('programs');

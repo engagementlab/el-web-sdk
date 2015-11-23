@@ -24,17 +24,18 @@ exports = module.exports = function(req, res) {
 	// Init locals
 	locals.section = 'projects';
 	locals.filters = {
-		_id: req.params.project_id
+		_key: req.params.project_key
 	};
 	
 	// Load the current project
 	view.on('init', function(next) {
 		
-		var q = Project.model.findById(locals.filters._id);
+		var q = Project.model.findOne({key: locals.filters._key});
 		
 		// Setup the locals to be used inside view
 		q.exec(function(err, result) {
 			locals.project = result;
+			locals.sub_section = result.category.key;
 
 			// Combine feature text and images
 			locals.projectFeatures = result.highlights.map(function(str, ind) { 

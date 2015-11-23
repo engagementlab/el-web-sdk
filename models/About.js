@@ -21,7 +21,7 @@ var Types = keystone.Field.Types;
 var About = new keystone.List('About', 
 															{
 																label: 'About Page',
-																singular: 'About',
+																singular: 'About Page',
 																track: true,
 																nodelete: true,
 																nocreate: true

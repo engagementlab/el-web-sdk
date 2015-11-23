@@ -15,36 +15,47 @@
  */
 var keystone = require('keystone');
 var Project = keystone.list('Project');
+var Category = keystone.list('Category');
 
 exports = module.exports = function(req, res) {
 	
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 	
-	locals.data = {
-		projects: []
-	};	
+	locals.projects = [],
+	locals.category = {};
+
 	locals.filters = {
-		_category: req.params.category.replace('-', ' ')
+		_category: req.params.category
 	};
 	
 	// locals.section is used to set the currently selected
 	// item in the header navigation.
 	locals.section = 'category';
+	locals.sub_section = req.params.category;
 	
-	// Load category's projects
+	// Load category and category's projects
 	view.on('init', function(next) {
+
+		console.log(locals.filters._category)
 		
-		var q = Project.model.find({category: locals.filters._category});
-		
-		q.exec(function(err, result) {
-			locals.data.projects = result;
-			next(err);
+		var queryCategory = Category.model.findOne({key: locals.filters._category});
+		queryCategory.exec(function(err, resultCategory) {
+			
+			var queryProjects = Project.model.find({ category: resultCategory });
+			queryProjects.exec(function(err, resultProjects) {
+
+				locals.projects = resultProjects;
+				locals.category = resultCategory;
+				
+				next(err);
+			});
+
 		});
 		
 	});
 
-  view.query('projects', keystone.list('Project').model.find());  
+  // view.query('projects', keystone.list('Project').model.find());  
 
 	// Render the view
 	view.render('research/category');

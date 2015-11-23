@@ -23,7 +23,8 @@ var Types = keystone.Field.Types;
  */
 var Project = new keystone.List('Project',
 															{
-																sortable: true
+																sortable: true,
+																autokey: { path: 'key', from: 'name', unique: true }
 															});
 
 var projectCategories = [

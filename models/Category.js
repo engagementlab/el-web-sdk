@@ -1,8 +1,8 @@
 /**
  * Engagement Lab Website
  * 
- * Project category Model
- * @module project
+ * Page category Model
+ * @module category
  * @class category
  * @author Johnny Richardson
  * 
@@ -19,10 +19,11 @@ var Types = keystone.Field.Types;
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var ProjectCategory = new keystone.List('ProjectCategory', 
+var Category = new keystone.List('Category', 
 																				{	
 																					nodelete: true,
-																					nocreate: true
+																					// nocreate: true,
+																					autokey: { path: 'key', from: 'name', unique: true }
 																				});
 
 /**
@@ -35,23 +36,23 @@ safeString = function(str) {
 
 /**
  * Model Fields
- * @main ProjectCategory
+ * @main Category
  */
-ProjectCategory.add({
+Category.add({
 	name: { type: String, label: 'Category Name', required: true, initial: true, index: true },
   description: { type: Types.Markdown, label: 'Description', required: true, initial: true },
 
 	image: { 
-		type: Types.LocalFile, label: 'Images',
-		dest: './public/images/research',
-		prefix: '/research',
+		type: Types.LocalFile, label: 'Image',
+		dest: './public/images/directory',
+		prefix: '/directory',
 		allowedTypes: ['image/png'],
 		filename: function(item, file) {
 			// Sanitize filename
 			return 'category_' + safeString(item.name) + '.' + file.extension;
 		},
 		format: function(item, file) {
-			return '<img src="/images/research/'+file.filename+'" style="max-width: 300px">';
+			return '<img src="/images/directory/'+file.filename+'" style="max-width: 300px">';
 		}
 	},
 
@@ -62,7 +63,7 @@ ProjectCategory.add({
  * Methods
  * =============
  */
-ProjectCategory.schema.methods.safeName = function() {
+Category.schema.methods.safeName = function() {
     return safeString(this.name);
 }
 
@@ -71,11 +72,11 @@ ProjectCategory.schema.methods.safeName = function() {
  * Relationships
  * =============
  */
-ProjectCategory.relationship({ ref: 'Project', refPath: 'projects', path: 'category' });
+Category.relationship({ ref: 'Project', refPath: 'projects', path: 'category' });
 
 /**
  * Model Registration
  */
-ProjectCategory.defaultSort = '-createdAt';
-ProjectCategory.defaultColumns = 'name';
-ProjectCategory.register();
+Category.defaultSort = '-createdAt';
+Category.defaultColumns = 'name';
+Category.register();

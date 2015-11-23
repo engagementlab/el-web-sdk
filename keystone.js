@@ -58,8 +58,9 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'enquiries': 'enquiries',
-	'users': 'users'
+	'projects': 'projects',
+	'programs': 'programs',
+	'shared': ['resources', 'categories']
 });
  
 // prefix all built-in tags with 'keystone_'

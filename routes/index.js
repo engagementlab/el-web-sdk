@@ -41,7 +41,7 @@ exports = module.exports = function(app) {
 	
 	app.get('/research', routes.views.research.directory);
 	app.get('/research/:category', routes.views.research.category);
-	app.get('/research/project/:project_id', routes.views.research.project);
+	app.get('/research/project/:project_key', routes.views.research.project);
 
 	app.get('/programs', routes.views.programs);
 	// app.all('/projects', routes.views.projects);
