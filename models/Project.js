@@ -59,7 +59,7 @@ var emailValidator = validate({
  */
 Project.add({
 	name: { type: String, label: 'Project Name', required: true, index: true },
-  category: { type: Types.Relationship, ref: 'ProjectCategory', required: true, initial: true },
+  category: { type: Types.Relationship, ref: 'Category', required: true, initial: true },
 	byline: { type: String, label: 'Byline Description', validate: bylineValidator, initial: true, required: true },
 	overview: { type: Types.Markdown, label: 'Project Narrative', initial: true, required: true },
 	
