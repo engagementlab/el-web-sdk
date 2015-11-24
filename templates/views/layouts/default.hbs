@@ -122,9 +122,10 @@
 																{{#if this.subLinks}}
 																	<ul class="dropdown-menu">
 																			{{#each this.subLinks}}
-																		<li>
-																				<a  href="{{href}}">{{label}}</a>
-																		</li>
+																			{{jsonPrint  ../sub_section}}
+																				<li{{#ifeq ../sub_section key}} class="active"{{/ifeq}}>
+																						<a href="{{href}}">{{label}}</a>
+																				</li>
 																			{{/each}}
 																	</ul>
 																{{/if}}
