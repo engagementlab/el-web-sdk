@@ -25,33 +25,34 @@ var queryCategory = Category.model.find({}, 'key name');
 	or replace it with your own templates / logic.
 */
 
-	exports.initLocals = function(req, res, next) {
-		
-		var locals = res.locals;
-		queryCategory.exec(function(err, resultCategory) {
-
-			var researchSub = _.map(resultCategory, function(cat) {
-
-				return { label: cat.name,		key: cat.key,		href: '/research/' + cat.key };
-
-			});
+exports.initLocals = function(req, res, next) {
 	
-			locals.navLinks = [
-				{ label: 'About',		key: 'about',		href: '/about' },
-				{ label: 'Research',		key: 'research',		href: '/research', 
-					subLinks: researchSub
-				},
-				{ label: 'People',		key: 'people',		href: '/people' },
-				{ label: 'Programs',		key: 'programs',		href: '/programs' }
-			];
-			
-			locals.user = req.user;
-			
-			next();
+	var locals = res.locals;
+	queryCategory.exec(function(err, resultCategory) {
+
+		var researchSub = _.map(resultCategory, function(cat) {
+
+			return { label: cat.name,		key: cat.key,		href: '/research/' + cat.key };
 
 		});
+
+		locals.navLinks = [
+			{ label: 'About',		key: 'about',		href: '/about' },
+			{ label: 'Research',		key: 'research',		href: '/research', 
+				subLinks: researchSub
+			},
+			{ label: 'People',		key: 'people',		href: '/people' },
+			{ label: 'Programs',		key: 'programs',		href: '/programs' },
+			{ label: 'News',		key: 'news',		href: '/news' }
+		];
 		
-	};
+		locals.user = req.user;
+		
+		next();
+
+	});
+	
+};
 
 /**
 	Fetches and clears the flashMessages before a view is rendered

@@ -33,12 +33,16 @@
 		<!-- the project core CSS file -->
 		<link href="/css/style.css" rel="stylesheet" >
 		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-		<link href="/css/skins/light_blue.css" rel="stylesheet">
+		<link href="/css/skins/orange.css" rel="stylesheet">
 		<!-- Custom css -->
 		<link href="/css/custom.css" rel="stylesheet">
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 		- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
+		
+		<!-- Jquery and Bootstap core js files -->
+		<script type="text/javascript" src="/plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
 	</head>
 	<!-- body classes:  -->
 	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
@@ -91,10 +95,6 @@
 								<div class="header-right clearfix">
 									
 									<!-- main-navigation start -->
-									<!-- classes: -->
-									<!-- "onclick": Makes the dropdowns open on click, this the default bootstrap behavior e.g. class="main-navigation onclick" -->
-									<!-- "animated": Enables animations on dropdowns opening e.g. class="main-navigation animated" -->
-									<!-- "with-dropdown-buttons": Mandatory class that adds extra space, to the main navigation, for the search and cart dropdowns -->
 									<!-- ================ -->
 									<div class="main-navigation  animated with-dropdown-buttons">
 										<!-- navbar start -->
@@ -115,14 +115,12 @@
 												<div class="collapse navbar-collapse" id="navbar-collapse-1">
 													<!-- main-menu -->
 													<ul class="nav navbar-nav">
-
 														{{# each navLinks}}
 															<li class="{{#if this.subLinks}}dropdown{{else}}mega-menu{{/if}} {{#ifeq ../section key}}active{{else}}{{/ifeq}}">
 																<a class="dropdown-toggle"{{#if this.subLinks}} data-toggle="dropdown_{{key}}"{{/if}} href="{{ href }}">{{ label }}</a>
 																{{#if this.subLinks}}
 																	<ul class="dropdown-menu">
 																			{{#each this.subLinks}}
-																			{{jsonPrint  ../sub_section}}
 																				<li{{#ifeq ../sub_section key}} class="active"{{/ifeq}}>
 																						<a href="{{href}}">{{label}}</a>
 																				</li>
@@ -144,9 +142,10 @@
 																<li>
 																	<div class="panel-body text-right">
 																		{{#if user}}
-																		<a href="/keystone" class="btn btn-group btn-gray btn-sm">Go to Content Management</a>
-																		<a href="/keystone/signout" class="btn btn-group btn-gray btn-sm">Sign Out</a>
-																		{{!-- <a href="/keystone/signin" class="btn btn-group btn-gray btn-sm">Sign In</a> --}}
+																			<a href="/keystone" class="btn btn-group btn-gray btn-sm">Go to Content Management</a>
+																			<a href="/keystone/signout" class="btn btn-group btn-gray btn-sm">Sign Out</a>
+																		{{else}}
+																			<a href="/keystone/signin" class="btn btn-group btn-gray btn-sm">Sign In</a>
 																		{{/if}}
 																	</div>
 																</li>
@@ -203,8 +202,6 @@
 			<!-- BODY CONTENT START -->
 			{{{body}}}
 			
-			<!-- Project information (Add "dark" class to #footer in order to enable dark footer). I edited this of a footer template which is why it is refering to the footer class FYI - Jordan -->
-			<!-- ================ -->
 			<footer id="footer" class="clearfix ">
 				<!-- .subfooter start -->
 				<!-- ================ -->
@@ -224,41 +221,9 @@
 					<!-- .subfooter end -->
 				</div>
 				<!-- page-wrapper end -->
-				<!-- JavaScript files placed at the end of the document so the pages load faster -->
-				<!-- ================================================== -->
-				<!-- Jquery and Bootstap core js files -->
-				<script type="text/javascript" src="/plugins/jquery.min.js"></script>
-				<script type="text/javascript" src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
-				<!-- Modernizr javascript -->
-				<script type="text/javascript" src="/plugins/modernizr.js"></script>
-				<!-- jQuery Revolution Slider  -->
-				<script type="text/javascript" src="/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-				<script type="text/javascript" src="/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-				<!-- Isotope javascript -->
-				<script type="text/javascript" src="/plugins/isotope/isotope.pkgd.min.js"></script>
 				
-				<!-- Magnific Popup javascript -->
-				<script type="text/javascript" src="/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-				
-				<!-- Appear javascript -->
-				<script type="text/javascript" src="/plugins/waypoints/jquery.waypoints.min.js"></script>
-				<!-- Count To javascript -->
-				<script type="text/javascript" src="/plugins/jquery.countTo.js"></script>
-				
-				<!-- Parallax javascript -->
-				<script src="/plugins/jquery.parallax-1.1.3.js"></script>
-				<!-- Contact form -->
-				<script src="/plugins/jquery.validate.js"></script>
-				<!-- Owl carousel javascript -->
-				<script type="text/javascript" src="/plugins/owl-carousel/owl.carousel.js"></script>
-				
-				<!-- SmoothScroll javascript -->
-				<script type="text/javascript" src="/plugins/jquery.browser.js"></script>
-				<script type="text/javascript" src="/plugins/SmoothScroll.js"></script>
-				<!-- Initialization of Plugins -->
-				<script type="text/javascript" src="/js/template.js"></script>
-				<!-- Custom Scripts -->
-				<script type="text/javascript" src="/js/custom.js"></script>
+				{{> scripts}}
+
 				{{{isAdminEditorJS user}}}
 			</body>
 		</html>

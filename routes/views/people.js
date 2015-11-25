@@ -2,7 +2,7 @@
  * Engagement Lab Website
  * Developed by Engagement Lab, 2015
  * ==============
- * Team view controller.
+ * People view controller.
  * 
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  * 
@@ -13,7 +13,7 @@
  * ==========
  */
 var keystone = require('keystone');
-var Team = keystone.list('Team');
+var Person = keystone.list('Person');
 
 exports = module.exports = function(req, res) {
 	
@@ -26,7 +26,7 @@ exports = module.exports = function(req, res) {
 	// Load the current project
 	view.on('init', function(next) {
 		
-		var q = Team.model.find({});
+		var q = Person.model.find({});
 		var categorize = function(val, cat) {
 										return val.filter(function(item) { return item.category == cat; });
 									 };

@@ -1,7 +1,7 @@
 /**
  * Engagement Lab Website
  * 
- * Team page parent Model
+ * Person page parent Model
  * @module team
  * @author Johnny Richardson
  * 
@@ -18,20 +18,20 @@ var Types = keystone.Field.Types;
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var Team = new keystone.List('Team', 
+var Person = new keystone.List('Person', 
 															{
-																label: 'Team',
+																label: 'People',
 																singular: 'Team Member',
 																sortable: true
 															});
 
 /**
  * Model Fields
- * @main Team
+ * @main Person
  */
-Team.add({
+Person.add({
 
-	name: { type: String, label: 'Name', required: true, initial: true, index: true },
+	name: { type: Types.Name, label: 'Name', required: true, initial: true, index: true },
 	title: { type: String, label: 'Title', required: true, initial: true },
 	bio: { type: Types.Markdown, label: 'Bio', required: true, initial: true },
 	image: { type: Types.CloudinaryImage, label: 'Image', folder: 'site/team' },	
@@ -45,6 +45,6 @@ Team.add({
 /**
  * Model Registration
  */
-Team.defaultSort = '-category';
-Team.defaultColumns = 'name, category';
-Team.register();
+Person.defaultSort = '-category';
+Person.defaultColumns = 'name, category';
+Person.register();

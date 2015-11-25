@@ -21,7 +21,7 @@ var Types = keystone.Field.Types;
  */
 var Category = new keystone.List('Category', 
 																				{	
-																					nodelete: true,
+																					// nodelete: true,
 																					// nocreate: true,
 																					autokey: { path: 'key', from: 'name', unique: true }
 																				});

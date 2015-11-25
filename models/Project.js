@@ -11,8 +11,10 @@
  */
 
 var keystone = require('keystone');
-// See: https://github.com/leepowellcouk/mongoose-validator and https://github.com/chriso/validator.js
+// See: https://github.com/chriso/validator.js
+var validator = require('validator');
 var validate = require('mongoose-validator');
+
 
 var Types = keystone.Field.Types;
 
@@ -27,31 +29,25 @@ var Project = new keystone.List('Project',
 																autokey: { path: 'key', from: 'name', unique: true }
 															});
 
-var projectCategories = [
-													'civic media',
-													'digital literacy', 
-													'games for social change',
-													'community, data and art',
-													'participation and engagement'
-												];
-
 /**
  * Field Validators
  * @main Project
  */
-var bylineValidator = validate({
-								    validator: 'isLength',
-								    arguments: [1, 250],
-								    message: 'Byline cannot exceed 250 characters'
-								  });
-var urlValidator = validate({
-								    validator: 'isURL',
-								    arguments: { protocols: ['http','https'], require_tld: true, require_protocol: false, allow_underscores: true },
-								    message: 'Invalid external link URL'
-								  });
+var bylineValidator = { validator: function(val) {
+													return validator.isLength(val, 1, 250);
+												}, msg: 'Byline cannot exceed 250 characters' 
+											};
+
+var urlValidator = { validator: function(val) {
+													return !val || validator.isURL(val, { protocols: ['http','https'], require_tld: true, require_protocol: false, allow_underscores: true });
+										 }, msg: 'Invalid external link URL'
+								  };
 var emailValidator = validate({
 								    validator: 'isEmail'
 								  });
+
+
+
 
 /**
  * Model Fields
@@ -60,7 +56,7 @@ var emailValidator = validate({
 Project.add({
 	name: { type: String, label: 'Project Name', required: true, index: true },
   category: { type: Types.Relationship, ref: 'Category', required: true, initial: true },
-	byline: { type: String, label: 'Byline Description', validate: bylineValidator, initial: true, required: true },
+	byline: { type: String, label: 'Byline Description', validate: [bylineValidator], initial: true, required: true },
 	overview: { type: Types.Markdown, label: 'Project Narrative', initial: true, required: true },
 	
 	startDate: { type: Date, label: 'Project Start Date', initial: true, required: true },
