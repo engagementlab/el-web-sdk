@@ -21,8 +21,9 @@ var Types = keystone.Field.Types;
  */
 var Category = new keystone.List('Category', 
 																				{	
-																					// nodelete: true,
+																					nodelete: true,
 																					// nocreate: true,
+																					sortable: true,
 																					autokey: { path: 'key', from: 'name', unique: true }
 																				});
 
@@ -77,6 +78,6 @@ Category.relationship({ ref: 'Project', refPath: 'projects', path: 'category' })
 /**
  * Model Registration
  */
-Category.defaultSort = '-createdAt';
+Category.defaultSort  = '-sortOrder';
 Category.defaultColumns = 'name';
 Category.register();

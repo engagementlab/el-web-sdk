@@ -29,8 +29,8 @@
 				{{# each project.headerImages}}
 					<div class="item{{#if @first}} active{{/if}}">
 						<div class="overlay-container">
-							<img src="{{{cloudinaryUrl this width=372 height=230}}}" alt="" />
-							<a href="/research/project/{{project.key}}" class="overlay-link"><i class="fa fa-link"></i></a>
+							<img src="{{{cloudinaryUrl this width=372 height=230}}}" alt="{{../project.name}}" />
+							<a href="/research/project/{{../project.key}}" class="overlay-link"><i class="fa fa-link"></i></a>
 						</div>
 					</div>
 				{{/each}}

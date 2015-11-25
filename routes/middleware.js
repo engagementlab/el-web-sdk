@@ -15,7 +15,7 @@ var _ = require('underscore');
 	DB Models for use on nav
 */
 var Category = keystone.list('Category');
-var queryCategory = Category.model.find({}, 'key name');
+var queryCategory = Category.model.find({}, 'key name').sort([['sortOrder', 'ascending']]);
 
 /**
 	Initialises the standard view locals

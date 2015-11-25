@@ -26,10 +26,10 @@ exports = module.exports = function(req, res) {
 	// item in the header navigation.
 	locals.section = 'research';
 	
-	// Load research categories
+	// Load research categories and sort them
 	view.on('init', function(next) {
 		
-		var q = Category.model.find({});
+		var q = Category.model.find({}).sort([['sortOrder', 'ascending']]);
 		
 		q.exec(function(err, result) {
 			_.map(result, function(cat) {

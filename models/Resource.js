@@ -42,6 +42,14 @@ Resource.add({
  */
 Resource.relationship({ ref: 'Project', refPath: 'projects', path: 'resources' });
 
+Resource.schema.pre('remove', function(next) {
+    // Remove resource from all that referenced it 
+    var removedRef = keystone.list('Project').model.removeResourceRef(this._id);
+    
+    if(removedRef)
+	    next();
+});
+
 /**
  * Model Registration
  */

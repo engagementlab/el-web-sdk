@@ -10,7 +10,7 @@
  */
 --}}
 
-<!-- ================================================== -->
+<!-- SCRIPTS START -->
 
 <!-- Modernizr javascript -->
 <script type="text/javascript" src="/plugins/modernizr.js"></script>
@@ -40,4 +40,18 @@
 <script type="text/javascript" src="/js/template.js"></script>
 <!-- Custom Scripts -->
 <script type="text/javascript" src="/js/custom.js"></script>
-<script type="text/javascript" src="/plugins/readmore.min.js"></script>
+
+{{!-- Page-specific JS. Should be its own partial(s) someday. --}}
+{{#ifeq section 'people'}}
+	<script type="text/javascript" src="/plugins/readmore.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.bio').next('p').readmore({
+			  speed: 250,
+			  collapsedHeight: 115,
+			  lessLink: '<a href="#">^^^</a>',
+			  moreLink: '<a href="#">...</a>'
+			});
+		})
+	</script>
+{{/ifeq}}

@@ -23,10 +23,10 @@ exports = module.exports = function(req, res) {
 	// Init locals
 	locals.section = 'people';
 	
-	// Load the current project
+	// Load all team members and sort/categorize them 
 	view.on('init', function(next) {
 		
-		var q = Person.model.find({});
+		var q = Person.model.find({}).sort([['sortOrder', 'ascending']]);
 		var categorize = function(val, cat) {
 										return val.filter(function(item) { return item.category == cat; });
 									 };

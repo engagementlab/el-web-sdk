@@ -45,6 +45,6 @@ Person.add({
 /**
  * Model Registration
  */
-Person.defaultSort = '-category';
+Person.defaultSort = '-sortOrder';
 Person.defaultColumns = 'name, category';
 Person.register();

@@ -37,8 +37,6 @@ exports = module.exports = function(req, res) {
 	// Load category and category's projects
 	view.on('init', function(next) {
 
-		console.log(locals.filters._category)
-		
 		var queryCategory = Category.model.findOne({key: locals.filters._category});
 		queryCategory.exec(function(err, resultCategory) {
 			
