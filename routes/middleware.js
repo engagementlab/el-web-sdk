@@ -41,6 +41,7 @@ exports.initLocals = function(req, res, next) {
 			{ label: 'Research',		key: 'research',		href: '/research', 
 				subLinks: researchSub
 			},
+			{ label: 'Academics',		key: 'academics',		href: '/academics' },
 			{ label: 'People',		key: 'people',		href: '/people' },
 			{ label: 'Programs',		key: 'programs',		href: '/programs' },
 			{ label: 'News',		key: 'news',		href: '/news' }

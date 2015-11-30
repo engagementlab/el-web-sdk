@@ -40,7 +40,6 @@ var bylineValidator = {
     },
     msg: 'Byline cannot exceed 250 characters'
 };
-
 var urlValidator = {
     validator: function(val) {
         return !val || validator.isURL(val, {
@@ -108,6 +107,12 @@ Project.add({
         type: Types.TextArray,
         label: 'Key Features and Highlights'
     },
+    headerImages: {
+        type: Types.CloudinaryImages,
+        label: 'Key Features and Highlights Images (large)',
+        folder: 'research/projects',
+        autoCleanup: true
+    },
     tabHeadings: {
         type: Types.TextArray,
         label: 'Detail Tab Headings'
@@ -117,12 +122,6 @@ Project.add({
         label: 'Detail Tab Text'
     },
 
-    headerImages: {
-        type: Types.CloudinaryImages,
-        label: 'Header Images (large)',
-        folder: 'research/projects',
-        autoCleanup: true
-    },
     projectImages: {
         type: Types.CloudinaryImages,
         label: 'Project Images',
@@ -134,7 +133,7 @@ Project.add({
         label: 'Project Image Captions'
     },
 
-    // Resource model reference for articles and videos
+    // Resource model reference for articles, videos, files
     articles: {
         type: Types.Relationship,
         ref: 'Resource',
@@ -150,6 +149,15 @@ Project.add({
         label: 'Project Videos',
         filters: {
             type: 'video'
+        },
+        many: true
+    },
+    files: {
+        type: Types.Relationship,
+        ref: 'Resource',
+        label: 'Project Files',
+        filters: {
+            type: 'file'
         },
         many: true
     },
@@ -173,17 +181,6 @@ Project.add({
         required: true
     },
 
-    projectFiles: {
-        type: Types.LocalFiles,
-        label: 'Project Files',
-        dest: 'public/files',
-        prefix: 'files/',
-        filename: function(item, file) {
-            // Sanitize filename
-            return item.id + '-' + file.originalname.replace(/\s+/g, '_');
-        }
-    },
-
     createdAt: {
         type: Date,
         default: Date.now,
@@ -197,18 +194,28 @@ Project.add({
  * =============
  */
 
-// Remove a given resource from all projects that referenced it 
-Project.schema.statics.removeResourceRef = function(resourceId) {
+// Remove a given resource from all projects that referenced it (videos and articles as of now)
+Project.schema.statics.removeResourceRef = function(resourceId, callback) {
 
+	Project.model.update(
+  	{$or: [
+			{'videos': resourceId},
+			{'articles': resourceId}
+		]}, 
+	
+		{ $pull: { 'videos': resourceId, 'articles': resourceId } },
+	
+		{ multi: true },
+	
+		function(err, result) {
 
-    var modelRef = Project.model.update({$or: [
-																{'videos': resourceId},
-																{'articles': resourceId}
-															]}, 
-															{
-																$pull: { 'videos': resourceId, 'articles': resourceId } 
-															});
-    return modelRef;
+			callback(err, result);
+
+			if(err)
+				console.error(err)
+		}
+	);
+
  }
 
 /**

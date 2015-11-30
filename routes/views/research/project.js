@@ -15,6 +15,7 @@
  */
 var keystone = require('keystone');
 var Project = keystone.list('Project');
+var Resource = keystone.list('Resource');
 
 exports = module.exports = function(req, res) {
 	
@@ -30,19 +31,23 @@ exports = module.exports = function(req, res) {
 	// Load the current project
 	view.on('init', function(next) {
 		
-		var q = Project.model.findOne({key: locals.filters._key});
+		// This query gets a project by the key in the URL and populates resources from its model
+		var projectQuery = Project.model.findOne({key: locals.filters._key}).populate('videos articles files');
 		
 		// Setup the locals to be used inside view
-		q.exec(function(err, result) {
+		projectQuery.exec(function(err, result) {
 			locals.project = result;
 			locals.sub_section = result.category.key;
 
 			// Combine feature text and images
-			locals.projectFeatures = result.highlights.map(function(str, ind) { 
-																return {text: str, image: result.headerImages[ind]} 
+			locals.projectFeatures = result.headerImages.map(function(img, ind) { 
+																return {text: result.highlights[ind], image: img} 
 															 });
+			
+			// Format dates
 			locals.projectDates = result._.startDate.format("MMMM Do YYYY - ") + 
 														( (result.endDate === undefined) ? "Current" : result.endDate.format("MMMM Do YYYY") );
+
 			next(err); 
 		});
 		

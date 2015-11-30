@@ -15,7 +15,6 @@
 <!-- PROJECT START -->
 <!-- banner start -->
 <!-- ================ -->
-{{jsonPrint project.narrative}}
 <div class="banner clearfix">
 
 	<!-- slideshow start -->
@@ -197,12 +196,12 @@
 					<li><a href="#pill-{{incIndex @index}}" role="tab" data-toggle="tab" title="images"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
 				{{/each}}
 				
-				{{#if project.videoUrl}}
+				{{#if project.videos}}
 					<li><a href="#pill-video" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
 				{{/if}}
 
-				{{#if project.projectFiles}}
-					<li><a href="#pill-download" role="tab" data-toggle="tab" title="text"><i class="fa fa-floppy-o pr-5"></i> Download</a></li>
+				{{#if project.files}}
+					<li><a href="#pill-download" role="tab" data-toggle="tab" title="text"><i class="fa fa-floppy-o pr-5"></i> Downloads</a></li>
 				{{/if}}
 			</ul>
 			<!-- Tab panes -->
@@ -232,21 +231,27 @@
 					</div>
 				{{/each}}
 
-				{{#if project.videoUrl}}
+				{{#if project.videos}}
 					<div class="tab-pane" id="pill-video">
+					{{# each project.videos}}
+
 						<div class="embed-responsive embed-responsive-16by9">
-							{{{ project.videoData.html }}}
+							{{{ data.html }}}
 						</div>
+
+					{{/each}}
 					</div>
 				{{/if}}
 
-				{{#if project.projectFiles}}
+				{{#if project.files}}
 					<div class="tab-pane" id="pill-download">
-						{{# each project.projectFiles}}
-
-							<a href="{{path}}/{{filename}}">Project File {{@index}}</a><br />
+						<ul>
+						{{# each project.files}}
+						
+							<li><a href="{{path}}/{{filename}}"><i class="fa fa-file{{fileType this.file}} pr-5"></i> {{name}}</a></li>
 
 						{{/each}}
+						</ul>
 					</div>
 				{{/if}}
 			</div>

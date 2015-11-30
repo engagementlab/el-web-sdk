@@ -392,6 +392,26 @@ module.exports = function() {
 	_helpers.incIndex = function (ind) {
 
 		return parseInt(ind) + 1;
+
+	}
+
+	//  ### get filetype helper
+	// Used to obtain filetype as extension with "-o" CSS affix if available from local file ref
+	//
+	//  @file: Local file reference
+	//
+	//  *Usage example:*
+	//  `{{fileType file}}
+
+	_helpers.fileType = function (file) {
+
+		var type = file.filetype.replace('application/', '');
+
+		if(type.length == 3)
+			return '-' + type + '-o';
+		else 
+			return '';
+
 	}
 
 	return _helpers;

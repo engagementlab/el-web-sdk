@@ -38,7 +38,10 @@ exports = module.exports = function(app) {
 	app.get('/', routes.views.index);
 	app.get('/about', routes.views.about);
 	app.get('/people', routes.views.people);
-	
+
+	app.get('/academics', routes.views.academics);
+	app.get('/cmap', routes.views.academics);
+
 	app.get('/research', routes.views.research.directory);
 	app.get('/research/:category', routes.views.research.category);
 	app.get('/research/project/:project_key', routes.views.research.project);

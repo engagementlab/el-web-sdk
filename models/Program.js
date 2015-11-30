@@ -13,7 +13,7 @@
 
 var keystone = require('keystone');
 // See: https://github.com/leepowellcouk/mongoose-validator and https://github.com/chriso/validator.js
-var validate = require('mongoose-validator');
+var validator = require('validator');
 
 var Types = keystone.Field.Types;
 /**
@@ -28,7 +28,7 @@ var Program = new keystone.List('Program');
  */
 var urlValidator = {
     validator: function(val) {
-        return !val || validator.isURL(val, {
+        return validator.isURL(val, {
             protocols: ['http', 'https'],
             require_tld: true,
             require_protocol: false,

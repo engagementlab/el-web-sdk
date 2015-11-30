@@ -34,19 +34,17 @@
 	<div class="container">
 		<div class="row">
 
-			<!-- main start -->
 			<!-- ================ -->
 			<div class="main col-md-12">
 
-				<!-- page-title start -->
-				<!-- ================ -->
-				<h1 class="page-title">Blog Feed</h1>
-				<div class="separator-2 mb-20"></div>
-				<!-- page-title end -->
-
 				<div class="row">
+
+					<!-- blog start -->
 					<div class="col-md-6">
-					{{!-- blog start --}}
+
+					<h1 class="page-title">Blog Feed</h1>
+					<div class="separator-2 mb-20"></div>
+
 						{{#each blog}}
 
 							<!-- blogpost start -->
@@ -74,12 +72,48 @@
 							<!-- blogpost end -->		
 
 						{{/each}}
-					{{!-- blog end --}}
-					</div>
 
-				
+					</div>
+					<!-- blog end -->
+
+					<!-- events start -->
+					<div class="col-md-6">
+
+					<h1 class="page-title">Events</h1>
+					<div class="separator-2 mb-20"></div>
+
+						{{#if events}}
+								{{#each events}}
+
+									<!-- event start -->						
+									<div class="image-box style-3-b">
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="overlay-container">
+													<img src="{{logo.url}}" alt="{{name.text}}" />
+												</div>
+											</div>
+											<div class="col-sm-6">
+												<div class="body">
+													<h3 class="title"><a href="{{vanity_url}}">{{name.text}}</a></h3>
+													
+													<div class="separator-2"></div>
+													<p class="mb-10">{{date start.local format='MM/DD/YYYY'}}</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- event end -->		
+
+								{{/each}}
+						{{/if}}
+
+					</div>
+					<!-- events end -->
+
+				</div>
+
 			</div>
-			<!-- main end -->
 
 		</div>
 	</div>

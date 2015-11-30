@@ -2,18 +2,18 @@
  * Engagement Lab Website
  * Developed by Engagement Lab, 2015
  * ==============
- * About page view controller.
+ * Academics page view controller.
  * 
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  * 
- * @class about
+ * @class academics
  * @static
  * @author Johnny Richardson
  *
  * ==========
  */
 var keystone = require('keystone');
-var About = keystone.list('About');
+var Academics = keystone.list('Academics');
 
 exports = module.exports = function(req, res) {
 	
@@ -21,15 +21,15 @@ exports = module.exports = function(req, res) {
 		locals = res.locals;
 	
 	// Init locals
-	locals.section = 'about';
+	locals.section = 'academics';
 	
 	// Load the current project
 	view.on('init', function(next) {
 			
-		var q = About.model.findOne({}, {}, { sort: { 'createdAt' : -1 } });
+		var q = Academics.model.findOne({}, {}, { sort: { 'createdAt' : -1 } });
 
 		q.exec(function(err, result) {
-			locals.about = result;
+			locals.academics = result;
 
 			next(err); 
 		}); 
@@ -37,6 +37,6 @@ exports = module.exports = function(req, res) {
 	});
 
 	// Render the view
-	view.render('about');
+	view.render('academics');
 	
 }
