@@ -43,6 +43,7 @@ exports = module.exports = function(app) {
 	app.get('/cmap', routes.views.academics);
 
 	app.get('/research', routes.views.research.directory);
+	app.get('/publications', routes.views.publications);
 	app.get('/research/:category', routes.views.research.category);
 	app.get('/research/project/:project_key', routes.views.research.project);
 
