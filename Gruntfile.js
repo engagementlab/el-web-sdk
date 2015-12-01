@@ -24,6 +24,28 @@ module.exports = function(grunt) {
 					ignore: ['node_modules/**']
 				}
 			}
+		},
+		uglify: {
+		  plugins: {
+		    files: {
+		      'public/release/plugins.min.js': 
+		      [
+            'public/plugins/*.js',  // Plugins
+            'public/plugins/**/*.js'
+			    ]
+		    }
+		  }
+		},
+    concat: {
+        dist: {
+            src: ['public/css/**/*.css', 'public/plugins/**/*.css'],
+            dest: 'public/release/tmp/concat.css'
+        }
+    },
+		cssmin: {
+		  target: {
+		    files: { 'public/release/style.min.css': ['public/release/tmp/concat.css'] }
+		  }
 		}
 	};
 
@@ -52,5 +74,8 @@ module.exports = function(grunt) {
 		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
 		grunt.task.run(['serve:' + target]);
 	});
+
+	grunt.registerTask('default', ['concat', 'uglify']);
+	grunt.registerTask('production', ['uglify', 'concat', 'cssmin']);
 
 };

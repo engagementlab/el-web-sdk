@@ -1,0 +1,8 @@
+// Opacity
+
+.opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  @include opacity-ie: ($opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})"; /*Does this need to be changed?*/
+}

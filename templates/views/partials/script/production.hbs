@@ -1,0 +1,37 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Script includes partial for PRODUCTION
+ * ==========
+ */
+--}}
+
+<!-- SCRIPTS START -->
+
+<script type="text/javascript" src="/release/plugins.min.js"></script>
+
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="/js/template.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="/js/custom.js"></script>
+{{!-- <script type="text/javascript" src="/js/build/dest/output.js"></script> --}}
+
+{{!-- Page-specific JS. Should be its own partial(s) someday. --}}
+{{#ifeq section 'people'}}
+	<script type="text/javascript" src="/plugins/readmore.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.bio').next('p').readmore({
+			  speed: 250,
+			  collapsedHeight: 115,
+			  lessLink: '<a href="#">^^^</a>',
+			  moreLink: '<a href="#">...</a>'
+			});
+		})
+	</script>
+{{/ifeq}}

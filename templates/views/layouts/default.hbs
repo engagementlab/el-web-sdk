@@ -10,38 +10,21 @@
 		<meta name="author" content="Engagement Lab">
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="/images/favicon.ico">
-		<!-- Web Fonts -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
-		<!-- Bootstrap core CSS -->
-		<link href="/css/bootstrap/bootstrap.css" rel="stylesheet">
-		<!-- Font Awesome CSS -->
-		<link href="/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
-		<!-- Fontello CSS -->
-		<link href="/fonts/fontello/css/fontello.css" rel="stylesheet">
-		<!-- Plugins -->
-		<link href="/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-		<link href="/plugins/rs-plugin/css/settings.css" rel="stylesheet">
-		<link href="/css/animations.css" rel="stylesheet">
-		<link href="/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-		<link href="/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
-		<link href="/plugins/hover/hover-min.css" rel="stylesheet">
-		<!-- the project core CSS file -->
-		<link href="/css/style.css" rel="stylesheet" >
-		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-		<link href="/css/skins/orange.css" rel="stylesheet">
-		<!-- Custom css -->
-		<link href="/css/custom.css" rel="stylesheet">
+
+		{{!-- Load our CSS/docs --}}
+		{{#ifeq env "development"}}
+			{{> css}}
+		{{else}}
+			<link href="/release/style.min.css" rel="stylesheet">
+		{{/ifeq}}
+
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 		- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}
 		
 		<!-- Jquery and Bootstap core js files -->
-		<script type="text/javascript" src="/plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="/js/jquery/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="/js/jquery/jquery.plugin.min.js"></script>
 		<script type="text/javascript" src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
 	</head>
 	<!-- body classes:  -->
@@ -220,8 +203,13 @@
 					</div>
 					<!-- .subfooter end -->
 				</div>
+				
 				<!-- page-wrapper end -->
-				{{> scripts section=section}}
+				{{#ifeq env "development"}}
+					{{> script/development section=section}}
+				{{else}}
+					{{> script/production section=section}}
+				{{/ifeq}}
 
 				{{{isAdminEditorJS user}}}
 			</body>
