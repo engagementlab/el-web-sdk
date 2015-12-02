@@ -12,12 +12,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		{{!-- Load our CSS/docs --}}
-		{{#ifeq env "development"}}
-			{{> css}}
-		{{else}}
-			<link href="/release/style.min.css" rel="stylesheet">
-		{{/ifeq}}
-
+		{{> css environment=env}}
+		
 		{{!-- This file provides the default styling for the KeystoneJS Content Editor
 		- only renders when user is logged in and admin--}}
 		{{{isAdminEditorCSS user}}}

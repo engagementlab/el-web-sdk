@@ -148,7 +148,7 @@
 		color: #ffffff;
 	}
 	a:hover {
-		background-color: @white;
+		background-color: $white;
 		color: $gray;
 	}	
 }
@@ -438,7 +438,7 @@
 }
 .header-top.colored .social-links .dropdown>button>i:before,
 .header-top.colored .social-links .dropdown.open>button>i:before {
-	color: @white;
+	color: $white;
 }
 .header-top .social-links .dropdown.open>button>i:before {
 	content: "\f00d";
@@ -449,7 +449,7 @@
 	min-width: 270px;
 	margin-top: 6px;
 	font-size: 0;
-	.box-shadow(none);
+	@include box-shadow(none);
 	background-color: #f2f2f2;
 	border: 1px solid #D0D0D0;
 	border-top: none;	
@@ -1148,7 +1148,7 @@ h6.media-heading {
 }
 .tag a:hover {
 	color: $base-color;
-	background-color: @white;
+	background-color: $white;
 	border-color: $base-color-hover;
 	text-decoration: none;
 }
@@ -1159,7 +1159,7 @@ h6.media-heading {
 	border: 1px solid $gray-dark;
 	}
 	.tag a:hover {
-		color: @white;
+		color: $white;
 		background-color: $gray;
 		border-color: $gray;
 		text-decoration: none;

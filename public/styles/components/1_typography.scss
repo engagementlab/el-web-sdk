@@ -216,13 +216,13 @@ h6 {
 }
 /* Small devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) {
-	@include jumbotron h1 {
+	.jumbotron h1 {
 		font-size: 130px;
 	}
 }
 /* Small devices (tablets, phones less than 767px) */
 @media screen and (max-width: 767px) {
-	@include jumbotron h1 {
+	.jumbotron h1 {
 		font-size: 60px;
 	}
 }
@@ -231,7 +231,7 @@ h6 {
 }
 /* Medium devices (desktops, tablets, 992px and up) */
 @media (min-width:992px) {
-	@include title {
+	.title {
 		margin-top: 0;
 	}
 }
@@ -267,7 +267,7 @@ a:active {
 	text-decoration: underline!important;
 }
 .dark .footer {
-	@include link-dark {
+	.link-dark {
 		color: $gray;
 		text-decoration: none!important;
 	}
@@ -391,7 +391,7 @@ ul {
 }
 /* Medium desktop devices and tablets */
 @media (min-width: 992px) and (max-width: 1199px) { 
-	@include header-top .list-inline > li { 
+	.header-top .list-inline > li { 
 		padding: 0; 
 	}
 }
@@ -471,10 +471,10 @@ tbody {
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width:768px) {
-	@include dl-horizontal dd {
+	.dl-horizontal dd {
 		margin-left: 150px;
 	}
-	@inlcude dl-horizontal dt {
+	.dl-horizontal dt {
 		max-width: 120px;
 	}
 }

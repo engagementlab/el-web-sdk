@@ -255,27 +255,27 @@ fieldset[disabled] .btn-default {
 }
 /*Buttons Sizes*/
 .btn {
-	.button-size(7px; 20px; 14px; @line-height-base; 3px);
+	@include button-size(7px, 20px, 14px, $line-height-base, 3px);
 	margin: 10px 0;
 }
 .btn-sm {
-	.button-size(5px; 15px; 12px; @line-height-base; 3px);
+	@include button-size(5px, 15px, 12px, $line-height-base, 3px);
 	margin: 5px 0;
 }
 .btn-lg {
-	.button-size(10px; 25px; 18px; @line-height-base; 4px);
+	@include button-size(10px, 25px, 18px, $line-height-base, 4px);
 	margin: 10px 0;
 }
 .btn-md-link {
-	.button-size(7px; 15px; 14px; @line-height-base; 0px);
+	@include button-size(7px, 15px, 14px, $line-height-base, 0px);
 	margin: 10px 0;
 }
 .btn-sm-link {
-	.button-size(5px; 15px; 12px; @line-height-base; 0px);
+	@include button-size(5px, 15px, 12px, $line-height-base, 0px);
 	margin: 5px 0;
 }
 .btn-lg-link {
-	.button-size(10px; 15px; 18px; @line-height-base; 0px);
+	@include button-size(10px, 15px, 18px, $line-height-base, 0px);
 	margin: 10px 0;
 }
 .btn-remove {
@@ -825,7 +825,7 @@ ul.pagination li.active a,
 	border-bottom-color: rgba(255,255,255,0.1);
 }
 .banner .dark.breadcrumb-container {
-	background-color: @dark-header-opacity-60;
+	background-color: $dark-header-opacity-60;
 	border-bottom-color: rgba(119,119,119,0.1);
 }
 .banner .breadcrumb > li a,
@@ -971,7 +971,7 @@ ul.pagination li.active a,
 ---------------------------------- */
 .panel-group .panel-default {
 	border-color: #eaeaea;
-	.box-shadow(none);
+	@include box-shadow(none);
 }
 .panel-group .panel-heading {
 	padding: 0;
@@ -1380,13 +1380,13 @@ fieldset[disabled] .form-control {
 	.form-control {
 		background-color: rgba(255, 255, 255, 0.15);
 		border-color: #353535;
-		.box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.8));
+		@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.8));
 		color: $gray-lighter;
 	}
 	.has-success .form-control:focus,
 	.has-warning .form-control:focus,
 	.has-error .form-control:focus {
-		.box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.8));
+		@include box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.8));
 	}
 	.input-group-addon {
 		background-color: rgba(255, 255, 255, 0.20);
@@ -1406,13 +1406,13 @@ fieldset[disabled] .form-control {
 	.form-control {
 		background-color: rgba(0, 0, 0, 0.2);
 		border-color: $base-color-hover;
-		.box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 		color: $white;
 	}
 	.has-success .form-control:focus,
 	.has-warning .form-control:focus,
 	.has-error .form-control:focus {
-		.box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 	}
 	.input-group-addon {
 		background-color: rgba(0, 0, 0, 0.20);
@@ -1427,7 +1427,7 @@ fieldset[disabled] .form-control {
 }
 .dark {
 	.form-control {
-		.box-shadow(inset 0 2px 3px rgba(0, 0, 0, 0.6));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, 0.6));
 		color: #cccccc;
 		background-color: rgba(255, 255, 255, 0.10);
 		border-color: #373737;
@@ -1749,11 +1749,11 @@ fieldset[disabled] .form-control {
 .light-gray-bg.shadow-narrow { 
 	background-color: #fafafa;
 }
-@include bordered {
+.bordered {
 	border: 1px solid #f1f1f1;
 	@include border-radius(3px);
 }
-.dark-bg @include bordered {
+.dark-bg .bordered {
 	border: 1px solid #555555;
 }
 .shadow *,
@@ -1785,7 +1785,7 @@ fieldset[disabled] .form-control {
 	left: 50%;
 	bottom: 2px;
 	margin-left: -48%;
-	.box-shadow(0 5px 7px #999);
+	@include box-shadow(0 5px 7px #999);
 	z-index: 1;
 	border-radius: 10%;
 	@include transition(all 0.3s ease-in-out);

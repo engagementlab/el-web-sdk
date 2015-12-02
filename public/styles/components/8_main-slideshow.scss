@@ -69,14 +69,14 @@
 }
 .xlarge_white {
 	font-size: 68px;
-	font-family: @font-family-raleway;
+	font-family: $font-family-raleway;
 	font-weight: 400;
 	color: #ffffff;
 	line-height: 1.2;
 }
 .large_white {
 	font-size: 42px;
-	font-family: @font-family-raleway;
+	font-family: $font-family-raleway;
 	color: #ffffff;
 	line-height: 1.2;
 }
@@ -92,19 +92,19 @@
 }
 .xlarge_dark {
 	font-size: 68px;
-	font-family: @font-family-raleway;
+	font-family: $font-family-raleway;
 	font-weight: 400;
 	color: #333;
 	line-height: 1.2;
 }
 .large_dark {
 	font-size: 42px;
-	font-family: @font-family-raleway;
+	font-family: $font-family-raleway;
 	color: #333;
 	line-height: 1.2;
 }
 .tp-caption.medium_dark {
-	font-family: @font-family-roboto;
+	font-family: $font-family-roboto;
 	font-size: 24px;
 	color: #333;
 	font-weight: 400;
@@ -322,7 +322,7 @@
 	color: #ffffff;
 	text-transform: none;
 	font-weight: 300;
-	font-family: @font-family-raleway;
+	font-family: $font-family-raleway;
 }
 
 /* Small devices (tablets, phones 768px and Up) */

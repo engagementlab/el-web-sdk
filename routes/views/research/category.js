@@ -14,13 +14,14 @@
  * ==========
  */
 var keystone = require('keystone');
-var Project = keystone.list('Project');
 var Category = keystone.list('Category');
+var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
 	
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+	var viewPublications = req.params.category == 'publications';
 	
 	locals.projects = [],
 	locals.category = {};
@@ -33,11 +34,13 @@ exports = module.exports = function(req, res) {
 	// item in the header navigation.
 	locals.section = 'category';
 	locals.sub_section = req.params.category;
-	
-	// Load category and category's projects
-	view.on('init', function(next) {
 
+	// Get all project categories
+	var getCategory = function(next) {
+
+		var Project = keystone.list('Project');
 		var queryCategory = Category.model.findOne({key: locals.filters._category});
+		
 		queryCategory.exec(function(err, resultCategory) {
 			
 			var queryProjects = Project.model.find({ category: resultCategory });
@@ -50,12 +53,52 @@ exports = module.exports = function(req, res) {
 			});
 
 		});
+
+	}
+
+	// Get all publications
+	var getPublications = function(next) {
+
+		var Publication = keystone.list('Publication');
+		var queryPubs = Publication.model.find({});
+		var queryCategory = Category.model.findOne({key: "publications"});
+		var querySubcategories = Category.model.find({isSubcategory: true}, 'name');
+		
+		queryCategory.exec(function(err, resultCategory) {
+			querySubcategories.exec(function(err, resultSub) {
+
+				queryPubs.exec(function(err, resultPubs) {
+
+					locals.publications = {};
+					locals.category = resultCategory;
+
+					_.each(resultSub, function(subCat) {
+						locals.publications[subCat.name] = resultPubs.filter(function(pub) { return pub.category == subCat.id; });
+					});
+						
+					next(err);
+
+				});
+
+			});
+
+		});
+	}
+	
+	// Load category and category's projects
+	view.on('init', function(next) {
+
+		if(viewPublications)
+			getPublications(next);		
+		else
+			getCategory(next);		
 		
 	});
 
-  // view.query('projects', keystone.list('Project').model.find());  
-
 	// Render the view
-	view.render('research/category');
+	if(locals.filters._category == 'publications')
+		view.render('research/publications');
+	else
+		view.render('research/category');
 	
 };

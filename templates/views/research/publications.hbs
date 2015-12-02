@@ -1,0 +1,150 @@
+{{!< default}}
+{{!--
+/**
+* Engagement Lab Website
+* Developed by Engagement Lab, 2015
+* ==============
+*
+* Project Directory Page Template
+* - See Project model for fields
+* - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+* ==========
+*/
+--}}
+<!-- PROJECT DIRECTORY START -->
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container padding-bottom-clear">
+	<div class="container">
+		<!-- main start -->
+		<!-- ================ -->
+		<div class="main">
+			<!-- page-title start -->
+			<!-- ================ -->
+			<h1 class="page-title">Publications</h1>
+			<div class="separator-2"></div>
+			<p class="lead">{{{category.description.html}}}</p>
+			<!-- page-title end -->
+		</div>
+		<!-- main end -->
+	</div>
+</section>
+<!-- main-container end -->
+<!-- section start -->
+<!-- ================ -->
+<section>
+	<div class="container">
+		<div class="row grid-space-10">
+			{{#if publications}}
+			
+			{{!-- Show publications --}}
+			{{#each publications}}
+			<h3>{{@key}}</h3>
+			{{#each this}}
+			<div class="separator-2"></div>
+			<div class="image-box style-3-b isotope-item books">
+				<div class="row">
+					<div class="col-sm-6 col-md-3">
+						<div class="overlay-container">
+							<img src="{{{cloudinaryUrl image width=175 height=271}}}" alt="{{title}}">
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-7">
+						<div class="body">
+							<h3 class="title"><a href="portfolio-item.html">{{title}}</a></h3>
+							<p class="small mb-10"><i class="icon-calendar"></i> 2014 {{author.first}} {{author.last}}<i class="pl-10 icon-tag-1"></i> Books</p>
+							<div class="separator-2"></div>
+							<p class="mb-10"><strong>{{blurb}}</strong><br/> </p>
+							<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#more_{{id}}" aria-expanded="false" aria-controls="collapseExample">Read More</button>
+							<div class="collapse" id="more_{{id}}">
+								<p>
+									{{{description.html}}}
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+				
+				{{/each}}
+				{{else}}
+				
+				<strong>No publications! Fiddlesticks!</strong>
+				
+				{{/if}}
+			</div>
+
+			
+			<h3>Articles</h3>
+			<div class="separator-2"></div>
+					<!-- isotope filters start -->
+					<div class="filters">
+						<ul class="nav nav-pills">
+							<li class="active"><a href="#" data-filter="*">All</a></li>
+							<li><a href="#" data-filter=".play">Play and Engagement</a></li>
+							<li><a href="#" data-filter=".civicMedia">Civic Media</a></li>
+							<li><a href="#" data-filter=".mediaLit">Digital and Media Literacy</a></li>
+						</ul>
+					</div>
+					<!-- isotope filters end -->
+				</div>
+				<div class="isotope-container row grid-space-0">
+					<div class="col-sm-6 col-md-4 isotope-item play">
+						<div class="image-box text-center">
+							<div class="overlay-container">
+								<img src="images/portfolio-4.jpg" alt="">
+								<div class="overlay-top">
+									<div class="text">
+										<h3><a href="portfolio-item.html">Project Title</a></h3>
+										<p class="small">Books</p>
+									</div>
+								</div>
+								<div class="overlay-bottom">
+									<div class="links">
+										<a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated btn-sm">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4 isotope-item civicMedia">
+						<div class="image-box text-center">
+							<div class="overlay-container">
+								<img src="images/portfolio-5.jpg" alt="">
+								<div class="overlay-top">
+									<div class="text">
+										<h3><a href="portfolio-item.html">Project Title</a></h3>
+										<p class="small">Guides</p>
+									</div>
+								</div>
+								<div class="overlay-bottom">
+									<div class="links">
+										<a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated btn-sm">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-4 isotope-item mediaLit">
+						<div class="image-box text-center">
+							<div class="overlay-container">
+								<img src="images/portfolio-6.jpg" alt="">
+								<div class="overlay-top">
+									<div class="text">
+										<h3><a href="portfolio-item.html">Project Title</a></h3>
+										<p class="small">Articles</p>
+									</div>
+								</div>
+								<div class="overlay-bottom">
+									<div class="links">
+										<a href="portfolio-item.html" class="btn btn-gray-transparent btn-animated btn-sm">View Details <i class="pl-10 fa fa-arrow-right"></i></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- section end -->

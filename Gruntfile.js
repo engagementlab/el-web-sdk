@@ -38,7 +38,9 @@ module.exports = function(grunt) {
 		},
     concat: {
         dist: {
-            src: ['public/css/**/*.css', 'public/plugins/**/*.css'],
+            src: ['public/css/**/*.css', 
+			            'public/plugins/**/*.css',
+			            'public/fonts/**/*.css'],
             dest: 'public/release/tmp/concat.css'
         }
     },

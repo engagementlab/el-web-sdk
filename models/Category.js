@@ -42,6 +42,7 @@ safeString = function(str) {
 Category.add({
 	name: { type: String, label: 'Category Name', required: true, initial: true, index: true },
   description: { type: Types.Markdown, label: 'Description', required: true, initial: true },
+  isSubcategory: { type: Types.Boolean, label: 'Is Subcategory', required: true, initial: false },
 
 	image: { 
 		type: Types.LocalFile, label: 'Image',
@@ -79,5 +80,5 @@ Category.relationship({ ref: 'Project', refPath: 'projects', path: 'category' })
  * Model Registration
  */
 Category.defaultSort  = 'sortOrder';
-Category.defaultColumns = 'name';
+Category.defaultColumns = 'name, isSubcategory';
 Category.register();

@@ -12,8 +12,6 @@
 var keystone = require('keystone');
 // See: https://github.com/chriso/validator.js
 var validator = require('validator');
-
-
 var Types = keystone.Field.Types;
 
 /**
@@ -21,14 +19,15 @@ var Types = keystone.Field.Types;
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var Project = new keystone.List('Project', {
-    sortable: true,
-    autokey: {
-        path: 'key',
-        from: 'name',
-        unique: true
-    }
-});
+var Project = new keystone.List('Project', 
+                          {
+                            sortable: true,
+                            autokey: {
+                                    path: 'key',
+                                    from: 'name',
+                                    unique: true
+                                }
+                          });
 
 /**
  * Field Validators

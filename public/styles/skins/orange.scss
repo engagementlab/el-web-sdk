@@ -373,13 +373,13 @@ ul.pagination li.active a,
 	.form-control {
 		background-color: rgba(0, 0, 0, 0.2);
 		border-color: $base-color-hover;
-		@import box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 		color: $white;
 	}
 	.has-success .form-control:focus,
 	.has-warning .form-control:focus,
 	.has-error .form-control:focus {
-		@import box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 	}
 	.input-group-addon {
 		background-color: rgba(0, 0, 0, 0.20);

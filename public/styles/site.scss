@@ -25,12 +25,15 @@ File Description:Main CSS file of the template */
 9) Owl carousel
 * */
 
-@import "1_typography";
-@import "2_layout";
-@import "3_sections";
-@import "4_pages";
-@import "5_components";
-@import "6_navigations";
-@import "7_blocks-widgets";
-@import "8_main-slideshow";
-@import "9_owl-carousel";
+@import "components/1_typography";
+@import "components/2_layout";
+@import "components/3_sections";
+@import "components/4_pages";
+@import "components/5_components";
+@import "components/6_navigations";
+@import "components/7_blocks-widgets";
+@import "components/8_main-slideshow";
+@import "components/9_owl-carousel";
+
+// Skin
+@import "skins/orange"

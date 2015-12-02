@@ -32,6 +32,7 @@ var About = new keystone.List('About',
  * @main About
  */
 About.add({
+	name: { type: String, default: "About Page", hidden: true, required: true },
 	blurb: { type: String, label: 'About Blurb', required: true, initial: true, index: true },
 	mission: { type: String, label: 'Mission', required: true, initial: true },
 	
@@ -42,5 +43,5 @@ About.add({
  * Model Registration
  */
 About.defaultSort = '-createdAt';
-About.defaultColumns = 'blurb, mission';
+About.defaultColumns = 'name';
 About.register();

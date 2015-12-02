@@ -16,6 +16,9 @@ keystone.init({
 	'brand': 'Engagement Lab',
 	
 	'sass': 'public',
+	/*'sass options': {
+		debug: true
+	},*/
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
@@ -58,7 +61,7 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'projects': 'projects',
+	'projects': ['projects', 'publications'],
 	'programs': 'programs',
 	'shared': ['resources', 'categories']
 });

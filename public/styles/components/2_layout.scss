@@ -118,7 +118,7 @@
 /* Small devices (tablets, 768px and up) */
 @media (min-width:768px) {
 	.with-dropdown-buttons {
-		@include navbar-default @include navbar-collapse {
+		.navbar-default .navbar-collapse {
 			padding-right: 120px;
 		}
 	 	.header-dropdown-buttons {
@@ -129,7 +129,7 @@
 	}
 	/*Full width Header*/	
 	header.full-width .with-dropdown-buttons {
-	 	@include header-dropdown-buttons {
+	 	.header-dropdown-buttons {
 			right: 15px;
 		}
 	}
@@ -145,7 +145,7 @@
 		vertical-align: top;
 	}	
 	.header.centered .with-dropdown-buttons {
-		@include navbar-default @include navbar-collapse {
+		 .navbar-default .navbar-collapse {
 			padding-right: 0px!important;
 		}
 	 	.header-dropdown-buttons {
@@ -159,7 +159,7 @@
 /* Large and Medium devices (desktops, tablets less than 1199px) */
 @media (min-width:768px) and (max-width:1199px) {
 	.main-navigation.with-dropdown-buttons {
-		@include navbar-default @include navbar-collapse {
+		.navbar-default .navbar-collapse {
 			padding-right: 110px;
 		}
 	}
