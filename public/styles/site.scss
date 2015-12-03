@@ -35,5 +35,8 @@ File Description:Main CSS file of the template */
 @import "components/8_main-slideshow";
 @import "components/9_owl-carousel";
 
+// Our custom SCSS
+@import "custom";
+
 // Skin
 @import "skins/orange"

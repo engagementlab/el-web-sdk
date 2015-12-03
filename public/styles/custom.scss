@@ -1,0 +1,23 @@
+/* Scss Document */
+
+/* Extras */
+.overlay {
+position: absolute;
+z-index: 3;
+top: 30%;
+left: 10%;
+
+}
+
+.overlay h1 {
+  color: white;
+}
+
+.featured {
+  background: rgba(0, 0, 0, 0.4);
+  min-height: 100%;
+  padding-bottom: 5%;
+}
+.featuredRow {
+  padding: 2%;
+}
