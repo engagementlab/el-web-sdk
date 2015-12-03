@@ -62,8 +62,9 @@ exports = module.exports = function(req, res) {
 		var Publication = keystone.list('Publication');
 		var categories = Publication.schema.paths.category.enumValues;
 
-		var queryPubs = Publication.model.find({});
+		var queryPubs = Publication.model.find({}).populate('subCategory');
 		var queryCategory = Category.model.findOne({key: "publications"});
+
 		queryCategory.exec(function(err, resultCategory) {
 
 			queryPubs.exec(function(err, resultPubs) {
@@ -72,7 +73,22 @@ exports = module.exports = function(req, res) {
 				locals.category = resultCategory;
 
 				_.each(categories, function(category) {
-					locals.publications[category] = resultPubs.filter(function(pub) { return pub.category == category; });
+					
+					// Filter publication by their category
+					var filteredPubs = resultPubs.filter(function(pub) { return pub.category == category; });
+					// Get any sub-sections
+					var subSections = _.pluck(filteredPubs, 'subCategory');
+
+					// Assemble publications along with applicable sections
+					locals.publications[category] = { records: filteredPubs	};
+																					console.log(subSections)
+
+					if(subSections != [null] && subSections.length > 0)
+						locals.publications[category].sub_sections = _.uniq(subSections);
+
+					console.log(locals.publications[category].sub_sections)
+
+
 				});
 					
 				next(err);

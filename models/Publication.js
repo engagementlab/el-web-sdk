@@ -33,11 +33,11 @@ Publication.add({
 	title: { type: String, label: 'Title', required: true, initial: true, index: true },
 	author: { type: String, label: 'Author Name(s)', required: true, initial: true },
   
-  category: { type: Types.Select, options: 'Book, Guide, Journal Articles', required: true, initial: true },
+  category: { type: Types.Select, options: 'Book, Guide, Journal Article', required: true, initial: true },
   subCategory: { type: Types.Relationship, ref: 'Category', filters: { isSubcategory: true, isProjectCategory: false }, initial: true },
 	
 	url: { type: String, label: 'URL',
-         dependsOn: { category: 'Journal Articles' }, initial: true },
+         dependsOn: { category: 'Journal Article' }, initial: true },
 
 	blurb: { type: Types.Textarea, label: 'Blurb Text', required: true, initial: true },
 	
