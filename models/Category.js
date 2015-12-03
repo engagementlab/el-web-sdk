@@ -22,7 +22,7 @@ var Types = keystone.Field.Types;
 var Category = new keystone.List('Category', 
 																				{	
 																					// nodelete: true,
-																					nocreate: true,
+																					// nocreate: true,
 																					sortable: true,
 																					autokey: { path: 'key', from: 'name', unique: true }
 																				});
