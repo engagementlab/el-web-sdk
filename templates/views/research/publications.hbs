@@ -39,51 +39,60 @@
 			
 				{{!-- Show publications --}}
 				{{#each publications}}
-				<h3>{{@key}}s</h3>
-					{{jsonPrint this.sub_sections}}
-					{{#if this.sub_sections}}
-						<!-- filters start -->
-						<div class="filters">
-							<ul class="nav nav-pills">
-								<li class="active"><a href="#" data-filter="*">All</a></li>
-								{{!-- {{jsonPrint this.sub_sections}} --}}
-								{{#each this.sub_sections}}
-									<li><a href="#" data-filter=".{{trim @key}}-{{key}}">{{name}}</a></li>
-								{{/each}}
-							</ul>
-						</div>
-						<!-- filters end -->
-					{{/if}}
+					<section class="{{trim @key}}-section">
+						
+						<h3>{{@key}}s</h3>
+						{{#if this.sub_sections}}
+							<!-- filters start -->
+							<div class="filters">
+								<ul class="nav nav-pills">
+									<li class="active"><a href="#" data-filter=".{{trim @key}}, .none">All</a></li>
+									{{!-- {{jsonPrint this.sub_sections}} --}}
+									{{#each this.sub_sections}}
+										<li><a href="#" data-filter=".{{trim @key}}.{{key}}, .none">{{name}}</a></li>
+									{{/each}}
+								</ul>
+							</div>
+							<!-- filters end -->
+						{{/if}}
 
-					<div class="isotope-container row grid-space-0">
-						{{#each this.records}}
-							<div class="separator-2"></div>
-							<div class="image-box style-3-b isotope-item {{trim category}}-{{subCategory.key}}">
-								<div class="row">
-									<div class="col-sm-6 col-md-3">
-										<div class="overlay-container">
-											<img src="{{{cloudinaryUrl image width=175 height=271}}}" alt="{{title}}">
-										</div>
-									</div>
-									<div class="col-sm-6 col-md-7">
-										<div class="body">
-											<h3 class="title"><a href="portfolio-item.html">{{title}}</a></h3>
-											<p class="small mb-10"><i class="icon-calendar"></i> 2014 {{author}}<i class="pl-10 icon-tag-1"></i> Books</p>
-											<div class="separator-2"></div>
-											<p class="mb-10"><strong>{{blurb}}</strong><br/> </p>
-											<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#more_{{id}}" aria-expanded="false" aria-controls="collapseExample">Read More</button>
-											<div class="collapse" id="more_{{id}}">
-												<p>
-													{{{description.html}}}
-												</p>
+						<div class="isotope-container row grid-space-0">
+							{{#each records}}
+								<div class="separator-2"></div>
+								{{#if ../this.sub_sections}}
+									<div class="image-box style-3-b isotope-item {{trim category}} {{subCategory.key}}">
+								{{else}}
+									<div class="image-box style-3-b isotope-item none">
+								{{/if}}
+									<div class="row">
+											<div class="col-sm-6 col-md-3">
+												{{#if image.url}}
+													<div class="overlay-container">
+														<img src="{{{cloudinaryUrl image width=175 height=271}}}" alt="{{title}}">
+													</div>
+												{{/if}}
+											</div>
+										<div class="col-sm-6 col-md-7">
+											<div class="body">
+												<h3 class="title"><a href="{{url}}">{{title}}</a></h3>
+												<p class="small mb-10"><i class="icon-calendar"></i> 2014 {{author}}
+												<div class="separator-2"></div>
+												<p class="mb-10"><strong>{{blurb}}</strong><br/> </p>
+												{{#if description.html}}
+													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#more_{{id}}" aria-expanded="false" aria-controls="more_{{id}}">Read More</button>
+													<div class="collapse" id="more_{{id}}">
+														<div>
+															{{{description.html}}}
+														</div>
+													</div>
+												{{/if}}
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						{{/each}}
-					</div>
-					
+							{{/each}}
+						</div>
+					</section>
 				{{/each}}
 			{{else}}
 			
