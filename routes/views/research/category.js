@@ -62,7 +62,7 @@ exports = module.exports = function(req, res) {
 		var Publication = keystone.list('Publication');
 		var queryPubs = Publication.model.find({});
 		var queryCategory = Category.model.findOne({key: "publications"});
-		var querySubcategories = Category.model.find({isSubcategory: true}, 'name');
+		var querySubcategories = Category.model.find({isSubcategory: false, isProjectCategory: false}, 'name');
 		
 		queryCategory.exec(function(err, resultCategory) {
 			querySubcategories.exec(function(err, resultSub) {
@@ -72,8 +72,8 @@ exports = module.exports = function(req, res) {
 					locals.publications = {};
 					locals.category = resultCategory;
 
-					_.each(resultSub, function(subCat) {
-						locals.publications[subCat.name] = resultPubs.filter(function(pub) { return pub.category == subCat.id; });
+					_.each(resultSub, function(category) {
+						locals.publications[category.name] = resultPubs.filter(function(pub) { return pub.category == category.id; });
 					});
 						
 					next(err);
