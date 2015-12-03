@@ -7862,3 +7862,15 @@ header:not(.dark) .dropdown-menu > li.active > a i {
   color: #e07e27; }
 
 /* Scss Document */
+
+/* Extras */
+.overlay {
+  position: absolute;
+  z-index: 3;
+  top: 30%;
+  left: 10%;
+
+}
+.overlay h1 {
+  color: white;
+}
