@@ -64,6 +64,7 @@ module.exports = function(grunt) {
 	    }
 	  },*/
 
+	  //TODO: mongorestore -h ds053370.mongolab.com:53370 -d heroku_npvs26cw -u heroku_npvs26cw -p ak1h7ut2fgjsgs7lr6nt3lukkb dump/engagement-lab --drop
 		mongobin: {
 	    options: {
 	      host: '127.0.0.1',
