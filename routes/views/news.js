@@ -30,7 +30,7 @@ exports = module.exports = function(req, res) {
 	};
 	var blogParams = {
 	  host: 'https://medium.com',
-	  path: '/feed/@johnny.richardson'
+	  path: '/feed/@Engagement_Lab'
 	};
 	
 	// Init locals
