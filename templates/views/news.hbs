@@ -63,6 +63,7 @@
 							<h1 class="page-title">Blog Feed</h1>
 							<div class="separator-2 mb-20"></div>
 							{{#each blog}}
+							{{jsonPrint this}}
 							<!-- blogpost start -->
 							<article class="blogpost">
 								<div class="row grid-space-10">
@@ -95,28 +96,6 @@
 									<div class="link pull-right"><i class="icon-link"></i><a href="{{link}}">Read More</a></div>
 								</footer>
 							</article>
-							{{!-- <article class="blogpost shadow light-gray-bg bordered object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-								<header>
-									<h2><a href="blog-post.html">{{title}}</a></h2>
-									<div class="post-info">
-										<span class="post-date">
-											<i class="icon-calendar"></i>
-											<span class="day">{{date published format='DD'}}</span>
-											<span class="month">{{date published format='MM YYYY'}}</span>
-										</span>
-										<span class="submitted"><i class="icon-user-1"></i> by <a href="#">{{author}}</a></span>
-										<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
-									</div>
-								</header>
-								<div class="blogpost-content">
-									<p>{{{content}}}</p>
-								</div>
-								<footer class="clearfix">
-									<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-									<div class="link pull-right"><i class="icon-link"></i><a href="{{link}}">Read More</a></div>
-								</footer>
-							</article> --}}
-							<!-- blogpost end -->
 							{{/each}}
 						</div>
 						<!-- blog end -->
@@ -138,40 +117,23 @@
 							<h1 class="page-title">Events</h1>
 							<div class="separator-2 mb-20"></div>
 							{{#if events}}
-							{{#each events}}
-							<!-- event start -->
-							<div class="media margin-clear">
-								<div class="media-left">
-									<div class="overlay-container">
-										<img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
-										<a href="{{vanity_url}}" class="overlay-link small"><i class="fa fa-link"></i></a>
-									</div>
-								</div>
-								<div class="media-body">
-									<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
-									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
-								</div>
-								<hr>
-							</div>
-							{{!-- <div class="image-box style-3-b">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="overlay-container">
-											<img src="{{logo.url}}" alt="{{name.text}}" />
+								{{#each events}}
+									<!-- event start -->
+									<div class="media margin-clear">
+										<div class="media-left">
+											<div class="overlay-container">
+												<img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
+												<a href="{{vanity_url}}" class="overlay-link small"><i class="fa fa-link"></i></a>
+											</div>
 										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="body">
-											<h3 class="title"><a href="{{vanity_url}}">{{name.text}}</a></h3>
-											
-											<div class="separator-2"></div>
-											<p class="mb-10">{{date start.local format='MM/DD/YYYY'}}</p>
+										<div class="media-body">
+											<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
+											<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
 										</div>
+										<hr>
 									</div>
-								</div>
-							</div> --}}
-							<!-- event end -->
-							{{/each}}
+									<!-- event end -->
+								{{/each}}
 							{{/if}}
 						
 						<!-- events end -->

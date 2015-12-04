@@ -136,153 +136,94 @@
 	</div>
 </div>
 
-
-<!--Projects Slider Begins-->
-<!-- banner start -->
-<!-- ================ -->
-<div class="banner clearfix">
-	<!-- slideshow start -->
-	<!-- ================ -->
-	<div class="slideshow">
-		
-		<!-- slider revolution start -->
+	
+	{{#if featured_projects}}
+		<!--Projects Slider Begins-->
 		<!-- ================ -->
-		<div class="slider-banner-container">
-			<div class="slider-banner-fullscreen">
-				<ul class="slides">
-					<!-- slide 1 start -->
+		<div class="pv-40 banner">
+			<div class="container clearfix">
+
+				<!-- slideshow start -->
+				<!-- ================ -->
+				<div class="slideshow">
+					
+					<!-- slider revolution start -->
 					<!-- ================ -->
-					<li data-transition="random" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Unlimited Options and Layouts">
-						
-						<!-- main image -->
-						<img src="images/slider-fullscreen2-slide-1.jpg" alt="slidebg1" data-bgposition="center top"  data-bgrepeat="no-repeat" data-bgfit="cover">
-						
-						<!-- Transparent Background -->
-						<div class="tp-caption dark-translucent-bg"
-							data-x="center"
-							data-y="bottom"
-							data-speed="500"
-							data-easing="easeOutQuad"
-							data-start="0">
+					<div class="slider-banner-container">
+						<div class="slider-banner-boxedwidth">
+							<ul class="slides">
+							
+							{{#each featured_projects}}
+
+								<!-- slide start -->
+								<li data-transition="random" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="{{name}}">
+									<!-- main image -->
+									{{#if headerImage}}
+										<img src="{{{cloudinaryUrl headerImage width=1140 height=450}}}" alt="slidebg1" data-bgposition="center top"  data-bgrepeat="no-repeat" data-bgfit="cover">
+									{{/if}}
+
+									<!-- Transparent Background -->
+									<div class="tp-caption dark-translucent-bg"
+										data-x="center"
+										data-y="bottom"
+										data-speed="600"
+										data-start="0">
+									</div>
+
+									<!-- LAYER NR. 1 -->
+									<div class="tp-caption sfb fadeout text-center large_white"
+										data-x="center"
+										data-y="110"
+										data-speed="500"
+										data-start="1000"
+										data-easing="easeOutQuad">{{name}}
+									</div>	
+
+									<!-- LAYER NR. 2 -->
+									<div class="tp-caption sfb fadeout text-center large_white tp-resizeme hidden-xs"
+										data-x="center"
+										data-y="155"
+										data-speed="500"
+										data-start="1300"
+										data-easing="easeOutQuad"><div class="separator light"></div>
+									</div>	
+
+									<!-- LAYER NR. 3 -->
+									<div class="tp-caption sfb fadeout medium_white text-center hidden-xs"
+										data-x="center"
+										data-y="190"
+										data-speed="500"
+										data-start="1300"
+										data-easing="easeOutQuad"
+										data-endspeed="600">{{byline}}
+									</div>
+
+									<!-- LAYER NR. 4 -->
+									<div class="tp-caption sfb fadeout small_white text-center hidden-xs"
+										data-x="center"
+										data-y="300"
+										data-speed="500"
+										data-start="1600"
+										data-easing="easeOutQuad"
+										data-endspeed="600">
+										<a href="/research/project/{{key}}" class="btn btn-dark btn-animated">Read More <i class="fa fa-arrow-right"></i></a>
+									</div>
+								</li>
+								<!-- slide end -->
+
+							{{/each}}
+							</ul>
+							<div class="tp-bannertimer"></div>
 						</div>
-						<!-- LAYER NR. 1 -->
-						<div class="tp-caption sfb fadeout large_white"
-							data-x="left"
-							data-y="100"
-							data-speed="500"
-							data-start="1000"
-							data-easing="easeOutQuad"><span class="logo-font">The Project</span> - Clean Bootstrap Template
-						</div>
-						<!-- LAYER NR. 2 -->
-						<div class="tp-caption sfb fadeout large_white tp-resizeme"
-							data-x="left"
-							data-y="170"
-							data-speed="500"
-							data-start="1300"
-							data-easing="easeOutQuad"><div class="separator-2 light"></div>
-						</div>
-						<!-- LAYER NR. 3 -->
-						<div class="tp-caption sfb fadeout medium_white"
-							data-x="left"
-							data-y="190"
-							data-speed="500"
-							data-start="1300"
-							data-easing="easeOutQuad"
-							data-endspeed="600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Nesciunt, maiores, aliquid. Repellat eum numquam aliquid culpa offici, <br> tenetur fugiat dolorum sapiente eligendi...
-						</div>
-						<!-- LAYER NR. 4 -->
-						<div class="tp-caption sfb fadeout small_white"
-							data-x="left"
-							data-y="300"
-							data-speed="500"
-							data-start="1600"
-							data-easing="easeOutQuad"
-							data-endspeed="600"><a href="#" class="btn btn-gray btn-lg btn-animated">Learn More <i class="fa fa-info-circle"></i></a> <span class="pl-5 pr-5">or</span> <a href="page-contact.html" class="btn btn-default btn-lg btn-animated">Contact Us <i class="fa fa-envelope"></i></a>
-						</div>
-						<!-- LAYER NR. 5 -->
-						<div class="tp-caption fade fadeout"
-							data-x="center"
-							data-y="bottom"
-							data-voffset="100"
-							data-speed="500"
-							data-easing="easeOutQuad"
-							data-start="2000"
-							data-endspeed="200">
-							<a href="#page-start" class="btn btn-lg moving smooth-scroll"><i class="icon-down-open-big"></i><i class="icon-down-open-big"></i><i class="icon-down-open-big"></i></a>
-						</div>
-					</li>
-					<!-- slide 1 end -->
-					<!-- slide 2 start -->
-					<!-- ================ -->
-					<li data-transition="random" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Simple and Smart Bootstrap Template">
-						
-						<!-- main image -->
-						<img src="images/slider-fullscreen2-slide-2.jpg" alt="slidebg2" data-bgposition="center top"  data-bgrepeat="no-repeat" data-bgfit="cover">
-						<!-- Transparent Background -->
-						<div class="tp-caption dark-translucent-bg"
-							data-x="center"
-							data-y="bottom"
-							data-speed="500"
-							data-easing="easeOutQuad"
-							data-start="0">
-						</div>
-						<!-- LAYER NR. 1 -->
-						<div class="tp-caption sfb fadeout large_white text-right"
-							data-x="right"
-							data-y="100"
-							data-speed="500"
-							data-start="1000"
-							data-easing="easeOutQuad"><span class="logo-font">The Project</span> - Unlimited Options and Layouts
-						</div>
-						<!-- LAYER NR. 2 -->
-						<div class="tp-caption sfb fadeout large_white tp-resizeme"
-							data-x="right"
-							data-y="170"
-							data-speed="500"
-							data-start="1300"
-							data-easing="easeOutQuad"><div class="separator-3 light"></div>
-						</div>
-						<!-- LAYER NR. 3 -->
-						<div class="tp-caption sfb fadeout medium_white text-right"
-							data-x="right"
-							data-y="190"
-							data-speed="500"
-							data-start="1300"
-							data-easing="easeOutQuad"
-							data-endspeed="600">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<br> Nesciunt, maiores, aliquid. Repellat eum numquam aliquid culpa offici,<br> tenetur fugiat dolorum sapiente eligendi
-						</div>
-						<!-- LAYER NR. 4 -->
-						<div class="tp-caption sfb fadeout small_white"
-							data-x="right"
-							data-y="300"
-							data-speed="500"
-							data-start="1600"
-							data-easing="easeOutQuad"
-							data-endspeed="600"><a href="#" class="btn btn-gray btn-lg btn-animated">Learn More <i class="fa fa-info-circle"></i></a> <span class="pl-5 pr-5">or</span> <a href="page-contact.html" class="btn btn-default btn-lg btn-animated">Contact Us <i class="fa fa-envelope"></i></a>
-						</div>
-						<!-- LAYER NR. 5 -->
-						<div class="tp-caption fade fadeout"
-							data-x="center"
-							data-y="bottom"
-							data-voffset="100"
-							data-speed="500"
-							data-easing="easeOutQuad"
-							data-start="2000"
-							data-endspeed="200">
-							<a href="#page-start" class="btn btn-lg moving smooth-scroll"><i class="icon-down-open-big"></i><i class="icon-down-open-big"></i><i class="icon-down-open-big"></i></a>
-						</div>
-					</li>
-					<!-- slide 2 end -->
-				</ul>
-				<div class="tp-bannertimer"></div>
+					</div>
+					<!-- slider revolution end -->
+
+				</div>
+				<!-- slideshow end -->
+
 			</div>
 		</div>
-		<!-- slider revolution end -->
-	</div>
-	<!-- slideshow end -->
-</div>
-<!-- banner end -->
+		<!--Projects Slider Ends-->
+	{{/if}}
 
-<!--Projects Slider Ends-->
-<!--===============END OF PROJECT SLIDER=============-->
 </body>

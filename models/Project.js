@@ -74,8 +74,20 @@ Project.add({
     category: {
         type: Types.Relationship,
         ref: 'Category',
+        filters: { isProjectCategory: true, isSubcategory: false },
         required: true,
         initial: true
+    },
+    subCategory: { 
+        type: Types.Relationship,
+        ref: 'Category',
+        label: 'Subcategory',
+        filters: { isProjectCategory: false, isSubcategory: true },
+        initial: true 
+    },
+    featured: { 
+        type: Types.Boolean,
+        label: 'Featured'
     },
     byline: {
         type: String,
@@ -220,6 +232,6 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
 /**
  * Model Registration
  */
-Project.defaultSort = '-createdAt';
-Project.defaultColumns = 'name, byline';
+Project.defaultSort = 'sortOrder';
+Project.defaultColumns = 'name, category, featured';
 Project.register();
