@@ -73,11 +73,10 @@ module.exports = function(grunt) {
 	    restore: {
 	      task: 'restore',
 	      path: './dump/engagement-lab',
-	      db: 'engagement-lab'
+	      db: 'engagement-lab',
+	      drop: true
 	    },
 	    dump: {
-	        // if task is unspecified, mongobin will attempt to use the target key, 
-	        // in this case, 'dump'. 
 	        out: './dump/'
 	    }
 	  }
