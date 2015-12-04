@@ -81,8 +81,8 @@ exports = module.exports = function(req, res) {
 
 					// Assemble publications along with applicable sections
 					locals.publications[category] = { records: filteredPubs	};
-																					console.log(filteredPubs)
 
+					// Assign subsections, if any
 					if(subSections[0] != null && subSections.length > 0)
 						locals.publications[category].sub_sections = _.uniq(subSections);
 

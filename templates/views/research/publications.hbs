@@ -30,8 +30,8 @@
 	</div>
 </section>
 <!-- main-container end -->
+
 <!-- section start -->
-<!-- ================ -->
 <section>
 	<div class="container">
 		<div class="row grid-space-10">
@@ -39,60 +39,61 @@
 			
 				{{!-- Show publications --}}
 				{{#each publications}}
-					<section class="{{trim @key}}-section">
-						
+					<div class="isotope-container subSection">
 						<h3>{{@key}}s</h3>
 						{{#if this.sub_sections}}
-							<!-- filters start -->
+							{{!-- filters start --}}
 							<div class="filters">
 								<ul class="nav nav-pills">
 									<li class="active"><a href="#" data-filter=".{{trim @key}}, .none">All</a></li>
-									{{!-- {{jsonPrint this.sub_sections}} --}}
 									{{#each this.sub_sections}}
 										<li><a href="#" data-filter=".{{trim @key}}.{{key}}, .none">{{name}}</a></li>
 									{{/each}}
 								</ul>
 							</div>
-							<!-- filters end -->
+							{{!-- filters end --}}
 						{{/if}}
-
-						<div class="isotope-container row grid-space-0">
-							{{#each records}}
-								<div class="separator-2"></div>
-								{{#if ../this.sub_sections}}
-									<div class="image-box style-3-b isotope-item {{trim category}} {{subCategory.key}}">
-								{{else}}
-									<div class="image-box style-3-b isotope-item none">
-								{{/if}}
-									<div class="row">
-											<div class="col-sm-6 col-md-3">
-												{{#if image.url}}
-													<div class="overlay-container">
-														<img src="{{{cloudinaryUrl image width=175 height=271}}}" alt="{{title}}">
+						{{#each records}}
+							<div class="separator-2"></div>
+							{{#if ../this.sub_sections}}
+								<div class="image-box style-3-b isotope-item {{trim category}} {{subCategory.key}}">
+							{{else}}
+								<div class="image-box style-3-b isotope-item none">
+							{{/if}}
+					
+								<div class="row">
+									{{#if image.url}}
+										<div class="col-sm-6 col-md-4">
+												<div class="overlay-container">
+													<img src="{{{cloudinaryUrl image width=175 height=271}}}" alt="{{title}}">
+												</div>
+										</div>
+									<div class="col-sm-6 col-md-4">
+									{{else}}
+									<div class="col-sm-6 col-md-8">
+									{{/if}}
+										<div class="body">
+											<h3 class="title">
+												<a href="{{url}}">{{title}}</a>
+											</h3>
+											<p class="small mb-10"><i class="icon-calendar"></i> 2014 {{author}}</p>
+											<div class="separator-2"></div>
+											<p class="mb-10"><strong>{{blurb}}</strong><br/> </p>
+											{{#if description.html}}
+												<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#more_{{id}}" aria-expanded="false" aria-controls="more_{{id}}">Read More</button>
+												<div class="collapse" id="more_{{id}}">
+													<div>
+														{{{description.html}}}
 													</div>
-												{{/if}}
-											</div>
-										<div class="col-sm-6 col-md-7">
-											<div class="body">
-												<h3 class="title"><a href="{{url}}">{{title}}</a></h3>
-												<p class="small mb-10"><i class="icon-calendar"></i> 2014 {{author}}
-												<div class="separator-2"></div>
-												<p class="mb-10"><strong>{{blurb}}</strong><br/> </p>
-												{{#if description.html}}
-													<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#more_{{id}}" aria-expanded="false" aria-controls="more_{{id}}">Read More</button>
-													<div class="collapse" id="more_{{id}}">
-														<div>
-															{{{description.html}}}
-														</div>
-													</div>
-												{{/if}}
-											</div>
+												</div>
+											{{/if}}
 										</div>
 									</div>
 								</div>
-							{{/each}}
-						</div>
-					</section>
+
+							</div>
+						{{/each}}
+					</div>
 				{{/each}}
 			{{else}}
 			

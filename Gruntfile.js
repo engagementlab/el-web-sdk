@@ -16,7 +16,9 @@ module.exports = function(grunt) {
 		config: {
 			src: './grunt/*.js'
 		},
+		
 		pkg: grunt.file.readJSON('package.json'),
+		
 		nodemon: {
 			serve: {
 				script: 'keystone.js',
@@ -25,6 +27,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		
 		uglify: {
 		  plugins: {
 		    files: {
@@ -36,6 +39,7 @@ module.exports = function(grunt) {
 		    }
 		  }
 		},
+    
     concat: {
         dist: {
             src: ['public/css/**/*.css', 
@@ -44,11 +48,40 @@ module.exports = function(grunt) {
             dest: 'public/release/tmp/concat.css'
         }
     },
+		
 		cssmin: {
 		  target: {
 		    files: { 'public/release/style.min.css': ['public/release/tmp/concat.css'] }
 		  }
-		}
+		},
+
+	  /*confirm: {
+	    restore: {
+	      options: { 
+	        question: 'Be careful, cowboy! You will be overriding the current database with the data in /dump/engagement-lab. Proceed?',
+	        input: '_key:y'
+	      }
+	    }
+	  },*/
+
+		mongobin: {
+	    options: {
+	      host: '127.0.0.1',
+	      port: '27017',
+	      db: 'engagement-lab'
+	    },
+	    restore: {
+	      task: 'restore',
+	      path: './dump/engagement-lab',
+	      db: 'engagement-lab'
+	    },
+	    dump: {
+	        // if task is unspecified, mongobin will attempt to use the target key, 
+	        // in this case, 'dump'. 
+	        out: './dump/'
+	    }
+	  }
+
 	};
 
 	var configs = require('load-grunt-configs')(grunt, options);
@@ -78,6 +111,10 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('default', ['concat', 'uglify']);
+
+	grunt.registerTask('exportdata', ['mongobin:dump']);
+	grunt.registerTask('importdata', ['mongobin:restore']);
+
 	grunt.registerTask('production', ['uglify', 'concat', 'cssmin']);
 
 };

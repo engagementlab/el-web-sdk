@@ -7117,6 +7117,29 @@ h6.media-heading {
   .owl-controls .owl-page span {
     background: #000000; } }
 
+/* Scss Document */
+/* HOME */
+.overlay {
+  position: absolute;
+  z-index: 3;
+  top: 30%;
+  left: 10%; }
+
+.overlay h1 {
+  color: white; }
+
+.featured {
+  background: rgba(0, 0, 0, 0.4);
+  min-height: 100%;
+  padding-bottom: 5%; }
+
+.featuredRow {
+  padding: 2%; }
+
+/* PUBLICATIONS */
+section.publications .subSection {
+  display: inline-block; }
+
 /* Theme Name:The Project - Responsive Website Template
 Author:HtmlCoder
 Author URI:http://www.htmlcoder.me
@@ -7860,3 +7883,5 @@ header:not(.dark) .dropdown-menu > li.active > a i {
 .content-slider-with-large-controls .owl-buttons .owl-next:after,
 .content-slider-with-large-controls-autoplay .owl-buttons .owl-next:after {
   color: #e07e27; }
+
+/* Scss Document */

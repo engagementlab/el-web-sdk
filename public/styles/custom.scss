@@ -1,6 +1,6 @@
 /* Scss Document */
 
-/* Extras */
+/* HOME */
 .overlay {
 position: absolute;
 z-index: 3;
@@ -20,4 +20,9 @@ left: 10%;
 }
 .featuredRow {
   padding: 2%;
+}
+
+/* PUBLICATIONS */
+section.publications .subSection {
+  display: inline-block;
 }
