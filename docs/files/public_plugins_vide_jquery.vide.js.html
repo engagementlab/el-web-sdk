@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>public/plugins/vide/jquery.vide.js - Engagement Lab Website</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="Engagement Lab Website" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.3</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/about.html">about</a></li>
+                                <li><a href="../classes/academics.html">academics</a></li>
+                                <li><a href="../classes/category.html">category</a></li>
+                                <li><a href="../classes/directory.html">directory</a></li>
+                                <li><a href="../classes/EventEmitter Manages event registering and emitting..html">EventEmitter Manages event registering and emitting.</a></li>
+                                <li><a href="../classes/index.html">index</a></li>
+                                <li><a href="../classes/news.html">news</a></li>
+                                <li><a href="../classes/program.html">program</a></li>
+                                <li><a href="../classes/project.html">project</a></li>
+                                <li><a href="../classes/routes.middleware.html">routes.middleware</a></li>
+                                <li><a href="../classes/team.html">team</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/$.JQPlugin.html">$.JQPlugin</a></li>
+                                <li><a href="../modules/about.html">about</a></li>
+                                <li><a href="../modules/category.html">category</a></li>
+                                <li><a href="../modules/program.html">program</a></li>
+                                <li><a href="../modules/programs.html">programs</a></li>
+                                <li><a href="../modules/project.html">project</a></li>
+                                <li><a href="../modules/research.html">research</a></li>
+                                <li><a href="../modules/resource.html">resource</a></li>
+                                <li><a href="../modules/team.html">team</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: public/plugins/vide/jquery.vide.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*
+ *  Vide - v0.3.2
+ *  Easy as hell jQuery plugin for video backgrounds.
+ *  http://vodkabears.github.io/vide/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
+!(function($, window, document, navigator) {
+  &#x27;use strict&#x27;;
+
+  /**
+   * Name of the plugin
+   * @private
+   */
+  var pluginName = &#x27;vide&#x27;;
+
+  /**
+   * Default settings
+   * @private
+   */
+  var defaults = {
+    volume: 1,
+    playbackRate: 1,
+    muted: true,
+    loop: true,
+    autoplay: true,
+    position: &#x27;50% 50%&#x27;,
+    posterType: &#x27;detect&#x27;,
+    resizing: true
+  };
+
+  /**
+   * Is iOs?
+   * @private
+   */
+  var isIOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+
+  /**
+   * Is Android?
+   * @private
+   */
+  var isAndroid = /Android/i.test(navigator.userAgent);
+
+  /**
+   * Parse a string with options
+   * @private
+   * @param {String} str
+   * @returns {Object|String}
+   */
+  function parseOptions(str) {
+    var obj = {};
+    var delimiterIndex;
+    var option;
+    var prop;
+    var val;
+    var arr;
+    var len;
+    var i;
+
+    // Remove spaces around delimiters and split
+    arr = str.replace(/\s*:\s*/g, &#x27;:&#x27;).replace(/\s*,\s*/g, &#x27;,&#x27;).split(&#x27;,&#x27;);
+
+    // Parse a string
+    for (i = 0, len = arr.length; i &lt; len; i++) {
+      option = arr[i];
+
+      // Ignore urls and a string without colon delimiters
+      if (
+        option.search(/^(http|https|ftp):\/\//) !== -1 ||
+        option.search(&#x27;:&#x27;) === -1
+      ) {
+        break;
+      }
+
+      delimiterIndex = option.indexOf(&#x27;:&#x27;);
+      prop = option.substring(0, delimiterIndex);
+      val = option.substring(delimiterIndex + 1);
+
+      // If val is an empty string, make it undefined
+      if (!val) {
+        val = undefined;
+      }
+
+      // Convert a string value if it is like a boolean
+      if (typeof val === &#x27;string&#x27;) {
+        val = val === &#x27;true&#x27; || (val === &#x27;false&#x27; ? false : val);
+      }
+
+      // Convert a string value if it is like a number
+      if (typeof val === &#x27;string&#x27;) {
+        val = !isNaN(val) ? +val : val;
+      }
+
+      obj[prop] = val;
+    }
+
+    // If nothing is parsed
+    if (prop == null &amp;&amp; val == null) {
+      return str;
+    }
+
+    return obj;
+  }
+
+  /**
+   * Parse a position option
+   * @private
+   * @param {String} str
+   * @returns {Object}
+   */
+  function parsePosition(str) {
+    str = &#x27;&#x27; + str;
+
+    // Default value is a center
+    var args = str.split(/\s+/);
+    var x = &#x27;50%&#x27;;
+    var y = &#x27;50%&#x27;;
+    var len;
+    var arg;
+    var i;
+
+    for (i = 0, len = args.length; i &lt; len; i++) {
+      arg = args[i];
+
+      // Convert values
+      if (arg === &#x27;left&#x27;) {
+        x = &#x27;0%&#x27;;
+      } else if (arg === &#x27;right&#x27;) {
+        x = &#x27;100%&#x27;;
+      } else if (arg === &#x27;top&#x27;) {
+        y = &#x27;0%&#x27;;
+      } else if (arg === &#x27;bottom&#x27;) {
+        y = &#x27;100%&#x27;;
+      } else if (arg === &#x27;center&#x27;) {
+        if (i === 0) {
+          x = &#x27;50%&#x27;;
+        } else {
+          y = &#x27;50%&#x27;;
+        }
+      } else {
+        if (i === 0) {
+          x = arg;
+        } else {
+          y = arg;
+        }
+      }
+    }
+
+    return { x: x, y: y };
+  }
+
+  /**
+   * Search a poster
+   * @private
+   * @param {String} path
+   * @param {Function} callback
+   */
+  function findPoster(path, callback) {
+    var onLoad = function() {
+      callback(this.src);
+    };
+
+    $(&#x27;&lt;img src=&quot;&#x27; + path + &#x27;.gif&quot;&gt;&#x27;).load(onLoad);
+    $(&#x27;&lt;img src=&quot;&#x27; + path + &#x27;.jpg&quot;&gt;&#x27;).load(onLoad);
+    $(&#x27;&lt;img src=&quot;&#x27; + path + &#x27;.jpeg&quot;&gt;&#x27;).load(onLoad);
+    $(&#x27;&lt;img src=&quot;&#x27; + path + &#x27;.png&quot;&gt;&#x27;).load(onLoad);
+  }
+
+  /**
+   * Vide constructor
+   * @param {HTMLElement} element
+   * @param {Object|String} path
+   * @param {Object|String} options
+   * @constructor
+   */
+  function Vide(element, path, options) {
+    this.$element = $(element);
+
+    // Parse path
+    if (typeof path === &#x27;string&#x27;) {
+      path = parseOptions(path);
+    }
+
+    // Parse options
+    if (!options) {
+      options = {};
+    } else if (typeof options === &#x27;string&#x27;) {
+      options = parseOptions(options);
+    }
+
+    // Remove an extension
+    if (typeof path === &#x27;string&#x27;) {
+      path = path.replace(/\.\w*$/, &#x27;&#x27;);
+    } else if (typeof path === &#x27;object&#x27;) {
+      for (var i in path) {
+        if (path.hasOwnProperty(i)) {
+          path[i] = path[i].replace(/\.\w*$/, &#x27;&#x27;);
+        }
+      }
+    }
+
+    this.settings = $.extend({}, defaults, options);
+    this.path = path;
+
+    this.init();
+  }
+
+  /**
+   * Initialization
+   * @public
+   */
+  Vide.prototype.init = function() {
+    var vide = this;
+    var position = parsePosition(vide.settings.position);
+    var sources;
+    var poster;
+
+    // Set styles of a video wrapper
+    vide.$wrapper = $(&#x27;&lt;div&gt;&#x27;).css({
+      position: &#x27;absolute&#x27;,
+      &#x27;z-index&#x27;: -1,
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
+      overflow: &#x27;hidden&#x27;,
+      &#x27;-webkit-background-size&#x27;: &#x27;cover&#x27;,
+      &#x27;-moz-background-size&#x27;: &#x27;cover&#x27;,
+      &#x27;-o-background-size&#x27;: &#x27;cover&#x27;,
+      &#x27;background-size&#x27;: &#x27;cover&#x27;,
+      &#x27;background-repeat&#x27;: &#x27;no-repeat&#x27;,
+      &#x27;background-position&#x27;: position.x + &#x27; &#x27; + position.y
+    });
+
+    // Get a poster path
+    poster = vide.path;
+    if (typeof vide.path === &#x27;object&#x27;) {
+      if (vide.path.poster) {
+        poster = vide.path.poster;
+      } else {
+        if (vide.path.mp4) {
+          poster = vide.path.mp4;
+        } else if (vide.path.webm) {
+          poster = vide.path.webm;
+        } else if (vide.path.ogv) {
+          poster = vide.path.ogv;
+        }
+      }
+    }
+
+    // Set a video poster
+    if (vide.settings.posterType === &#x27;detect&#x27;) {
+      findPoster(poster, function(url) {
+        vide.$wrapper.css(&#x27;background-image&#x27;, &#x27;url(&#x27; + url + &#x27;)&#x27;);
+      });
+    } else if (vide.settings.posterType !== &#x27;none&#x27;) {
+      vide.$wrapper
+        .css(&#x27;background-image&#x27;, &#x27;url(&#x27; + poster + &#x27;.&#x27; + vide.settings.posterType + &#x27;)&#x27;);
+    }
+
+    // If a parent element has a static position, make it relative
+    if (vide.$element.css(&#x27;position&#x27;) === &#x27;static&#x27;) {
+      vide.$element.css(&#x27;position&#x27;, &#x27;relative&#x27;);
+    }
+
+    vide.$element.prepend(vide.$wrapper);
+
+    if (!isIOS &amp;&amp; !isAndroid) {
+      sources = &#x27;&#x27;;
+
+      if (typeof vide.path === &#x27;object&#x27;) {
+        if (vide.path.mp4) {
+          sources += &#x27;&lt;source src=&quot;&#x27; + vide.path.mp4 + &#x27;.mp4&quot; type=&quot;video/mp4&quot;&gt;&#x27;;
+        }
+
+        if (vide.path.webm) {
+          sources += &#x27;&lt;source src=&quot;&#x27; + vide.path.webm + &#x27;.webm&quot; type=&quot;video/webm&quot;&gt;&#x27;;
+        }
+
+        if (vide.path.ogv) {
+          sources += &#x27;&lt;source src=&quot;&#x27; + vide.path.ogv + &#x27;.ogv&quot; type=&quot;video/ogv&quot;&gt;&#x27;;
+        }
+
+        vide.$video = $(&#x27;&lt;video&gt;&#x27; + sources + &#x27;&lt;/video&gt;&#x27;);
+      } else {
+        vide.$video = $(&#x27;&lt;video&gt;&#x27; +
+          &#x27;&lt;source src=&quot;&#x27; + vide.path + &#x27;.mp4&quot; type=&quot;video/mp4&quot;&gt;&#x27; +
+          &#x27;&lt;source src=&quot;&#x27; + vide.path + &#x27;.webm&quot; type=&quot;video/webm&quot;&gt;&#x27; +
+          &#x27;&lt;source src=&quot;&#x27; + vide.path + &#x27;.ogv&quot; type=&quot;video/ogg&quot;&gt;&#x27; +
+          &#x27;&lt;/video&gt;&#x27;);
+      }
+
+      // Disable visibility, while loading
+      vide.$video.css(&#x27;visibility&#x27;, &#x27;hidden&#x27;);
+
+      // Set video properties
+      vide.$video.prop({
+        autoplay: vide.settings.autoplay,
+        loop: vide.settings.loop,
+        volume: vide.settings.volume,
+        muted: vide.settings.muted,
+        defaultMuted: vide.settings.muted,
+        playbackRate: vide.settings.playbackRate,
+        defaultPlaybackRate: vide.settings.playbackRate
+      });
+
+      // Append a video
+      vide.$wrapper.append(vide.$video);
+
+      // Video alignment
+      vide.$video.css({
+        margin: &#x27;auto&#x27;,
+        position: &#x27;absolute&#x27;,
+        &#x27;z-index&#x27;: -1,
+        top: position.y,
+        left: position.x,
+        &#x27;-webkit-transform&#x27;: &#x27;translate(-&#x27; + position.x + &#x27;, -&#x27; + position.y + &#x27;)&#x27;,
+        &#x27;-ms-transform&#x27;: &#x27;translate(-&#x27; + position.x + &#x27;, -&#x27; + position.y + &#x27;)&#x27;,
+        &#x27;-moz-transform&#x27;: &#x27;translate(-&#x27; + position.x + &#x27;, -&#x27; + position.y + &#x27;)&#x27;,
+        transform: &#x27;translate(-&#x27; + position.x + &#x27;, -&#x27; + position.y + &#x27;)&#x27;
+      });
+
+      // Resize a video, when it&#x27;s loaded
+      vide.$video.on(&#x27;canplaythrough.&#x27; + pluginName, function() {
+        vide.$video.css(&#x27;visibility&#x27;, &#x27;visible&#x27;);
+
+        // Force to play, important for Safari
+        vide.$video.prop(&#x27;autoplay&#x27;) &amp;&amp; vide.$video[0].play();
+
+        vide.resize();
+        vide.$wrapper.css(&#x27;background-image&#x27;, &#x27;none&#x27;);
+      });
+
+      // Resize event is available only for &#x27;window&#x27;
+      // Use another code solutions to detect DOM elements resizing
+      vide.$element.on(&#x27;resize.&#x27; + pluginName, function() {
+        if (vide.settings.resizing) {
+          vide.resize();
+        }
+      });
+    }
+  };
+
+  /**
+   * Get a video element
+   * @public
+   * @returns {HTMLVideoElement|null}
+   */
+  Vide.prototype.getVideoObject = function() {
+    return this.$video ? this.$video[0] : null;
+  };
+
+  /**
+   * Resize a video background
+   * @public
+   */
+  Vide.prototype.resize = function() {
+    if (!this.$video) {
+      return;
+    }
+
+    // Get a native video size
+    var videoHeight = this.$video[0].videoHeight;
+    var videoWidth = this.$video[0].videoWidth;
+
+    // Get a wrapper size
+    var wrapperHeight = this.$wrapper.height();
+    var wrapperWidth = this.$wrapper.width();
+
+    if (wrapperWidth / videoWidth &gt; wrapperHeight / videoHeight) {
+      this.$video.css({
+
+        // +2 pixels to prevent an empty space after transformation
+        width: wrapperWidth + 2,
+        height: &#x27;auto&#x27;
+      });
+    } else {
+      this.$video.css({
+        width: &#x27;auto&#x27;,
+
+        // +2 pixels to prevent an empty space after transformation
+        height: wrapperHeight + 2
+      });
+    }
+  };
+
+  /**
+   * Destroy a video background
+   * @public
+   */
+  Vide.prototype.destroy = function() {
+    this.$element.off(pluginName);
+
+    if (this.$video) {
+      this.$video.off(pluginName);
+    }
+
+    delete $[pluginName].lookup[this.index];
+    this.$element.removeData(pluginName);
+    this.$wrapper.remove();
+  };
+
+  /**
+   * Special plugin object for instances.
+   * @public
+   * @type {Object}
+   */
+  $[pluginName] = {
+    lookup: []
+  };
+
+  /**
+   * Plugin constructor
+   * @param {Object|String} path
+   * @param {Object|String} options
+   * @returns {JQuery}
+   * @constructor
+   */
+  $.fn[pluginName] = function(path, options) {
+    var instance;
+
+    this.each(function() {
+      instance = $.data(this, pluginName);
+
+      if (instance) {
+
+        // Destroy the plugin instance if exists
+        instance.destroy();
+      }
+
+      // Create the plugin instance
+      instance = new Vide(this, path, options);
+      instance.index = $[pluginName].lookup.push(instance) - 1;
+      $.data(this, pluginName, instance);
+    });
+
+    return this;
+  };
+
+  $(document).ready(function() {
+
+    // Window resize event listener
+    $(window).on(&#x27;resize.&#x27; + pluginName, function() {
+      for (var len = $[pluginName].lookup.length, i = 0, instance; i &lt; len; i++) {
+        instance = $[pluginName].lookup[i];
+
+        if (instance &amp;&amp; instance.settings.resizing) {
+          instance.resize();
+        }
+      }
+    });
+
+    // Auto initialization
+    // Add &#x27;data-vide-bg&#x27; attribute with a path to the video without extension
+    // Also you can pass options throw the &#x27;data-vide-options&#x27; attribute
+    // &#x27;data-vide-options&#x27; must be like &#x27;muted: false, volume: 0.5&#x27;
+    $(document).find(&#x27;[data-&#x27; + pluginName + &#x27;-bg]&#x27;).each(function(i, element) {
+      var $element = $(element);
+      var options = $element.data(pluginName + &#x27;-options&#x27;);
+      var path = $element.data(pluginName + &#x27;-bg&#x27;);
+
+      $element[pluginName](path, options);
+    });
+  });
+})(window.jQuery, window, document, navigator);
+
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

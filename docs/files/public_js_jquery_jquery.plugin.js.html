@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>public/js/jquery/jquery.plugin.js - Engagement Lab Website</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="Engagement Lab Website" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.3</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/about.html">about</a></li>
+                                <li><a href="../classes/academics.html">academics</a></li>
+                                <li><a href="../classes/category.html">category</a></li>
+                                <li><a href="../classes/directory.html">directory</a></li>
+                                <li><a href="../classes/EventEmitter Manages event registering and emitting..html">EventEmitter Manages event registering and emitting.</a></li>
+                                <li><a href="../classes/index.html">index</a></li>
+                                <li><a href="../classes/news.html">news</a></li>
+                                <li><a href="../classes/program.html">program</a></li>
+                                <li><a href="../classes/project.html">project</a></li>
+                                <li><a href="../classes/routes.middleware.html">routes.middleware</a></li>
+                                <li><a href="../classes/team.html">team</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/$.JQPlugin.html">$.JQPlugin</a></li>
+                                <li><a href="../modules/about.html">about</a></li>
+                                <li><a href="../modules/category.html">category</a></li>
+                                <li><a href="../modules/program.html">program</a></li>
+                                <li><a href="../modules/programs.html">programs</a></li>
+                                <li><a href="../modules/project.html">project</a></li>
+                                <li><a href="../modules/research.html">research</a></li>
+                                <li><a href="../modules/resource.html">resource</a></li>
+                                <li><a href="../modules/team.html">team</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: public/js/jquery/jquery.plugin.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/* Simple JavaScript Inheritance
+ * By John Resig http://ejohn.org/
+ * MIT Licensed.
+ */
+// Inspired by base2 and Prototype
+(function(){
+	var initializing = false;
+
+	// The base JQClass implementation (does nothing)
+	window.JQClass = function(){};
+
+	// Collection of derived classes
+	JQClass.classes = {};
+ 
+	// Create a new JQClass that inherits from this class
+	JQClass.extend = function extender(prop) {
+		var base = this.prototype;
+
+		// Instantiate a base class (but only create the instance,
+		// don&#x27;t run the init constructor)
+		initializing = true;
+		var prototype = new this();
+		initializing = false;
+
+		// Copy the properties over onto the new prototype
+		for (var name in prop) {
+			// Check if we&#x27;re overwriting an existing function
+			prototype[name] = typeof prop[name] == &#x27;function&#x27; &amp;&amp;
+				typeof base[name] == &#x27;function&#x27; ?
+				(function(name, fn){
+					return function() {
+						var __super = this._super;
+
+						// Add a new ._super() method that is the same method
+						// but on the super-class
+						this._super = function(args) {
+							return base[name].apply(this, args || []);
+						};
+
+						var ret = fn.apply(this, arguments);				
+
+						// The method only need to be bound temporarily, so we
+						// remove it when we&#x27;re done executing
+						this._super = __super;
+
+						return ret;
+					};
+				})(name, prop[name]) :
+				prop[name];
+		}
+
+		// The dummy class constructor
+		function JQClass() {
+			// All construction is actually done in the init method
+			if (!initializing &amp;&amp; this._init) {
+				this._init.apply(this, arguments);
+			}
+		}
+
+		// Populate our constructed prototype object
+		JQClass.prototype = prototype;
+
+		// Enforce the constructor to be what we expect
+		JQClass.prototype.constructor = JQClass;
+
+		// And make this class extendable
+		JQClass.extend = extender;
+
+		return JQClass;
+	};
+})();
+
+(function($) { // Ensure $, encapsulate
+
+	/** Abstract base class for collection plugins v1.0.1.
+		Written by Keith Wood (kbwood{at}iinet.com.au) December 2013.
+		Licensed under the MIT (http://keith-wood.name/licence.html) license.
+		@module $.JQPlugin
+		@abstract */
+	JQClass.classes.JQPlugin = JQClass.extend({
+
+		/** Name to identify this plugin.
+			@example name: &#x27;tabs&#x27; */
+		name: &#x27;plugin&#x27;,
+
+		/** Default options for instances of this plugin (default: {}).
+			@example defaultOptions: {
+ 	selectedClass: &#x27;selected&#x27;,
+ 	triggers: &#x27;click&#x27;
+ } */
+		defaultOptions: {},
+		
+		/** Options dependent on the locale.
+			Indexed by language and (optional) country code, with &#x27;&#x27; denoting the default language (English/US).
+			@example regionalOptions: {
+	&#x27;&#x27;: {
+		greeting: &#x27;Hi&#x27;
+	}
+ } */
+		regionalOptions: {},
+		
+		/** Names of getter methods - those that can&#x27;t be chained (default: []).
+			@example _getters: [&#x27;activeTab&#x27;] */
+		_getters: [],
+
+		/** Retrieve a marker class for affected elements.
+			@private
+			@return {string} The marker class. */
+		_getMarker: function() {
+			return &#x27;is-&#x27; + this.name;
+		},
+		
+		/** Initialise the plugin.
+			Create the jQuery bridge - plugin name &lt;code&gt;xyz&lt;/code&gt;
+			produces &lt;code&gt;$.xyz&lt;/code&gt; and &lt;code&gt;$.fn.xyz&lt;/code&gt;. */
+		_init: function() {
+			// Apply default localisations
+			$.extend(this.defaultOptions, (this.regionalOptions &amp;&amp; this.regionalOptions[&#x27;&#x27;]) || {});
+			// Camel-case the name
+			var jqName = camelCase(this.name);
+			// Expose jQuery singleton manager
+			$[jqName] = this;
+			// Expose jQuery collection plugin
+			$.fn[jqName] = function(options) {
+				var otherArgs = Array.prototype.slice.call(arguments, 1);
+				if ($[jqName]._isNotChained(options, otherArgs)) {
+					return $[jqName][options].apply($[jqName], [this[0]].concat(otherArgs));
+				}
+				return this.each(function() {
+					if (typeof options === &#x27;string&#x27;) {
+						if (options[0] === &#x27;_&#x27; || !$[jqName][options]) {
+							throw &#x27;Unknown method: &#x27; + options;
+						}
+						$[jqName][options].apply($[jqName], [this].concat(otherArgs));
+					}
+					else {
+						$[jqName]._attach(this, options);
+					}
+				});
+			};
+		},
+
+		/** Set default values for all subsequent instances.
+			@param options {object} The new default options.
+			@example $.plugin.setDefauls({name: value}) */
+		setDefaults: function(options) {
+			$.extend(this.defaultOptions, options || {});
+		},
+		
+		/** Determine whether a method is a getter and doesn&#x27;t permit chaining.
+			@private
+			@param name {string} The method name.
+			@param otherArgs {any[]} Any other arguments for the method.
+			@return {boolean} True if this method is a getter, false otherwise. */
+		_isNotChained: function(name, otherArgs) {
+			if (name === &#x27;option&#x27; &amp;&amp; (otherArgs.length === 0 ||
+					(otherArgs.length === 1 &amp;&amp; typeof otherArgs[0] === &#x27;string&#x27;))) {
+				return true;
+			}
+			return $.inArray(name, this._getters) &gt; -1;
+		},
+		
+		/** Initialise an element. Called internally only.
+			Adds an instance object as data named for the plugin.
+			@param elem {Element} The element to enhance.
+			@param options {object} Overriding settings. */
+		_attach: function(elem, options) {
+			elem = $(elem);
+			if (elem.hasClass(this._getMarker())) {
+				return;
+			}
+			elem.addClass(this._getMarker());
+			options = $.extend({}, this.defaultOptions, this._getMetadata(elem), options || {});
+			var inst = $.extend({name: this.name, elem: elem, options: options},
+				this._instSettings(elem, options));
+			elem.data(this.name, inst); // Save instance against element
+			this._postAttach(elem, inst);
+			this.option(elem, options);
+		},
+
+		/** Retrieve additional instance settings.
+			Override this in a sub-class to provide extra settings.
+			@param elem {jQuery} The current jQuery element.
+			@param options {object} The instance options.
+			@return {object} Any extra instance values.
+			@example _instSettings: function(elem, options) {
+ 	return {nav: elem.find(options.navSelector)};
+ } */
+		_instSettings: function(elem, options) {
+			return {};
+		},
+
+		/** Plugin specific post initialisation.
+			Override this in a sub-class to perform extra activities.
+			@param elem {jQuery} The current jQuery element.
+			@param inst {object} The instance settings.
+			@example _postAttach: function(elem, inst) {
+ 	elem.on(&#x27;click.&#x27; + this.name, function() {
+ 		...
+ 	});
+ } */
+		_postAttach: function(elem, inst) {
+		},
+
+		/** Retrieve metadata configuration from the element.
+			Metadata is specified as an attribute:
+			&lt;code&gt;data-&amp;lt;plugin name&gt;=&quot;&amp;lt;setting name&gt;: &#x27;&amp;lt;value&gt;&#x27;, ...&quot;&lt;/code&gt;.
+			Dates should be specified as strings in this format: &#x27;new Date(y, m-1, d)&#x27;.
+			@private
+			@param elem {jQuery} The source element.
+			@return {object} The inline configuration or {}. */
+		_getMetadata: function(elem) {
+			try {
+				var data = elem.data(this.name.toLowerCase()) || &#x27;&#x27;;
+				data = data.replace(/&#x27;/g, &#x27;&quot;&#x27;);
+				data = data.replace(/([a-zA-Z0-9]+):/g, function(match, group, i) { 
+					var count = data.substring(0, i).match(/&quot;/g); // Handle embedded &#x27;:&#x27;
+					return (!count || count.length % 2 === 0 ? &#x27;&quot;&#x27; + group + &#x27;&quot;:&#x27; : group + &#x27;:&#x27;);
+				});
+				data = $.parseJSON(&#x27;{&#x27; + data + &#x27;}&#x27;);
+				for (var name in data) { // Convert dates
+					var value = data[name];
+					if (typeof value === &#x27;string&#x27; &amp;&amp; value.match(/^new Date\((.*)\)$/)) {
+						data[name] = eval(value);
+					}
+				}
+				return data;
+			}
+			catch (e) {
+				return {};
+			}
+		},
+
+		/** Retrieve the instance data for element.
+			@param elem {Element} The source element.
+			@return {object} The instance data or {}. */
+		_getInst: function(elem) {
+			return $(elem).data(this.name) || {};
+		},
+		
+		/** Retrieve or reconfigure the settings for a plugin.
+			@param elem {Element} The source element.
+			@param name {object|string} The collection of new option values or the name of a single option.
+			@param [value] {any} The value for a single named option.
+			@return {any|object} If retrieving a single value or all options.
+			@example $(selector).plugin(&#x27;option&#x27;, &#x27;name&#x27;, value)
+ $(selector).plugin(&#x27;option&#x27;, {name: value, ...})
+ var value = $(selector).plugin(&#x27;option&#x27;, &#x27;name&#x27;)
+ var options = $(selector).plugin(&#x27;option&#x27;) */
+		option: function(elem, name, value) {
+			elem = $(elem);
+			var inst = elem.data(this.name);
+			if  (!name || (typeof name === &#x27;string&#x27; &amp;&amp; value == null)) {
+				var options = (inst || {}).options;
+				return (options &amp;&amp; name ? options[name] : options);
+			}
+			if (!elem.hasClass(this._getMarker())) {
+				return;
+			}
+			var options = name || {};
+			if (typeof name === &#x27;string&#x27;) {
+				options = {};
+				options[name] = value;
+			}
+			this._optionsChanged(elem, inst, options);
+			$.extend(inst.options, options);
+		},
+		
+		/** Plugin specific options processing.
+			Old value available in &lt;code&gt;inst.options[name]&lt;/code&gt;, new value in &lt;code&gt;options[name]&lt;/code&gt;.
+			Override this in a sub-class to perform extra activities.
+			@param elem {jQuery} The current jQuery element.
+			@param inst {object} The instance settings.
+			@param options {object} The new options.
+			@example _optionsChanged: function(elem, inst, options) {
+ 	if (options.name != inst.options.name) {
+ 		elem.removeClass(inst.options.name).addClass(options.name);
+ 	}
+ } */
+		_optionsChanged: function(elem, inst, options) {
+		},
+		
+		/** Remove all trace of the plugin.
+			Override &lt;code&gt;_preDestroy&lt;/code&gt; for plugin-specific processing.
+			@param elem {Element} The source element.
+			@example $(selector).plugin(&#x27;destroy&#x27;) */
+		destroy: function(elem) {
+			elem = $(elem);
+			if (!elem.hasClass(this._getMarker())) {
+				return;
+			}
+			this._preDestroy(elem, this._getInst(elem));
+			elem.removeData(this.name).removeClass(this._getMarker());
+		},
+
+		/** Plugin specific pre destruction.
+			Override this in a sub-class to perform extra activities and undo everything that was
+			done in the &lt;code&gt;_postAttach&lt;/code&gt; or &lt;code&gt;_optionsChanged&lt;/code&gt; functions.
+			@param elem {jQuery} The current jQuery element.
+			@param inst {object} The instance settings.
+			@example _preDestroy: function(elem, inst) {
+ 	elem.off(&#x27;.&#x27; + this.name);
+ } */
+		_preDestroy: function(elem, inst) {
+		}
+	});
+	
+	/** Convert names from hyphenated to camel-case.
+		@private
+		@param value {string} The original hyphenated name.
+		@return {string} The camel-case version. */
+	function camelCase(name) {
+		return name.replace(/-([a-z])/g, function(match, group) {
+			return group.toUpperCase();
+		});
+	}
+	
+	/** Expose the plugin base.
+		@namespace &quot;$.JQPlugin&quot; */
+	$.JQPlugin = {
+	
+		/** Create a new collection plugin.
+			@memberof &quot;$.JQPlugin&quot;
+			@param [superClass=&#x27;JQPlugin&#x27;] {string} The name of the parent class to inherit from.
+			@param overrides {object} The property/function overrides for the new class.
+			@example $.JQPlugin.createPlugin({
+ 	name: &#x27;tabs&#x27;,
+ 	defaultOptions: {selectedClass: &#x27;selected&#x27;},
+ 	_initSettings: function(elem, options) { return {...}; },
+ 	_postAttach: function(elem, inst) { ... }
+ }); */
+		createPlugin: function(superClass, overrides) {
+			if (typeof superClass === &#x27;object&#x27;) {
+				overrides = superClass;
+				superClass = &#x27;JQPlugin&#x27;;
+			}
+			superClass = camelCase(superClass);
+			var className = camelCase(overrides.name);
+			JQClass.classes[className] = JQClass.classes[superClass].extend(overrides);
+			new JQClass.classes[className]();
+		}
+	};
+
+})(jQuery);
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
