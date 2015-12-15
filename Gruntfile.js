@@ -1,3 +1,11 @@
+/* 
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+==============
+ Gruntfile.js
+ Grunt task config.
+==============
+*/
 'use strict()';
 
 var config= {
@@ -11,6 +19,15 @@ module.exports = function(grunt) {
 
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
+
+	// periodic jobs
+	grunt.loadNpmTasks('grunt-periodic');
+
+	// node jobs
+	grunt.loadNpmTasks('grunt-execute');
+
+	// forever
+	grunt.loadNpmTasks('grunt-forever');
 
 	var options = {
 		config: {
@@ -41,28 +58,41 @@ module.exports = function(grunt) {
 		},
     
     concat: {
-        dist: {
-            src: ['public/css/**/*.css', 
-			            'public/plugins/**/*.css',
-			            'public/fonts/**/*.css'],
-            dest: 'public/release/tmp/concat.css'
-        }
+      dist: {
+          src: ['public/css/**/*.css', 
+		            'public/plugins/**/*.css',
+		            'public/fonts/**/*.css'],
+          dest: 'public/release/tmp/concat.css'
+      }
     },
 		
 		cssmin: {
 		  target: {
+		  	options: { keepSpecialComments: 0 },
 		    files: { 'public/release/style.min.css': ['public/release/tmp/concat.css'] }
 		  }
 		},
 
-	  /*confirm: {
+		execute: {
+			news: {
+				src: ['jobs/news.js']
+			}
+		},
+
+	  confirm: {
 	    restore: {
 	      options: { 
-	        question: 'Be careful, cowboy! You will be overriding the current database with the data in /dump/engagement-lab. Proceed?',
+	        question: 'Easy, action, easy! You will be overriding the current database with the data in /dump/engagement-lab. Proceed?',
+	        input: '_key:y'
+	      }
+	    },
+	    shutdown: {
+	      options: { 
+	        question: 'You are about to SHUT DOWN the production server. Are you sure?!',
 	        input: '_key:y'
 	      }
 	    }
-	  },*/
+	  },
 
 	  //TODO: mongorestore -h ds053370.mongolab.com:53370 -d heroku_npvs26cw -u heroku_npvs26cw -p ak1h7ut2fgjsgs7lr6nt3lukkb dump/engagement-lab --drop
 		mongobin: {
@@ -80,7 +110,17 @@ module.exports = function(grunt) {
 	    dump: {
 	        out: './dump/'
 	    }
-	  }
+	  },
+
+	  // production daemon
+	  forever: {
+		  keystone: {
+		    options: {
+		      index: 'keystone.js',
+		      logDir: 'logs'
+		    }
+		  }
+		}
 
 	};
 
@@ -89,32 +129,45 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig(configs);
 
+	// load periodic
+	grunt.registerTask('news', [
+		'periodic'
+	]);
+
 	// load jshint
 	grunt.registerTask('lint', [
 		'jshint'
 	]);
 
-	grunt.registerTask('dev', [
-		'sass',
-		'watch'
+	grunt.registerTask('news', [
+		'execute:news'
 	]);
 
+	grunt.registerTask('exportdata', ['mongobin:dump']);
+	grunt.registerTask('importdata', ['confirm:restore', 'mongobin:restore']);
+
+	grunt.registerTask('alldone', function() {
+	  grunt.log.writeln('>>>>>>>> Code was minified and production server is running! <<<<<<<<');
+	});
+
 	// default option to connect server
-	grunt.registerTask('serve', [
+	grunt.registerTask('default', [
+		'periodic:news',
 		'jshint',
 		'concurrent:dev'
 	]);
 
-	grunt.registerTask('server', function () {
-		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-		grunt.task.run(['serve:' + target]);
-	});
+	grunt.registerTask('production', [
+		'uglify',
+		'concat',
+		'cssmin',
+		'forever:keystone:start',
+		'alldone'
+	]);
 
-	grunt.registerTask('default', ['concat', 'uglify']);
-
-	grunt.registerTask('exportdata', ['mongobin:dump']);
-	grunt.registerTask('importdata', ['mongobin:restore']);
-
-	grunt.registerTask('production', ['uglify', 'concat', 'cssmin']);
+	grunt.registerTask('kill', [
+		'confirm:shutdown',
+		'forever:keystone:stop'
+	]);
 
 };

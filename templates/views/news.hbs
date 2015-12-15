@@ -62,40 +62,40 @@
 						<div class="col-md-8">
 							<h1 class="page-title">Blog Feed</h1>
 							<div class="separator-2 mb-20"></div>
-							{{#each blog}}
-							{{jsonPrint this}}
-							<!-- blogpost start -->
-							<article class="blogpost">
-								<div class="row grid-space-10">
-									<div class="col-md-6">
-										<div class="overlay-container">
-											<img src="images/blog-2.jpg" alt="">
-											<a class="overlay-link" href="blog-post.html"><i class="fa fa-link"></i></a>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<header>
-											<h2><a href="blog-post.html">{{title}}</a></h2>
-											<div class="post-info">
-												<span class="post-date">
-													<i class="icon-calendar"></i>
-													<span class="day">{{date published format='DD'}}</span>
-													<span class="month">{{date published format='MM YYYY'}}</span>
-												</span>
-												<span class="submitted"><i class="icon-user-1"></i> by <a href="#">{{author}}</a></span>
-												<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
+							{{!-- {{jsonPrint news}} --}}
+							{{#each news}}
+								<!-- blogpost start -->
+								<article class="blogpost">
+									<div class="row grid-space-10">
+										<div class="col-md-6">
+											<div class="overlay-container">
+												<img src="{{image}}" alt="">
+												<a class="overlay-link" href="{{url}}"><i class="fa fa-link"></i></a>
 											</div>
-										</header>
-										<div class="blogpost-content">
-											<p>{{{content}}}</p>
+										</div>
+										<div class="col-md-6">
+											<header>
+												<h2><a href="{{url}}">{{title}}</a></h2>
+												<div class="post-info">
+													<span class="post-date">
+														<i class="icon-calendar"></i>
+														<span class="month">{{date published format='MM-DD-YYYY'}}</span>
+														{{!-- <span class="day">{{date published format=''}}</span> --}}
+													</span>
+													<span class="submitted"><i class="icon-user-1"></i> by {{author}}</span>
+													{{!-- <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span> --}}
+												</div>
+											</header>
+											<div class="blogpost-content">
+												<p>"...{{{content}}}..."</p>
+											</div>
 										</div>
 									</div>
-								</div>
-								<footer class="clearfix">
-									<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-									<div class="link pull-right"><i class="icon-link"></i><a href="{{link}}">Read More</a></div>
-								</footer>
-							</article>
+									<footer class="clearfix">
+										<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
+										<div class="link pull-right"><i class="icon-link"></i><a href="{{url}}">Read More</a></div>
+									</footer>
+								</article>
 							{{/each}}
 						</div>
 						<!-- blog end -->

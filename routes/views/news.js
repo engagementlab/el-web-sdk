@@ -14,49 +14,32 @@
  */
 var keystone = require('keystone');
 
-// HTTP requester
-var request = require('request');
-// RSS reader
-var feed = require("feed-read");
+// News data propagated by ./jobs/news
+var store = require('json-fs-store')('./tmp');
 
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res),
         locals = res.locals;
 
-    var eventsParams = {
-        host: 'http://eventbriteapi.com',
-        path: '/v3/users/me/owned_events/?token=HC62RVWGRYQNBDLBNVFQ&status=live'
-    };
-    var blogParams = {
-        host: 'https://medium.com',
-        path: '/feed/@Engagement_Lab'
-    };
-
     // Init locals
     locals.section = 'news';
 
-    // Load the current project
+    // Load current news content
     view.on('init', function(next) {
 
-        // Setup the locals to be used inside view
-        // First get events feed
-        request(eventsParams.host + eventsParams.path, function(error, response, body) {
+        store.load('newsContent', function(err, newsData) {
 
-            if (!error && response.statusCode == 200)
-                locals.events = JSON.parse(body).events;
+            // err if JSON parsing failed
+            if(err) throw err;
 
-            // Next get Medium RSS feed
-            feed(blogParams.host + blogParams.path, function(err, articles) {
+            locals.news = newsData.news;
+            locals.events = newsData.events;
 
-                locals.blog = articles;
-
-                next(err);
-
-            });
+            next(err);
 
         });
-
+    
     });
 
     // Render the view

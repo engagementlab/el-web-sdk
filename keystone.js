@@ -20,9 +20,7 @@ keystone.init({
 	'brand': 'Engagement Lab',
 	
 	'sass': 'public',
-	/*'sass options': {
-		debug: true
-	},*/
+	
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',

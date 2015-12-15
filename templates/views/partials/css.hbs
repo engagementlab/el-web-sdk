@@ -1,13 +1,13 @@
 {{!< default}}
 {{!-- 
 /**
- * Engagement Lab Website
- * Developed by Engagement Lab, 2015
- * ==============
- * 
- * Document includes partial 
- * ==========
- */
+	* Engagement Lab Website
+	* Developed by Engagement Lab, 2015
+	* ==============
+	* 
+	* Document includes partial 
+	* ==========
+	*/
 --}}
 
 <!-- DOCS START -->
@@ -22,11 +22,12 @@
 {{!-- <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'> --}}
 
 {{#ifeq environment "development"}}
+
 	{{!-- DEVELOPMENT --}}
 	<!-- Bootstrap core CSS -->
 	<link href="/styles/bootstrap/bootstrap.css" rel="stylesheet">
 
-	<link href="/styles/site.css" rel="stylesheet" >
+	<link href="/styles/site.css" rel="stylesheet">
 	<link href="/css/animations.css" rel="stylesheet">
 
 	<!-- Font Awesome CSS -->
@@ -43,8 +44,10 @@
 	<link href="/plugins/hover/hover-min.css" rel="stylesheet">
 
 {{else}}
+
 	{{!-- PRODUCTION --}}
 	<link href="/styles/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="/release/style.min.css" rel="stylesheet">
 
 {{/ifeq}}
 
