@@ -12,8 +12,6 @@
 var keystone = require('keystone');
 // See: https://github.com/chriso/validator.js
 var validator = require('validator');
-
-
 var Types = keystone.Field.Types;
 
 /**
@@ -21,14 +19,15 @@ var Types = keystone.Field.Types;
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var Project = new keystone.List('Project', {
-    sortable: true,
-    autokey: {
-        path: 'key',
-        from: 'name',
-        unique: true
-    }
-});
+var Project = new keystone.List('Project', 
+                          {
+                            sortable: true,
+                            autokey: {
+                                    path: 'key',
+                                    from: 'name',
+                                    unique: true
+                                }
+                          });
 
 /**
  * Field Validators
@@ -75,8 +74,20 @@ Project.add({
     category: {
         type: Types.Relationship,
         ref: 'Category',
+        filters: { isProjectCategory: true, isSubcategory: false },
         required: true,
         initial: true
+    },
+    subCategory: { 
+        type: Types.Relationship,
+        ref: 'Category',
+        label: 'Subcategory',
+        filters: { isProjectCategory: false, isSubcategory: true },
+        initial: true 
+    },
+    featured: { 
+        type: Types.Boolean,
+        label: 'Featured'
     },
     byline: {
         type: String,
@@ -221,6 +232,6 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
 /**
  * Model Registration
  */
-Project.defaultSort = '-createdAt';
-Project.defaultColumns = 'name, byline';
+Project.defaultSort = 'sortOrder';
+Project.defaultColumns = 'name, category, featured';
 Project.register();

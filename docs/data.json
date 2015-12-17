@@ -1,0 +1,4904 @@
+{
+    "project": {
+        "name": "Engagement Lab Website",
+        "url": "https://github.com/engagementgamelab/EL-Website",
+        "version": "0.0.3"
+    },
+    "files": {
+        "models/About.js": {
+            "name": "models/About.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/Academics.js": {
+            "name": "models/Academics.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/CaptionImage.js": {
+            "name": "models/CaptionImage.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/Category.js": {
+            "name": "models/Category.js",
+            "modules": {
+                "category": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/Person.js": {
+            "name": "models/Person.js",
+            "modules": {
+                "team": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/Program.js": {
+            "name": "models/Program.js",
+            "modules": {
+                "program": 1
+            },
+            "classes": {
+                "program": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/Project.js": {
+            "name": "models/Project.js",
+            "modules": {
+                "project": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/Publication.js": {
+            "name": "models/Publication.js",
+            "modules": {
+                "about": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/Resource.js": {
+            "name": "models/Resource.js",
+            "modules": {
+                "resource": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/User.js": {
+            "name": "models/User.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/js/jquery/jquery-2.1.4.js": {
+            "name": "public/js/jquery/jquery-2.1.4.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/js/jquery/jquery.plugin.js": {
+            "name": "public/js/jquery/jquery.plugin.js",
+            "modules": {
+                "$.JQPlugin": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/isotope/isotope.pkgd.js": {
+            "name": "public/plugins/isotope/isotope.pkgd.js",
+            "modules": {},
+            "classes": {
+                "EventEmitter Manages event registering and emitting.": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/magnific-popup/jquery.magnific-popup.js": {
+            "name": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js": {
+            "name": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js": {
+            "name": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/rs-plugin/js/jquery.themepunch.tools.min.js": {
+            "name": "public/plugins/rs-plugin/js/jquery.themepunch.tools.min.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/vide/jquery.vide.js": {
+            "name": "public/plugins/vide/jquery.vide.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/SmoothScroll.js": {
+            "name": "public/plugins/SmoothScroll.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "public/plugins/jquery.js": {
+            "name": "public/plugins/jquery.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/research/category.js": {
+            "name": "routes/views/research/category.js",
+            "modules": {
+                "research": 1
+            },
+            "classes": {
+                "category": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/research/directory.js": {
+            "name": "routes/views/research/directory.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/research/project.js": {
+            "name": "routes/views/research/project.js",
+            "modules": {},
+            "classes": {
+                "project": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/about.js": {
+            "name": "routes/views/about.js",
+            "modules": {},
+            "classes": {
+                "about": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/academics.js": {
+            "name": "routes/views/academics.js",
+            "modules": {},
+            "classes": {
+                "academics": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/index.js": {
+            "name": "routes/views/index.js",
+            "modules": {},
+            "classes": {
+                "index": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/news.js": {
+            "name": "routes/views/news.js",
+            "modules": {},
+            "classes": {
+                "news": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/people.js": {
+            "name": "routes/views/people.js",
+            "modules": {},
+            "classes": {
+                "team": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/views/programs.js": {
+            "name": "routes/views/programs.js",
+            "modules": {
+                "programs": 1
+            },
+            "classes": {
+                "directory": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/index.js": {
+            "name": "routes/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/middleware.js": {
+            "name": "routes/middleware.js",
+            "modules": {},
+            "classes": {
+                "routes.middleware": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "routes": 1
+            }
+        },
+        "templates/views/helpers/index.js": {
+            "name": "templates/views/helpers/index.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "updates/0.0.1-admins.js": {
+            "name": "updates/0.0.1-admins.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "about": {
+            "name": "about",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "models/Publication.js",
+            "line": 1,
+            "description": "Engagement Lab Website\n\nPublication page Model",
+            "author": "Johnny Richardson\n\nFor field docs: http://keystonejs.com/docs/database/\n\n==========",
+            "is_constructor": 1
+        },
+        "category": {
+            "name": "category",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "models/Category.js",
+            "line": 1,
+            "description": "Engagement Lab Website\n\nPage category Model",
+            "author": "Johnny Richardson\n\nFor field docs: http://keystonejs.com/docs/database/\n\n==========",
+            "is_constructor": 1
+        },
+        "team": {
+            "name": "team",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "models/Person.js",
+            "line": 1,
+            "description": "Engagement Lab Website\n\nPerson page parent Model",
+            "author": "Johnny Richardson\n\nFor field docs: http://keystonejs.com/docs/database/\n\n==========",
+            "is_constructor": 1
+        },
+        "program": {
+            "name": "program",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "program": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "models/Program.js",
+            "line": 1,
+            "description": "Engagement Lab Website\n\nProgram Model",
+            "author": "Johnny Richardson\n\nFor field docs: http://keystonejs.com/docs/database/\n\n==========",
+            "is_constructor": 1
+        },
+        "project": {
+            "name": "project",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "models/Project.js",
+            "line": 1,
+            "description": "Engagement Lab Website\n\nProject Model",
+            "author": "Johnny Richardson\n\nFor field docs: http://keystonejs.com/docs/database/\n\n==========",
+            "is_constructor": 1
+        },
+        "resource": {
+            "name": "resource",
+            "submodules": {},
+            "elements": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "models/Resource.js",
+            "line": 1,
+            "description": "Engagement Lab Website\n\nResource page Model",
+            "author": "Johnny Richardson\n\nFor field docs: http://keystonejs.com/docs/database/\n\n==========",
+            "is_constructor": 1
+        },
+        "$.JQPlugin": {
+            "name": "$.JQPlugin",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "EventEmitter Manages event registering and emitting.": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 308,
+            "description": "Written by Keith Wood (kbwood{at}iinet.com.au) December 2013.\nLicensed under the MIT (http://keith-wood.name/licence.html) license."
+        },
+        "research": {
+            "name": "research",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "category": 1,
+                "project": 1,
+                "about": 1,
+                "academics": 1,
+                "index": 1,
+                "news": 1,
+                "team": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "routes/views/people.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nResearch projects category view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview",
+            "static": 1,
+            "author": "Johnny Richardson\n\n=========="
+        },
+        "programs": {
+            "name": "programs",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "directory": 1,
+                "routes.middleware": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "routes": 1
+            },
+            "tag": "module",
+            "file": "routes/middleware.js",
+            "line": 4,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nPrograms directory view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview",
+            "static": 1,
+            "author": "Johnny Richardson\n\n=========="
+        }
+    },
+    "classes": {
+        "category": {
+            "name": "category",
+            "shortname": "category",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "research",
+            "namespace": "",
+            "file": "routes/views/research/category.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nResearch projects category view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview"
+        },
+        "program": {
+            "name": "program",
+            "shortname": "program",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "program",
+            "namespace": "",
+            "file": "models/Program.js",
+            "line": 1,
+            "description": "Engagement Lab Website\n\nProgram Model"
+        },
+        "EventEmitter Manages event registering and emitting.": {
+            "name": "EventEmitter Manages event registering and emitting.",
+            "shortname": "EventEmitter Manages event registering and emitting.",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "$.JQPlugin",
+            "namespace": "",
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 308,
+            "description": "Class for managing events.\nCan be extended to provide event functionality in other classes."
+        },
+        "directory": {
+            "name": "directory",
+            "shortname": "directory",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "programs",
+            "namespace": "",
+            "file": "routes/views/programs.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nPrograms directory view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview"
+        },
+        "project": {
+            "name": "project",
+            "shortname": "project",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "research",
+            "namespace": "",
+            "file": "routes/views/research/project.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nResearch projects directory view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview"
+        },
+        "about": {
+            "name": "about",
+            "shortname": "about",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "research",
+            "namespace": "",
+            "file": "routes/views/about.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nAbout page view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview",
+            "static": 1,
+            "author": "Johnny Richardson\n\n=========="
+        },
+        "academics": {
+            "name": "academics",
+            "shortname": "academics",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "research",
+            "namespace": "",
+            "file": "routes/views/academics.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nAcademics page view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview",
+            "static": 1,
+            "author": "Johnny Richardson\n\n=========="
+        },
+        "index": {
+            "name": "index",
+            "shortname": "index",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "research",
+            "namespace": "",
+            "file": "routes/views/index.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nHome page view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview",
+            "static": 1,
+            "author": "Johnny Richardson\n\n=========="
+        },
+        "news": {
+            "name": "news",
+            "shortname": "news",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "research",
+            "namespace": "",
+            "file": "routes/views/news.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nNews/blog page view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview",
+            "static": 1,
+            "author": "Johnny Richardson\n\n=========="
+        },
+        "team": {
+            "name": "team",
+            "shortname": "team",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "research",
+            "namespace": "",
+            "file": "routes/views/people.js",
+            "line": 1,
+            "description": "Engagement Lab Website\nDeveloped by Engagement Lab, 2015\n==============\nPeople view controller.\n\nHelp: http://keystonejs.com/docs/getting-started/#routesviews-firstview",
+            "static": 1,
+            "author": "Johnny Richardson\n\n=========="
+        },
+        "routes.middleware": {
+            "name": "routes.middleware",
+            "shortname": "routes.middleware",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "programs",
+            "namespace": "routes",
+            "file": "routes/middleware.js",
+            "line": 4,
+            "description": "Route middleware\nThis file contains the common middleware used by all routes. Extend or replace these functions as the application requires.",
+            "author": "Johnny Richardson",
+            "is_constructor": 1,
+            "static": 1
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "models/About.js",
+            "line": 30,
+            "description": "Model Fields",
+            "mainName": "About",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "category",
+            "module": "about"
+        },
+        {
+            "file": "models/About.js",
+            "line": 42,
+            "description": "Model Registration",
+            "class": "category",
+            "module": "about"
+        },
+        {
+            "file": "models/Academics.js",
+            "line": 30,
+            "description": "Model Fields",
+            "mainName": "Academics",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "category",
+            "module": "about"
+        },
+        {
+            "file": "models/Academics.js",
+            "line": 41,
+            "description": "Model Registration",
+            "class": "category",
+            "module": "about"
+        },
+        {
+            "file": "models/CaptionImage.js",
+            "line": 4,
+            "description": "CaptionImage Model\n==================",
+            "class": "category",
+            "module": "about"
+        },
+        {
+            "file": "models/CaptionImage.js",
+            "line": 20,
+            "description": "Relationships\n=============",
+            "class": "category",
+            "module": "about"
+        },
+        {
+            "file": "models/Category.js",
+            "line": 30,
+            "description": "Local Methods\n=============",
+            "class": "category",
+            "module": "category"
+        },
+        {
+            "file": "models/Category.js",
+            "line": 38,
+            "description": "Model Fields",
+            "mainName": "Category",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "category",
+            "module": "category"
+        },
+        {
+            "file": "models/Category.js",
+            "line": 67,
+            "description": "Methods\n=============",
+            "class": "category",
+            "module": "category"
+        },
+        {
+            "file": "models/Category.js",
+            "line": 76,
+            "description": "Relationships\n=============",
+            "class": "category",
+            "module": "category"
+        },
+        {
+            "file": "models/Category.js",
+            "line": 82,
+            "description": "Caching\n=============",
+            "class": "category",
+            "module": "category"
+        },
+        {
+            "file": "models/Category.js",
+            "line": 89,
+            "description": "Model Registration",
+            "class": "category",
+            "module": "category"
+        },
+        {
+            "file": "models/Person.js",
+            "line": 28,
+            "description": "Model Fields",
+            "mainName": "Person",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "program",
+            "module": "team"
+        },
+        {
+            "file": "models/Person.js",
+            "line": 45,
+            "description": "Model Registration",
+            "class": "program",
+            "module": "team"
+        },
+        {
+            "file": "models/Program.js",
+            "line": 25,
+            "description": "Field Validators",
+            "mainName": "Project",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "program",
+            "module": "program"
+        },
+        {
+            "file": "models/Program.js",
+            "line": 41,
+            "description": "Model Fields",
+            "mainName": "Program",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "program",
+            "module": "program"
+        },
+        {
+            "file": "models/Program.js",
+            "line": 67,
+            "description": "Model Registration",
+            "class": "program",
+            "module": "program"
+        },
+        {
+            "file": "models/Project.js",
+            "line": 32,
+            "description": "Field Validators",
+            "mainName": "Project",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "project"
+        },
+        {
+            "file": "models/Project.js",
+            "line": 63,
+            "description": "Model Fields",
+            "mainName": "Project",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "project"
+        },
+        {
+            "file": "models/Project.js",
+            "line": 203,
+            "description": "Methods\n=============",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "project"
+        },
+        {
+            "file": "models/Project.js",
+            "line": 232,
+            "description": "Model Registration",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "project"
+        },
+        {
+            "file": "models/Publication.js",
+            "line": 28,
+            "description": "Model Fields",
+            "mainName": "Publication",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "about"
+        },
+        {
+            "file": "models/Publication.js",
+            "line": 53,
+            "description": "Model Registration",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "about"
+        },
+        {
+            "file": "models/Resource.js",
+            "line": 25,
+            "description": "Model Fields",
+            "mainName": "Resource",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "models/Resource.js",
+            "line": 54,
+            "description": "Relationships\n=============",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "models/Resource.js",
+            "line": 77,
+            "description": "Model Registration",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "models/User.js",
+            "line": 4,
+            "description": "User Model\n==========",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "models/User.js",
+            "line": 25,
+            "description": "Registration",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 858,
+            "description": "Create key-value caches of limited size",
+            "return": {
+                "description": "Returns the Object data after storing it on itself with\n\tproperty name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)\n\tdeleting the oldest entry",
+                "type": "Function(string, Object)"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 878,
+            "description": "Mark a function for special use by Sizzle",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "The function to mark",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 887,
+            "description": "Support testing using an element",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "Passed the created div and expects a boolean result",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 908,
+            "description": "Adds the same handler for all of the specified attrs",
+            "params": [
+                {
+                    "name": "attrs",
+                    "description": "Pipe-separated list of attributes",
+                    "type": "String"
+                },
+                {
+                    "name": "handler",
+                    "description": "The method that will be applied",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 922,
+            "description": "Checks document order of two siblings",
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "return": {
+                "description": "Returns less than 0 if a precedes b, greater than 0 if a follows b",
+                "type": "Number"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 951,
+            "description": "Returns a function to use in pseudos for input types",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 962,
+            "description": "Returns a function to use in pseudos for buttons",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 973,
+            "description": "Returns a function to use in pseudos for positionals",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 995,
+            "description": "Checks a node for validity as a Sizzle context",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element|Object="
+                }
+            ],
+            "return": {
+                "description": "The input node if acceptable, otherwise a falsy value",
+                "type": "Element|Object|Boolean"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 1007,
+            "description": "Detects XML nodes",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "An element or a document",
+                    "type": "Element|Object"
+                }
+            ],
+            "return": {
+                "description": "True iff elem is a non-HTML XML node",
+                "type": "Boolean"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 1019,
+            "description": "Sets document-related variables once based on the current document",
+            "params": [
+                {
+                    "name": "doc",
+                    "description": "An element or document object to use to set the document",
+                    "type": "Element|Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Returns the current document",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 1461,
+            "description": "Document sorting and removing duplicates",
+            "params": [
+                {
+                    "name": "results",
+                    "description": "",
+                    "type": "ArrayLike"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 1494,
+            "description": "Utility function for retrieving the text value of an array of DOM nodes",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Array|Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 2467,
+            "description": "A low-level selection function that works with Sizzle's compiled\n selector functions",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "A selector or a pre-compiled\n selector function built with Sizzle.compile",
+                    "type": "String|Function"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "results",
+                    "description": "",
+                    "type": "Array",
+                    "optional": true
+                },
+                {
+                    "name": "seed",
+                    "description": "A set of elements to match against",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 3427,
+            "description": "The ready event handler and self cleanup method",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 3520,
+            "description": "Determines whether an object can have data",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 5478,
+            "description": "Retrieve the actual display of a element",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "nodeName of the element",
+                    "type": "String"
+                },
+                {
+                    "name": "doc",
+                    "description": "Document object",
+                    "type": "Object"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 5502,
+            "description": "Try to determine the default display value of an element",
+            "params": [
+                {
+                    "name": "nodeName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 8830,
+            "description": "Load a url into a page",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery-2.1.4.js",
+            "line": 8914,
+            "description": "Gets a window from an element",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "resource"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 82,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 86,
+            "example": [
+                " defaultOptions: {\n \tselectedClass: 'selected',\n \ttriggers: 'click'"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 93,
+            "description": "Indexed by language and (optional) country code, with '' denoting the default language (English/US).",
+            "example": [
+                " regionalOptions: {\n\t'': {\n\t\tgreeting: 'Hi'\n\t}"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 102,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 106,
+            "access": "private",
+            "tagname": "",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 113,
+            "description": "Create the jQuery bridge - plugin name <code>xyz</code>",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 143,
+            "params": [
+                {
+                    "name": "options",
+                    "description": "The new default options.",
+                    "type": "Object"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 150,
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The method name.",
+                    "type": "String"
+                },
+                {
+                    "name": "otherArgs",
+                    "description": "Any other arguments for the method.",
+                    "type": "Any[]"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 163,
+            "description": "Adds an instance object as data named for the plugin.",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The element to enhance.",
+                    "type": "Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 181,
+            "description": "Override this in a sub-class to provide extra settings.",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The current jQuery element.",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "options",
+                    "description": "The instance options.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Any extra instance values.",
+                "type": "Object"
+            },
+            "example": [
+                " _instSettings: function(elem, options) {\n \treturn {nav: elem.find(options.navSelector)};"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 193,
+            "description": "Override this in a sub-class to perform extra activities.",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The current jQuery element.",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "inst",
+                    "description": "The instance settings.",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                " _postAttach: function(elem, inst) {\n \telem.on('click.' + this.name, function() {\n \t\t...\n \t});"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 205,
+            "description": "Metadata is specified as an attribute:\n<code>data-&lt;plugin name>=\"&lt;setting name>: '&lt;value>', ...\"</code>.\nDates should be specified as strings in this format: 'new Date(y, m-1, d)'.",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The source element.",
+                    "type": "JQuery"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 234,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The source element.",
+                    "type": "Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 241,
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The source element.",
+                    "type": "Element"
+                },
+                {
+                    "name": "name",
+                    "description": "The collection of new option values or the name of a single option.",
+                    "type": "Object|string"
+                },
+                {
+                    "name": "value",
+                    "description": "The value for a single named option.",
+                    "type": "Any",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "If retrieving a single value or all options.",
+                "type": "Any|object"
+            },
+            "example": [
+                " $(selector).plugin('option', 'name', value)\n $(selector).plugin('option', {name: value, ...})\n var value = $(selector).plugin('option', 'name')"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 269,
+            "description": "Old value available in <code>inst.options[name]</code>, new value in <code>options[name]</code>.\nOverride this in a sub-class to perform extra activities.",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The current jQuery element.",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "inst",
+                    "description": "The instance settings.",
+                    "type": "Object"
+                },
+                {
+                    "name": "options",
+                    "description": "The new options.",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                " _optionsChanged: function(elem, inst, options) {\n \tif (options.name != inst.options.name) {\n \t\telem.removeClass(inst.options.name).addClass(options.name);\n \t}"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 283,
+            "description": "Override <code>_preDestroy</code> for plugin-specific processing.",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The source element.",
+                    "type": "Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 296,
+            "description": "Override this in a sub-class to perform extra activities and undo everything that was\ndone in the <code>_postAttach</code> or <code>_optionsChanged</code> functions.",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "The current jQuery element.",
+                    "type": "JQuery"
+                },
+                {
+                    "name": "inst",
+                    "description": "The instance settings.",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                " _preDestroy: function(elem, inst) {\n \telem.off('.' + this.name);"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 308,
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The original hyphenated name.",
+                    "type": "String"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 318,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/js/jquery/jquery.plugin.js",
+            "line": 322,
+            "memberof": "\"$.JQPlugin\"",
+            "params": [
+                {
+                    "name": "superClass",
+                    "description": "The name of the parent class to inherit from.",
+                    "type": "String",
+                    "optional": true,
+                    "optdefault": "'JQPlugin'"
+                },
+                {
+                    "name": "overrides",
+                    "description": "The property/function overrides for the new class.",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                " $.JQPlugin.createPlugin({\n \tname: 'tabs',\n \tdefaultOptions: {selectedClass: 'selected'},\n \t_initSettings: function(elem, options) { return {...}; },\n \t_postAttach: function(elem, inst) { ... }"
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 7,
+            "description": "Bridget makes jQuery widgets\nv1.0.1",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 33,
+            "description": "adds option method -> $().plugin('option', {...})",
+            "params": [
+                {
+                    "name": "PluginClass",
+                    "description": "- constructor class",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 63,
+            "description": "jQuery plugin bridge, access methods like $elem.plugin('method')",
+            "params": [
+                {
+                    "name": "namespace",
+                    "description": "- plugin name",
+                    "type": "String"
+                },
+                {
+                    "name": "PluginClass",
+                    "description": "- constructor class",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 119,
+            "description": "converts a Prototypical class into a proper jQuery plugin\n  the class must have a ._init method",
+            "params": [
+                {
+                    "name": "namespace",
+                    "description": "- plugin name, used in $().pluginName",
+                    "type": "String"
+                },
+                {
+                    "name": "PluginClass",
+                    "description": "- constructor class",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 321,
+            "description": "Finds the index of the listener for the event in it's storage array.",
+            "params": [
+                {
+                    "name": "listeners",
+                    "description": "Array of listeners to search through.",
+                    "type": "Function[]"
+                },
+                {
+                    "name": "listener",
+                    "description": "Method to look for.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "Index of the specified listener, -1 if not found",
+                "type": "Number"
+            },
+            "api": "private",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 340,
+            "description": "Alias a method while keeping the context correct, to allow for overwriting of target method.",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "The name of the target method.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "The aliased method",
+                "type": "Function"
+            },
+            "api": "private",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 353,
+            "description": "Returns the listener array for the specified event.\nWill initialise the event object and listener arrays if required.\nWill return an object if you use a regex search. The object contains keys for each matched event. So /ba[rz]/ might return an object containing bar and baz. But only if you have either defined them with defineEvent or added some listeners to them.\nEach property in the object response is an array of listener functions.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to return the listeners from.",
+                    "type": "String|RegExp"
+                }
+            ],
+            "return": {
+                "description": "All listener functions for the event.",
+                "type": "Function[]|Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 384,
+            "description": "Takes a list of listener objects and flattens it into a list of listener functions.",
+            "params": [
+                {
+                    "name": "listeners",
+                    "description": "Raw listener objects.",
+                    "type": "Object[]"
+                }
+            ],
+            "return": {
+                "description": "Just the listener functions.",
+                "type": "Function[]"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 401,
+            "description": "Fetches the requested listeners via getListeners but will always return the results inside an object. This is mainly for internal use but others may find it useful.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to return the listeners from.",
+                    "type": "String|RegExp"
+                }
+            ],
+            "return": {
+                "description": "All listener functions for an event in an object.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 419,
+            "description": "Adds a listener function to the specified event.\nThe listener will not be added if it is a duplicate.\nIf the listener returns true then it will be removed after it is called.\nIf you pass a regular expression as the event name then the listener will be added to all events that match it.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to attach the listener to.",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "listener",
+                    "description": "Method to be called when the event is emitted. If the function returns true then it will be removed after calling.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 446,
+            "description": "Alias of addListener",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 451,
+            "description": "Semi-alias of addListener. It will add a listener that will be\nautomatically removed after it's first execution.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to attach the listener to.",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "listener",
+                    "description": "Method to be called when the event is emitted. If the function returns true then it will be removed after calling.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 466,
+            "description": "Alias of addOnceListener.",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 471,
+            "description": "Defines an event name. This is required if you want to use a regex to add a listener to multiple events at once. If you don't do this then how do you expect it to know what event to add to? Should it just add to every possible match for a regex? No. That is scary and bad.\nYou need to tell it what event names should be matched by a regex.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to create.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 483,
+            "description": "Uses defineEvent to define multiple events.",
+            "params": [
+                {
+                    "name": "evts",
+                    "description": "An array of event names to define.",
+                    "type": "String[]"
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 496,
+            "description": "Removes a listener function from the specified event.\nWhen passed a regular expression as the event name, it will remove the listener from all events that match it.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to remove the listener from.",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "listener",
+                    "description": "Method to remove from the event.",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 522,
+            "description": "Alias of removeListener",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 527,
+            "description": "Adds listeners in bulk using the manipulateListeners method.\nIf you pass an object as the second argument you can add to multiple events at once. The object should contain key value pairs of events and listeners or listener arrays. You can also pass it an event name and an array of listeners to be added.\nYou can also pass it a regular expression to add the array of listeners to all events that match it.\nYeah, this function does quite a bit. That's probably a bad thing.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "An event name if you will pass an array of listeners next. An object if you wish to add to multiple events at once.",
+                    "type": "String|Object|RegExp"
+                },
+                {
+                    "name": "listeners",
+                    "description": "An optional array of listener functions to add.",
+                    "type": "Function[]",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 542,
+            "description": "Removes listeners in bulk using the manipulateListeners method.\nIf you pass an object as the second argument you can remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.\nYou can also pass it an event name and an array of listeners to be removed.\nYou can also pass it a regular expression to remove the listeners from all events that match it.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "An event name if you will pass an array of listeners next. An object if you wish to remove from multiple events at once.",
+                    "type": "String|Object|RegExp"
+                },
+                {
+                    "name": "listeners",
+                    "description": "An optional array of listener functions to remove.",
+                    "type": "Function[]",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 557,
+            "description": "Edits listeners in bulk. The addListeners and removeListeners methods both use this to do their job. You should really use those instead, this is a little lower level.\nThe first argument will determine if the listeners are removed (true) or added (false).\nIf you pass an object as the second argument you can add/remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.\nYou can also pass it an event name and an array of listeners to be added/removed.\nYou can also pass it a regular expression to manipulate the listeners of all events that match it.",
+            "params": [
+                {
+                    "name": "remove",
+                    "description": "True if you want to remove listeners, false if you want to add.",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "evt",
+                    "description": "An event name if you will pass an array of listeners next. An object if you wish to add/remove from multiple events at once.",
+                    "type": "String|Object|RegExp"
+                },
+                {
+                    "name": "listeners",
+                    "description": "An optional array of listener functions to add/remove.",
+                    "type": "Function[]",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 603,
+            "description": "Removes all listeners from a specified event.\nIf you do not specify an event then all listeners will be removed.\nThat means every event will be emptied.\nYou can also pass a regex to remove all events that match it.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Optional name of the event to remove all listeners for. Will remove from every event if not passed.",
+                    "type": "String|RegExp",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 638,
+            "description": "Alias of removeEvent.\n\nAdded to mirror the node API.",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 645,
+            "description": "Emits an event of your choice.\nWhen emitted, every listener attached to that event will be executed.\nIf you pass the optional argument array then those arguments will be passed to every listener upon execution.\nBecause it uses `apply`, your array of arguments will be passed as if you wrote them out separately.\nSo they will not arrive within the array on the other side, they will be separate.\nYou can also pass a regular expression to emit to all events that match it.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to emit and execute listeners for.",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "args",
+                    "description": "Optional array of arguments to be passed to each listener.",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 689,
+            "description": "Alias of emitEvent",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 694,
+            "description": "Subtly different from emitEvent in that it will pass its arguments on to the listeners, as opposed to taking a single array of arguments to pass on.\nAs with emitEvent, you can pass a regex in place of the event name to emit to all events that match it.",
+            "params": [
+                {
+                    "name": "evt",
+                    "description": "Name of the event to emit and execute listeners for.",
+                    "type": "String|RegExp"
+                },
+                {
+                    "name": "Optional",
+                    "description": "additional arguments to be passed to each listener.",
+                    "type": "...*"
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 707,
+            "description": "Sets the current value to check against when executing listeners. If a\nlisteners return value matches the one set here then it will be removed\nafter execution. This value defaults to true.",
+            "params": [
+                {
+                    "name": "value",
+                    "description": "The new value to check for when executing listeners.",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "Current instance of EventEmitter for chaining.",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 720,
+            "description": "Fetches the current value to check against when executing listeners. If\nthe listeners return value matches this one then it should be removed\nautomatically. It will return true by default.",
+            "return": {
+                "description": "The current value to check for or the default, true.",
+                "type": "*|Boolean"
+            },
+            "api": "private",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 737,
+            "description": "Fetches the events object and creates one if required.",
+            "return": {
+                "description": "The events storage object.",
+                "type": "Object"
+            },
+            "api": "private",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 747,
+            "description": "Reverts the global {@link EventEmitter} to its previous value and returns a reference to this version.",
+            "return": {
+                "description": "Non conflicting EventEmitter class.",
+                "type": "Function"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 826,
+            "description": "getSize v1.1.7\nmeasure size of elements",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 899,
+            "description": "WebKit measures the outer-width on style.width on border-box elems\nIE & Firefox measures the inner-width",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1041,
+            "description": "matchesSelector helper v1.0.1",
+            "name": "matchesSelector",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "selector",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1144,
+            "description": "Outlayer Item",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1272,
+            "description": "apply CSS styles to element",
+            "params": [
+                {
+                    "name": "style",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1399,
+            "params": [
+                {
+                    "name": "style",
+                    "description": "- CSS",
+                    "type": "Object"
+                },
+                {
+                    "name": "onTransitionEnd",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1415,
+            "description": "proper transition",
+            "params": [
+                {
+                    "name": "args",
+                    "description": "- arguments",
+                    "type": "Object"
+                },
+                {
+                    "name": "to",
+                    "description": "- style to transition to",
+                    "type": "Object"
+                },
+                {
+                    "name": "from",
+                    "description": "- style to start transition from",
+                    "type": "Object"
+                },
+                {
+                    "name": "isCleaning",
+                    "description": "- removes transition styles after transition",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "onTransitionEnd",
+                    "description": "- callback",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1546,
+            "description": "removes style property from element",
+            "params": [
+                {
+                    "name": "style",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1767,
+            "params": [
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "Element, String"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1834,
+            "description": "set options",
+            "params": [
+                {
+                    "name": "opts",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1864,
+            "description": "turn elements into Outlayer.Items to be used in layout",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array or NodeList or HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "items - collection of new Outlayer Items",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1885,
+            "description": "get item elements to be used in layout",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array or NodeList or HTMLElement"
+                }
+            ],
+            "return": {
+                "description": "items - item elements",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1922,
+            "description": "getter method for getting item elements",
+            "return": {
+                "description": "elems - collection of item elements",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1936,
+            "description": "lays out all items",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1955,
+            "description": "logic before any new layout",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1967,
+            "description": "get measurement from option, for columnWidth, rowHeight, gutter\nif option is String -> get element from selector string, & get size of element\nif option is Element -> get size of element\nelse use option as a number",
+            "params": [
+                {
+                    "name": "measurement",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "size",
+                    "description": "- width or height",
+                    "type": "String"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 1995,
+            "description": "layout a collection of item elements",
+            "api": "public",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2007,
+            "description": "get the items to be laid out\nyou may want to skip over some items",
+            "params": [
+                {
+                    "name": "items",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "items",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2024,
+            "description": "layout items",
+            "params": [
+                {
+                    "name": "items",
+                    "description": "",
+                    "type": "Array"
+                },
+                {
+                    "name": "isInstant",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2059,
+            "description": "get item layout position",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "",
+                    "type": "Outlayer.Item"
+                }
+            ],
+            "return": {
+                "description": "x and y position",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2071,
+            "description": "iterate over array and position each item\nReason being - separating this logic prevents 'layout invalidation'\nthx @paul_irish",
+            "params": [
+                {
+                    "name": "queue",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2084,
+            "description": "Sets position of item in DOM",
+            "params": [
+                {
+                    "name": "item",
+                    "description": "",
+                    "type": "Outlayer.Item"
+                },
+                {
+                    "name": "x",
+                    "description": "- horizontal position",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "- vertical position",
+                    "type": "Number"
+                },
+                {
+                    "name": "isInstant",
+                    "description": "- disables transitions",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2100,
+            "description": "Any logic you want to do after each layout,\ni.e. size the container",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2119,
+            "description": "Sets width or height of container if returned",
+            "return": {
+                "description": "size",
+                "type": "Object"
+            },
+            "params": [
+                {
+                    "name": "width",
+                    "description": "",
+                    "type": "Number"
+                },
+                {
+                    "name": "height",
+                    "description": "",
+                    "type": "Number"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2127,
+            "params": [
+                {
+                    "name": "measure",
+                    "description": "- size of width or height",
+                    "type": "Number"
+                },
+                {
+                    "name": "isWidth",
+                    "description": "",
+                    "type": "Boolean"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2149,
+            "description": "trigger a callback for a collection of items events",
+            "params": [
+                {
+                    "name": "items",
+                    "description": "- Outlayer.Items",
+                    "type": "Array"
+                },
+                {
+                    "name": "eventName",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2177,
+            "description": "keep item in collection, but do not lay it out\nignored items do not get skipped in layout",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2189,
+            "description": "return item to layout collection",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2200,
+            "description": "adds elements to stamps",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "NodeList, Array, Element, or String"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2218,
+            "description": "removes elements to stamps",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "NodeList, Array, or Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2237,
+            "description": "finds child elements",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "NodeList, Array, Element, or String"
+                }
+            ],
+            "return": {
+                "description": "elems",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2280,
+            "params": [
+                {
+                    "name": "stamp",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2285,
+            "description": "get x/y position of element relative to container element",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "return": {
+                "description": "offset - has left, top, right, bottom",
+                "type": "Object"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2314,
+            "description": "Bind layout to window resizing",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2326,
+            "description": "Unbind layout to window resizing",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2365,
+            "description": "check if layout is needed post layout",
+            "return": {
+                "description": "Boolean"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2379,
+            "description": "add items to Outlayer instance",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array or NodeList or Element"
+                }
+            ],
+            "return": {
+                "description": "items - Outlayer.Items",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2393,
+            "description": "Layout newly-appended item elements",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array or NodeList or Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2407,
+            "description": "Layout prepended elements",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array or NodeList or Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2429,
+            "description": "reveal a collection of items",
+            "params": [
+                {
+                    "name": "items",
+                    "description": "",
+                    "type": "Array of Outlayer.Items"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2444,
+            "description": "hide a collection of items",
+            "params": [
+                {
+                    "name": "items",
+                    "description": "",
+                    "type": "Array of Outlayer.Items"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2459,
+            "description": "get Outlayer.Item, given an Element",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "item",
+                "type": "Outlayer.Item"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2476,
+            "description": "get collection of Outlayer.Items, given Elements",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "items - Outlayer.Items",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2497,
+            "description": "remove element(s) from instance and DOM",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array or NodeList or Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2549,
+            "description": "get Outlayer instance from element",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Outlayer"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2562,
+            "description": "create a layout class",
+            "params": [
+                {
+                    "name": "namespace",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2599,
+            "description": "allow user to initialize Outlayer via .js-namespace class\noptions are parsed from data-namespace-option attribute",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2678,
+            "description": "Isotope Item",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2764,
+            "description": "some methods should just defer to default Outlayer method\nand reference the Isotope instance as `this`",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 2816,
+            "description": "get columnWidth or rowHeight\nsegment: 'column' or 'row'\nsize 'Width' or 'Height'",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 3009,
+            "params": [
+                {
+                    "name": "colSpan",
+                    "description": "- number of columns the element spans",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "colGroup",
+                "type": "Array"
+            },
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 3552,
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 3575,
+            "params": [
+                {
+                    "name": "items",
+                    "description": "- of Isotope.Items",
+                    "type": "Array"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 3773,
+            "description": "Filter, sort, and layout newly-appended item elements",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "",
+                    "type": "Array or NodeList or Element"
+                }
+            ],
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/isotope/isotope.pkgd.js",
+            "line": 3838,
+            "description": "trigger fn without transition\nkind of hacky to have this in the first place",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "ret"
+            },
+            "access": "private",
+            "tagname": "",
+            "class": "EventEmitter Manages event registering and emitting.",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 18,
+            "description": "Magnific Popup Core JS file",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 25,
+            "description": "Private static constants",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 42,
+            "description": "Private vars",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 57,
+            "description": "Private functions",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 126,
+            "description": "Public functions",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 133,
+            "description": "Initializes Magnific Popup plugin. \nThis function is triggered only once when $.fn.magnificPopup or $.magnificPopup is executed",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 154,
+            "description": "Opens popup",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "[description]"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 386,
+            "description": "Closes the popup",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 405,
+            "description": "Helper for close() function",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 480,
+            "description": "Set content of popup based on current index",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 541,
+            "description": "Set HTML content of popup",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 570,
+            "description": "Creates Magnific Popup data object based on given data",
+            "params": [
+                {
+                    "name": "index",
+                    "description": "Index of item to parse",
+                    "type": "Int"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 612,
+            "description": "Initializes single popup or a group of popups",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 681,
+            "description": "Updates text on preloader",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 830,
+            "description": "Public static functions",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 1245,
+            "description": "Function that loops until the image has size to display elements that rely on it asap",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 1692,
+            "description": "Get looped index depending on number of slides",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/magnific-popup/jquery.magnific-popup.js",
+            "line": 1965,
+            "description": "FastClick event implementation. (removes 300ms delay on touch devices)\nBased on https://developers.google.com/mobile/articles/fast_buttons\n\nYou may use it outside the Magnific Popup by calling just:\n\n$('.your-el').mfpFastClick(function() {\n    console.log('Clicked!');\n});\n\nTo unbind:\n$('.your-el').destroyMfpFastClick();\n\n\nNote that it's a very basic and simple implementation, it blocks ghost click on the same element where it was bound.\nIf you need something more advanced, use plugin by FT Labs https://github.com/ftlabs/fastclick",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 1,
+            "description": "jquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider",
+            "version": ": 4.6.4 (26.11.2014)",
+            "requires": [
+                "jQuery v1.7 or later (tested on 1.9)"
+            ],
+            "author": "ThemePunch",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 350,
+            "description": "-\tIS IOS VERSION OLDER THAN 5 ??\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 723,
+            "description": "-\tFULLSCREEN CHANGE\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 809,
+            "description": "-\tMODULES\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 1010,
+            "description": "-\tCHECK IF BROWSER IS IE\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 1445,
+            "description": "-\tHANDLING OF PREVIEWS AND CUSTOM PREVIEWS\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 2012,
+            "description": "-\tMOVE IE8 IMAGE IN RIGHT POSITION\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 2079,
+            "description": "-\tPREPARE LOADING OF IMAGES\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 2254,
+            "description": "-\tSWAP SLIDE PROGRESS\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 2326,
+            "description": "-\tSTART THE LAYER ANIMATION \t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 3473,
+            "description": "-\tGIVE FREE THE TRANSITIOSN\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5053,
+            "description": "-\tCAPTION LOOPS\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5657,
+            "description": "Revolution Slider - PAN ZOOM MODULE",
+            "version": ": 1.0 (03.06.2013)",
+            "author": "ThemePunch",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5663,
+            "description": "-\tKEN BURN BACKGROUND FIT CALCULATOR\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5688,
+            "description": "-\tstartKenBurn\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5809,
+            "description": "-\tCALCULATE KENBURNS IMAGE POSITIONS\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5877,
+            "description": "-\tGET ROTATION DEGREES\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5896,
+            "description": "-\tSTOP KEN BURN\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5935,
+            "description": "Revolution Slider - PARALLAX MODULE",
+            "version": ": 1.1 (23.06.2013)",
+            "author": "ThemePunch",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 5941,
+            "description": "-\tPARALLAX EFFECT\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 6050,
+            "description": "-\tSET POST OF SCROLL PARALLAX\t-",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.js",
+            "line": 6079,
+            "description": "Revolution Slider - THUMBNAIL MODULE",
+            "version": ": 1.0 (03.06.2013)",
+            "author": "ThemePunch",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js",
+            "line": 1,
+            "description": "jquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider",
+            "version": ": 4.6.4 (26.11.2014)",
+            "requires": [
+                "jQuery v1.7 or later (tested on 1.9)"
+            ],
+            "author": "ThemePunch",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/rs-plugin/js/jquery.themepunch.tools.min.js",
+            "line": 3,
+            "description": "-\tTHEMEPUNCH TOOLS Ver. 1.0     -\n Last Update of Tools 17.11.2014",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 12,
+            "description": "Name of the plugin",
+            "access": "private",
+            "tagname": "",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 18,
+            "description": "Default settings",
+            "access": "private",
+            "tagname": "",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 33,
+            "description": "Is iOs?",
+            "access": "private",
+            "tagname": "",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 39,
+            "description": "Is Android?",
+            "access": "private",
+            "tagname": "",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 45,
+            "description": "Parse a string with options",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object|String"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 106,
+            "description": "Parse a position option",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "str",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 153,
+            "description": "Search a poster",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 170,
+            "description": "Vide constructor",
+            "params": [
+                {
+                    "name": "element",
+                    "description": "",
+                    "type": "HTMLElement"
+                },
+                {
+                    "name": "path",
+                    "description": "",
+                    "type": "Object|String"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object|String"
+                }
+            ],
+            "is_constructor": 1,
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 209,
+            "description": "Initialization",
+            "access": "public",
+            "tagname": "",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 345,
+            "description": "Get a video element",
+            "access": "public",
+            "tagname": "",
+            "return": {
+                "description": "",
+                "type": "HTMLVideoElement|null"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 354,
+            "description": "Resize a video background",
+            "access": "public",
+            "tagname": "",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 388,
+            "description": "Destroy a video background",
+            "access": "public",
+            "tagname": "",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 404,
+            "description": "Special plugin object for instances.",
+            "access": "public",
+            "tagname": "",
+            "type": "{Object}",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/vide/jquery.vide.js",
+            "line": 413,
+            "description": "Plugin constructor",
+            "params": [
+                {
+                    "name": "path",
+                    "description": "",
+                    "type": "Object|String"
+                },
+                {
+                    "name": "options",
+                    "description": "",
+                    "type": "Object|String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "JQuery"
+            },
+            "is_constructor": 1,
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 67,
+            "description": "SETTINGS",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 74,
+            "description": "INITIALIZE",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 78,
+            "description": "Tests if smooth scrolling is allowed. Shuts down everything if not.",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 95,
+            "description": "Sets up scrolls array, determines if frames are involved.",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 119,
+            "description": "This fixes a bug where the areas left and right to \nthe content does not trigger the onmousewheel event\non some pages. e.g.: html, body { height: 100% }",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 158,
+            "description": "SCROLLING",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 166,
+            "description": "Pushes scroll actions to the scrolling queue.",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 269,
+            "description": "EVENTS",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 273,
+            "description": "Mouse wheel handler.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 321,
+            "description": "Keydown event handler.",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "",
+                    "type": "Object"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 392,
+            "description": "Mousedown event only for updating activeElement",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 400,
+            "description": "OVERFLOW",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 443,
+            "description": "HELPERS",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 497,
+            "description": "PULSE",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/SmoothScroll.js",
+            "line": 501,
+            "description": "Viscous fluid with a pulse for part and decay for the rest.\n- Applies a fixed force over an interval (a damped acceleration), and\n- Lets the exponential bleed away the velocity over a longer interval\n- Michael Herf, http://stereopsis.com/stopping/",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 882,
+            "description": "Create key-value caches of limited size",
+            "return": {
+                "description": "Returns the Object data after storing it on itself with\n\tproperty name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)\n\tdeleting the oldest entry",
+                "type": "Function(string, Object)"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 902,
+            "description": "Mark a function for special use by Sizzle",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "The function to mark",
+                    "type": "Function"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 911,
+            "description": "Support testing using an element",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "Passed the created div and expects a boolean result",
+                    "type": "Function"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 932,
+            "description": "Adds the same handler for all of the specified attrs",
+            "params": [
+                {
+                    "name": "attrs",
+                    "description": "Pipe-separated list of attributes",
+                    "type": "String"
+                },
+                {
+                    "name": "handler",
+                    "description": "The method that will be applied",
+                    "type": "Function"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 946,
+            "description": "Checks document order of two siblings",
+            "params": [
+                {
+                    "name": "a",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "b",
+                    "description": "",
+                    "type": "Element"
+                }
+            ],
+            "return": {
+                "description": "Returns less than 0 if a precedes b, greater than 0 if a follows b",
+                "type": "Number"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 975,
+            "description": "Returns a function to use in pseudos for input types",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 986,
+            "description": "Returns a function to use in pseudos for buttons",
+            "params": [
+                {
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 997,
+            "description": "Returns a function to use in pseudos for positionals",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "",
+                    "type": "Function"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 1019,
+            "description": "Checks a node for validity as a Sizzle context",
+            "params": [
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element|Object="
+                }
+            ],
+            "return": {
+                "description": "The input node if acceptable, otherwise a falsy value",
+                "type": "Element|Object|Boolean"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 1031,
+            "description": "Detects XML nodes",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "An element or a document",
+                    "type": "Element|Object"
+                }
+            ],
+            "return": {
+                "description": "True iff elem is a non-HTML XML node",
+                "type": "Boolean"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 1043,
+            "description": "Sets document-related variables once based on the current document",
+            "params": [
+                {
+                    "name": "doc",
+                    "description": "An element or document object to use to set the document",
+                    "type": "Element|Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Returns the current document",
+                "type": "Object"
+            },
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 1476,
+            "description": "Document sorting and removing duplicates",
+            "params": [
+                {
+                    "name": "results",
+                    "description": "",
+                    "type": "ArrayLike"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 1509,
+            "description": "Utility function for retrieving the text value of an array of DOM nodes",
+            "params": [
+                {
+                    "name": "elem",
+                    "description": "",
+                    "type": "Array|Element"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 2476,
+            "description": "A low-level selection function that works with Sizzle's compiled\n selector functions",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "A selector or a pre-compiled\n selector function built with Sizzle.compile",
+                    "type": "String|Function"
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "type": "Element"
+                },
+                {
+                    "name": "results",
+                    "description": "",
+                    "type": "Array",
+                    "optional": true
+                },
+                {
+                    "name": "seed",
+                    "description": "A set of elements to match against",
+                    "type": "Array",
+                    "optional": true
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 3453,
+            "description": "Clean-up method for dom ready events",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 3467,
+            "description": "The ready event handler and self cleanup method",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 3614,
+            "description": "Determines whether an object can have data",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 6001,
+            "description": "Retrieve the actual display of a element",
+            "params": [
+                {
+                    "name": "name",
+                    "description": "nodeName of the element",
+                    "type": "String"
+                },
+                {
+                    "name": "doc",
+                    "description": "Document object",
+                    "type": "Object"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 6025,
+            "description": "Try to determine the default display value of an element",
+            "params": [
+                {
+                    "name": "nodeName",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 9936,
+            "description": "Load a url into a page",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "public/plugins/jquery.js",
+            "line": 10011,
+            "description": "Gets a window from an element",
+            "class": "category",
+            "module": "$.JQPlugin"
+        },
+        {
+            "file": "routes/index.js",
+            "line": 1,
+            "description": "This file is where you define your application routes and controllers.\n\nStart by including the middleware you want to run for every request;\nyou can attach middleware to the pre('routes') and pre('render') events.\n\nFor simplicity, the default setup for route controllers is for each to be\nin its own file, and we import all the files in the /routes/views directory.\n\nEach of these files is a route controller, and is responsible for all the\nprocessing that needs to happen for the route (e.g. loading data, handling\nform submissions, rendering the view template, etc).\n\nBind each route pattern your application should respond to in the function\nthat is exported from this module, following the examples below.\n\nSee the Express application routing documentation for more information:\nhttp://expressjs.com/api.html#app.VERB",
+            "class": "routes.middleware",
+            "module": "programs"
+        },
+        {
+            "file": "routes/middleware.js",
+            "line": 18,
+            "description": "DB Models for use on nav (cached query)",
+            "class": "routes.middleware",
+            "module": "programs",
+            "namespace": "routes"
+        },
+        {
+            "file": "routes/middleware.js",
+            "line": 27,
+            "description": "Initialises the standard view locals\n\nThe included layout depends on the navLinks array to generate\nthe navigation in the header, you may wish to change this array\nor replace it with your own templates / logic.",
+            "class": "routes.middleware",
+            "module": "programs",
+            "namespace": "routes"
+        },
+        {
+            "file": "routes/middleware.js",
+            "line": 87,
+            "description": "Fetches and clears the flashMessages before a view is rendered",
+            "class": "routes.middleware",
+            "module": "programs",
+            "namespace": "routes"
+        },
+        {
+            "file": "routes/middleware.js",
+            "line": 109,
+            "description": "Prevents people from accessing protected pages when they're not signed in",
+            "class": "routes.middleware",
+            "module": "programs",
+            "namespace": "routes"
+        },
+        {
+            "file": "templates/views/helpers/index.js",
+            "line": 22,
+            "description": "Generic HBS Helpers\n===================",
+            "class": "",
+            "module": "programs",
+            "namespace": "routes"
+        },
+        {
+            "file": "templates/views/helpers/index.js",
+            "line": 37,
+            "description": "Port of Ghost helpers to support cross-theming\n==============================================\n\nAlso used in the default keystonejs-hbs theme",
+            "class": "",
+            "module": "programs",
+            "namespace": "routes"
+        },
+        {
+            "file": "templates/views/helpers/index.js",
+            "line": 142,
+            "description": "KeystoneJS specific helpers\n===========================",
+            "class": "",
+            "module": "programs",
+            "namespace": "routes"
+        },
+        {
+            "file": "updates/0.0.1-admins.js",
+            "line": 1,
+            "description": "This script automatically creates a default Admin user when an\nempty database is used for the first time. You can use this\ntechnique to insert data into any List you have defined.\n\nAlternatively, you can export a custom function for the update:\nmodule.exports = function(done) { ... }",
+            "class": "",
+            "module": "programs",
+            "namespace": "routes"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/js/jquery/jquery-2.1.4.js:858"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/js/jquery/jquery-2.1.4.js:922"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/js/jquery/jquery-2.1.4.js:995"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/js/jquery/jquery-2.1.4.js:1007"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/js/jquery/jquery-2.1.4.js:1019"
+        },
+        {
+            "message": "unknown tag: memberof",
+            "line": " public/js/jquery/jquery.plugin.js:322"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " public/plugins/isotope/isotope.pkgd.js:321"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " public/plugins/isotope/isotope.pkgd.js:340"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " public/plugins/isotope/isotope.pkgd.js:720"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " public/plugins/isotope/isotope.pkgd.js:737"
+        },
+        {
+            "message": "unknown tag: name",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1041"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1864"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1885"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1922"
+        },
+        {
+            "message": "unknown tag: api",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1995"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2007"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2059"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2119"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2237"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2285"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2365"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2379"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2459"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2476"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2549"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3009"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3552"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3575"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3838"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:1"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5657"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5935"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:6079"
+        },
+        {
+            "message": "unknown tag: version",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js:1"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/vide/jquery.vide.js:45"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/vide/jquery.vide.js:106"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/vide/jquery.vide.js:345"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/vide/jquery.vide.js:413"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/jquery.js:882"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/jquery.js:946"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/jquery.js:1019"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/jquery.js:1031"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " public/plugins/jquery.js:1043"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/About.js:42"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/Academics.js:41"
+        },
+        {
+            "message": "Missing item type\nCaptionImage Model\n==================",
+            "line": " models/CaptionImage.js:4"
+        },
+        {
+            "message": "Missing item type\nRelationships\n=============",
+            "line": " models/CaptionImage.js:20"
+        },
+        {
+            "message": "Missing item type\nLocal Methods\n=============",
+            "line": " models/Category.js:30"
+        },
+        {
+            "message": "Missing item type\nMethods\n=============",
+            "line": " models/Category.js:67"
+        },
+        {
+            "message": "Missing item type\nRelationships\n=============",
+            "line": " models/Category.js:76"
+        },
+        {
+            "message": "Missing item type\nCaching\n=============",
+            "line": " models/Category.js:82"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/Category.js:89"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/Person.js:45"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/Program.js:67"
+        },
+        {
+            "message": "Missing item type\nMethods\n=============",
+            "line": " models/Project.js:203"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/Project.js:232"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/Publication.js:53"
+        },
+        {
+            "message": "Missing item type\nRelationships\n=============",
+            "line": " models/Resource.js:54"
+        },
+        {
+            "message": "Missing item type\nModel Registration",
+            "line": " models/Resource.js:77"
+        },
+        {
+            "message": "Missing item type\nUser Model\n==========",
+            "line": " models/User.js:4"
+        },
+        {
+            "message": "Missing item type\nRegistration",
+            "line": " models/User.js:25"
+        },
+        {
+            "message": "Missing item type\nCreate key-value caches of limited size",
+            "line": " public/js/jquery/jquery-2.1.4.js:858"
+        },
+        {
+            "message": "Missing item type\nMark a function for special use by Sizzle",
+            "line": " public/js/jquery/jquery-2.1.4.js:878"
+        },
+        {
+            "message": "Missing item type\nSupport testing using an element",
+            "line": " public/js/jquery/jquery-2.1.4.js:887"
+        },
+        {
+            "message": "Missing item type\nAdds the same handler for all of the specified attrs",
+            "line": " public/js/jquery/jquery-2.1.4.js:908"
+        },
+        {
+            "message": "Missing item type\nChecks document order of two siblings",
+            "line": " public/js/jquery/jquery-2.1.4.js:922"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for input types",
+            "line": " public/js/jquery/jquery-2.1.4.js:951"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for buttons",
+            "line": " public/js/jquery/jquery-2.1.4.js:962"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for positionals",
+            "line": " public/js/jquery/jquery-2.1.4.js:973"
+        },
+        {
+            "message": "Missing item type\nChecks a node for validity as a Sizzle context",
+            "line": " public/js/jquery/jquery-2.1.4.js:995"
+        },
+        {
+            "message": "Missing item type\nDetects XML nodes",
+            "line": " public/js/jquery/jquery-2.1.4.js:1007"
+        },
+        {
+            "message": "Missing item type\nSets document-related variables once based on the current document",
+            "line": " public/js/jquery/jquery-2.1.4.js:1019"
+        },
+        {
+            "message": "Missing item type\nDocument sorting and removing duplicates",
+            "line": " public/js/jquery/jquery-2.1.4.js:1461"
+        },
+        {
+            "message": "Missing item type\nUtility function for retrieving the text value of an array of DOM nodes",
+            "line": " public/js/jquery/jquery-2.1.4.js:1494"
+        },
+        {
+            "message": "Missing item type\nA low-level selection function that works with Sizzle's compiled\n selector functions",
+            "line": " public/js/jquery/jquery-2.1.4.js:2467"
+        },
+        {
+            "message": "Missing item type\nThe ready event handler and self cleanup method",
+            "line": " public/js/jquery/jquery-2.1.4.js:3427"
+        },
+        {
+            "message": "Missing item type\nDetermines whether an object can have data",
+            "line": " public/js/jquery/jquery-2.1.4.js:3520"
+        },
+        {
+            "message": "Missing item type\nRetrieve the actual display of a element",
+            "line": " public/js/jquery/jquery-2.1.4.js:5478"
+        },
+        {
+            "message": "Missing item type\nTry to determine the default display value of an element",
+            "line": " public/js/jquery/jquery-2.1.4.js:5502"
+        },
+        {
+            "message": "Missing item type\nLoad a url into a page",
+            "line": " public/js/jquery/jquery-2.1.4.js:8830"
+        },
+        {
+            "message": "Missing item type\nGets a window from an element",
+            "line": " public/js/jquery/jquery-2.1.4.js:8914"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:82"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:86"
+        },
+        {
+            "message": "Missing item type\nIndexed by language and (optional) country code, with '' denoting the default language (English/US).",
+            "line": " public/js/jquery/jquery.plugin.js:93"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:102"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:106"
+        },
+        {
+            "message": "Missing item type\nCreate the jQuery bridge - plugin name <code>xyz</code>",
+            "line": " public/js/jquery/jquery.plugin.js:113"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:143"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:150"
+        },
+        {
+            "message": "Missing item type\nAdds an instance object as data named for the plugin.",
+            "line": " public/js/jquery/jquery.plugin.js:163"
+        },
+        {
+            "message": "Missing item type\nOverride this in a sub-class to provide extra settings.",
+            "line": " public/js/jquery/jquery.plugin.js:181"
+        },
+        {
+            "message": "Missing item type\nOverride this in a sub-class to perform extra activities.",
+            "line": " public/js/jquery/jquery.plugin.js:193"
+        },
+        {
+            "message": "Missing item type\nMetadata is specified as an attribute:\n<code>data-&lt;plugin name>=\"&lt;setting name>: '&lt;value>', ...\"</code>.\nDates should be specified as strings in this format: 'new Date(y, m-1, d)'.",
+            "line": " public/js/jquery/jquery.plugin.js:205"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:234"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:241"
+        },
+        {
+            "message": "Missing item type\nOld value available in <code>inst.options[name]</code>, new value in <code>options[name]</code>.\nOverride this in a sub-class to perform extra activities.",
+            "line": " public/js/jquery/jquery.plugin.js:269"
+        },
+        {
+            "message": "Missing item type\nOverride <code>_preDestroy</code> for plugin-specific processing.",
+            "line": " public/js/jquery/jquery.plugin.js:283"
+        },
+        {
+            "message": "Missing item type\nOverride this in a sub-class to perform extra activities and undo everything that was\ndone in the <code>_postAttach</code> or <code>_optionsChanged</code> functions.",
+            "line": " public/js/jquery/jquery.plugin.js:296"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:308"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:318"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/js/jquery/jquery.plugin.js:322"
+        },
+        {
+            "message": "Missing item type\nBridget makes jQuery widgets\nv1.0.1",
+            "line": " public/plugins/isotope/isotope.pkgd.js:7"
+        },
+        {
+            "message": "Missing item type\nadds option method -> $().plugin('option', {...})",
+            "line": " public/plugins/isotope/isotope.pkgd.js:33"
+        },
+        {
+            "message": "Missing item type\njQuery plugin bridge, access methods like $elem.plugin('method')",
+            "line": " public/plugins/isotope/isotope.pkgd.js:63"
+        },
+        {
+            "message": "Missing item type\nconverts a Prototypical class into a proper jQuery plugin\n  the class must have a ._init method",
+            "line": " public/plugins/isotope/isotope.pkgd.js:119"
+        },
+        {
+            "message": "Missing item type\nFinds the index of the listener for the event in it's storage array.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:321"
+        },
+        {
+            "message": "Missing item type\nAlias a method while keeping the context correct, to allow for overwriting of target method.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:340"
+        },
+        {
+            "message": "Missing item type\nReturns the listener array for the specified event.\nWill initialise the event object and listener arrays if required.\nWill return an object if you use a regex search. The object contains keys for each matched event. So /ba[rz]/ might return an object containing bar and baz. But only if you have either defined them with defineEvent or added some listeners to them.\nEach property in the object response is an array of listener functions.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:353"
+        },
+        {
+            "message": "Missing item type\nTakes a list of listener objects and flattens it into a list of listener functions.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:384"
+        },
+        {
+            "message": "Missing item type\nFetches the requested listeners via getListeners but will always return the results inside an object. This is mainly for internal use but others may find it useful.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:401"
+        },
+        {
+            "message": "Missing item type\nAdds a listener function to the specified event.\nThe listener will not be added if it is a duplicate.\nIf the listener returns true then it will be removed after it is called.\nIf you pass a regular expression as the event name then the listener will be added to all events that match it.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:419"
+        },
+        {
+            "message": "Missing item type\nAlias of addListener",
+            "line": " public/plugins/isotope/isotope.pkgd.js:446"
+        },
+        {
+            "message": "Missing item type\nSemi-alias of addListener. It will add a listener that will be\nautomatically removed after it's first execution.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:451"
+        },
+        {
+            "message": "Missing item type\nAlias of addOnceListener.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:466"
+        },
+        {
+            "message": "Missing item type\nDefines an event name. This is required if you want to use a regex to add a listener to multiple events at once. If you don't do this then how do you expect it to know what event to add to? Should it just add to every possible match for a regex? No. That is scary and bad.\nYou need to tell it what event names should be matched by a regex.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:471"
+        },
+        {
+            "message": "Missing item type\nUses defineEvent to define multiple events.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:483"
+        },
+        {
+            "message": "Missing item type\nRemoves a listener function from the specified event.\nWhen passed a regular expression as the event name, it will remove the listener from all events that match it.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:496"
+        },
+        {
+            "message": "Missing item type\nAlias of removeListener",
+            "line": " public/plugins/isotope/isotope.pkgd.js:522"
+        },
+        {
+            "message": "Missing item type\nAdds listeners in bulk using the manipulateListeners method.\nIf you pass an object as the second argument you can add to multiple events at once. The object should contain key value pairs of events and listeners or listener arrays. You can also pass it an event name and an array of listeners to be added.\nYou can also pass it a regular expression to add the array of listeners to all events that match it.\nYeah, this function does quite a bit. That's probably a bad thing.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:527"
+        },
+        {
+            "message": "Missing item type\nRemoves listeners in bulk using the manipulateListeners method.\nIf you pass an object as the second argument you can remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.\nYou can also pass it an event name and an array of listeners to be removed.\nYou can also pass it a regular expression to remove the listeners from all events that match it.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:542"
+        },
+        {
+            "message": "Missing item type\nEdits listeners in bulk. The addListeners and removeListeners methods both use this to do their job. You should really use those instead, this is a little lower level.\nThe first argument will determine if the listeners are removed (true) or added (false).\nIf you pass an object as the second argument you can add/remove from multiple events at once. The object should contain key value pairs of events and listeners or listener arrays.\nYou can also pass it an event name and an array of listeners to be added/removed.\nYou can also pass it a regular expression to manipulate the listeners of all events that match it.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:557"
+        },
+        {
+            "message": "Missing item type\nRemoves all listeners from a specified event.\nIf you do not specify an event then all listeners will be removed.\nThat means every event will be emptied.\nYou can also pass a regex to remove all events that match it.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:603"
+        },
+        {
+            "message": "Missing item type\nAlias of removeEvent.\n\nAdded to mirror the node API.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:638"
+        },
+        {
+            "message": "Missing item type\nEmits an event of your choice.\nWhen emitted, every listener attached to that event will be executed.\nIf you pass the optional argument array then those arguments will be passed to every listener upon execution.\nBecause it uses `apply`, your array of arguments will be passed as if you wrote them out separately.\nSo they will not arrive within the array on the other side, they will be separate.\nYou can also pass a regular expression to emit to all events that match it.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:645"
+        },
+        {
+            "message": "Missing item type\nAlias of emitEvent",
+            "line": " public/plugins/isotope/isotope.pkgd.js:689"
+        },
+        {
+            "message": "Missing item type\nSubtly different from emitEvent in that it will pass its arguments on to the listeners, as opposed to taking a single array of arguments to pass on.\nAs with emitEvent, you can pass a regex in place of the event name to emit to all events that match it.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:694"
+        },
+        {
+            "message": "Missing item type\nSets the current value to check against when executing listeners. If a\nlisteners return value matches the one set here then it will be removed\nafter execution. This value defaults to true.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:707"
+        },
+        {
+            "message": "Missing item type\nFetches the current value to check against when executing listeners. If\nthe listeners return value matches this one then it should be removed\nautomatically. It will return true by default.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:720"
+        },
+        {
+            "message": "Missing item type\nFetches the events object and creates one if required.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:737"
+        },
+        {
+            "message": "Missing item type\nReverts the global {@link EventEmitter} to its previous value and returns a reference to this version.",
+            "line": " public/plugins/isotope/isotope.pkgd.js:747"
+        },
+        {
+            "message": "Missing item type\ngetSize v1.1.7\nmeasure size of elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:826"
+        },
+        {
+            "message": "Missing item type\nWebKit measures the outer-width on style.width on border-box elems\nIE & Firefox measures the inner-width",
+            "line": " public/plugins/isotope/isotope.pkgd.js:899"
+        },
+        {
+            "message": "Missing item type\nmatchesSelector helper v1.0.1",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1041"
+        },
+        {
+            "message": "Missing item type\nOutlayer Item",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1144"
+        },
+        {
+            "message": "Missing item type\napply CSS styles to element",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1272"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1399"
+        },
+        {
+            "message": "Missing item type\nproper transition",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1415"
+        },
+        {
+            "message": "Missing item type\nremoves style property from element",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1546"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1767"
+        },
+        {
+            "message": "Missing item type\nset options",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1834"
+        },
+        {
+            "message": "Missing item type\nturn elements into Outlayer.Items to be used in layout",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1864"
+        },
+        {
+            "message": "Missing item type\nget item elements to be used in layout",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1885"
+        },
+        {
+            "message": "Missing item type\ngetter method for getting item elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1922"
+        },
+        {
+            "message": "Missing item type\nlays out all items",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1936"
+        },
+        {
+            "message": "Missing item type\nlogic before any new layout",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1955"
+        },
+        {
+            "message": "Missing item type\nget measurement from option, for columnWidth, rowHeight, gutter\nif option is String -> get element from selector string, & get size of element\nif option is Element -> get size of element\nelse use option as a number",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1967"
+        },
+        {
+            "message": "Missing item type\nlayout a collection of item elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:1995"
+        },
+        {
+            "message": "Missing item type\nget the items to be laid out\nyou may want to skip over some items",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2007"
+        },
+        {
+            "message": "Missing item type\nlayout items",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2024"
+        },
+        {
+            "message": "Missing item type\nget item layout position",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2059"
+        },
+        {
+            "message": "Missing item type\niterate over array and position each item\nReason being - separating this logic prevents 'layout invalidation'\nthx @paul_irish",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2071"
+        },
+        {
+            "message": "Missing item type\nSets position of item in DOM",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2084"
+        },
+        {
+            "message": "Missing item type\nAny logic you want to do after each layout,\ni.e. size the container",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2100"
+        },
+        {
+            "message": "Missing item type\nSets width or height of container if returned",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2119"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2127"
+        },
+        {
+            "message": "Missing item type\ntrigger a callback for a collection of items events",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2149"
+        },
+        {
+            "message": "Missing item type\nkeep item in collection, but do not lay it out\nignored items do not get skipped in layout",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2177"
+        },
+        {
+            "message": "Missing item type\nreturn item to layout collection",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2189"
+        },
+        {
+            "message": "Missing item type\nadds elements to stamps",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2200"
+        },
+        {
+            "message": "Missing item type\nremoves elements to stamps",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2218"
+        },
+        {
+            "message": "Missing item type\nfinds child elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2237"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2280"
+        },
+        {
+            "message": "Missing item type\nget x/y position of element relative to container element",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2285"
+        },
+        {
+            "message": "Missing item type\nBind layout to window resizing",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2314"
+        },
+        {
+            "message": "Missing item type\nUnbind layout to window resizing",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2326"
+        },
+        {
+            "message": "Missing item type\ncheck if layout is needed post layout",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2365"
+        },
+        {
+            "message": "Missing item type\nadd items to Outlayer instance",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2379"
+        },
+        {
+            "message": "Missing item type\nLayout newly-appended item elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2393"
+        },
+        {
+            "message": "Missing item type\nLayout prepended elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2407"
+        },
+        {
+            "message": "Missing item type\nreveal a collection of items",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2429"
+        },
+        {
+            "message": "Missing item type\nhide a collection of items",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2444"
+        },
+        {
+            "message": "Missing item type\nget Outlayer.Item, given an Element",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2459"
+        },
+        {
+            "message": "Missing item type\nget collection of Outlayer.Items, given Elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2476"
+        },
+        {
+            "message": "Missing item type\nremove element(s) from instance and DOM",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2497"
+        },
+        {
+            "message": "Missing item type\nget Outlayer instance from element",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2549"
+        },
+        {
+            "message": "Missing item type\ncreate a layout class",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2562"
+        },
+        {
+            "message": "Missing item type\nallow user to initialize Outlayer via .js-namespace class\noptions are parsed from data-namespace-option attribute",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2599"
+        },
+        {
+            "message": "Missing item type\nIsotope Item",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2678"
+        },
+        {
+            "message": "Missing item type\nsome methods should just defer to default Outlayer method\nand reference the Isotope instance as `this`",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2764"
+        },
+        {
+            "message": "Missing item type\nget columnWidth or rowHeight\nsegment: 'column' or 'row'\nsize 'Width' or 'Height'",
+            "line": " public/plugins/isotope/isotope.pkgd.js:2816"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3009"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3552"
+        },
+        {
+            "message": "Missing item type",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3575"
+        },
+        {
+            "message": "Missing item type\nFilter, sort, and layout newly-appended item elements",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3773"
+        },
+        {
+            "message": "Missing item type\ntrigger fn without transition\nkind of hacky to have this in the first place",
+            "line": " public/plugins/isotope/isotope.pkgd.js:3838"
+        },
+        {
+            "message": "Missing item type\nMagnific Popup Core JS file",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:18"
+        },
+        {
+            "message": "Missing item type\nPrivate static constants",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:25"
+        },
+        {
+            "message": "Missing item type\nPrivate vars",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:42"
+        },
+        {
+            "message": "Missing item type\nPrivate functions",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:57"
+        },
+        {
+            "message": "Missing item type\nPublic functions",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:126"
+        },
+        {
+            "message": "Missing item type\nInitializes Magnific Popup plugin. \nThis function is triggered only once when $.fn.magnificPopup or $.magnificPopup is executed",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:133"
+        },
+        {
+            "message": "Missing item type\nOpens popup",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:154"
+        },
+        {
+            "message": "Missing item type\nCloses the popup",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:386"
+        },
+        {
+            "message": "Missing item type\nHelper for close() function",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:405"
+        },
+        {
+            "message": "Missing item type\nSet content of popup based on current index",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:480"
+        },
+        {
+            "message": "Missing item type\nSet HTML content of popup",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:541"
+        },
+        {
+            "message": "Missing item type\nCreates Magnific Popup data object based on given data",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:570"
+        },
+        {
+            "message": "Missing item type\nInitializes single popup or a group of popups",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:612"
+        },
+        {
+            "message": "Missing item type\nUpdates text on preloader",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:681"
+        },
+        {
+            "message": "Missing item type\nPublic static functions",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:830"
+        },
+        {
+            "message": "Missing item type\nFunction that loops until the image has size to display elements that rely on it asap",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:1245"
+        },
+        {
+            "message": "Missing item type\nGet looped index depending on number of slides",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:1692"
+        },
+        {
+            "message": "Missing item type\nFastClick event implementation. (removes 300ms delay on touch devices)\nBased on https://developers.google.com/mobile/articles/fast_buttons\n\nYou may use it outside the Magnific Popup by calling just:\n\n$('.your-el').mfpFastClick(function() {\n    console.log('Clicked!');\n});\n\nTo unbind:\n$('.your-el').destroyMfpFastClick();\n\n\nNote that it's a very basic and simple implementation, it blocks ghost click on the same element where it was bound.\nIf you need something more advanced, use plugin by FT Labs https://github.com/ftlabs/fastclick",
+            "line": " public/plugins/magnific-popup/jquery.magnific-popup.js:1965"
+        },
+        {
+            "message": "Missing item type\njquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:1"
+        },
+        {
+            "message": "Missing item type\n-\tIS IOS VERSION OLDER THAN 5 ??\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:350"
+        },
+        {
+            "message": "Missing item type\n-\tFULLSCREEN CHANGE\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:723"
+        },
+        {
+            "message": "Missing item type\n-\tMODULES\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:809"
+        },
+        {
+            "message": "Missing item type\n-\tCHECK IF BROWSER IS IE\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:1010"
+        },
+        {
+            "message": "Missing item type\n-\tHANDLING OF PREVIEWS AND CUSTOM PREVIEWS\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:1445"
+        },
+        {
+            "message": "Missing item type\n-\tMOVE IE8 IMAGE IN RIGHT POSITION\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:2012"
+        },
+        {
+            "message": "Missing item type\n-\tPREPARE LOADING OF IMAGES\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:2079"
+        },
+        {
+            "message": "Missing item type\n-\tSWAP SLIDE PROGRESS\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:2254"
+        },
+        {
+            "message": "Missing item type\n-\tSTART THE LAYER ANIMATION \t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:2326"
+        },
+        {
+            "message": "Missing item type\n-\tGIVE FREE THE TRANSITIOSN\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:3473"
+        },
+        {
+            "message": "Missing item type\n-\tCAPTION LOOPS\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5053"
+        },
+        {
+            "message": "Missing item type\nRevolution Slider - PAN ZOOM MODULE",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5657"
+        },
+        {
+            "message": "Missing item type\n-\tKEN BURN BACKGROUND FIT CALCULATOR\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5663"
+        },
+        {
+            "message": "Missing item type\n-\tstartKenBurn\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5688"
+        },
+        {
+            "message": "Missing item type\n-\tCALCULATE KENBURNS IMAGE POSITIONS\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5809"
+        },
+        {
+            "message": "Missing item type\n-\tGET ROTATION DEGREES\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5877"
+        },
+        {
+            "message": "Missing item type\n-\tSTOP KEN BURN\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5896"
+        },
+        {
+            "message": "Missing item type\nRevolution Slider - PARALLAX MODULE",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5935"
+        },
+        {
+            "message": "Missing item type\n-\tPARALLAX EFFECT\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:5941"
+        },
+        {
+            "message": "Missing item type\n-\tSET POST OF SCROLL PARALLAX\t-",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:6050"
+        },
+        {
+            "message": "Missing item type\nRevolution Slider - THUMBNAIL MODULE",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.js:6079"
+        },
+        {
+            "message": "Missing item type\njquery.themepunch.revolution.js - jQuery Plugin for Revolution Slider",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js:1"
+        },
+        {
+            "message": "Missing item type\n-\tTHEMEPUNCH TOOLS Ver. 1.0     -\n Last Update of Tools 17.11.2014",
+            "line": " public/plugins/rs-plugin/js/jquery.themepunch.tools.min.js:3"
+        },
+        {
+            "message": "Missing item type\nName of the plugin",
+            "line": " public/plugins/vide/jquery.vide.js:12"
+        },
+        {
+            "message": "Missing item type\nDefault settings",
+            "line": " public/plugins/vide/jquery.vide.js:18"
+        },
+        {
+            "message": "Missing item type\nIs iOs?",
+            "line": " public/plugins/vide/jquery.vide.js:33"
+        },
+        {
+            "message": "Missing item type\nIs Android?",
+            "line": " public/plugins/vide/jquery.vide.js:39"
+        },
+        {
+            "message": "Missing item type\nParse a string with options",
+            "line": " public/plugins/vide/jquery.vide.js:45"
+        },
+        {
+            "message": "Missing item type\nParse a position option",
+            "line": " public/plugins/vide/jquery.vide.js:106"
+        },
+        {
+            "message": "Missing item type\nSearch a poster",
+            "line": " public/plugins/vide/jquery.vide.js:153"
+        },
+        {
+            "message": "Missing item type\nVide constructor",
+            "line": " public/plugins/vide/jquery.vide.js:170"
+        },
+        {
+            "message": "Missing item type\nInitialization",
+            "line": " public/plugins/vide/jquery.vide.js:209"
+        },
+        {
+            "message": "Missing item type\nGet a video element",
+            "line": " public/plugins/vide/jquery.vide.js:345"
+        },
+        {
+            "message": "Missing item type\nResize a video background",
+            "line": " public/plugins/vide/jquery.vide.js:354"
+        },
+        {
+            "message": "Missing item type\nDestroy a video background",
+            "line": " public/plugins/vide/jquery.vide.js:388"
+        },
+        {
+            "message": "Missing item type\nSpecial plugin object for instances.",
+            "line": " public/plugins/vide/jquery.vide.js:404"
+        },
+        {
+            "message": "Missing item type\nPlugin constructor",
+            "line": " public/plugins/vide/jquery.vide.js:413"
+        },
+        {
+            "message": "Missing item type\nSETTINGS",
+            "line": " public/plugins/SmoothScroll.js:67"
+        },
+        {
+            "message": "Missing item type\nINITIALIZE",
+            "line": " public/plugins/SmoothScroll.js:74"
+        },
+        {
+            "message": "Missing item type\nTests if smooth scrolling is allowed. Shuts down everything if not.",
+            "line": " public/plugins/SmoothScroll.js:78"
+        },
+        {
+            "message": "Missing item type\nSets up scrolls array, determines if frames are involved.",
+            "line": " public/plugins/SmoothScroll.js:95"
+        },
+        {
+            "message": "Missing item type\nThis fixes a bug where the areas left and right to \nthe content does not trigger the onmousewheel event\non some pages. e.g.: html, body { height: 100% }",
+            "line": " public/plugins/SmoothScroll.js:119"
+        },
+        {
+            "message": "Missing item type\nSCROLLING",
+            "line": " public/plugins/SmoothScroll.js:158"
+        },
+        {
+            "message": "Missing item type\nPushes scroll actions to the scrolling queue.",
+            "line": " public/plugins/SmoothScroll.js:166"
+        },
+        {
+            "message": "Missing item type\nEVENTS",
+            "line": " public/plugins/SmoothScroll.js:269"
+        },
+        {
+            "message": "Missing item type\nMouse wheel handler.",
+            "line": " public/plugins/SmoothScroll.js:273"
+        },
+        {
+            "message": "Missing item type\nKeydown event handler.",
+            "line": " public/plugins/SmoothScroll.js:321"
+        },
+        {
+            "message": "Missing item type\nMousedown event only for updating activeElement",
+            "line": " public/plugins/SmoothScroll.js:392"
+        },
+        {
+            "message": "Missing item type\nOVERFLOW",
+            "line": " public/plugins/SmoothScroll.js:400"
+        },
+        {
+            "message": "Missing item type\nHELPERS",
+            "line": " public/plugins/SmoothScroll.js:443"
+        },
+        {
+            "message": "Missing item type\nPULSE",
+            "line": " public/plugins/SmoothScroll.js:497"
+        },
+        {
+            "message": "Missing item type\nViscous fluid with a pulse for part and decay for the rest.\n- Applies a fixed force over an interval (a damped acceleration), and\n- Lets the exponential bleed away the velocity over a longer interval\n- Michael Herf, http://stereopsis.com/stopping/",
+            "line": " public/plugins/SmoothScroll.js:501"
+        },
+        {
+            "message": "Missing item type\nCreate key-value caches of limited size",
+            "line": " public/plugins/jquery.js:882"
+        },
+        {
+            "message": "Missing item type\nMark a function for special use by Sizzle",
+            "line": " public/plugins/jquery.js:902"
+        },
+        {
+            "message": "Missing item type\nSupport testing using an element",
+            "line": " public/plugins/jquery.js:911"
+        },
+        {
+            "message": "Missing item type\nAdds the same handler for all of the specified attrs",
+            "line": " public/plugins/jquery.js:932"
+        },
+        {
+            "message": "Missing item type\nChecks document order of two siblings",
+            "line": " public/plugins/jquery.js:946"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for input types",
+            "line": " public/plugins/jquery.js:975"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for buttons",
+            "line": " public/plugins/jquery.js:986"
+        },
+        {
+            "message": "Missing item type\nReturns a function to use in pseudos for positionals",
+            "line": " public/plugins/jquery.js:997"
+        },
+        {
+            "message": "Missing item type\nChecks a node for validity as a Sizzle context",
+            "line": " public/plugins/jquery.js:1019"
+        },
+        {
+            "message": "Missing item type\nDetects XML nodes",
+            "line": " public/plugins/jquery.js:1031"
+        },
+        {
+            "message": "Missing item type\nSets document-related variables once based on the current document",
+            "line": " public/plugins/jquery.js:1043"
+        },
+        {
+            "message": "Missing item type\nDocument sorting and removing duplicates",
+            "line": " public/plugins/jquery.js:1476"
+        },
+        {
+            "message": "Missing item type\nUtility function for retrieving the text value of an array of DOM nodes",
+            "line": " public/plugins/jquery.js:1509"
+        },
+        {
+            "message": "Missing item type\nA low-level selection function that works with Sizzle's compiled\n selector functions",
+            "line": " public/plugins/jquery.js:2476"
+        },
+        {
+            "message": "Missing item type\nClean-up method for dom ready events",
+            "line": " public/plugins/jquery.js:3453"
+        },
+        {
+            "message": "Missing item type\nThe ready event handler and self cleanup method",
+            "line": " public/plugins/jquery.js:3467"
+        },
+        {
+            "message": "Missing item type\nDetermines whether an object can have data",
+            "line": " public/plugins/jquery.js:3614"
+        },
+        {
+            "message": "Missing item type\nRetrieve the actual display of a element",
+            "line": " public/plugins/jquery.js:6001"
+        },
+        {
+            "message": "Missing item type\nTry to determine the default display value of an element",
+            "line": " public/plugins/jquery.js:6025"
+        },
+        {
+            "message": "Missing item type\nLoad a url into a page",
+            "line": " public/plugins/jquery.js:9936"
+        },
+        {
+            "message": "Missing item type\nGets a window from an element",
+            "line": " public/plugins/jquery.js:10011"
+        },
+        {
+            "message": "Missing item type\nThis file is where you define your application routes and controllers.\n\nStart by including the middleware you want to run for every request;\nyou can attach middleware to the pre('routes') and pre('render') events.\n\nFor simplicity, the default setup for route controllers is for each to be\nin its own file, and we import all the files in the /routes/views directory.\n\nEach of these files is a route controller, and is responsible for all the\nprocessing that needs to happen for the route (e.g. loading data, handling\nform submissions, rendering the view template, etc).\n\nBind each route pattern your application should respond to in the function\nthat is exported from this module, following the examples below.\n\nSee the Express application routing documentation for more information:\nhttp://expressjs.com/api.html#app.VERB",
+            "line": " routes/index.js:1"
+        },
+        {
+            "message": "Missing item type\nDB Models for use on nav (cached query)",
+            "line": " routes/middleware.js:18"
+        },
+        {
+            "message": "Missing item type\nInitialises the standard view locals\n\nThe included layout depends on the navLinks array to generate\nthe navigation in the header, you may wish to change this array\nor replace it with your own templates / logic.",
+            "line": " routes/middleware.js:27"
+        },
+        {
+            "message": "Missing item type\nFetches and clears the flashMessages before a view is rendered",
+            "line": " routes/middleware.js:87"
+        },
+        {
+            "message": "Missing item type\nPrevents people from accessing protected pages when they're not signed in",
+            "line": " routes/middleware.js:109"
+        },
+        {
+            "message": "Missing item type\nGeneric HBS Helpers\n===================",
+            "line": " templates/views/helpers/index.js:22"
+        },
+        {
+            "message": "Missing item type\nPort of Ghost helpers to support cross-theming\n==============================================\n\nAlso used in the default keystonejs-hbs theme",
+            "line": " templates/views/helpers/index.js:37"
+        },
+        {
+            "message": "Missing item type\nKeystoneJS specific helpers\n===========================",
+            "line": " templates/views/helpers/index.js:142"
+        },
+        {
+            "message": "Missing item type\nThis script automatically creates a default Admin user when an\nempty database is used for the first time. You can use this\ntechnique to insert data into any List you have defined.\n\nAlternatively, you can export a custom function for the update:\nmodule.exports = function(done) { ... }",
+            "line": " updates/0.0.1-admins.js:1"
+        }
+    ]
+}

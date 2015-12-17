@@ -1,0 +1,35 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Script includes partial for individual sections
+ * ==========
+ */
+--}}
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		{{#ifeq section 'people'}}
+			$('.bio').next('p').readmore({
+			  speed: 250,
+			  collapsedHeight: 115,
+			  lessLink: '<a href="#">(-)</a>',
+			  moreLink: '<a href="#">(+)</a>',
+			  afterToggle: function(trigger, element, expanded) {
+			    
+			    // The "Close" link was clicked
+			    if(! expanded)
+			      $('html, body').animate( { scrollTop: $(element).closest('.team-member').offset().top, easing: 'easeInOut' }, {duration: 250 } );
+			    else
+			      $('html, body').animate( { scrollTop: $(element).closest('.team-member').position().top + $(element).offset().top, easing: 'easeInOut' }, {duration: 250 } );
+
+			  }
+			});
+		{{/ifeq}}
+	
+	})
+</script>

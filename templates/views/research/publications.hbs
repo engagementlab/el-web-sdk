@@ -1,0 +1,108 @@
+{{!< default}}
+{{!--
+/**
+* Engagement Lab Website
+* Developed by Engagement Lab, 2015
+* ==============
+*
+* Project Directory Page Template
+* - See Project model for fields
+* - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+* ==========
+*/
+--}}
+<!-- PROJECT DIRECTORY START -->
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container padding-bottom-clear">
+	<div class="container">
+		<!-- main start -->
+		<!-- ================ -->
+		<div class="main">
+			<!-- page-title start -->
+			<!-- ================ -->
+			<h1 class="page-title">Publications</h1>
+			<div class="separator-2"></div>
+			<p class="lead">{{{category.description.html}}}</p>
+			<!-- page-title end -->
+		</div>
+		<!-- main end -->
+	</div>
+</section>
+<!-- main-container end -->
+<!-- section start -->
+<section>
+	<div class="container">
+		<div class="row grid-space-10">
+			{{#if publications}}
+			
+				{{!-- Show publications --}}
+				{{#each publications}}
+				<h3>{{@key}}s</h3>
+				<div class="separator-2"></div>
+				{{#if this.sub_sections}}
+					{{!-- filters start --}}
+						<div class="filters">
+							<ul class="nav nav-pills">
+								<li class="active"><a href="#" data-filter=".{{trim @key}}, .none">All</a></li>
+								{{#each this.sub_sections}}
+								<li><a href="#" data-filter=".{{trim @key}}.{{key}}, .none">{{name}}</a></li>
+								{{/each}}
+							</ul>
+					</div>
+					{{!-- filters end --}}
+				{{/if}}
+
+				<div {{#if this.sub_sections}} class="isotope-container" {{/if}}>
+					{{#each records}}
+					
+						{{#if ../this.sub_sections}}
+							<div class="image-box style-3-b isotope-item {{trim category}} {{subCategory.key}}">
+						{{else}}
+							<div class="image-box style-3-b isotope-item none">
+						{{/if}}
+								
+							<div class="row">
+								{{#if image.url}}
+								<div class="col-sm-6 col-md-4">
+									<div class="overlay-container">
+										<img src="{{{cloudinaryUrl image width=175 height=271}}}" alt="{{title}}">
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-4">
+									{{else}}
+									<div class="col-sm-6 col-md-8">
+										{{/if}}
+										<div class="body">
+											<h3 class="title">
+											<a href="{{url}}">{{title}}</a>
+											</h3>
+											<p class="small mb-10"><i class="icon-calendar"></i> 2014 {{author}}</p>
+											<div class="separator-2"></div>
+											<p class="mb-10"><strong>{{blurb}}</strong><br/> </p>
+											{{#if description.html}}
+											<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#more_{{id}}" aria-expanded="false" aria-controls="more_{{id}}">Read More</button>
+											<div class="collapse" id="more_{{id}}">
+												<div>
+													{{{description.html}}}
+												</div>
+											</div>
+											{{/if}}
+										</div>
+									</div>
+								</div>
+							</div>
+							{{/each}}
+						</div>
+						
+					{{/each}}
+				</div>
+			
+			{{else}}
+			
+				<strong>No publications! Fiddlesticks!</strong>
+			
+			{{/if}}
+	</div>
+</section>
+<!-- section end -->

@@ -16,7 +16,6 @@
 		<div class="overlay-container overlay-visible">
 			<img src="{{{cloudinaryUrl person.image}}}" alt="{{person.name}}">
 
-
 		</div>
 		<div class="body">
 			<h3 class="margin-clear">{{person.name.first}} {{person.name.last}}</h3>
@@ -25,9 +24,17 @@
 			<p class="bio">
 				{{{person.bio.html}}}
 				<ul class="social-links circle dark margin-clear pv-20">
-					<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-					<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-					<li class="github"><a target="_blank" href="http://plus.google.com"><i class="fa fa-github"></i></a></li>
+					{{#if person.fbURL}}
+						<li class="facebook"><a target="_blank" href="{{person.fbURL}}"><i class="fa fa-facebook"></i></a></li>
+					{{/if}}
+
+					{{#if person.twitterURL}}
+						<li class="twitter"><a target="_blank" href="{{person.twitterURL}}"><i class="fa fa-twitter"></i></a></li>
+					{{/if}}
+
+					{{#if person.githubURL}}
+						<li class="github"><a target="_blank" href="{{person.githubURL}}"><i class="fa fa-github"></i></a></li>
+					{{/if}}
 				</ul>
 			</p>
 		</div>

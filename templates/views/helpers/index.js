@@ -414,5 +414,19 @@ module.exports = function() {
 
 	}
 
+	//  ### get filetype helper
+	// Remove all whitespace from string
+	//
+	//  @str: The string
+	//
+	//  *Usage example:*
+	//  {{trim "Elvis Costello"}}}}
+
+	_helpers.trim = function (str) {
+
+		return str.replace(/ /g, '-').toLowerCase();
+
+	}
+
 	return _helpers;
 };

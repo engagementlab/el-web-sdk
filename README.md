@@ -13,21 +13,29 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | 
 . ~/.nvm/nvm.sh
 ```
 
-Add these lines to your ```~/.bashrc``` file (```nano ~/.bashrc```) to have nvm automatically sourced upon login:
+Install grunt command line tools:
 ```
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+npm install -g grunt-cli
 ```
 
-Restart your terminal.
+Open bash profile (if it doesn't exist, run ```touch ~/.bash_profile```):
+```
+open -a TextEdit ~/.bash_profile
+```
+
+Paste these lines in to have nvm and grunt automatically sourced upon login:
+```
+export PATH=/usr/local/share/npm/lib/node_modules/grunt-cli/bin:$PATH
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
+```
+
+Restart your terminal and go back to the repo dir.
 
 Get node v0.12.7:
 
 ```
 nvm install 0.12.7
 ```
-
-
 
 Install packages:
 ```
@@ -48,7 +56,7 @@ CLOUDINARY_URL=cloudinary://851373748637243:uTK26M1JKJjOsesQ9vZsXasj9cw@engageme
 EMBEDLY_API_KEY=6854c1facf7a4eb6bdfe5bbd663ced50
 ```
 
-And boot up keystone!
+Let's use grunt to start up the server:
 ```
-nodemon keystone
+grunt serve
 ```

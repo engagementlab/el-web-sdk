@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>routes/views/news.js - Engagement Lab Website</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="Engagement Lab Website" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.0.3</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/about.html">about</a></li>
+                                <li><a href="../classes/academics.html">academics</a></li>
+                                <li><a href="../classes/category.html">category</a></li>
+                                <li><a href="../classes/directory.html">directory</a></li>
+                                <li><a href="../classes/EventEmitter Manages event registering and emitting..html">EventEmitter Manages event registering and emitting.</a></li>
+                                <li><a href="../classes/index.html">index</a></li>
+                                <li><a href="../classes/news.html">news</a></li>
+                                <li><a href="../classes/program.html">program</a></li>
+                                <li><a href="../classes/project.html">project</a></li>
+                                <li><a href="../classes/routes.middleware.html">routes.middleware</a></li>
+                                <li><a href="../classes/team.html">team</a></li>
+                            </ul>
+                
+                
+                            <ul id="api-modules" class="apis modules">
+                                <li><a href="../modules/$.JQPlugin.html">$.JQPlugin</a></li>
+                                <li><a href="../modules/about.html">about</a></li>
+                                <li><a href="../modules/category.html">category</a></li>
+                                <li><a href="../modules/program.html">program</a></li>
+                                <li><a href="../modules/programs.html">programs</a></li>
+                                <li><a href="../modules/project.html">project</a></li>
+                                <li><a href="../modules/research.html">research</a></li>
+                                <li><a href="../modules/resource.html">resource</a></li>
+                                <li><a href="../modules/team.html">team</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1 class="file-heading">File: routes/views/news.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * News/blog page view controller.
+ *
+ * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
+ *
+ * @class news
+ * @static
+ * @author Johnny Richardson
+ *
+ * ==========
+ */
+var keystone = require(&#x27;keystone&#x27;);
+
+// HTTP requester
+var request = require(&#x27;request&#x27;);
+// RSS reader
+var feed = require(&quot;feed-read&quot;);
+
+exports = module.exports = function(req, res) {
+
+    var view = new keystone.View(req, res),
+        locals = res.locals;
+
+    var eventsParams = {
+        host: &#x27;http://eventbriteapi.com&#x27;,
+        path: &#x27;/v3/users/me/owned_events/?token=HC62RVWGRYQNBDLBNVFQ&amp;status=live&#x27;
+    };
+    var blogParams = {
+        host: &#x27;https://medium.com&#x27;,
+        path: &#x27;/feed/@Engagement_Lab&#x27;
+    };
+
+    // Init locals
+    locals.section = &#x27;news&#x27;;
+
+    // Load the current project
+    view.on(&#x27;init&#x27;, function(next) {
+
+        // Setup the locals to be used inside view
+        // First get events feed
+        request(eventsParams.host + eventsParams.path, function(error, response, body) {
+
+            if (!error &amp;&amp; response.statusCode == 200)
+                locals.events = JSON.parse(body).events;
+
+            // Next get Medium RSS feed
+            feed(blogParams.host + blogParams.path, function(err, articles) {
+
+                locals.blog = articles;
+
+                next(err);
+
+            });
+
+        });
+
+    });
+
+    // Render the view
+    view.render(&#x27;news&#x27;);
+
+}
+    </pre>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
