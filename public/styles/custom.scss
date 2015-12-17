@@ -6,11 +6,26 @@ position: absolute;
 z-index: 3;
 top: 30%;
 left: 10%;
+}
 
+.with-dropdown-buttons .navbar-default .navbar-collapse {
+	padding-right: 0;
+}
+
+.navbar .container-fluid {
+	margin-right: 0;
+}
+
+.navbar-nav {
+	float: right;
 }
 
 .overlay h1 {
   color: white;
+}
+
+.row .main h1 {
+	margin: 0 auto;
 }
 
 .featured {
@@ -18,6 +33,7 @@ left: 10%;
   min-height: 100%;
   padding-bottom: 5%;
 }
+
 .featuredRow {
   padding: 2%;
 }
