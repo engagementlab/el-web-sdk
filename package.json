@@ -11,6 +11,7 @@
     "feed-read": "0.0.1",
     "fs": "0.0.2",
     "handlebars": "^2.0.0",
+    "json-fs-store": "^1.0.0",
     "keystone": "^0.3.15",
     "moment": "^2.10.6",
     "mongoose-validator": "^1.2.4",

@@ -42,6 +42,12 @@ Install packages:
 npm install
 ```
 
+If you get an error about browserify during install, you may need to run:
+```
+cd node_modules/keystone && npm install browserify
+cd ../..
+```
+
 Install [nodemon](http://nodemon.io/) globally if not installed:
 ```
 npm install -g nodemon
