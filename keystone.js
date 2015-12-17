@@ -1,14 +1,11 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-require('dotenv').load();
+if(process.env.NODE_ENV !== 'staging')
+	require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
-
-// Mongoose caching
-var mongoose = require('./node_modules/keystone/node_modules/mongoose');
-var mongooseRedisCache = require("mongoose-redis-cache");
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -76,11 +73,3 @@ keystone.set('cloudinary folders', true);
  
 // Start Keystone to connect to your database and initialise the web server
 keystone.start();
-
-// redis settings
-mongooseRedisCache(mongoose, {
-	host: "127.0.0.1",
-	port: "6379",
-	pass: "xUdzGpyPt97e_YY^",
-	options: null
-});
