@@ -38,6 +38,35 @@ left: 10%;
   padding: 2%;
 }
 
+/* PROJECT PAGE */
+#project_description {
+  background: #f4f4f4;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+#project_header .banner {
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Large and Medium devices (desktops, tablets less than 1199px) */
+@media (min-width:768px) {
+  #project_header .banner h2 {
+    font-size: 6em;
+    color: white;
+  }
+}
+
+/* Small devices (tablets, phones less than 767px) */
+@media (max-width: 767px) {
+  #project_header .banner h2 {
+      font-size: 4em;
+      color: white;
+  }
+}
+
 /* PUBLICATIONS */
 section.publications .subSection {
   display: inline-block;

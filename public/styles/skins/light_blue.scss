@@ -13,18 +13,18 @@ File Description:Light Blue Skin
 //
 //## Gray and brand colors for use across The Project Template.
 $gray-dark:             #333333;
-$gray:                  #cccccc;
+$gray:                  #4b4b4b;
 $gray-light:            #999999;
 $gray-lighter:          #cdcdcd;
 $white:                 #ffffff;
 $black:                 #000000;
 
 //** Base Colors of Light Blue Skin.
-$base-color:            #09afdf;
+$base-color:            #78cbd1;
 $base-color-opacity-60: rgba(9, 175, 223, 0.6);
 $base-color-opacity-70: rgba(9, 175, 223, 0.7);
 $base-color-opacity-80: rgba(9, 175, 223, 0.8);
-$base-color-hover:      #0c9ec7;
+$base-color-hover:      #78cbd1;
 //** Dark Header Top and Header
 $dark-header:                   #394245;
 $dark-header-opacity-95:        rgba(57, 66, 69, 0.95);
@@ -35,6 +35,9 @@ $dark-header-top:               #2e3537;
 $dark-header-top-opacity-60:    rgba(37, 42, 44, 0.5);
 $dark-header-top-border:        #252a2c;
 $dark-navigation-item-border:   rgba(57, 66, 69, 0.8);
+
+/* Custom */
+$icon-bg-color: #bdbdbd;
 
 /* 1- Typography
 -------------------------------------------------
@@ -374,13 +377,13 @@ ul.pagination li.active a,
 	.form-control {
 		background-color: rgba(0, 0, 0, 0.2);
 		border-color: $base-color-hover;
-		@import box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 		color: $white;
 	}
 	.has-success .form-control:focus,
 	.has-warning .form-control:focus,
 	.has-error .form-control:focus {
-		@import box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 	}
 	.input-group-addon {
 		background-color: rgba(0, 0, 0, 0.20);
@@ -402,7 +405,7 @@ ul.pagination li.active a,
 /*Icons
 ---------------------------------- */
 .icon.default-bg {
-	background-color: $base-color;
+	background-color: $icon-bg-color;
 	color: #ffffff;
 }
 .icon.light-bg {

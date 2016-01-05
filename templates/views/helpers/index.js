@@ -414,7 +414,7 @@ module.exports = function() {
 
 	}
 
-	//  ### get filetype helper
+	//  ### remove whitespace helper
 	// Remove all whitespace from string
 	//
 	//  @str: The string
@@ -425,6 +425,24 @@ module.exports = function() {
 	_helpers.trim = function (str) {
 
 		return str.replace(/ /g, '-').toLowerCase();
+
+	}
+
+	//  ### limit characters helper
+	// Limit characters in string to specified length and append ellipses if longer
+	//
+	//  @str: The string
+	//	@length: Desired length of string
+	//
+	//  *Usage example:*
+	//  {{limit "Elvis Costello is an English musician, singer-songwriter and record producer" 20}}}}
+
+	_helpers.limit = function (str, length) {
+
+		if(str.length <= length)
+				return str;
+		else
+			return str.substring(0, length) + "...";
 
 	}
 

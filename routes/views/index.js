@@ -36,10 +36,10 @@ exports = module.exports = function(req, res) {
         // Setup the locals to be used inside view
         projectQuery.exec(function(err, result) {
 
-            _.each(result, function(r) {
+           /* _.each(result, function(r) {
                 if (r.headerImages.length > 0)
                     r.headerImage = r.headerImages[0];
-            });
+            });*/
 
             locals.featured_projects = result;
 

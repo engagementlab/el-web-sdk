@@ -58,7 +58,8 @@
 								<div class="header-left clearfix">
 									<!-- logo -->
 									<div id="logo" class="logo">
-										<a href="/"><img id="logo_img" src="/images/logo.png" alt="Engagement Lab"></a>
+										<a href="/"><img id="logo_img" src="/images/layout/logo.png" alt="Engagement Lab"><span>Engagement Lab</span></a>
+
 									</div>
 									<!-- name-and-slogan -->
 									<div class="site-slogan">
@@ -180,25 +181,43 @@
 			{{/if}}
 			<!-- BODY CONTENT START -->
 			{{{body}}}
-			
-			<footer id="footer" class="clearfix ">
-				<!-- .subfooter start -->
+						
+			<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
+			<!-- ================ -->
+			<footer id="footer" class="clearfix dark">
+
+				<!-- .footer start -->
 				<!-- ================ -->
-				<div class="subfooter">
+				<div class="footer">
 					<div class="container">
-						<div class="subfooter-inner">
+						<div class="footer-inner">
 							<div class="row">
-								<div class="col-md-12">
+								<div class="col-md-6 col-md-offset-3">
+									<div class="footer-content text-center padding-ver-clear">
+										{{!-- <div class="logo-footer"><img id="logo-footer" class="center-block" src="images/logo_light_blue.png" alt=""></div> --}}
 									<p class="text-center">We are an applied research lab dedicated to innovating the ways people participate in civic life and expanding the study of citizenship in a digital era.<br />
-										Powered by <a href="http://www.keystonejs.com/">KeystoneJS</a> |
-										Fork us on <a href="https://github.com/engagementgamelab/">GitHub <i class="fa fa-github-alt pr-5"></i></a></p>
+										<ul class="list-inline mb-20">
+											<li><i class="text-default fa fa-map-marker pr-5"></i>120 Boylston St. Boston, MA 02116</li>
+											{{!-- <li><a href="tel:+00 1234567890" class="link-dark"><i class="text-default fa fa-phone pl-10 pr-5"></i>+00 1234567890</a></li> --}}
+											<li><i class="text-default fa fa-envelope-o pl-10 pr-5"></i>info at elab.emerson.edu</li>
+										</ul>
+										<ul class="social-links circle animated-effect-1 margin-clear">
+											<li class="facebook"><a target="_blank" href="http://www.facebook.com/EngagementLab"><i class="fa fa-facebook"></i></a></li>
+											<li class="twitter"><a target="_blank" href="http://www.twitter.com/EngageLab"><i class="fa fa-twitter"></i></a></li>
+											<li class="github"><a target="_blank" href="https://github.com/engagementgamelab"><i class="fa fa-github"></i></a></li>
+										</ul>
+										<div class="separator"></div>
+										<p class="text-center margin-clear">Powered by <a href="http://www.keystonejs.com/">KeystoneJS</a></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<!-- .subfooter end -->
 				</div>
+				<!-- .footer end -->
+
+			</footer>
+			<!-- footer end -->
 				
 				<!-- page-wrapper end -->
 				{{#ifeq env "development"}}

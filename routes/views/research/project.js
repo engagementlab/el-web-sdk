@@ -41,14 +41,6 @@ exports = module.exports = function(req, res) {
             locals.project = result;
             locals.sub_section = result.category.key;
 
-            // Combine feature text and images
-            locals.projectFeatures = result.headerImages.map(function(img, ind) {
-                return {
-                    text: result.highlights[ind],
-                    image: img
-                }
-            });
-
             // Format dates
             locals.projectDates = result._.startDate.format("MMMM Do YYYY - ") +
                 ((result.endDate === undefined) ? "Current" : result.endDate.format("MMMM Do YYYY"));

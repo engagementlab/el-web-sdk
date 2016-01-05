@@ -113,15 +113,16 @@ Project.add({
         type: Date,
         label: 'Project End Date'
     },
-
-    highlights: {
-        type: Types.TextArray,
-        label: 'Key Features and Highlights'
+    headerImage: {
+        type: Types.CloudinaryImage,
+        label: 'Header Image (large)',
+        folder: 'site/research/projects',
+        autoCleanup: true
     },
-    headerImages: {
-        type: Types.CloudinaryImages,
-        label: 'Key Features and Highlights Images (large)',
-        folder: 'research/projects',
+    sideImage: {
+        type: Types.CloudinaryImage,
+        label: 'Side Column Image (small)',
+        folder: 'site/research/projects',
         autoCleanup: true
     },
     tabHeadings: {
@@ -136,7 +137,7 @@ Project.add({
     projectImages: {
         type: Types.CloudinaryImages,
         label: 'Project Images',
-        folder: 'research/projects',
+        folder: 'site/research/projects',
         autoCleanup: true
     },
     projectImageCaptions: {

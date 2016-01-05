@@ -61,8 +61,6 @@ request(eventsParams.host + eventsParams.path, function(error, response, body) {
             store.add(fileContent, function(err) {
                 // err if the save failed
                 if (err) throw err;
-
-                console.log('stored')
             });
         });        
 
