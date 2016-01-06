@@ -67,3 +67,5 @@ Let's use grunt to start up the server:
 ```
 grunt
 ```
+
+Using a browser, navigate to `localhost:3000` to visit the website
