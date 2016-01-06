@@ -10,6 +10,7 @@ cd EL-Website
 Install [nvm](https://github.com/creationix/nvm):
 ```
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+nvm install v0.12.7
 . ~/.nvm/nvm.sh
 ```
 
@@ -64,5 +65,7 @@ EMBEDLY_API_KEY=6854c1facf7a4eb6bdfe5bbd663ced50
 
 Let's use grunt to start up the server:
 ```
-grunt serve
+grunt
 ```
+
+Using a browser, navigate to `localhost:3000` to visit the website

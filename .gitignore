@@ -33,3 +33,6 @@ node_modules
 # Production release folder
 public/release
 tmp
+
+# Sublime Text
+*.sublime-*
