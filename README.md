@@ -10,6 +10,7 @@ cd EL-Website
 Install [nvm](https://github.com/creationix/nvm):
 ```
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
+nvm install v0.12.7
 . ~/.nvm/nvm.sh
 ```
 
