@@ -65,5 +65,5 @@ EMBEDLY_API_KEY=6854c1facf7a4eb6bdfe5bbd663ced50
 
 Let's use grunt to start up the server:
 ```
-grunt serve
+grunt
 ```
