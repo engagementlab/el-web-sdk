@@ -55,6 +55,19 @@ left: 10%;
   }
 }
 
+/* PEOPLE */
+.team-member img {
+  @include transition(all 1s ease);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 192px;
+  width: 192px;
+}
+
+.team-member img:hover {
+  @include tograyscale(100%);
+}
+
 /* PUBLICATIONS */
 section.publications .subSection {
   display: inline-block;

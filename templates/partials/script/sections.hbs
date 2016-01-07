@@ -17,8 +17,8 @@
 			$('.bio').next('p').readmore({
 			  speed: 250,
 			  collapsedHeight: 115,
-			  lessLink: '<a href="#">(-)</a>',
-			  moreLink: '<a href="#">(+)</a>',
+/*			  lessLink: '<a href="#">(-)</a>',
+			  moreLink: '<a href="#">(+)</a>',*/
 			  afterToggle: function(trigger, element, expanded) {
 			    
 			    // The "Close" link was clicked
@@ -28,6 +28,14 @@
 			      $('html, body').animate( { scrollTop: $(element).closest('.team-member').position().top + $(element).offset().top, easing: 'easeInOut' }, {duration: 250 } );
 
 			  }
+			});
+
+			$('.team-member img.photo').click(function(evt) {
+
+				// console.log($(evt.currentTarget).next('p').parents('.col-sm-6').index())
+
+				// $($(evt.currentTarget.parents('.col-sm-6')).children('.bio')[0]).next('p').readmore('toggle');
+
 			});
 		{{/ifeq}}
 	

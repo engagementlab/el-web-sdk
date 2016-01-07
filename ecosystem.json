@@ -1,0 +1,10 @@
+{
+  "apps" : [{
+    "name"        : "EL Website",
+    "script"      : "/srv/website/keystone.js",
+    "cwd"         : "/srv/website/",
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }]
+}

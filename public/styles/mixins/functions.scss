@@ -2,3 +2,11 @@
 @mixin torgba($hex, $trans) {
 	$rgba: rgba(red($hex), green($hex), blue($hex), $trans);
 }
+
+// Go to grayscale
+@mixin tograyscale($amt) {
+  -webkit-filter: grayscale($amt);
+  -moz-filter: grayscale($amt);
+  -ms-filter: grayscale($amt);
+  filter: grayscale($amt);
+}
