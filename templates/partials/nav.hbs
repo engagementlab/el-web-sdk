@@ -1,16 +1,18 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="container-fluid">
     	<div class="row">
     		
     		<div class="col-md-4">
-	    		<ul id="logo" class="logo">
+	    		<a href="/">
+		    		<ul id="logo" class="logo">
 
-		    		{{!-- logo --}}
-	    		    <li><a href="/"><img id="logo_img" src="/images/layout/logo.png" alt="Engagement Lab"></a></li>
+			    		{{!-- logo --}}
+			    		<li><img id="logo_img" src="/images/layout/logo.png" alt="Engagement Lab"></li>
 
-	    		    {{!-- title --}}
-	    		    <li><a href="/" id="title">Engagement Lab</a></li>
-	    		</ul>
+		    		    {{!-- title --}}
+		    		    <li><p id="title">Engagement Lab</p></li>
+		    		</ul>
+	    		</a>
     		</div>
 
     		{{!-- menu --}}
@@ -43,7 +45,7 @@
 	    						</li>
 	    					{{/each}}
 	    				</ul>
-			    	</nav>
+			    	</div> <!-- /navbar-collapse -->
 			    </div> <!-- /main-navigation -->
     		</div> <!-- /col-md-8 -->
     	</div> <!-- /row -->
