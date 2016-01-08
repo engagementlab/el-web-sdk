@@ -7,7 +7,6 @@
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
  * @module research
- 
  * @class category
  * @static
  * @author Johnny Richardson
@@ -59,7 +58,7 @@ exports = module.exports = function(req, res) {
 
         });
 
-    }
+    };
 
     // Get all publications
     var getPublications = function(next) {
@@ -69,7 +68,7 @@ exports = module.exports = function(req, res) {
 
         var queryPubs = Publication.model.find({}).populate('subCategory');
         var queryCategory = Category.model.findOne({
-            key: "publications"
+            key: 'publications'
         });
 
         queryCategory.exec(function(err, resultCategory) {
@@ -95,7 +94,8 @@ exports = module.exports = function(req, res) {
 
                     // Assign subsections, if any
                     if (subSections[0] !== null && subSections.length > 0)
-                        locals.publications[category].sub_sections = _.uniq(subSections);
+                        locals.publications[category].sub_sections =
+                            _.uniq(subSections);
 
                 });
 
@@ -104,7 +104,7 @@ exports = module.exports = function(req, res) {
             });
 
         });
-    }
+    };
 
     // Load category and category's projects
     view.on('init', function(next) {

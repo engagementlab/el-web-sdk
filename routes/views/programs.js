@@ -6,9 +6,7 @@
  *
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
- * @module programs
  * @class directory
- * @static
  * @author Johnny Richardson
  *
  * ==========

@@ -1,6 +1,4 @@
-/* 
-	Engagement Lab Website 
-*/
+/* Engagement Lab Website */
 /**
  * Route middleware
  * This file contains the common middleware used by all routes. Extend or replace these functions as the application requires.
@@ -15,9 +13,7 @@
 var keystone = require('keystone');
 var _ = require('underscore');
 
-/** 
-	DB Models for use on nav (cached query)
-*/
+// DB Models for use on nav (cached query)
 var Category = keystone.list('Category');
 
 var queryCategory = Category.model.find({});
@@ -36,6 +32,7 @@ exports.initLocals = function(req, res, next) {
 
     var locals = res.locals;
 
+    // Caches query into redis
     queryCategory.lean();
     queryCategory.exec(function(err, resultCategory) {
 

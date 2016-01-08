@@ -1,11 +1,13 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-if(process.env.NODE_ENV !== 'staging')
+// Ignore for staging env (heroku)
+if (process.env.NODE_ENV !== 'staging')
 	require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
+var mongooseRedisCache = require('mongoose-redis-cache');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -64,12 +66,12 @@ keystone.set('nav', {
 	'programs': 'programs',
 	'shared': ['resources', 'categories']
 });
- 
+
 // prefix all built-in tags with 'keystone_'
 keystone.set('cloudinary prefix', 'keystone');
- 
+
 // prefix each image public_id with [{prefix}]/{list.path}/{field.path}/
 keystone.set('cloudinary folders', true);
- 
+
 // Start Keystone to connect to your database and initialise the web server
 keystone.start();

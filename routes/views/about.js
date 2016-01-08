@@ -7,7 +7,6 @@
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
  * @class about
- * @static
  * @author Johnny Richardson
  *
  * ==========
@@ -43,4 +42,4 @@ exports = module.exports = function(req, res) {
     // Render the view
     view.render('about');
 
-}
+};
