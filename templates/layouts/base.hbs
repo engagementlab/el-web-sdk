@@ -29,106 +29,60 @@
 	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
 	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
 	<body class="page-loader-3">
-		<!-- scrollToTop -->
+
+		{{!-- I don't think we should keep this in by default, but commenting out for now so that we can talk about it with designers -Jay --}}
+		{{!-- <!-- scrollToTop -->
 		<!-- ================ -->
-		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
-		
+		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div> --}}
+
+		{{> nav}}
+
 		<!-- page wrapper start -->
 		<!-- ================ -->
 		<div class="page-wrapper">
-			
-			<!-- header-container start -->
-			<div class="header-container">
-				
-				
-				<!-- header start -->
-				<!-- classes:  -->
-				<!-- "fixed": enables fixed navigation mode (sticky menu) e.g. class="header fixed clearfix" -->
-				<!-- "dark": dark version of header e.g. class="header dark clearfix" -->
-				<!-- "full-width": mandatory class for the full-width menu layout -->
-				<!-- "centered": mandatory class for the centered logo layout -->
-				<!-- ================ -->
-				<header class="header fixed clearfix">
-					
-					<div class="container">
-						<div class="row">
-							<div class="col-md-3">
-								<!-- header-left start -->
-								<!-- ================ -->
-								<div class="header-left clearfix">
-									<!-- logo -->
-									<div id="logo" class="logo">
-										<a href="/"><img id="logo_img" src="/images/layout/logo.png" alt="Engagement Lab"><span>Engagement Lab</span></a>
 
-									</div>
-									<!-- name-and-slogan -->
-									<div class="site-slogan"></div>
-									
-								</div>
-								<!-- header-left end -->
-							</div>
-							<div class="col-md-9">
-								
-								<!-- header-right start -->
-								<!-- ================ -->
-								<div class="header-right clearfix">
-									
-								{{> nav}}
+			<!--
+				Flash messages allow you to display once-off status messages to users, e.g. form
+				validation errors, success messages, etc
+			-->
+			{{#if messages}}
+			<div id="flash-messages" class="container">
+				{{#if messages.info}}
+				<div class="alert alert-info">
+					{{{flashMessages messages.info}}}
+				</div>
+				{{/if}}
+				{{#if messages.success}}
+				<div class="alert alert-success">
+					{{{flashMessages messages.success}}}
+				</div>
+				{{/if}}
+				{{#if messages.warning}}
+				<div class="alert alert-warning">
+					{{{flashMessages messages.warning}}}
+				</div>
+				{{/if}}
+				{{#if messages.error}}
+				<div class="alert alert-danger">
+					{{{flashMessages messages.error}}}
+				</div>
+				{{/if}}
+			</div>
+			{{/if}}
 
-								</div>
-								<!-- header-right end -->
-								
-							</div>
-						</div>
-					</div>
-					<!-- container end -->
-					
-				</header>
-				<!-- header end -->
-			</div>
-			<!-- header-container end -->
+			<!-- BODY CONTENT START -->
+			{{{body}}}
+						
+			{{> footer}}
 
-		<!--
-			Flash messages allow you to display once-off status messages to users, e.g. form
-			validation errors, success messages, etc
-		-->
-		{{#if messages}}
-		<div id="flash-messages" class="container">
-			{{#if messages.info}}
-			<div class="alert alert-info">
-				{{{flashMessages messages.info}}}
-			</div>
-			{{/if}}
-			{{#if messages.success}}
-			<div class="alert alert-success">
-				{{{flashMessages messages.success}}}
-			</div>
-			{{/if}}
-			{{#if messages.warning}}
-			<div class="alert alert-warning">
-				{{{flashMessages messages.warning}}}
-			</div>
-			{{/if}}
-			{{#if messages.error}}
-			<div class="alert alert-danger">
-				{{{flashMessages messages.error}}}
-			</div>
-			{{/if}}
+			<!-- page-wrapper end -->
+			{{#ifeq env "development"}}
+				{{> script/development section=section}}
+			{{else}}
+				{{> script/production section=section}}
+			{{/ifeq}}
+
+			{{{isAdminEditorJS user}}}
 		</div>
-		{{/if}}
-		
-		<!-- BODY CONTENT START -->
-		{{{body}}}
-					
-		{{> footer}}
-
-		<!-- page-wrapper end -->
-		{{#ifeq env "development"}}
-			{{> script/development section=section}}
-		{{else}}
-			{{> script/production section=section}}
-		{{/ifeq}}
-
-		{{{isAdminEditorJS user}}}
 	</body>
 </html>

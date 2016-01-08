@@ -1,7 +1,7 @@
 /* Scss Document */
 
 // Core variables and mixins
-@import "variables";
+@import "skin";
 @import "mixins";
 
 /* Theme Name:The Project - Responsive Website Template
@@ -37,6 +37,6 @@ File Description:Main CSS file of the template */
 
 // Our custom SCSS
 @import "custom";
+@import "custom/nav";
+@import "custom/footer";
 
-// Skin
-@import "skins/light_blue";

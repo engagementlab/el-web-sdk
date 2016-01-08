@@ -5,40 +5,107 @@ Author e-mail:htmlcoder.me@gmail.com
 Version:1.1.0
 Created:May 2015
 License URI:http://support.wrapbootstrap.com/
-File Description:Purple Skin
+File Description:Light Blue Skin
 */
-@import "mixins";
+@import "mixins"; 
 
 //== Colors
 //
 //## Gray and brand colors for use across The Project Template.
-$gray-dark:             #333333;
-$gray:                  #777777;
-$gray-light:            #999999;
+$gray-dark: 			#7d7d7d;
+$gray:            		#cccccc;
+$gray-light:            #bababa;
 $gray-lighter:          #cdcdcd;
 $white:                 #ffffff;
 $black:                 #000000;
 
-//** Base Colors of Purple Skin.
-$base-color:            #ab6cc6;
-$base-color-opacity-60: rgba(171, 108, 198, 0.6);
-$base-color-opacity-70: rgba(171, 108, 198, 0.7);
-$base-color-opacity-80: rgba(171, 108, 198, 0.8);
-$base-color-hover:      #9760af;
+//** Base Colors of Light Blue Skin.
+$base-color:            #6dd0ec;
+$base-color-hover:      #0c9ec7;
+$base-color-opacity-60: rgba(9, 175, 223, 0.6);
+$base-color-opacity-70: rgba(9, 175, 223, 0.7);
+$base-color-opacity-80: rgba(9, 175, 223, 0.8);
 //** Dark Header Top and Header
-$dark-header:                   #3f3842;
-$dark-header-opacity-95:        rgba(63, 56, 66, 0.95);
-$dark-header-opacity-90:        rgba(63, 56, 66, 0.9);
-$dark-header-opacity-80:        rgba(63, 56, 66, 0.8);
-$dark-header-opacity-60:        rgba(63, 56, 66, 0.6);
-$dark-header-top:               #332d35;
-$dark-header-top-opacity-60:    rgba(40, 36, 42, 0.5);
-$dark-header-top-border:        #28242a;
-$dark-navigation-item-border:   rgba(63, 56, 66, 0.8);
+$dark-header:                   #394245;
+$dark-header-opacity-95:        rgba(57, 66, 69, 0.95);
+$dark-header-opacity-90:        rgba(57, 66, 69, 0.9);
+$dark-header-opacity-80:        rgba(57, 66, 69, 0.8);
+$dark-header-opacity-60:        rgba(57, 66, 69, 0.6);
+$dark-header-top:               #2e3537;
+$dark-header-top-opacity-60:    rgba(37, 42, 44, 0.5);
+$dark-header-top-border:        #252a2c;
+$dark-navigation-item-border:   rgba(57, 66, 69, 0.8);
+
+//** Background color for `<body>`.
+$body-bg:               #ffffff;
+//** Global text color on `<body>`.
+$text-color:            $gray;
+//** Global textual link color.
+$link-color:            $base-color;
+//** Link hover color set via `darken()` function.
+$link-color-hover:      $base-color-hover;
+//** Link hover decoration.
+$link-hover-decoration: underline;
+
+/* Custom */
+$icon-bg-color: #bdbdbd;
+
+//== Social Icons Colors
+//
+$twitter: 				   #55acee;
+$skype: 				   #00aff0;
+$facebook:                 #3b5998;
+$linkedin:                 #0976b4;
+$googleplus:               #dd4b39;
+$youtube:                  #b31217;
+$flickr:                   #ff0084;
+$pinterest:                #cb2027;
+$instagram:                #517fa4;
+$vimeo:                    #aad450;
+$tumblr:                   #32506d;
+$soundcloud:               #ff3a00;
+$foursquare:               #0072b1;
+$dribbble:                 #ea4c89;
+$behance:                  #053eff;
+$vine:                     #00a478;
+$stumbleupon:              #f74425;
+$xing:              	   #126567;
 
 /* 1- Typography
 -------------------------------------------------
 -------------------------------------------------*/
+
+//** Font, line-height, and color for body text, headings, and more.
+$font-family-roboto:     'Roboto', sans-serif;
+$font-family-raleway:    'Raleway', sans-serif;
+$font-family-pt-serif:   'PT Serif', serif;
+$font-family-pacifico:   'Pacifico', cursive, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+
+$font-family-base:        $font-family-roboto;
+
+$font-size-base:          15px;
+$font-size-large:         ceil(($font-size-base * 1.25)); // ~18px
+$font-size-small:         ceil(($font-size-base * 0.85)); // ~12px
+
+$font-size-h1:            floor(($font-size-base * 2.22666)); // ~33px
+$font-size-h2:            floor(($font-size-base * 1.86667)); // ~28px
+$font-size-h3:            ceil(($font-size-base * 1.6)); // ~24px
+$font-size-h4:            ceil(($font-size-base * 1.25)); // ~19px
+$font-size-h5:            $font-size-base;
+$font-size-h6:            ceil(($font-size-base * 0.85)); // ~13px
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.466666666667; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    $font-family-raleway;
+$headings-font-weight:    400;
+$headings-line-height:    1.2;
+$headings-color:          inherit;
+
 a {
 	color: $base-color;
 }
@@ -146,6 +213,7 @@ mark,
 fieldset[disabled] .btn-default {
 	background-color: $base-color;
 	border-color: $base-color-hover;
+
 }
 .btn-default-transparent {
 	color: $gray;
@@ -342,6 +410,10 @@ ul.pagination li.active a,
 	color: $base-color-hover;
 }
 /*footer*/
+.dark .footer {
+	background-color: $gray-dark;
+	color: $gray-light;
+}
 .dark .footer-content .nav-pills > li > a,
 .dark .footer-content .nav-pills > li.active > a,
 .dark .footer-content .nav-pills > li.active > a:focus,
@@ -373,13 +445,13 @@ ul.pagination li.active a,
 	.form-control {
 		background-color: rgba(0, 0, 0, 0.2);
 		border-color: $base-color-hover;
-		@import box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 		color: $white;
 	}
 	.has-success .form-control:focus,
 	.has-warning .form-control:focus,
 	.has-error .form-control:focus {
-		@import box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
+		@include box-shadow(inset 0 2px 3px rgba(0, 0, 0, .35));
 	}
 	.input-group-addon {
 		background-color: rgba(0, 0, 0, 0.20);
@@ -401,7 +473,7 @@ ul.pagination li.active a,
 /*Icons
 ---------------------------------- */
 .icon.default-bg {
-	background-color: $base-color;
+	background-color: $icon-bg-color;
 	color: #ffffff;
 }
 .icon.light-bg {
@@ -455,7 +527,6 @@ ul.pagination li.active a,
 .page-loader-3 .pace .pace-progress {
 	background: $base-color;
 }
-
 .page-loader-4 .pace .pace-progress {
   background: $base-color;
 }
@@ -582,7 +653,6 @@ header:not(.dark) .dropdown-menu > li.active > a i {
 	.navbar-default .navbar-nav > .active > a:focus {
 		color: $base-color-hover;
 		background-color: #fff;
-
 		border-bottom-color: transparent;
 	}
 	/* second level item on hover/focus */
@@ -806,4 +876,5 @@ header:not(.dark) .dropdown-menu > li.active > a i {
 .content-slider-with-large-controls .owl-buttons .owl-next:after,
 .content-slider-with-large-controls-autoplay .owl-buttons .owl-next:after { 
 	color: $base-color;
-}
+}/* Scss Document */
+
