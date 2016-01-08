@@ -7,6 +7,10 @@ body {
 	float: right;
 }
 
+.navbar.navbar-default {
+	border-radius: 0;
+}
+
 .navbar-fixed-top {
 	margin-top: 0 !important;
 	padding-top: 10px;
@@ -53,9 +57,8 @@ body {
 }
 
 @media (max-width: 768px) { 
-	body { padding-top: 134px; }
+	body { padding-top: 126px; }
 }
-
 
 @media (max-width: 991px) { 
 	#logo-section ul {
@@ -68,7 +71,7 @@ body {
 
 @media (max-width: 991px) and (min-width: 768px) { 
 	body {
-		padding-top: 155px;
+		padding-top: 153px;
 	}
 	.navbar-nav {
 
