@@ -49,12 +49,15 @@ h6 {
 	line-height: $headings-line-height;
 }
 h1 a,
-h2 a,
 h3 a,
 h4 a,
 h5 a,
 h6 a {
 	color: $gray-dark;
+}
+h2 a,
+h3 a {
+	color: $gray-light;
 }
 .dark {
 	h1,
@@ -94,7 +97,7 @@ h6 a {
 }
 h1 {
 	font-size: $font-size-h1;
-	font-weight: 700;
+	font-weight: $headings-font-weight;
 	text-transform: uppercase;
 }
 h1.logo-font {
