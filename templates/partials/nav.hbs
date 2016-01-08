@@ -3,8 +3,8 @@
     	<div class="row">
     		
     		<div class="col-md-4">
-	    		<a href="/">
-		    		<ul id="logo" class="logo">
+	    		<a href="/" id="logo-section">
+		    		<ul>
 
 			    		{{!-- logo --}}
 			    		<li><img id="logo_img" src="/images/layout/logo.png" alt="Engagement Lab"></li>
@@ -17,7 +17,35 @@
 
     		{{!-- menu --}}
     		<div class="col-md-8">
-    			<div class="main-navigation animated with-dropdown-buttons">
+	    		<div class="main-navigation animated with-dropdown-buttons">
+	    			<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-collapse-1">
+		    			<ul class="nav navbar-nav">
+		    			    {{# each navLinks}}
+	    						<li class="{{#if this.subLinks}}dropdown{{else}}mega-menu{{/if}} {{#ifeq ../section key}}active{{else}}{{/ifeq}}">
+	    							<a class="dropdown-toggle"{{#if this.subLinks}} data-toggle="dropdown_{{key}}"{{/if}} href="{{ href }}">{{ label }}</a>
+	    							{{#if this.subLinks}}
+	    								<ul class="dropdown-menu">
+											{{#each this.subLinks}}
+												<li{{#ifeq ../sub_section key}} class="active"{{/ifeq}}>
+													<a href="{{href}}">{{label}}</a>
+												</li>
+											{{/each}}
+	    								</ul>
+	    							{{/if}}
+	    						</li>
+	    					{{/each}}
+		    			</ul>
+		    		</div>
+	    		</div>
+    			{{!-- <div class="main-navigation animated with-dropdown-buttons">
 					<!-- Toggle get grouped for better mobile display -->
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
@@ -46,7 +74,7 @@
 	    					{{/each}}
 	    				</ul>
 			    	</div> <!-- /navbar-collapse -->
-			    </div> <!-- /main-navigation -->
+			    </div> <!-- /main-navigation --> --}}
     		</div> <!-- /col-md-8 -->
     	</div> <!-- /row -->
     </div> <!-- /container -->
