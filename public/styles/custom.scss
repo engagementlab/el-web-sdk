@@ -4,6 +4,11 @@ html, body, .container {
   height: 100%;
 }
 
+.no-gutter {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 /* HOME */
 .overlay {
 position: absolute;
