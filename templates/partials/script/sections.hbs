@@ -14,27 +14,27 @@
 	$(document).ready(function() {
 
 		{{#ifeq section 'people'}}
-			$('.bio').next('p').readmore({
+			$('.bio').readmore({
 			  speed: 250,
 			  collapsedHeight: 115,
-/*			  lessLink: '<a href="#">(-)</a>',
-			  moreLink: '<a href="#">(+)</a>',*/
+			  lessLink: '<a href="#">Close</a>',
+			  moreLink: '<a href="#">...</a>',
 			  afterToggle: function(trigger, element, expanded) {
 			    
+		    	var teamMember = $(element).closest('.team-member');
+
 			    // The "Close" link was clicked
 			    if(! expanded)
-			      $('html, body').animate( { scrollTop: $(element).closest('.team-member').offset().top, easing: 'easeInOut' }, {duration: 250 } );
+			      $('html, body').animate( { scrollTop: teamMember.position().top + teamMember.offset().top/2, easing: 'easeOut' }, {duration: 250 } );
 			    else
-			      $('html, body').animate( { scrollTop: $(element).closest('.team-member').position().top + $(element).offset().top, easing: 'easeInOut' }, {duration: 250 } );
+			      $('html, body').animate( { scrollTop: teamMember.position().top + $(element).offset().top, easing: 'easeIn' }, {duration: 250 } );
 
 			  }
 			});
 
 			$('.team-member img.photo').click(function(evt) {
 
-				// console.log($(evt.currentTarget).next('p').parents('.col-sm-6').index())
-
-				// $($(evt.currentTarget.parents('.col-sm-6')).children('.bio')[0]).next('p').readmore('toggle');
+				$('.bio.' + evt.currentTarget.id).readmore('toggle');
 
 			});
 		{{/ifeq}}
