@@ -45,7 +45,9 @@ exports = module.exports = function(req, res) {
 
         queryCategory.exec(function(err, resultCategory) {
 
+            // Get projects for selected category that are enabled
             var queryProjects = Project.model.find({
+                enabled: true,
                 category: resultCategory
             });
             queryProjects.exec(function(err, resultProjects) {

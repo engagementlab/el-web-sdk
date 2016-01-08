@@ -85,6 +85,10 @@ Project.add({
         filters: { isProjectCategory: false, isSubcategory: true },
         initial: true 
     },
+    enabled: { 
+        type: Types.Boolean,
+        label: 'Enabled'
+    },
     featured: { 
         type: Types.Boolean,
         label: 'Featured'
@@ -234,5 +238,5 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
  * Model Registration
  */
 Project.defaultSort = 'sortOrder';
-Project.defaultColumns = 'name, category, featured';
+Project.defaultColumns = 'name, category, enabled, featured';
 Project.register();

@@ -58,6 +58,7 @@ left: 10%;
 /* PEOPLE */
 .team-member img {
   @include transition(all 1s ease);
+  @include center-block;
   border-radius: 50%;
   cursor: pointer;
   height: 192px;
