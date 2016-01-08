@@ -31,7 +31,8 @@ exports = module.exports = function(req, res) {
     // Load the current project
     view.on('init', function(next) {
 
-        // This query gets a project by the key in the URL and populates resources from its model
+        /* This query gets a project by the key in the
+           URL and populates resources from its model */
         var projectQuery = Project.model.findOne({
             key: locals.filters._key
         }).populate('videos articles files');
@@ -42,8 +43,9 @@ exports = module.exports = function(req, res) {
             locals.sub_section = result.category.key;
 
             // Format dates
-            locals.projectDates = result._.startDate.format("MMMM Do YYYY - ") +
-                ((result.endDate === undefined) ? "Current" : result.endDate.format("MMMM Do YYYY"));
+            locals.projectDates = result._.startDate.format('MMMM Do YYYY - ') +
+                                  ((result.endDate === undefined) ?
+                                  'Current' : result.endDate.format('MMMM Do YYYY'));
 
             next(err);
         });

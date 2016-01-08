@@ -16,16 +16,16 @@ var keystone = require('keystone');
 var Publications = keystone.list('Publications');
 
 exports = module.exports = function(req, res) {
-	
+
 	var view = new keystone.View(req, res),
 		locals = res.locals;
-	
+
 	// Init locals
 	locals.section = 'publications';
-	
+
 	// Load the current project
 	view.on('init', function(next) {
-			
+
 		var q = Publications.model.findOne({}, {}, { sort: { 'createdAt' : -1 } });
 
 		q.exec(function(err, result) {
@@ -33,10 +33,10 @@ exports = module.exports = function(req, res) {
 
 			next(err); 
 		}); 
-	
+
 	});
 
 	// Render the view
 	view.render('publications');
-	
-}
+
+};

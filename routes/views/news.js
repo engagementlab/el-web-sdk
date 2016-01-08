@@ -7,7 +7,6 @@
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
  * @class news
- * @static
  * @author Johnny Richardson
  *
  * ==========
@@ -39,10 +38,10 @@ exports = module.exports = function(req, res) {
             next(err);
 
         });
-    
+
     });
 
     // Render the view
     view.render('news');
 
-}
+};
