@@ -1,5 +1,6 @@
 /* Scss Document */
 
+/* GENERAL */
 html, body, .container {
   height: 100%;
 }
@@ -7,6 +8,25 @@ html, body, .container {
 .no-gutter {
   padding-left: 0;
   padding-right: 0;
+}
+
+.separator-4 {
+  width: 60%;
+  margin: 10px auto 10px;
+  position: relative;
+  height: 3px;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1); 
+}
+
+.separator-4:after {
+  height: 3px;
+  background: #e8e8e8;
+  position: absolute;
+  bottom: -3px;
+  content: "";
+  width: 100%;
+  left: 0;
 }
 
 /* HOME */
@@ -33,6 +53,10 @@ left: 10%;
 
 .featuredRow {
   padding: 2%;
+}
+
+.call-to-action h4 {
+  line-height: 1.8;
 }
 
 /* PROJECT PAGE */
@@ -78,6 +102,24 @@ left: 10%;
   @include tograyscale(100%);
 }
 
+.light .social-links {
+  li a {
+    background-color: $gray-light;
+    border: none;
+    color: #ffffff;
+  }
+}
+.light.social-links li {
+  a {
+    background-color: $gray-light;
+    border: none;
+    color: #ffffff;
+  }
+  a:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  } 
+}
+
 /* PUBLICATIONS */
 section.publications .subSection {
   display: inline-block;
@@ -85,7 +127,7 @@ section.publications .subSection {
 
 /* NEWS */
 .news-container {
-  background-color: $gray-lighter;
+  background-color: $gray-lightest;
 }
 
 .blog-feed {

@@ -20,15 +20,13 @@
 			  lessLink: '<a href="#">Close</a>',
 			  moreLink: '<a href="#">...</a>',
 			  afterToggle: function(trigger, element, expanded) {
-			    
+
 		    	var teamMember = $(element).closest('.team-member');
+		    	var navHeight = parseInt($('body').css('padding-top'));
 
-			    // The "Close" link was clicked
-			    if(! expanded)
-			      $('html, body').animate( { scrollTop: teamMember.position().top + teamMember.offset().top/2, easing: 'easeOut' }, {duration: 250 } );
-			    else
-			      $('html, body').animate( { scrollTop: teamMember.position().top + $(element).offset().top, easing: 'easeIn' }, {duration: 250 } );
-
+		    	if(! expanded) { // The "Close" link was clicked
+		  	      $('html, body').animate( { scrollTop: teamMember.offset().top - navHeight }, {duration: 100 } );
+		  	    }
 			  }
 			});
 

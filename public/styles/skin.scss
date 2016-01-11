@@ -15,12 +15,14 @@ File Description:Light Blue Skin
 $gray-dark: 			#7d7d7d;
 $gray:            		#cccccc;
 $gray-light:            #bababa;
-$gray-lighter:          #f4f4f4;
+$gray-lighter:          #dadada;
+$gray-lightest:			#f4f4f4;
 $white:                 #ffffff;
 $black:                 #000000;
 
 //** Base Colors of Light Blue Skin.
-$base-color:            #6dd0ec;
+$base-color:            #78cbd1;
+$base-color-light:		#c5fbff;
 $base-color-hover:      #0c9ec7;
 $base-color-opacity-60: rgba(9, 175, 223, 0.6);
 $base-color-opacity-70: rgba(9, 175, 223, 0.7);
@@ -35,6 +37,8 @@ $dark-header-top:               #2e3537;
 $dark-header-top-opacity-60:    rgba(37, 42, 44, 0.5);
 $dark-header-top-border:        #252a2c;
 $dark-navigation-item-border:   rgba(57, 66, 69, 0.8);
+//** Secondary (accent) colors
+$secondary-color:		#ff5622;
 
 //** Background color for `<body>`.
 $body-bg:               #ffffff;
@@ -121,8 +125,11 @@ mark,
 	background-color: $base-color;
 	color: #ffffff;
 }
-.text-default {
-	color: $base-color;
+.theme-primary {
+	color: $base-color
+}
+.theme-secondary {
+	color: $secondary-color;
 }
 /* Tables
 ---------------------------------- */
@@ -748,6 +755,7 @@ header:not(.dark) .dropdown-menu > li.active > a i {
 .social-links {
 	li {
 		a {
+			background-color: $gray-light;
 			border: 1px solid #e7e7e7;
 			color: $gray-lighter;
 			&:hover {
@@ -759,8 +767,10 @@ header:not(.dark) .dropdown-menu > li.active > a i {
 	}
 }
 .dark.social-links li a {
-	background-color: rgba(0, 0, 0, 0.6);
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	// background-color: rgba(0, 0, 0, 0.6);
+	background-color: $gray-light;
+	// border: 1px solid rgba(0, 0, 0, 0.1);
+	border: none;
 	color: #ffffff;
 }
 .social-links.animated-effect-1 li {
