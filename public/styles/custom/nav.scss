@@ -3,6 +3,10 @@ body {
   padding-top: 86px;
 }
 
+.navbar {
+	border: none;
+}
+
 .navbar-nav {
 	float: right;
 }
@@ -57,7 +61,13 @@ body {
 }
 
 @media (max-width: 768px) { 
-	body { padding-top: 126px; }
+	body { padding-top: 86px; }
+	.navbar-nav {
+		width: 100%;
+		li {
+			text-align: left;
+		}
+	}
 }
 
 @media (max-width: 991px) { 
@@ -71,7 +81,7 @@ body {
 
 @media (max-width: 991px) and (min-width: 768px) { 
 	body {
-		padding-top: 153px;
+		padding-top: 154px;
 	}
 	.navbar-nav {
 
@@ -84,3 +94,6 @@ body {
 	}
 }
 
+.navbar-toggle {
+	margin-top: 12px;
+}

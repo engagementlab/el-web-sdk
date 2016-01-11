@@ -8031,6 +8031,9 @@ section.publications .subSection {
 body {
   padding-top: 86px; }
 
+.navbar {
+  border: none; }
+
 .navbar-nav {
   float: right; }
 
@@ -8068,7 +8071,11 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 126px; } }
+    padding-top: 86px; }
+  .navbar-nav {
+    width: 100%; }
+    .navbar-nav li {
+      text-align: left; } }
 
 @media (max-width: 991px) {
   #logo-section ul {
@@ -8078,12 +8085,15 @@ body {
 
 @media (max-width: 991px) and (min-width: 768px) {
   body {
-    padding-top: 153px; }
+    padding-top: 154px; }
   .navbar-nav {
     float: none; }
     .navbar-nav > li {
       float: none;
       display: inline-block; } }
+
+.navbar-toggle {
+  margin-top: 12px; }
 
 #logo-footer {
   width: 96px;
