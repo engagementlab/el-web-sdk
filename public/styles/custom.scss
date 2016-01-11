@@ -10,8 +10,8 @@ html, body, .container {
   padding-right: 0;
 }
 
-.separator-4 {
-  width: 60%;
+.separator-4, .separator-5 {
+  width: 100%;
   margin: 10px auto 10px;
   position: relative;
   height: 3px;
@@ -19,7 +19,11 @@ html, body, .container {
   -webkit-transform: translateZ(0) scale(1, 1); 
 }
 
-.separator-4:after {
+.separator-4 {
+  width: 60%;
+}
+
+.separator-4:after, .separator-5:after {
   height: 3px;
   background: #e8e8e8;
   position: absolute;
@@ -189,4 +193,10 @@ section.publications .subSection {
   .news-sidebar .media img {
       max-width: none;
   }
+}
+
+/* DIRECTORY */
+.overlay-container img {
+  display: inline;
+  max-height: 320px;
 }

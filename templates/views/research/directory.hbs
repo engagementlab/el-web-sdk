@@ -14,44 +14,39 @@
 
 <!-- main-container start -->
 <!-- ================ -->
-<section class="main-container">
-	<div class="container">
-		<div class="row">
-			<!-- main start -->
-			<!-- ================ -->
-			<div class="main col-md-12">
-				<!-- page-title start -->
+<div class="page-wrapper">
+	<section class="main-container">
+		<div class="container">
+			<div class="row">
+				<!-- main start -->
 				<!-- ================ -->
-				<div class="p-20">
+				<div class="main col-md-10 col-md-offset-1">
 					<h1 class="page-title">Research</h1>
-					<!-- page-title end -->
-					<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit Illo quaerat <br> commodi excepturi dignissimos!</p>
-				</div>
-				<br>
+					<h6 class="lead">Lorem ipsum dolor sit amet! consectetur? adipisicing elit Illo quaerat commodi excepturi? DIGNISSIMOS!!!!!</h6>
 
-				{{#each categories}}
-					<div class="separator-2"></div>
-					<div class="image-box style-3-b">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="overlay-container">
-									{{{image}}}
+					{{#each categories}}
+						<div class="image-box style-3 pv-40">
+							<div class="row grid-space-0">
+								<div class="col-md-6">
+									<div class="overlay-container">
+										{{{image}}}
+									</div>
 								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="body">
-									<h3 class="title"><a href="/research/{{key}}">{{name}}</a></h3>
-									
-									<p class="mb-10">{{{description.html}}}</p>
+								<div class="col-md-6">
+									<div class="body">
+										<h3 class="title"><a href="/research/{{key}}">{{name}}</a></h3>
+										
+										<p>{{{description.html}}}</p>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				{{/each}}
-				
+						<div class="separator-5"></div>
+					{{/each}}
+					
+				</div>
+				<!-- main end -->
 			</div>
-			<!-- main end -->
 		</div>
-	</div>
-</section>
-<!-- main-container end -->
+	</section><!-- .main-container -->
+</div>
