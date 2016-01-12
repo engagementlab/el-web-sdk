@@ -84,58 +84,69 @@
 			</div>
 			<!-- blog end -->
 			<!-- events start -->
-			<div class="col-md-4 ph-30 news-sidebar">
-				<!-- <div class="affix"> -->
-				<div id="event-section">
-					<h3 class="page-title">Events</h3>
+			<div class="col-md-4 ph-30 news-sidebar" >
+				{{!-- <div class="affix-section" data-spy="affix" data-offset-top="294" data-offset-bottom="400"> --}}
+				<div class="affix-section">
+					<div id="event-section">
+						<h3 class="page-title">Events</h3>
+						<div class="separator-2 mb-20"></div>
+						{{#if events}}
+						{{#each events}}
+						<!-- event start -->
+						<div class="media margin-clear">
+							<div class="media-left">
+								<div class="overlay-container">
+									<img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
+									<a href="{{vanity_url}}" class="overlay-link small"><i class="fa fa-link"></i></a>
+								</div>
+							</div>
+							<div class="media-body">
+								<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
+								<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
+							</div>
+							<hr>
+						</div>
+						<!-- event end -->
+						{{/each}}
+						{{/if}}
+						
+						<!-- events end -->
+					</div>
+					<!-- features -->
+					<h3 class="page-title">Featured Press and Announcements</h3>
 					<div class="separator-2 mb-20"></div>
-					{{#if events}}
-					{{#each events}}
-					<!-- event start -->
+					
+					<!-- featured start -->
 					<div class="media margin-clear">
 						<div class="media-left">
 							<div class="overlay-container">
-								<img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
-								<a href="{{vanity_url}}" class="overlay-link small"><i class="fa fa-link"></i></a>
+								<img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
+								<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
 							</div>
 						</div>
 						<div class="media-body">
-							<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
-							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
+							<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
+							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2015</p>
 						</div>
 						<hr>
 					</div>
-					<!-- event end -->
-					{{/each}}
-					{{/if}}
 					
-					<!-- events end -->
+					<!-- featured end -->
 				</div>
-				<!-- features -->
-				<h3 class="page-title">Featured Press and Announcements</h3>
-				<div class="separator-2 mb-20"></div>
-				
-				<!-- featured start -->
-				<div class="media margin-clear">
-					<div class="media-left">
-						<div class="overlay-container">
-							<img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
-							<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-						</div>
-					</div>
-					<div class="media-body">
-						<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-						<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2015</p>
-					</div>
-					<hr>
-				</div>
-				
-				<!-- featured end -->
 			</div>
 
 		</div>
 	</section>
 	<script type="text/javascript">
+	$(function() {
+		$('.affix-section').affix({
+		  offset: {
+		    top: 294,
+		    bottom: 400;
+		  }
+		})
+	})
+	
 	/*$(function() {
 
 		// $('#event-section').css('top', parseInt($('body').css('padding-top')) + parseInt($('.news-sidebar').css('padding-top')) + 'px');

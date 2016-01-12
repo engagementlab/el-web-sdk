@@ -193,6 +193,16 @@ section.publications .subSection {
   background-color: $gray-lightest;
 }
 
+.affix {
+  width: 300px;
+  top:20%;
+
+}
+.affix-bottom {
+  position: absolute;
+
+}
+
 .blog-feed {
   padding-top: 50px;
   background-color: $white;
@@ -259,6 +269,14 @@ section.publications .subSection {
 @media (max-width: 991px) { 
   .news-sidebar .media img {
       max-width: none;
+  }
+  .affix {
+    position: static;
+    width: auto;
+  }
+  .affix-bottom {
+    position: relative;
+    width: auto;
   }
 }
 
