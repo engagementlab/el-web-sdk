@@ -30,8 +30,8 @@
 					</div>
 					<p class="summary sfb hidden-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, maiores, aliquid. Repellat eum numquam culpa offici, tenetur fugiat dolorum sapiente...
 					</p>
+						<a href="#">Read More <i class="fa fa-arrow-right"></i></a>
 					<p class="tp-caption sfb fadeout small_white hidden-xs">
-						<a href="#" class="btn btn-default btn-animated right">Read More <i class="fa fa-arrow-right"></i></a>
 					</p>
 				</div>
 			</div>
@@ -41,114 +41,96 @@
 	<!-- main-container start -->
 	<!-- ================ -->
 	<section class="news-container">
-		<div class="container-fluid">
-			<div class="row">
-				<!-- ================ -->
-				<div class="main col-md-12">
-					<div class="row">
-						<!-- blog start -->
-						<div class="col-md-8 ph-30 blog-feed">
-							<h1 class="page-title">Blog Feed</h1>
-							<div class="separator-2 mb-12"></div>
-							{{!-- {{jsonPrint news}} --}}
-							{{#each news}}
-							<!-- blogpost start -->
-							<article class="blogpost">
-								<div class="row grid-space-10">
-									<div class="col-md-6">
-										<div class="overlay-container">
-											<img src="{{image}}" alt="">
-											<a class="overlay-link" href="{{url}}"><i class="fa fa-link"></i></a>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<header>
-											<h3><a href="{{url}}">{{title}}</a></h3>
-											<div class="post-info">
-												<span class="post-date">
-													<i class="icon-calendar"></i>
-													<span class="month">{{date published format='MM-DD-YYYY'}}</span>
-													{{!-- <span class="day">{{date published format=''}}</span> --}}
-												</span>
-												<span class="submitted"><i class="icon-user-1"></i> by {{author}}</span>
-												{{!-- <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span> --}}
-											</div>
-										</header>
-										<div class="blogpost-content">
-											<p>"...{{{content}}}..."</p>
-										</div>
-									</div>
-								</div>
-								<footer class="clearfix">
-									<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-									<div class="link pull-right"><i class="icon-link"></i><a href="{{url}}">Read More</a></div>
-								</footer>
-							</article>
-							{{/each}}
+		<div class="container-fluid no-gutter">
+			<!-- blog start -->
+			<div class="col-md-8 ph-30 blog-feed">
+				<h1 class="page-title">Blog Feed</h1>
+				<div class="separator-2 mb-12"></div>
+				{{!-- {{jsonPrint news}} --}}
+				{{#each news}}
+				<!-- blogpost start -->
+				<article class="blogpost">
+					<div class="row grid-space-10">
+						<div class="col-md-6">
+							<div class="overlay-container">
+								<img src="{{image}}" alt="">
+								<a class="overlay-link" href="{{url}}"><i class="fa fa-link"></i></a>
+							</div>
 						</div>
-						<!-- blog end -->
-						<!-- events start -->
-						<div class="col-md-4 ph-30 news-sidebar">
-							<!-- side menu -->
-							<div class="block clearfix">
-								<h3 class="title">Menu</h3>
-								<div class="separator-2"></div>
-								<nav>
-									<ul class="nav nav-pills nav-stacked">
-										<li class="active"><a href="blog-large-image-right-sidebar.html">Blog Posts</a></li>
-										<li><a href="portfolio-grid-2-3-col.html">Featured Press &amp; Announcements</a></li>
-										<li><a href="page-about.html">Upcoming Events</a></li>
-									</ul>
-								</nav>
+						<div class="col-md-6">
+							<header>
+								<h3><a href="{{url}}">{{title}}</a></h3>
+								<div class="post-info">
+									<span class="post-date">
+										<i class="icon-calendar"></i>
+										<span class="month">{{date published format='MM-DD-YYYY'}}</span>
+										{{!-- <span class="day">{{date published format=''}}</span> --}}
+									</span>
+									<span class="submitted"><i class="icon-user-1"></i> by {{author}}</span>
+									{{!-- <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span> --}}
+								</div>
+							</header>
+							<div class="blogpost-content">
+								<p>"...{{{content}}}..."</p>
 							</div>
-							<h3 class="page-title">Events</h3>
-							<div class="separator-2 mb-20"></div>
-							{{#if events}}
-							{{#each events}}
-							<!-- event start -->
-							<div class="media margin-clear">
-								<div class="media-left">
-									<div class="overlay-container">
-										<img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
-										<a href="{{vanity_url}}" class="overlay-link small"><i class="fa fa-link"></i></a>
-									</div>
-								</div>
-								<div class="media-body">
-									<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
-									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
-								</div>
-								<hr>
-							</div>
-							<!-- event end -->
-							{{/each}}
-							{{/if}}
-							
-							<!-- events end -->
-							<!-- features -->
-							<h3 class="page-title">Featured Press and Announcements</h3>
-							<div class="separator-2 mb-20"></div>
-							
-							<!-- featured start -->
-							<div class="media margin-clear">
-								<div class="media-left">
-									<div class="overlay-container">
-										<img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
-										<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-									</div>
-								</div>
-								<div class="media-body">
-									<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2015</p>
-								</div>
-								<hr>
-							</div>
-							
-							<!-- featured end -->
-							
 						</div>
 					</div>
+					<footer class="clearfix">
+						<div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
+						<div class="link pull-right"><i class="icon-link"></i><a href="{{url}}">Read More</a></div>
+					</footer>
+				</article>
+				{{/each}}
+			</div>
+			<!-- blog end -->
+			<!-- events start -->
+			<div class="col-md-4 ph-30 news-sidebar">
+				<!-- <div class="affix"> -->
+				<div id="event-section">
+					<h3 class="page-title">Events</h3>
+					<div class="separator-2 mb-20"></div>
+					{{#if events}}
+					{{#each events}}
+					<!-- event start -->
+					<div class="media margin-clear">
+						<div class="media-left">
+							<div class="overlay-container">
+								<img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
+								<a href="{{vanity_url}}" class="overlay-link small"><i class="fa fa-link"></i></a>
+							</div>
+						</div>
+						<div class="media-body">
+							<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
+							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
+						</div>
+						<hr>
+					</div>
+					<!-- event end -->
+					{{/each}}
+					{{/if}}
+					
+					<!-- events end -->
 				</div>
 			</div>
 		</div>
 	</section>
+	<script type="text/javascript">
+	/*$(function() {
+
+		// $('#event-section').css('top', parseInt($('body').css('padding-top')) + parseInt($('.news-sidebar').css('padding-top')) + 'px');
+
+		$('#event-section').affix({
+		  offset: {
+		  	top: function () {
+		  		// console.log($('.featured-blog').outerHeight(true) + parseInt($('.news-sidebar').css('padding-top')))
+		  		return (this.top = $('.featured-blog').outerHeight(true))
+		  	},
+		    // top: $('.featured-blog').outerHeight(true) + parseInt($('.news-sidebar').css('padding-top')),
+		    bottom: function () {
+		      return (this.bottom = $('#footer').outerHeight(true))
+		    }
+		  }
+		})
+	})*/
+	</script>
 	<!-- main-container end -->

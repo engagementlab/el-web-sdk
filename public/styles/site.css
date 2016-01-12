@@ -8009,16 +8009,20 @@ section.publications .subSection {
 .featured-blog {
   background-color: rgba(0, 0, 0, 0.33);
   color: #ffffff; }
+  .featured-blog a {
+    color: white; }
+    .featured-blog a:hover {
+      text-decoration: underline; }
   .featured-blog h2 {
     font-size: 26px; }
   .featured-blog .post-info {
     color: #ffffff; }
-    .featured-blog .post-info a {
-      color: white;
-      text-decoration: none; }
   .featured-blog .summary {
     margin-top: 10px; }
 
+/* #event-section.affix {
+  padding-right: 30px;
+} */
 @media (max-width: 991px) {
   .news-sidebar .media img {
     max-width: none; } }
@@ -8072,20 +8076,26 @@ body {
 @media (max-width: 768px) {
   body {
     padding-top: 86px; }
+  #logo-section ul {
+    text-align: left; }
   .navbar-nav {
     width: 100%; }
     .navbar-nav li {
-      text-align: left; } }
+      text-align: left; }
+  .dropdown-menu {
+    display: none; }
+  .dropdown > a:before {
+    display: none; } }
 
 @media (max-width: 991px) {
-  #logo-section ul {
-    text-align: center; }
   .main-navigation > .navbar-collapse > ul {
     text-align: center; } }
 
 @media (max-width: 991px) and (min-width: 768px) {
   body {
     padding-top: 154px; }
+  #logo-section ul {
+    text-align: center; }
   .navbar-nav {
     float: none; }
     .navbar-nav > li {

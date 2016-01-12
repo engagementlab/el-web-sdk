@@ -173,21 +173,29 @@ section.publications .subSection {
   background-color: rgba(0,0,0,0.33);
   color: $white;
 
+  a {
+    color: white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   h2 { font-size: 26px; }
 
   .post-info {
     color: $white;
 
-    a {
-      color: white;
-      text-decoration: none;
-    }
   }
 
   .summary {
     margin-top: 10px;
   }
 }
+
+/* #event-section.affix {
+  padding-right: 30px;
+} */
 
 @media (max-width: 991px) { 
   .news-sidebar .media img {
