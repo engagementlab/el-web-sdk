@@ -48,6 +48,7 @@ exports = module.exports = function(app) {
 
     app.get('/programs', routes.views.programs);
     app.get('/news', routes.views.news);
+    app.get('/press', routes.views.press);
     // app.all('/projects', routes.views.projects);
     // app.all('/projects/:project_id', routes.views.project);
 

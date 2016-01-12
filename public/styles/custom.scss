@@ -33,6 +33,39 @@ html, body, .container {
   left: 0;
 }
 
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-9 {
+    width: 11.111%;
+    float: left;
+}
+@media (min-width: 768px) {
+.col-sm-9 {
+        width: 11.111%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-9 {
+        width: 11.111%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-9 {
+        width: 11.111%;
+        float: left;
+    }
+}
+
 /* HOME */
 .overlay {
 position: absolute;
@@ -61,6 +94,32 @@ left: 10%;
 
 .call-to-action h4 {
   line-height: 1.8;
+}
+
+/* ABOUT */
+.partner-container {
+  // margin-top: 10px;
+  // margin-bottom: 10px;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &:after {
+    content: '';
+    display: block;
+    margin-top: 100%;
+  }
+}
+
+.partner-icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /* PROJECT PAGE */
