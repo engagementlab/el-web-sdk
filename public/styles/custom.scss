@@ -98,8 +98,6 @@ left: 10%;
 
 /* ABOUT */
 .partner-container {
-  // margin-top: 10px;
-  // margin-bottom: 10px;
   display: inline-block;
   position: relative;
   width: 100%;
@@ -120,6 +118,30 @@ left: 10%;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.partners {
+  background-color: $gray-lighter;
+}
+
+.content-slider-with-controls {
+  .owl-buttons {
+    .owl-next {
+      right: -60px;
+    }
+    .owl-prev {
+      left: -60px;
+    }
+    .owl-next, .owl-prev {
+      background: none;
+      &:hover {
+        opacity: 0.5;
+      }
+      &:after {
+        font-size: 72px;
+      }
+    }
+  }
 }
 
 /* PROJECT PAGE */
