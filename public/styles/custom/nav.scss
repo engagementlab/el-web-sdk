@@ -58,6 +58,7 @@ body {
 
 .dropdown-menu > li > a {
 	background-color: $white;
+	border: none;
 }
 
 @media (max-width: 768px) { 
@@ -76,6 +77,9 @@ body {
 	}
 	.dropdown > a:before {
 		display: none;
+	}
+	.navbar-default .navbar-nav > li > a {
+		border-bottom: none;
 	}
 }
 

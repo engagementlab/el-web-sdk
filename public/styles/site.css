@@ -8050,8 +8050,7 @@ section.publications .subSection {
 
 .affix {
   width: 300px;
-  top: 20%;
-  bottom: 100%; }
+  top: 20%; }
 
 .affix-bottom {
   width: 300px;
@@ -8153,7 +8152,8 @@ body {
   top: 100%; }
 
 .dropdown-menu > li > a {
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  border: none; }
 
 @media (max-width: 768px) {
   body {
@@ -8167,7 +8167,9 @@ body {
   .dropdown-menu {
     display: none; }
   .dropdown > a:before {
-    display: none; } }
+    display: none; }
+  .navbar-default .navbar-nav > li > a {
+    border-bottom: none; } }
 
 @media (max-width: 991px) {
   .main-navigation > .navbar-collapse > ul {
