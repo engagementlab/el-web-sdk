@@ -8050,10 +8050,13 @@ section.publications .subSection {
 
 .affix {
   width: 300px;
-  top: 20%; }
+  top: 20%;
+  bottom: 100%; }
 
 .affix-bottom {
-  position: absolute; }
+  width: 300px;
+  position: absolute;
+  top: auto; }
 
 .blog-feed {
   padding-top: 50px;
@@ -8097,10 +8100,14 @@ section.publications .subSection {
     max-width: none; }
   .affix {
     position: static;
-    width: auto; }
+    width: auto;
+    top: 0;
+    bottom: 0; }
   .affix-bottom {
-    position: relative;
-    width: auto; } }
+    position: static;
+    width: auto;
+    top: 0;
+    bottom: 0; } }
 
 /* DIRECTORY */
 .overlay-container img {

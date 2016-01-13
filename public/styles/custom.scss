@@ -238,8 +238,9 @@ section.publications .subSection {
 
 }
 .affix-bottom {
+  width: 300px;
   position: absolute;
-
+  top: auto;
 }
 
 .blog-feed {
@@ -312,10 +313,14 @@ section.publications .subSection {
   .affix {
     position: static;
     width: auto;
+    top: 0;
+    bottom: 0;
   }
   .affix-bottom {
-    position: relative;
+    position: static;
     width: auto;
+    top: 0;
+    bottom: 0;
   }
 }
 
