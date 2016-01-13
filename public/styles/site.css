@@ -7966,45 +7966,26 @@ html, body, .container {
 
 .partners {
   background-color: #dadada; }
+  .partners .content-slider-with-controls .image-box {
+    margin-bottom: 0; }
+  .partners .content-slider-with-controls .owl-buttons {
+    margin-top: -48px; }
+    .partners .content-slider-with-controls .owl-buttons .owl-next {
+      right: -60px; }
+    .partners .content-slider-with-controls .owl-buttons .owl-prev {
+      left: -60px; }
+    .partners .content-slider-with-controls .owl-buttons .owl-next, .partners .content-slider-with-controls .owl-buttons .owl-prev {
+      background: none; }
+      .partners .content-slider-with-controls .owl-buttons .owl-next:hover, .partners .content-slider-with-controls .owl-buttons .owl-prev:hover {
+        opacity: 0.5; }
+      .partners .content-slider-with-controls .owl-buttons .owl-next:after, .partners .content-slider-with-controls .owl-buttons .owl-prev:after {
+        font-size: 72px; }
+  .partners .client-image:hover {
+    opacity: 0.5;
+    cursor: pointer; }
+  .partners .client-image.selected i {
+    color: #78cbd1 !important; }
 
-/* .content-slider-with-controls .owl-buttons .owl-next {
-  right: -40px;
-}
-
-.content-slider-with-controls .owl-buttons .owl-prev {
-  left: -40px;
-}
-
-.content-slider-with-controls .owl-buttons .owl-next,
-.content-slider-with-controls .owl-buttons .owl-prev {
-  background-color: none;
-  &:after {
-    font-size: 72px;
-  }
-} */
-.content-slider-with-controls .owl-buttons .owl-next {
-  right: -60px; }
-
-.content-slider-with-controls .owl-buttons .owl-prev {
-  left: -60px; }
-
-.content-slider-with-controls .owl-buttons .owl-next, .content-slider-with-controls .owl-buttons .owl-prev {
-  background: none; }
-  .content-slider-with-controls .owl-buttons .owl-next:hover, .content-slider-with-controls .owl-buttons .owl-prev:hover {
-    opacity: 0.5; }
-  .content-slider-with-controls .owl-buttons .owl-next:after, .content-slider-with-controls .owl-buttons .owl-prev:after {
-    font-size: 72px; }
-
-/* .content-slider-with-controls .owl-buttons .owl-prev, 
-.content-slider-with-controls .owl-buttons .owl-prev {
-  &:hover {
-    padding-left: 0;
-    padding-right: 0;
-    &:after {
-      left: 0;
-    }
-  }
-} */
 /* PROJECT PAGE */
 #project_description {
   background: #f4f4f4;

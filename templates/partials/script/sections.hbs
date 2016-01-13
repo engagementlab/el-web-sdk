@@ -13,6 +13,78 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
+		// TODO: should have a better system for this, but all carousels must be manually initalized
+		// (moved from public/js/template.js)
+		//Owl carousel
+		//-----------------------------------------------
+		/*if ($('.owl-carousel').length>0) {
+			$(".owl-carousel.carousel").owlCarousel({
+				items: 4,
+				pagination: false,
+				navigation: true,
+				navigationText: false
+			});
+			$(".owl-carousel.carousel-autoplay").owlCarousel({
+				items: 4,
+				autoPlay: 5000,
+				pagination: false,
+				navigation: true,
+				navigationText: false
+			});
+			$(".owl-carousel.clients").owlCarousel({
+				items: 6,
+				autoPlay: true,
+				pagination: false,
+				itemsDesktopSmall: [992,4],
+				itemsTablet: [768,4],
+				itemsMobile: [479,3]
+			});
+			$(".owl-carousel.content-slider").owlCarousel({
+				singleItem: true,
+				autoPlay: 5000,
+				navigation: false,
+				navigationText: false,
+				pagination: false
+			});	
+			$(".owl-carousel.content-slider-with-controls").owlCarousel({
+				singleItem: true,
+				autoPlay: false,
+				navigation: true,
+				pagination: false
+			});
+			$(".owl-carousel.content-slider-with-controls-pagination").owlCarousel({
+				singleItem: true,
+				autoPlay: false,
+				navigation: true,
+				pagination: true
+			});
+			$(".owl-carousel.content-slider-with-large-controls").owlCarousel({
+				singleItem: true,
+				autoPlay: false,
+				navigation: true,
+				pagination: true
+			});	
+			$(".owl-carousel.content-slider-with-controls-autoplay").owlCarousel({
+				singleItem: true,
+				autoPlay: 5000,
+				navigation: true,
+				pagination: true
+			});
+			$(".owl-carousel.content-slider-with-large-controls-autoplay").owlCarousel({
+				singleItem: true,
+				autoPlay: 5000,
+				navigation: true,
+				pagination: true
+			});
+			$(".owl-carousel.content-slider-with-controls-autoplay-hover-stop").owlCarousel({
+				singleItem: true,
+				autoPlay: 5000,
+				navigation: true,
+				pagination: true,
+				stopOnHover: true
+			});
+		};*/
+
 		{{#ifeq section 'people'}}
 			$('.bio').readmore({
 			  speed: 250,
@@ -36,6 +108,30 @@
 
 			});
 		{{/ifeq}}
-	
+		{{#ifeq section 'about'}}
+
+			$(".owl-carousel.content-slider-with-controls").owlCarousel({
+				singleItem: true,
+				autoPlay: false,
+				navigation: true,
+				pagination: false,
+				beforeMove: function(elem) {
+					index = $(this)[0].currentItem;
+					selectPartner($('.client-image').eq(index));
+				}
+			});
+
+			var owl = $('.owl-carousel');
+
+			$('.client-image').click(function() {
+				owl.trigger('owl.goTo', $(this).index());
+				selectPartner($(this));
+			});
+
+			function selectPartner(selector) {
+				$('.clients>.client-image.selected').removeClass('selected');
+				selector.addClass('selected');
+			}
+		{{/ifeq}}
 	})
 </script>

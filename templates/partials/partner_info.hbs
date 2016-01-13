@@ -1,0 +1,27 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Partner info partial 
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+<div class="image-box style-3-b">
+	<div class="row">
+		<div class="col-sm-4 col-md-4">
+			<div class="overlay-container">
+				<img src="{{partner.image}}" alt="{{partner.name}}">
+			</div>
+		</div>
+		<div class="col-sm-8 col-md-8">
+			<div class="body">
+				<h3 class="title">{{partner.name}}</h3>
+				<p>{{partner.description}}</p>
+			</div>
+		</div>
+	</div>
+</div>

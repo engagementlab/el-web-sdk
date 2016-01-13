@@ -13,7 +13,7 @@
  * ==========
  */
 var keystone = require('keystone');
-var Publications = keystone.list('Publications');
+var Publications = keystone.list('Publication');
 
 exports = module.exports = function(req, res) {
 
@@ -23,13 +23,13 @@ exports = module.exports = function(req, res) {
 	// Init locals
 	locals.section = 'publications';
 
-	// Load the current project
+	// Load the current publication
 	view.on('init', function(next) {
 
-		var q = Publications.model.findOne({}, {}, { sort: { 'createdAt' : -1 } });
+		var q = Publication.model.findOne({}, {}, { sort: { 'createdAt' : -1 } });
 
 		q.exec(function(err, result) {
-			locals.publications = result;
+			locals.publication = result;
 
 			next(err); 
 		}); 

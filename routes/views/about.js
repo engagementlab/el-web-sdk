@@ -13,6 +13,7 @@
  */
 var keystone = require('keystone');
 var About = keystone.list('About');
+var Partner = keystone.list('Partner');
 
 exports = module.exports = function(req, res) {
 
@@ -22,7 +23,6 @@ exports = module.exports = function(req, res) {
     // Init locals
     locals.section = 'about';
 
-    // Load the current project
     view.on('init', function(next) {
 
         var q = About.model.findOne({}, {}, {
