@@ -8049,13 +8049,10 @@ section.publications .subSection {
   background-color: #f4f4f4; }
 
 .affix {
-  width: 300px;
-  top: 20%; }
+  top: 128px; }
 
 .affix-bottom {
-  width: 300px;
-  position: absolute;
-  top: auto; }
+  position: absolute; }
 
 .blog-feed {
   padding-top: 50px;

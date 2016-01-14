@@ -137,12 +137,14 @@
 	</section>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$('.affix-section').affix({
-		  offset: {
-		    top: 294,
-		    bottom: 400
-		  }
-		})
+		setTimeout(function () {
+			$('.affix-section').affix({
+			  offset: {
+			    top: $('.banner').outerHeight(true),
+			    bottom: $('.footer').outerHeight(true)
+			  }
+			})
+		}, 100);
 	})
 	
 	/*$(function() {
