@@ -7,6 +7,8 @@ git clone https://github.com/engagementgamelab/EL-Website.git
 cd EL-Website
 ```
 
+Install [MongoDB](https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/).
+
 Install [nvm](https://github.com/creationix/nvm) (make sure that [wget](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/) is installed):
 ```
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
@@ -54,7 +56,13 @@ Install [nodemon](http://nodemon.io/) globally if not installed:
 npm install -g nodemon
 ```
 
-Create a file called .env in the root of the project with the following content:
+Create a file called .env in the root of the project 
+```
+touch .env
+open .env
+```
+
+Then paste in the following content:
 ```
 NODE_ENV=development
 KEYSTONE_DEV=true npm start
