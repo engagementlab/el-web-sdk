@@ -1,6 +1,6 @@
 
 body {
-  padding-top: 86px;
+  padding-top: 76px;
 }
 
 .navbar {
@@ -17,37 +17,32 @@ body {
 
 .navbar-fixed-top {
 	margin-top: 0 !important;
-	padding-top: 10px;
 	background-color: #fff !important;
 }
 
-#logo-section {
+.logo-container {
+
+	margin: 16px 0;
+	display: inline-block;
+	
+	img {
+		@include transition(all 0.2s ease-in-out);
+		height: 45px;
+		display: inline;
+	}
+	p {
+		@include transition(all 0.2s ease-in-out);
+		display: inline;
+		font-size: 20px;
+		vertical-align: middle;
+		padding-left: 10px;
+	}
 
 	&:hover {
-		text-decoration: none;
-		cursor: pointer;
-	}
-	
-	ul {
-		padding-left: 0;
-		margin-top: 10px;
-
-		img {
-			width: 52px;
-
-			&:hover {
-				opacity: 1;
-			}
-		}
-
-		li {
-			display: inline-block;
-
-			#title {
-				float: right;
-				font-size: 20px;
-				margin: 0px 10px 5px;
-			}
+		img { @include opacity(0.6); }
+		p { 
+			padding-left: 14px; 
+			color: $secondary-color;
 		}
 	}
 }
@@ -62,10 +57,7 @@ body {
 }
 
 @media (max-width: 768px) { 
-	body { padding-top: 86px; }
-	#logo-section ul {
-		text-align: left;
-	}
+	body { padding-top: 76px; }
 	.navbar-nav {
 		width: 100%;
 		li {
@@ -90,12 +82,7 @@ body {
 }
 
 @media (max-width: 991px) and (min-width: 768px) { 
-	body {
-		padding-top: 154px;
-	}
-	#logo-section ul {
-		text-align: center;
-	}
+	body { padding-top: 138px; }
 	.navbar-nav {
 
 		float: none;
@@ -105,8 +92,14 @@ body {
 			display: inline-block;
 		}
 	}
+	.logo-container {
+		margin-bottom: 0;
+	}
+	#logo-col {
+		text-align: center;
+	}
 }
 
 .navbar-toggle {
-	margin-top: 12px;
+	margin-top: 22px;
 }

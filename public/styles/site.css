@@ -8114,7 +8114,7 @@ section.publications .subSection {
   max-height: 320px; }
 
 body {
-  padding-top: 86px; }
+  padding-top: 76px; }
 
 .navbar {
   border: none; }
@@ -8127,26 +8127,31 @@ body {
 
 .navbar-fixed-top {
   margin-top: 0 !important;
-  padding-top: 10px;
   background-color: #fff !important; }
 
-#logo-section:hover {
-  text-decoration: none;
-  cursor: pointer; }
-
-#logo-section ul {
-  padding-left: 0;
-  margin-top: 10px; }
-  #logo-section ul img {
-    width: 52px; }
-    #logo-section ul img:hover {
-      opacity: 1; }
-  #logo-section ul li {
-    display: inline-block; }
-    #logo-section ul li #title {
-      float: right;
-      font-size: 20px;
-      margin: 0px 10px 5px; }
+.logo-container {
+  margin: 16px 0;
+  display: inline-block; }
+  .logo-container img {
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    height: 45px;
+    display: inline; }
+  .logo-container p {
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    display: inline;
+    font-size: 20px;
+    vertical-align: middle;
+    padding-left: 10px; }
+  .logo-container:hover img {
+    opacity: 0.6;
+    filter: alpha(opacity=60); }
+  .logo-container:hover p {
+    padding-left: 14px;
+    color: #ff5622; }
 
 .main-navigation .dropdown-menu {
   top: 100%; }
@@ -8157,9 +8162,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 86px; }
-  #logo-section ul {
-    text-align: left; }
+    padding-top: 76px; }
   .navbar-nav {
     width: 100%; }
     .navbar-nav li {
@@ -8177,17 +8180,19 @@ body {
 
 @media (max-width: 991px) and (min-width: 768px) {
   body {
-    padding-top: 154px; }
-  #logo-section ul {
-    text-align: center; }
+    padding-top: 138px; }
   .navbar-nav {
     float: none; }
     .navbar-nav > li {
       float: none;
-      display: inline-block; } }
+      display: inline-block; }
+  .logo-container {
+    margin-bottom: 0; }
+  #logo-col {
+    text-align: center; } }
 
 .navbar-toggle {
-  margin-top: 12px; }
+  margin-top: 22px; }
 
 #logo-footer {
   width: 96px;

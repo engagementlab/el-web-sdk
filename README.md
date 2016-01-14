@@ -7,7 +7,7 @@ git clone https://github.com/engagementgamelab/EL-Website.git
 cd EL-Website
 ```
 
-Install [nvm](https://github.com/creationix/nvm):
+Install [nvm](https://github.com/creationix/nvm) (make sure that [wget](http://osxdaily.com/2012/05/22/install-wget-mac-os-x/) is installed):
 ```
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 nvm install v0.12.7

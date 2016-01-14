@@ -37,6 +37,7 @@ exports = module.exports = function(req, res) {
             next(err);
         });
 
+        // var q2 <- use partner
     });
 
     // Render the view
