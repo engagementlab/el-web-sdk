@@ -8113,6 +8113,19 @@ section.publications .subSection {
   display: inline;
   max-height: 320px; }
 
+/* CATEGORY */
+#project-title {
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.project-box .body {
+  padding-left: 0;
+  padding-right: 0; }
+
+@media (min-width: 768px) {
+  .project-box {
+    height: 320px; } }
+
 body {
   padding-top: 76px; }
 

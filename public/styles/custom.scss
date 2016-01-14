@@ -48,7 +48,7 @@ html, body, .container {
     float: left;
 }
 @media (min-width: 768px) {
-.col-sm-9 {
+    .col-sm-9 {
         width: 11.111%;
         float: left;
     }
@@ -328,4 +328,23 @@ section.publications .subSection {
 .overlay-container img {
   display: inline;
   max-height: 320px;
+}
+
+/* CATEGORY */
+#project-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.project-box {
+  .body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+    .project-box {
+      height: 320px;
+    }
 }

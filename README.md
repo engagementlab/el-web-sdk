@@ -77,3 +77,9 @@ grunt
 ```
 
 Using a browser, navigate to `localhost:3000` to visit the website
+
+To visit the dashboard, navigate to `localhost:3000/keystone`. The login credentials are:
+```
+user: admin@elab.emerson.edu
+pass: engagement
+```
