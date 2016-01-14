@@ -85,8 +85,10 @@ $font-family-raleway:    'Raleway', sans-serif;
 $font-family-pt-serif:   'PT Serif', serif;
 $font-family-pacifico:   'Pacifico', cursive, sans-serif;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif;
+$font-theme:			  'HalisGR-Book', sans-serif;
+$font-theme-light:		  'HalisR-ExtraLight', sans-serif;
 
-$font-family-base:        $font-family-roboto;
+$font-family-base:        $font-theme;
 
 $font-size-base:          15px;
 $font-size-large:         ceil(($font-size-base * 1.25)); // ~18px

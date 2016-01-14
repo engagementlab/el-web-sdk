@@ -789,13 +789,16 @@ h4,
 h5,
 h6,
 .navbar .navbar-nav {
-  font-family: "Raleway", sans-serif; }
+  font-family: "HalisGR-Book", sans-serif; }
 
 body {
-  font-family: "Roboto", sans-serif; }
+  font-family: "HalisGR-Book", sans-serif; }
 
 .logo-font {
   font-family: "Pacifico", cursive, sans-serif; }
+
+.font-light {
+  font-family: "HalisR-ExtraLight", sans-serif; }
 
 /*Typography
 ---------------------------------- */
@@ -7892,6 +7895,9 @@ html, body, .container {
   width: 100%;
   left: 0; }
 
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
+  border-bottom: 3px solid #78cbd1; }
+
 .col-xs-9,
 .col-sm-9,
 .col-md-9,
@@ -7995,6 +8001,9 @@ html, body, .container {
 #project_header .banner {
   background-size: cover;
   background-position: center; }
+
+#project-title {
+  margin: 60px 0; }
 
 /* Large and Medium devices (desktops, tablets less than 1199px) */
 @media (min-width: 768px) {
@@ -8134,6 +8143,9 @@ body {
 
 .navbar.navbar-default {
   border-radius: 0; }
+  .navbar.navbar-default li > a {
+    font-size: 15px;
+    color: #7d7d7d; }
 
 .navbar-fixed-top {
   margin-top: 0 !important;
@@ -8153,15 +8165,17 @@ body {
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     display: inline;
-    font-size: 20px;
+    font-size: 19px;
     vertical-align: middle;
-    padding-left: 10px; }
+    padding-left: 10px;
+    color: #bababa;
+    text-transform: lowercase; }
   .logo-container:hover img {
     opacity: 0.6;
     filter: alpha(opacity=60); }
   .logo-container:hover p {
     padding-left: 14px;
-    color: #ff5622; }
+    color: #78cbd1; }
 
 .main-navigation .dropdown-menu {
   top: 100%; }

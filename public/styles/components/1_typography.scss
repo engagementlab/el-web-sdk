@@ -15,13 +15,16 @@ h4,
 h5,
 h6,
 .navbar .navbar-nav {
-	font-family: $font-family-raleway;
+	font-family: $font-family-base;
 }
 body {
 	font-family: $font-family-base;
 }
 .logo-font {
 	font-family: $font-family-pacifico;
+}
+.font-light {
+	font-family: $font-theme-light;
 }
 /*Typography
 ---------------------------------- */
