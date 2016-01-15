@@ -1,0 +1,36 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Project Category directory Page Template 
+ * - See ProjectCategory model for fields
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+	<div class="container">
+		<div class="row">
+			<!-- main start -->
+			<!-- ================ -->
+			{{!-- uncomment to have a slimmer, centered column --}}
+			<!-- <div class="main col-md-10 col-md-offset-1"> -->
+			<div class="main col-md-12">
+				{{> page/title}}
+				{{> page/lead}}
+
+				{{#each listings}}
+					{{> listing listing=this}}
+				{{/each}}
+				
+			</div>
+			<!-- main end -->
+		</div>
+	</div>
+</section><!-- .main-container -->

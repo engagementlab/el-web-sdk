@@ -2,17 +2,19 @@
  * Engagement Lab Website
  * Developed by Engagement Lab, 2015
  * ==============
- * Programs directory view controller.
+ * Research projects directory view controller.
  *
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
+ * @module research
  * @class directory
+ * @static
  * @author Johnny Richardson
  *
  * ==========
  */
 var keystone = require('keystone');
-var Program = keystone.list('Program');
+var Publication = keystone.list('Publication');
 var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
@@ -22,30 +24,36 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = 'programs';
+    locals.section = 'publications';
 
-    // Load research categories
+    // Load research categories and sort them
     view.on('init', function(next) {
 
-        var q = Program.model.find({});
+        var q = Publication.model.find({}).sort([
+            ['sortOrder', 'ascending']
+        ]);
 
         q.exec(function(err, result) {
-            _.map(result, function(cat) {
+            /*_.map(result, function(cat) {
 
                 // Get image code
                 cat.image = cat._.image.format();
+                cat.href = '/research/' + cat.key;
 
                 return cat;
 
-            });
+            });*/
 
-            locals.programs = result;
+            locals.listings = result;
             next(err);
         });
 
     });
 
     // Render the view
-    view.render('programs');
+    view.render('research/publications', {
+        title: "Publications",
+        lead: "Lorem ipsum dolor sit amet! consectetur? adipisicing elit Illo quaerat commodi excepturi? DIGNISSIMOS!!!!!"
+    });
 
 };

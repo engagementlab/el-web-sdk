@@ -14,10 +14,9 @@ var keystone = require('keystone');
 var _ = require('underscore');
 
 // DB Models for use on nav (cached query)
-var Category = keystone.list('Category');
+var ResearchCategory = keystone.list('ResearchCategory');
 
-var queryCategory = Category.model.find({});
-queryCategory.where('isProjectCategory', true);
+var queryCategory = ResearchCategory.model.find({});
 queryCategory.select('key name');
 
 /**

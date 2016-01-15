@@ -42,11 +42,12 @@ exports = module.exports = function(app) {
     app.get('/academics', routes.views.academics);
     app.get('/cmap', routes.views.academics);
 
-    app.get('/research', routes.views.research.directory);
-    app.get('/research/:category', routes.views.research.category);
+    app.get('/research', routes.views.directory);
+    // app.get('/research/:category', routes.views.subdirectory);
+    app.get('/research/publications', routes.views.research.publications);
     app.get('/research/project/:project_key', routes.views.research.project);
 
-    app.get('/programs', routes.views.programs);
+    app.get('/programs', routes.views.programs.directory);
     app.get('/news', routes.views.news);
     app.get('/press', routes.views.press);
     // app.all('/projects', routes.views.projects);

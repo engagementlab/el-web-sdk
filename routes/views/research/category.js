@@ -14,10 +14,11 @@
  * ==========
  */
 var keystone = require('keystone');
-var Category = keystone.list('Category');
+// var Category = keystone.list('Category');
 var _ = require('underscore');
+var Project = keystone.list('Project');
 
-exports = module.exports = function(req, res) {
+/*exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
@@ -125,3 +126,4 @@ exports = module.exports = function(req, res) {
         view.render('research/category');
 
 };
+*/

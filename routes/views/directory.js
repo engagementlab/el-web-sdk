@@ -9,12 +9,12 @@
  * @module research
  * @class directory
  * @static
- * @author Johnny Richardson
+ * @author Jay Vachon
  *
  * ==========
  */
 var keystone = require('keystone');
-var ResearchCategory = keystone.list('ResearchCategory');
+var Directory = keystone.list('Directory');
 var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
@@ -24,12 +24,12 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = 'research';
+    locals.section = req.params.key;
 
     // Load research categories and sort them
     view.on('init', function(next) {
 
-        var q = ResearchCategory.model.find({}).sort([
+        var q = Directory.model.find({}).sort([
             ['sortOrder', 'ascending']
         ]);
 
@@ -37,23 +37,23 @@ exports = module.exports = function(req, res) {
             _.map(result, function(cat) {
 
                 // Get image code
-                cat.image = cat._.image.format();
-                cat.href = '/research/' + cat.key;
+                // cat.image = cat._.image.format();
+                // cat.href = '/' + req.params.key + '/' + cat.key;
 
                 return cat;
 
             });
 
-            locals.listings = result;
+            // locals.listings = result;
+            locals.title="test";
+            locals.description="ok now";
             next(err);
         });
+
 
     });
 
     // Render the view
-    view.render('directory', {
-        title: "Research",
-        lead: "Lorem ipsum dolor sit amet! consectetur? adipisicing elit Illo quaerat commodi excepturi? DIGNISSIMOS!!!!!"
-    });
+    view.render('directory');
 
 };

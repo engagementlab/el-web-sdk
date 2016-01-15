@@ -11,166 +11,145 @@
 * ==========
 */
 --}}
-<div class="page-wrapper">
-	<!-- ABOUT START -->
-	<!-- banner start -->
-	<!-- ================ -->
-	<div class="banner border-clear light-translucent-bg" style="background-image:url('images/page-about-banner-2.jpg');">
-		
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 pv-20">
-					<h2 class="title"><strong>About</strong> The Engagement Lab</h2>
-					<p>{{about.blurb}}</p>
-				</div>
+
+<!-- ABOUT START -->
+<!-- banner start -->
+<!-- ================ -->
+<div class="banner border-clear light-translucent-bg" style="background-image:url('images/page-about-banner-2.jpg');">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 pv-20">
+				<h2 class="title"><strong>About</strong> The Engagement Lab</h2>
+				<p>{{about.blurb}}</p>
 			</div>
 		</div>
 	</div>
-	<!-- banner end -->
-	<!-- main-container start -->
-	<!-- ================ -->
-	<section class="main-container">
-		<div class="container">
-			<div class="row">
-				<!-- main start -->
+</div>
+<!-- banner end -->
+<!-- main-container start -->
+<!-- ================ -->
+<section class="main-container">
+	<div class="container">
+		<div class="row">
+			<!-- main start -->
+			<!-- ================ -->
+			<div class="main col-md-12">
+				<!-- page-title start -->
 				<!-- ================ -->
-				<div class="main col-md-12">
-					<!-- page-title start -->
+				<h1 class="page-title">Our Mission</h1>
+				<div class="separator-2 mb-20"></div>
+				<!-- page-title end -->
+				<div class="row">
+					<div class="col-md-6">
+						{{about.mission}}
+					</div>
+					<!-- sidebar start -->
 					<!-- ================ -->
-					<h1 class="page-title">Our Mission</h1>
-					<div class="separator-2 mb-20"></div>
-					<!-- page-title end -->
-					<div class="row">
-						<div class="col-md-6">
-							{{about.mission}}
+					<aside class="sidebar col-md-6">
+						<div class="block clearfix">
+							<div class="image">
+								<img src="http://publicdomainarchive.com/wp-content/uploads/2015/03/public-domain-images-free-stock-photos-architecture-black-and-white-building-1000x667.jpg" alt="">
+							</div>
 						</div>
-						<!-- sidebar start -->
-						<!-- ================ -->
-						<aside class="sidebar col-md-6">
-							<div class="block clearfix">
-								<div class="image">
-									<img src="http://publicdomainarchive.com/wp-content/uploads/2015/03/public-domain-images-free-stock-photos-architecture-black-and-white-building-1000x667.jpg" alt="">
+					</aside>
+					<!-- sidebar end -->
+				</div>
+			</div>
+			<!-- main end -->
+		</div>
+	</div>
+	{{!-- PARTNERS start --}}
+	<section class="section clearfix partners">
+		<div class="container-fluid border-clear">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h1 class="page-title pv-20">Our Partners</h1>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+								<div class="owl-carousel content-slider-with-controls">
+									{{#each partner}}
+										{{> partner_info partner=this}}
+									{{/each}}
+									<div class="image-box style-3-b">
+										<div class="row">
+											<div class="col-sm-4 col-md-4">
+												<div class="overlay-container">
+													<img src="images/portfolio-4.jpg" alt="">
+												</div>
+											</div>
+											<div class="col-sm-8 col-md-8">
+												<div class="body">
+													<h3 class="title">Project Title 1</h3>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="image-box style-3-b">
+										<div class="row">
+											<div class="col-sm-4 col-md-4">
+												<div class="overlay-container">
+													<img src="images/portfolio-4.jpg" alt="">
+												</div>
+											</div>
+											<div class="col-sm-8 col-md-8">
+												<div class="body">
+													<h3 class="title">Project Title 2</h3>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="image-box style-3-b">
+										<div class="row">
+											<div class="col-sm-4 col-md-4">
+												<div class="overlay-container">
+													<img src="images/portfolio-4.jpg" alt="">
+												</div>
+											</div>
+											<div class="col-sm-8 col-md-8">
+												<div class="body">
+													<h3 class="title">Project Title 3</h3>
+													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.</p>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</aside>
-						<!-- sidebar end -->
+						</div>
+					</div>
+					<div class="container pv-20">
+						<div class="clients-container">
+							<div class="clients">
+								<div class="client-image selected">
+									<span class="icon without-bg">
+										<i class="fa fa-heart" aria-hidden="true"></i>
+									</span>
+								</div>
+								<div class="client-image">
+									<span class="icon without-bg">
+										<i class="fa fa-connectdevelop" aria-hidden="true"></i>
+									</span>
+								</div>
+								<div class="client-image">
+									<span class="icon without-bg">
+										<i class="fa icon-snow" aria-hidden="true"></i>
+									</span>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<!-- main end -->
 			</div>
 		</div>
-		{{!-- PARTNERS start --}}
-		<section class="section clearfix partners">
-			<div class="container-fluid border-clear">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12">
-									<h1 class="page-title pv-20">Our Partners</h1>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-									<div class="owl-carousel content-slider-with-controls">
-										{{#each partner}}
-											{{> partner_info partner=this}}
-										{{/each}}
-										<div class="image-box style-3-b">
-											<div class="row">
-												<div class="col-sm-4 col-md-4">
-													<div class="overlay-container">
-														<img src="images/portfolio-4.jpg" alt="">
-													</div>
-												</div>
-												<div class="col-sm-8 col-md-8">
-													<div class="body">
-														<h3 class="title">Project Title 1</h3>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.</p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="image-box style-3-b">
-											<div class="row">
-												<div class="col-sm-4 col-md-4">
-													<div class="overlay-container">
-														<img src="images/portfolio-4.jpg" alt="">
-													</div>
-												</div>
-												<div class="col-sm-8 col-md-8">
-													<div class="body">
-														<h3 class="title">Project Title 2</h3>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.</p>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="image-box style-3-b">
-											<div class="row">
-												<div class="col-sm-4 col-md-4">
-													<div class="overlay-container">
-														<img src="images/portfolio-4.jpg" alt="">
-													</div>
-												</div>
-												<div class="col-sm-8 col-md-8">
-													<div class="body">
-														<h3 class="title">Project Title 3</h3>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihialal. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam laudantium, provident culpa saepe.</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="container pv-20">
-							<div class="clients-container">
-								<div class="clients">
-									<div class="client-image selected">
-										<span class="icon without-bg">
-											<i class="fa fa-heart" aria-hidden="true"></i>
-										</span>
-									</div>
-									<div class="client-image">
-										<span class="icon without-bg">
-											<i class="fa fa-connectdevelop" aria-hidden="true"></i>
-										</span>
-									</div>
-									<div class="client-image">
-										<span class="icon without-bg">
-											<i class="fa icon-snow" aria-hidden="true"></i>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		{{!-- PARTNERS end --}}
 	</section>
+	{{!-- PARTNERS end --}}
+</section>
 <!-- main-container end -->
-</div>
-<!-- <script type="text/javascript">
-	$(document).ready(function(){
-		
-		var owl = $('.owl-carousel');
-
-		owl.beforeMove = function(elem) {
-			console.log("got it");
-		};
-
-		$('.client-image').click(function() {
-			owl.trigger('owl.jumpTo', $(this).index());
-			selectPartner($(this));
-		});
-	});
-
-	function selectPartner(selector) {
-		$('.clients>.client-image.selected').removeClass('selected');
-		selector.addClass('selected');
-	}
-</script> -->
