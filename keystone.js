@@ -1,10 +1,13 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-require('dotenv').load();
+// Ignore for staging env (heroku)
+if (process.env.NODE_ENV !== 'staging')
+	require('dotenv').load();
 
 // Require keystone
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
+var mongooseRedisCache = require('mongoose-redis-cache');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -16,19 +19,17 @@ keystone.init({
 	'brand': 'Engagement Lab',
 	
 	'sass': 'public',
-	/*'sass options': {
-		debug: true
-	},*/
+	
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'hbs',
 	
 	'custom engine': handlebars.create({
-		layoutsDir: 'templates/views/layouts',
-		partialsDir: 'templates/views/partials',
-		defaultLayout: 'default',
-		helpers: new require('./templates/views/helpers')(),
+		layoutsDir: 'templates/layouts',
+		partialsDir: 'templates/partials',
+		defaultLayout: 'base',
+		helpers: new require('./templates/helpers')(),
 		extname: '.hbs'
 	}).engine,
 	
@@ -65,12 +66,12 @@ keystone.set('nav', {
 	'programs': 'programs',
 	'shared': ['resources', 'categories']
 });
- 
+
 // prefix all built-in tags with 'keystone_'
 keystone.set('cloudinary prefix', 'keystone');
- 
+
 // prefix each image public_id with [{prefix}]/{list.path}/{field.path}/
 keystone.set('cloudinary folders', true);
- 
+
 // Start Keystone to connect to your database and initialise the web server
 keystone.start();

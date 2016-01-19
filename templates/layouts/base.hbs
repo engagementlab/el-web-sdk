@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>Engagement Lab</title>
+		<meta name="description" content="We are an applied research lab dedicated to innovating the ways people participate in civic life and expanding the study of citizenship in a digital era.">
+		<meta name="author" content="Engagement Lab">
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		{{!-- Load our CSS/docs --}}
+		{{> css environment=env}}
+		
+		{{!-- This file provides the default styling for the KeystoneJS Content Editor
+		- only renders when user is logged in and admin--}}
+		{{{isAdminEditorCSS user}}}
+		
+		<!-- Jquery and Bootstap core js files -->
+		<script type="text/javascript" src="/js/jquery/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="/js/jquery/jquery.plugin.min.js"></script>
+		<script type="text/javascript" src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+	</head>
+	<!-- body classes:  -->
+	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+	<body class="page-loader-3">
+
+		{{!-- I don't think we should keep this in by default, but commenting out for now so that we can talk about it with designers -Jay --}}
+		{{!-- <!-- scrollToTop -->
+		<!-- ================ -->
+		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div> --}}
+
+		{{> nav}}
+
+		<!-- page wrapper start -->
+		<!-- ================ -->
+		<div class="page-wrapper">
+
+			<!--
+				Flash messages allow you to display once-off status messages to users, e.g. form
+				validation errors, success messages, etc
+			-->
+			{{#if messages}}
+			<div id="flash-messages" class="container">
+				{{#if messages.info}}
+				<div class="alert alert-info">
+					{{{flashMessages messages.info}}}
+				</div>
+				{{/if}}
+				{{#if messages.success}}
+				<div class="alert alert-success">
+					{{{flashMessages messages.success}}}
+				</div>
+				{{/if}}
+				{{#if messages.warning}}
+				<div class="alert alert-warning">
+					{{{flashMessages messages.warning}}}
+				</div>
+				{{/if}}
+				{{#if messages.error}}
+				<div class="alert alert-danger">
+					{{{flashMessages messages.error}}}
+				</div>
+				{{/if}}
+			</div>
+			{{/if}}
+
+			<!-- BODY CONTENT START -->
+			{{{body}}}
+						
+			{{> footer}}
+
+			<!-- page-wrapper end -->
+			{{#ifeq env "development"}}
+				{{> script/development section=section}}
+			{{else}}
+				{{> script/production section=section}}
+			{{/ifeq}}
+
+			{{{isAdminEditorJS user}}}
+		</div>
+	</body>
+</html>

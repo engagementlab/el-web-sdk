@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"engagement-lab.captionimages"},{"v":1,"unique":true,"key":{"slug":1},"name":"slug_1","ns":"engagement-lab.captionimages","background":true,"safe":null}]}

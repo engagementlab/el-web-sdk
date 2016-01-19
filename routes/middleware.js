@@ -1,21 +1,24 @@
+/* Engagement Lab Website */
 /**
- * This file contains the common middleware used by your routes.
- * 
- * Extend or replace these functions as your application requires.
- * 
- * This structure is not enforced, and just a starting point. If
- * you have more middleware you may want to group it as separate
- * modules in your project's /lib directory.
- */
+ * Route middleware
+ * This file contains the common middleware used by all routes. Extend or replace these functions as the application requires.
+ *
+ * @class middleware
+ * @namespace routes
+ * @author Johnny Richardson
+ * @constructor
+ * @static
+ **/
 
 var keystone = require('keystone');
 var _ = require('underscore');
 
-/** 
-	DB Models for use on nav
-*/
+// DB Models for use on nav (cached query)
 var Category = keystone.list('Category');
-var queryCategory = Category.model.find({ isSubcategory: {$ne: true} }, 'key name').sort([['sortOrder', 'ascending']]);
+
+var queryCategory = Category.model.find({});
+queryCategory.where('isProjectCategory', true);
+queryCategory.select('key name');
 
 /**
 	Initialises the standard view locals
@@ -26,33 +29,56 @@ var queryCategory = Category.model.find({ isSubcategory: {$ne: true} }, 'key nam
 */
 
 exports.initLocals = function(req, res, next) {
-	
-	var locals = res.locals;
-	queryCategory.exec(function(err, resultCategory) {
 
-		var researchSub = _.map(resultCategory, function(cat) {
+    var locals = res.locals;
 
-			return { label: cat.name,		key: cat.key,		href: '/research/' + cat.key };
+    // Caches query into redis
+    queryCategory.lean();
+    queryCategory.exec(function(err, resultCategory) {
 
-		});
+        var researchSub = _.map(resultCategory, function(cat) {
 
-		locals.navLinks = [
-			{ label: 'About',		key: 'about',		href: '/about' },
-			{ label: 'Research',		key: 'research',		href: '/research', 
-				subLinks: researchSub
-			},
-			{ label: 'Academics',		key: 'academics',		href: '/academics' },
-			{ label: 'People',		key: 'people',		href: '/people' },
-			{ label: 'Programs',		key: 'programs',		href: '/programs' },
-			{ label: 'News',		key: 'news',		href: '/news' }
-		];
-		
-		locals.user = req.user;
-		
-		next();
+            return {
+                label: cat.name,
+                key: cat.key,
+                href: '/research/' + cat.key
+            };
 
-	});
-	
+        });
+
+        locals.navLinks = [{
+            label: 'About',
+            key: 'about',
+            href: '/about'
+        }, {
+            label: 'Research',
+            key: 'research',
+            href: '/research',
+            subLinks: researchSub
+        }, {
+            label: 'Academics',
+            key: 'academics',
+            href: '/academics'
+        }, {
+            label: 'People',
+            key: 'people',
+            href: '/people'
+        }, {
+            label: 'Programs',
+            key: 'programs',
+            href: '/programs'
+        }, {
+            label: 'News',
+            key: 'news',
+            href: '/news'
+        }];
+
+        locals.user = req.user;
+
+        next();
+
+    });
+
 };
 
 /**
@@ -60,18 +86,20 @@ exports.initLocals = function(req, res, next) {
 */
 
 exports.flashMessages = function(req, res, next) {
-	
-	var flashMessages = {
-		info: req.flash('info'),
-		success: req.flash('success'),
-		warning: req.flash('warning'),
-		error: req.flash('error')
-	};
-	
-	res.locals.messages = _.any(flashMessages, function(msgs) { return msgs.length; }) ? flashMessages : false;
-	
-	next();
-	
+
+    var flashMessages = {
+        info: req.flash('info'),
+        success: req.flash('success'),
+        warning: req.flash('warning'),
+        error: req.flash('error')
+    };
+
+    res.locals.messages = _.any(flashMessages, function(msgs) {
+        return msgs.length;
+    }) ? flashMessages : false;
+
+    next();
+
 };
 
 
@@ -80,12 +108,12 @@ exports.flashMessages = function(req, res, next) {
  */
 
 exports.requireUser = function(req, res, next) {
-	
-	if (!req.user) {
-		req.flash('error', 'Please sign in to access this page.');
-		res.redirect('/keystone/signin');
-	} else {
-		next();
-	}
-	
+
+    if (!req.user) {
+        req.flash('error', 'Please sign in to access this page.');
+        res.redirect('/keystone/signin');
+    } else {
+        next();
+    }
+
 };

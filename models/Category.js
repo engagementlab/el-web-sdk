@@ -80,6 +80,13 @@ Category.schema.methods.safeName = function() {
 Category.relationship({ ref: 'Project', refPath: 'projects', path: 'category' });
 
 /**
+ * Caching
+ * =============
+ */
+Category.schema.set('redisCache', true);
+Category.schema.set('expires', 60*60*24) // 24 hour caches
+
+/**
  * Model Registration
  */
 Category.defaultSort  = 'sortOrder';

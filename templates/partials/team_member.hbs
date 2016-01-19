@@ -1,0 +1,45 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Team member partial 
+ * - See Team model for fields
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+<div class="col-sm-6 col-md-4">
+	<div class="team-member image-box style-2 mb-20 text-center">
+			
+		<img id="{{person.name.first}}-{{person.name.last}}" src="{{{cloudinaryUrl person.image}}}" alt="{{person.name.first}} {{person.name.last}}" class="photo">
+		
+		<div class="body">
+			<h3 class="margin-clear theme-primary">{{person.name.first}} {{person.name.last}}</h3>
+			<p>{{person.title}}</p>
+			<div class="separator mv-10"></div>
+			<div class="bio {{person.name.first}}-{{person.name.last}}">
+				{{{person.bio.html}}}
+				<ul class="social-links circle light margin-clear pv-20">
+					{{#if person.fbURL}}
+						<li class="facebook"><a target="_blank" href="{{person.fbURL}}"><i class="fa fa-facebook"></i></a></li>
+					{{/if}}
+
+					{{#if person.twitterURL}}
+						<li class="twitter"><a target="_blank" href="{{person.twitterURL}}"><i class="fa fa-twitter"></i></a></li>
+					{{/if}}
+
+					{{#if person.githubURL}}
+						<li class="github"><a target="_blank" href="{{person.githubURL}}"><i class="fa fa-github"></i></a></li>
+					{{/if}}
+
+					{{#if person.websiteURL}}
+						<li class="website"><a target="_blank" href="{{person.websiteURL}}"><i class="fa fa-website"></i></a></li>
+					{{/if}}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

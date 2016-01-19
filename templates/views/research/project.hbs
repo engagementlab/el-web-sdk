@@ -11,254 +11,156 @@
  * ==========
  */
 --}}
-
 <!-- PROJECT START -->
-<!-- banner start -->
-<!-- ================ -->
-<div class="banner clearfix">
-
-	<!-- slideshow start -->
-	<!-- ================ -->
-	<div class="slideshow">
-		
-		<!-- slider revolution start -->
-		<!-- ================ -->
-		<div class="slider-banner-container">
-			<div class="slider-banner-fullwidth">
-				<ul class="slides">
-
-					{{# each projectFeatures}}
-						<!-- slide 1 start -->
-						<!-- ================ -->
-						<li data-transition="random" data-slotamount="7" data-masterspeed="500" data-saveperformance="on" data-title="Next">
-						
-						<!-- main image -->
-						<img src="{{{cloudinaryUrl image width=1425 height=450}}}" alt="slidebg1" data-bgposition="center top"  data-bgrepeat="no-repeat" data-bgfit="cover">
-						
-						<!-- Transparent Background -->
-						<div class="tp-caption dark-translucent-bg"
-							data-x="center"
-							data-y="bottom"
-							data-speed="600"
-							data-start="0">
-						</div>
-
-						<!-- LAYER NR. 1 -->
-						<div class="tp-caption sfb fadeout text-center large_white"
-							data-x="center"
-							data-y="50"
-							data-speed="500"
-							data-start="1000"
-							data-easing="easeOutQuad"><span class="logo-font">{{project.name}}</span><br><br>
-							{{text}}
-						</div>	
-
-						<!-- LAYER NR. 2 -->
-						<div class="tp-caption sfb fadeout text-center large_white tp-resizeme hidden-xs"
-							data-x="center"
-							data-y="150"
-							data-speed="500"
-							data-start="1300"
-							data-easing="easeOutQuad"><br><br><div class="separator light"></div>
-						</div>	
-
-						<!-- LAYER NR. 3 -->
-						<div class="tp-caption sfb fadeout medium_white text-center hidden-xs"
-							data-x="center"
-							data-y="190"
-							data-speed="500"
-							data-start="1300"
-							data-easing="easeOutQuad"
-							data-endspeed="600"><br><br><br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br> Nesciunt, maiores, aliquid. Repellat eum numquam aliquid culpa offici, <br> tenetur fugiat dolorum sapiente eligendi...
-						</div>
-
-						</li>
-						<!-- slide 1 end -->
-					{{/each}}
-					
-				</ul>
-				<div class="tp-bannertimer"></div>
-			</div>
-		</div>
-		<!-- slider revolution end -->
-
+<div class="page-wrapper">
+	<div class="banner clearfix">
+		<div class="container-fluid">
+			<div class="row" id="project_header">
+				<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.headerImage width=1425 height=450 crop='crop' quality=80}}}');">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-8 text-center col-md-offset-2 pv-20">
+								<h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100" id="project-title">{{project.name}}</h2>
+							</div> <!-- .col-md-8 -->
+						</div> <!-- .row -->
+					</div> <!-- .container -->
+				</div> <!-- .banner -->
+			</div> <!-- .row -->
+		</div> <!-- .container -->
+		<div id="page-start"></div>
 	</div>
-	<!-- slideshow end -->
-
-</div>
-<!-- banner end -->
-
-
-<div class="main-container">
-
-	<div class="container">
-
-		<div class="row">
-			<div class="col-md-8">
-			
-				<div class="logo-footer"><img id="logo-footer" src="/images/logo_light_blue.png" alt=""></div>
-				<p>{{{project.overview.html}}}</p>
-				<p>
-							{{ jsonPrint project.articleData }}
-				</p>
-				<div class="separator-2"></div>
-				
-			</div>
-			
-			{{!-- <div class="col-md-4">
-				<div class="footer-content">
-					<h2 class="title">Latest News</h2>
-					<div class="separator-2"></div>
-					<div class="media margin-clear">
-						<div class="media-left">
-							<div class="overlay-container">
-								<img class="media-object" src="/images/blog-thumb-1.jpg" alt="blog-thumb">
-								<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-							</div>
-						</div>
-						<div class="media-body">
-							<h6 class="media-heading"><a href="blog-post.html">10 things you will never believe about Emerging Citizens</a></h6>
-							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2015</p>
-						</div>
-						<hr>
-					</div>
-					<div class="media margin-clear">
-						<div class="media-left">
-							<div class="overlay-container">
-								<img class="media-object" src="/images/blog-thumb-2.jpg" alt="blog-thumb">
-								<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-							</div>
-						</div>
-						<div class="media-body">
-							<h6 class="media-heading"><a href="blog-post.html">Paul Mihailidis saves world with new engagement game platform</a></h6>
-							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 22, 2015</p>
-						</div>
-						<hr>
-					</div>
-					<div class="media margin-clear">
-						<div class="media-left">
-							<div class="overlay-container">
-								<img class="media-object" src="/images/blog-thumb-3.jpg" alt="blog-thumb">
-								<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-							</div>
-						</div>
-						<div class="media-body">
-							<h6 class="media-heading"><a href="blog-post.html">Students weigh in on Emerging Citizens: "After playing, I truly believe I have emerged"</a></h6>
-							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2015</p>
-						</div>
-						<hr>
-					</div>
-					<div class="media margin-clear">
-						<div class="media-left">
-							<div class="overlay-container">
-								<img class="media-object" src="/images/blog-thumb-4.jpg" alt="blog-thumb">
-								<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-							</div>
-						</div>
-						<div class="media-body">
-							<h6 class="media-heading"><a href="blog-post.html">Emerson College grants Engagement lab 10 BILLION dollars, reports Doctor Evil</a></h6>
-							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2015</p>
-						</div>
-					</div>
-				</div>
-			</div> --}}
-
-			<div class="col-md-4">
-				<div class="footer-content">
-					<h2 class="title">Project Information and Partners</h2>
-					<div class="separator-2"></div>
-					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
-					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-facebook"></i></a>
-					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-twitter"></i></a>
-					<ul class="list-icons">
-						<li><b>URL:</b> <a href="www.elab.emerson.edu/games/emergingcitizens"> www.elab.emerson.edu/games/emergingcitizens</a></li>
-						<li><b>Project Dates:</b> {{projectDates}}</li>
-						<li><b>Contact: </b><a href="mailto:info@elab.emerson.edu">info@elab.emerson.edu</a></li>
-					</ul>
-					<div class="separator-2"></div>
-					<img id="logo-footer" src="/images/logo_light_blue.png" alt="">
-					<img id="logo-footer" src="/images/logo_light_blue.png" alt="">
+	<section class="section light-gray-bg clearfix">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					
+					<h3>About <i>{{project.name}}</i></h3>
 				</div>
 			</div>
-		</div>
-
-		<!-- project "pills" start -->
-		<div class="row">
-
-		<!-- main start -->
-		<!-- ================ -->
-		<div class="main col-md-12">
-			<!-- Nav tabs -->
-			<ul class="nav nav-pills" role="tablist">
-				<li class="active"><a href="#pill-0" role="tab" data-toggle="tab" title="video"><i class="fa fa-camera pr-5"></i> Image Gallery</a></li>
-				
-				{{# each project.tabHeadings}}
-					<li><a href="#pill-{{incIndex @index}}" role="tab" data-toggle="tab" title="images"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
-				{{/each}}
-				
-				{{#if project.videos}}
-					<li><a href="#pill-video" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
-				{{/if}}
-
-				{{#if project.files}}
-					<li><a href="#pill-download" role="tab" data-toggle="tab" title="text"><i class="fa fa-floppy-o pr-5"></i> Downloads</a></li>
-				{{/if}}
-			</ul>
-			<!-- Tab panes -->
-			<div class="tab-content space-bottom">
-				<div class="tab-pane active" id="pill-0">
-					<div class="space-bottom"></div>
-					<div class="row grid-space-20">
-						{{# each project.projectImages}}
-
-							<div class="col-xs-3">
-								<div class="overlay-container">
-
-									<img src="{{{cloudinaryUrl}}}" alt="">
-									<a href="{{{cloudinaryUrl}}}" class="overlay-link small popup-img" title="Second image title">
-										<i class="fa fa-plus"></i>
-									</a>
-								</div>
-							</div>
-
-						{{/each}}
-					</div>
+			<div class="row">
+				<div class="col-sm-6 col-md-8">
+					{{{project.overview.html}}}
 				</div>
-
-				{{# each project.tabText}}
-					<div class="tab-pane" id="pill-{{incIndex @index}}">
-						<p>{{this}}</p>
-					</div>
-				{{/each}}
-
-				{{#if project.videos}}
-					<div class="tab-pane" id="pill-video">
-					{{# each project.videos}}
-
-						<div class="embed-responsive embed-responsive-16by9">
-							{{{ data.html }}}
-						</div>
-
-					{{/each}}
-					</div>
-				{{/if}}
-
-				{{#if project.files}}
-					<div class="tab-pane" id="pill-download">
-						<ul>
-						{{# each project.files}}
+				<div class="col-sm-6 col-md-4">
+					<img id="side-image" src="{{{cloudinaryUrl project.sideImage width=432 height=324}}}" alt="">
+				</div>
+			</div> <!-- .row -->
+		</div> <!-- .container -->
+	</section>
+	<section class="main-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<ul class="nav nav-pills" role="tablist">
+						<li class="active"><a href="#pill-0" role="tab" data-toggle="tab" title="video"><i class="fa fa-camera pr-5"></i> Image Gallery</a></li>
 						
-							<li><a href="{{path}}/{{filename}}"><i class="fa fa-file{{fileType this.file}} pr-5"></i> {{name}}</a></li>
-
+						{{# each project.tabHeadings}}
+							<li><a href="#pill-{{incIndex @index}}" role="tab" data-toggle="tab" title="images"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
 						{{/each}}
+						
+						{{#if project.videos}}
+							<li><a href="#pill-video" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
+						{{/if}}
+
+						{{#if project.files}}
+							<li><a href="#pill-download" role="tab" data-toggle="tab" title="text"><i class="fa fa-floppy-o pr-5"></i> Downloads</a></li>
+						{{/if}}
+					</ul>
+					<div class="tab-content space-bottom">
+						<div class="tab-pane active" id="pill-0">
+							<div class="space-bottom"></div>
+							<div class="row grid-space-20">
+								{{# each project.projectImages}}
+
+									<div class="col-xs-3">
+										<div class="overlay-container">
+
+											<img src="{{{cloudinaryUrl width=173 quality=60}}}" alt="">
+											<a href="{{{cloudinaryUrl }}}" class="overlay-link small popup-img" title="Second image title">
+												<i class="fa fa-plus"></i>
+											</a>
+										</div>
+									</div>
+
+								{{/each}}
+							</div>
+						</div>
+
+						{{# each project.tabText}}
+							<div class="tab-pane" id="pill-{{incIndex @index}}">
+								<p>{{this}}</p>
+							</div>
+						{{/each}}
+
+						{{#if project.videos}}
+							<div class="tab-pane" id="pill-video">
+							{{# each project.videos}}
+
+								<div class="embed-responsive embed-responsive-16by9">
+									{{{ data.html }}}
+								</div>
+
+							{{/each}}
+							</div>
+						{{/if}}
+
+						{{#if project.files}}
+							<div class="tab-pane" id="pill-download">
+								<ul>
+								{{# each project.files}}
+								
+									<li><a href="{{path}}/{{filename}}"><i class="fa fa-file{{fileType this.file}} pr-5"></i> {{name}}</a></li>
+
+								{{/each}}
+								</ul>
+							</div>
+						{{/if}}
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<div class="footer-content">
+						<h3 class="title">Project Information and Partners</h3>
+						<div class="separator-2"></div>
+						<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
+						<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-facebook"></i></a>
+						<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-twitter"></i></a>
+						<ul class="list-icons">
+							<li><b>URL:</b> <a href="www.elab.emerson.edu/games/emergingcitizens"> www.elab.emerson.edu/games/emergingcitizens</a></li>
+							<li><b>Project Dates:</b> {{projectDates}}</li>
+							<li><b>Contact: </b><a href="mailto:info@elab.emerson.edu">info@elab.emerson.edu</a></li>
 						</ul>
 					</div>
-				{{/if}}
-			</div>
-		</div>
-		<!-- project "pills" end -->				
-		</div>
+				</div> <!-- .col-md-4 -->
+			</div> <!-- .row -->
+		</div> <!-- .container -->
+	</section>
+	{{#if project.articles}}
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="separator-2"></div>
+					<h3><i>{{project.name}}</i> News</h3>
+					{{# each project.articles}}
 
-	</div>
+						<div class="col-sm-4">
+							<div class="image-box style-2 mb-20 text-center">
+								<div class="overlay-container">
+									<img src="{{{data.thumbnailUrl}}}" alt="data.title">
+									<a href="{{url}}" class="overlay-link"><i class="fa fa-link"></i></a>
+								</div>
+								<div class="body">
+									<h3><a href="{{url}}">{{data.title}}</a></h3>
+									<p>{{limit data.description 100}}</p>										
+								</div>
+							</div>
+						</div>
 
+					{{/each}}
+				</div> <!-- .col-md-12 -->
+			</div> <!-- .row -->
+		</div> <!-- .container -->
+	</section>
+	{{/if}}
 </div>

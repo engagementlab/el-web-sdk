@@ -74,8 +74,24 @@ Project.add({
     category: {
         type: Types.Relationship,
         ref: 'Category',
+        filters: { isProjectCategory: true, isSubcategory: false },
         required: true,
         initial: true
+    },
+    subCategory: { 
+        type: Types.Relationship,
+        ref: 'Category',
+        label: 'Subcategory',
+        filters: { isProjectCategory: false, isSubcategory: true },
+        initial: true 
+    },
+    enabled: { 
+        type: Types.Boolean,
+        label: 'Enabled'
+    },
+    featured: { 
+        type: Types.Boolean,
+        label: 'Featured'
     },
     byline: {
         type: String,
@@ -101,15 +117,16 @@ Project.add({
         type: Date,
         label: 'Project End Date'
     },
-
-    highlights: {
-        type: Types.TextArray,
-        label: 'Key Features and Highlights'
+    headerImage: {
+        type: Types.CloudinaryImage,
+        label: 'Header Image (large)',
+        folder: 'site/research/projects',
+        autoCleanup: true
     },
-    headerImages: {
-        type: Types.CloudinaryImages,
-        label: 'Key Features and Highlights Images (large)',
-        folder: 'research/projects',
+    sideImage: {
+        type: Types.CloudinaryImage,
+        label: 'Side Column Image (small)',
+        folder: 'site/research/projects',
         autoCleanup: true
     },
     tabHeadings: {
@@ -124,7 +141,7 @@ Project.add({
     projectImages: {
         type: Types.CloudinaryImages,
         label: 'Project Images',
-        folder: 'research/projects',
+        folder: 'site/research/projects',
         autoCleanup: true
     },
     projectImageCaptions: {
@@ -220,6 +237,6 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
 /**
  * Model Registration
  */
-Project.defaultSort = '-createdAt';
-Project.defaultColumns = 'name, byline';
+Project.defaultSort = 'sortOrder';
+Project.defaultColumns = 'name, category, enabled, featured';
 Project.register();

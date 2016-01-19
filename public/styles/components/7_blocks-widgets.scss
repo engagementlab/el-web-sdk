@@ -84,7 +84,7 @@
 			text-align: center;
 			font-size: 18px;
 			border: 1px solid #e7e7e7;
-			color: $gray-lighter;
+			color: $gray-light;
 			@include border-radius(4px);
 
 			i {
@@ -185,13 +185,13 @@
 	li {
 		margin: 0 5px 5px 0;
 		a {
-			color: $gray;
+			color: $gray-light;
 			background-color: transparent;
-			border-color: $gray;
+			border-color: $gray-light;
 			&:hover {
 				color: #fff;
 				background-color: $gray;
-				border-color: $gray;
+				border-color: $gray-light;
 			}
 		}
 	}

@@ -1,0 +1,56 @@
+{{!< default}}
+{{!-- 
+/**
+	* Engagement Lab Website
+	* Developed by Engagement Lab, 2015
+	* ==============
+	* 
+	* Document includes partial 
+	* ==========
+	*/
+--}}
+
+<!-- DOCS START -->
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="/images/favicon.ico">
+
+<!-- Web Fonts -->
+{{!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'> --}}
+<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+{{!-- <link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'> --}}
+
+{{#ifeq environment "development"}}
+
+	{{!-- DEVELOPMENT --}}
+	<!-- Custom fonts -->
+	<link href="/fonts/fonts.css" rel="stylesheet"/>
+	
+	<!-- Bootstrap core CSS -->
+	<link href="/styles/bootstrap/bootstrap.css" rel="stylesheet">
+
+	<link href="/styles/site.css" rel="stylesheet">
+	<link href="/css/animations.css" rel="stylesheet">
+
+	<!-- Font Awesome CSS -->
+	<link href="/fonts/icons/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+	<!-- Fontello CSS -->
+	<link href="/fonts/icons/fontello/css/fontello.css" rel="stylesheet">
+
+	<!-- Plugins -->
+	<link href="/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+	<link href="/plugins/rs-plugin/css/settings.css" rel="stylesheet">
+	<link href="/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link href="/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+	<link href="/plugins/hover/hover-min.css" rel="stylesheet">
+
+{{else}}
+
+	{{!-- PRODUCTION --}}
+	<link href="/styles/bootstrap/bootstrap.min.css" rel="stylesheet">
+	{{!-- <link href="/release/site.min.css" rel="stylesheet"> --}}
+	<link href="/release/style.min.css" rel="stylesheet">
+
+{{/ifeq}}

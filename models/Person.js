@@ -37,6 +37,10 @@ Person.add({
 	image: { type: Types.CloudinaryImage, label: 'Image', folder: 'site/team' },	
   
   category: { type: Types.Select, options: 'directors, lab, assistants, fellows, advisors', default: 'directors', required: true, initial: true },
+	twitterURL: { type: Types.Url, label: 'Twitter' },	
+	fbURL: { type: Types.Url, label: 'Facebook' },	
+	githubURL: { type: Types.Url, label: 'Github' },
+	websiteURL: { type: Types.Url, label: 'Website' },	
 	
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 
