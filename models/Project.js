@@ -61,13 +61,13 @@ var emailValidator = {
 Project.add({
     
     child_content : {
-        category: {
+        /*category: {
             type: Types.Relationship,
             ref: 'ResearchCategory',
             // filters: { isProjectCategory: true, isSubcategory: false },
             required: true,
             initial: true
-        },
+        },*/
         /*subCategory: { 
             type: Types.Relationship,
             ref: 'Category',
@@ -75,6 +75,12 @@ Project.add({
             filters: { isProjectCategory: false, isSubcategory: true },
             initial: true 
         },*/
+        subdirectory: {
+            type: Types.Relationship,
+            ref: 'Subdirectory',
+            required: true,
+            initial: true
+        },
         enabled: { 
             type: Types.Boolean,
             label: 'Enabled'
