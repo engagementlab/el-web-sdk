@@ -1,8 +1,7 @@
 /**
  * Engagement Lab Website
  * 
- * Research category Model
- * @module subdirectory
+ * Research category Modelz
  * @class subdirectory
  * @author Jay Vachon
  * 
@@ -25,6 +24,18 @@ var Subdirectory = new keystone.List('Subdirectory',
         hidden: false,
         inherits: Listing,
     });
+
+var urlValidator = {
+    validator: function(val) {
+        return !val || validator.isURL(val, {
+            protocols: ['http', 'https'],
+            require_tld: true,
+            require_protocol: false,
+            allow_underscores: true
+        });
+    },
+    msg: 'Invalid external link URL'
+};
 
 /**
  * Model Fields

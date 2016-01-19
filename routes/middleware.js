@@ -14,12 +14,9 @@ var keystone = require('keystone');
 var _ = require('underscore');
 
 // DB Models for use on nav (cached query)
-// var ResearchCategory = keystone.list('ResearchCategory');
 var Subdirectory = keystone.list('Subdirectory');
 
-// var queryCategory = ResearchCategory.model.find({});
 var querySub = Subdirectory.model.find({});
-// queryCategory.select('key name');
 querySub.select('key name');
 
 /**
@@ -46,7 +43,9 @@ exports.initLocals = function(req, res, next) {
                 href: '/research/' + sub.key
             };
 
-        });
+        }).sort([
+            ['sortOrder', 'ascending']
+        ]);
 
         locals.navLinks = [{
             label: 'About',

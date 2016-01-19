@@ -50,7 +50,13 @@ var urlValidator = {
  */
 Program.add({
 	child_content: {
-		externalLinkUrl: { type: Types.Url, label: 'External Link URL', validate: urlValidator, required: true, initial: true }
+        href: {
+            type: Types.Url,
+            label: 'External Link URL',
+            validate: urlValidator,
+            required: true,
+            initial: true
+        }
 	}
 });
 

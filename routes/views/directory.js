@@ -15,6 +15,7 @@
 var keystone = require('keystone');
 var Directory = keystone.list('Directory');
 var Subdirectory = keystone.list('Subdirectory');
+var Program = keystone.list('Program');
 var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
@@ -24,12 +25,6 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     locals.section = req.params.directory;
-
-    Directory.model.findOne({key: req.params.directory}, function(err, dir) { 
-        locals.name = dir.name;
-        locals.lead = dir.lead;
-        return dir; 
-    });
 
     // TODO: might be excessive (are we really going to have subdirectory filters?)
     locals.filters = {
@@ -43,16 +38,35 @@ exports = module.exports = function(req, res) {
 
         queryDirectory.exec(function(err, resultDirectory) {
             
-            var querySubdirectory = Subdirectory.model.find({
-                'child_content.directory': resultDirectory
-            });
+            if (resultDirectory == null) {
+                return res.status(404).send(keystone.wrapHTMLError('Good golly gosh darn dang darnit! No page here (404)'));
+            }
 
-            querySubdirectory.exec(function(err, resultSubdirectory) {
+            locals.name = resultDirectory.name;
+            locals.lead = resultDirectory.lead;
+
+            // Special case: Programs page behaves like a directory, but listings are "Programs" rather than "Subdirectories"
+            var queryListing;
+            if (req.params.directory == 'programs') {
+                queryListing = Program.model.find({});
+            } else {
+                queryListing = Subdirectory.model.find({
+                    'child_content.directory': resultDirectory
+                });
+            }
+
+            queryListing.sort([
+                ['sortOrder', 'ascending']
+            ]);
+            
+            queryListing.exec(function(err, resultSubdirectory) {
                 _.map(resultSubdirectory, function(sub) {
 
                     // Get image code
                     sub.image = sub._.image.format();
-                    sub.href = '/' + req.params.directory + '/' + sub.key;
+                    sub.href = (sub.child_content.href == null)
+                        ? '/' + req.params.directory + '/' + sub.key
+                        : sub.child_content.href;
                     sub.description = sub.description;
 
                     return sub;

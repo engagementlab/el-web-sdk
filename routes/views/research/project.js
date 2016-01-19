@@ -44,7 +44,7 @@ exports = module.exports = function(req, res) {
         projectQuery.exec(function(err, result) {
             
             if (result == null) {
-                return res.status(404).send(keystone.wrapHTMLError('Sorry, no page could be found at this address (404)'));
+                return res.status(404).send(keystone.wrapHTMLError('It\'s not your fault so don\'t feel bad but this page doesn\'t really exist in the way you thought it would (404)'));
             }
 
             locals.project = result;
