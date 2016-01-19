@@ -18,6 +18,8 @@ var keystone = require('keystone');
 var _ = require('underscore');
 var Project = keystone.list('Project');
 
+// DEPRECATE
+
 /*exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);

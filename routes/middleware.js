@@ -14,10 +14,13 @@ var keystone = require('keystone');
 var _ = require('underscore');
 
 // DB Models for use on nav (cached query)
-var ResearchCategory = keystone.list('ResearchCategory');
+// var ResearchCategory = keystone.list('ResearchCategory');
+var Subdirectory = keystone.list('Subdirectory');
 
-var queryCategory = ResearchCategory.model.find({});
-queryCategory.select('key name');
+// var queryCategory = ResearchCategory.model.find({});
+var querySub = Subdirectory.model.find({});
+// queryCategory.select('key name');
+querySub.select('key name');
 
 /**
 	Initialises the standard view locals
@@ -32,15 +35,15 @@ exports.initLocals = function(req, res, next) {
     var locals = res.locals;
 
     // Caches query into redis
-    queryCategory.lean();
-    queryCategory.exec(function(err, resultCategory) {
+    querySub.lean();
+    querySub.exec(function(err, resultSub) {
 
-        var researchSub = _.map(resultCategory, function(cat) {
+        var researchSub = _.map(resultSub, function(sub) {
 
             return {
-                label: cat.name,
-                key: cat.key,
-                href: '/research/' + cat.key
+                label: sub.name,
+                key: sub.key,
+                href: '/research/' + sub.key
             };
 
         });

@@ -39,6 +39,7 @@ exports = module.exports = function(req, res) {
     	querySub.exec(function(err, resultSub) {
     	    
     		var queryProject = Project.model.find({
+    			enabled: true,
     			'child_content.subdirectory': resultSub
     		});
 
@@ -47,7 +48,9 @@ exports = module.exports = function(req, res) {
 
     	            // Get image code
     	            proj.image = proj._.image.format();
-    	            proj.href = '/' + req.params.directory + '/' + proj.key;
+    	            proj.href = '/' + req.params.directory 
+    	            	+ '/' + req.params.subdirectory 
+    	            	+ '/' + proj.key;
     	            proj.description = proj.description;
 
     	            return proj;
@@ -57,7 +60,6 @@ exports = module.exports = function(req, res) {
 	    		locals.listings = resultProject;
 	    		next(err);
     		});
-
     	});
     });
 

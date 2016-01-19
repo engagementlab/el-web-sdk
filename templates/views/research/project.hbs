@@ -15,7 +15,7 @@
 <div class="banner clearfix">
 	<div class="container-fluid">
 		<div class="row" id="project_header">
-			<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.headerImage width=1425 height=450 crop='crop' quality=80}}}');">
+			<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.child_content.headerImage width=1425 height=450 crop='crop' quality=80}}}');">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-8 text-center col-md-offset-2 pv-20">
@@ -38,10 +38,10 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-6 col-md-8">
-				{{{project.overview.html}}}
+				{{{project.child_content.overview.html}}}
 			</div>
 			<div class="col-sm-6 col-md-4">
-				<img id="side-image" src="{{{cloudinaryUrl project.sideImage width=432 height=324}}}" alt="">
+				<img id="side-image" src="{{{cloudinaryUrl project.child_content.sideImage width=432 height=324}}}" alt="">
 			</div>
 		</div> <!-- .row -->
 	</div> <!-- .container -->
@@ -53,15 +53,15 @@
 				<ul class="nav nav-pills" role="tablist">
 					<li class="active"><a href="#pill-0" role="tab" data-toggle="tab" title="video"><i class="fa fa-camera pr-5"></i> Image Gallery</a></li>
 					
-					{{# each project.tabHeadings}}
+					{{# each project.child_content.tabHeadings}}
 						<li><a href="#pill-{{incIndex @index}}" role="tab" data-toggle="tab" title="images"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
 					{{/each}}
 					
-					{{#if project.videos}}
+					{{#if project.child_content.videos}}
 						<li><a href="#pill-video" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
 					{{/if}}
 
-					{{#if project.files}}
+					{{#if project.child_content.files}}
 						<li><a href="#pill-download" role="tab" data-toggle="tab" title="text"><i class="fa fa-floppy-o pr-5"></i> Downloads</a></li>
 					{{/if}}
 				</ul>
@@ -69,7 +69,7 @@
 					<div class="tab-pane active" id="pill-0">
 						<div class="space-bottom"></div>
 						<div class="row grid-space-20">
-							{{# each project.projectImages}}
+							{{# each project.child_content.projectImages}}
 
 								<div class="col-xs-3">
 									<div class="overlay-container">
@@ -85,15 +85,15 @@
 						</div>
 					</div>
 
-					{{# each project.tabText}}
+					{{# each project.child_content.tabText}}
 						<div class="tab-pane" id="pill-{{incIndex @index}}">
 							<p>{{this}}</p>
 						</div>
 					{{/each}}
 
-					{{#if project.videos}}
+					{{#if project.child_content.videos}}
 						<div class="tab-pane" id="pill-video">
-						{{# each project.videos}}
+						{{# each project.child_content.videos}}
 
 							<div class="embed-responsive embed-responsive-16by9">
 								{{{ data.html }}}
@@ -103,12 +103,14 @@
 						</div>
 					{{/if}}
 
-					{{#if project.files}}
+					{{#if project.child_content.files}}
 						<div class="tab-pane" id="pill-download">
 							<ul>
-							{{# each project.files}}
+							{{# each project.child_content.files}}
 							
+								{{#if this.file}}
 								<li><a href="{{path}}/{{filename}}"><i class="fa fa-file{{fileType this.file}} pr-5"></i> {{name}}</a></li>
+								{{/if}}
 
 							{{/each}}
 							</ul>
@@ -134,24 +136,26 @@
 		</div> <!-- .row -->
 	</div> <!-- .container -->
 </section>
-{{#if project.articles}}
+{{#if project.child_content.articles}}
 <section>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="separator-2"></div>
 				<h3><i>{{project.name}}</i> News</h3>
-				{{# each project.articles}}
+				{{# each project.child_content.articles}}
 
 					<div class="col-sm-4">
 						<div class="image-box style-2 mb-20 text-center">
 							<div class="overlay-container">
-								<img src="{{{data.thumbnailUrl}}}" alt="data.title">
+								<img src="{{{data.thumbnailUrl}}}" alt="{{data.title}}">
 								<a href="{{url}}" class="overlay-link"><i class="fa fa-link"></i></a>
 							</div>
 							<div class="body">
 								<h3><a href="{{url}}">{{data.title}}</a></h3>
-								<p>{{limit data.description 100}}</p>										
+								{{#if data.description}}
+									<p>{{limit data.description 100}}</p>										
+								{{/if}}
 							</div>
 						</div>
 					</div>
