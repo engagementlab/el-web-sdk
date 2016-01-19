@@ -84,7 +84,6 @@
 			<!-- blog end -->
 			<!-- events start -->
 			<div class="col-md-4 ph-30 news-sidebar" >
-				{{!-- <div class="affix-section" data-spy="affix" data-offset-top="294" data-offset-bottom="400"> --}}
 				<div class="affix-section">
 					<div id="event-section">
 						<h3 class="page-title">Events</h3>
@@ -137,30 +136,14 @@
 	</section>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$('.affix-section').affix({
-		  offset: {
-		    top: 294,
-		    bottom: 400
-		  }
-		})
+		setTimeout(function () {
+			$('.affix-section').affix({
+			  offset: {
+			    top: $('.banner').outerHeight(true),
+			    bottom: $('.footer').outerHeight(true)
+			  }
+			})
+		}, 100);
 	})
-	
-	/*$(function() {
-
-		// $('#event-section').css('top', parseInt($('body').css('padding-top')) + parseInt($('.news-sidebar').css('padding-top')) + 'px');
-
-		$('#event-section').affix({
-		  offset: {
-		  	top: function () {
-		  		// console.log($('.featured-blog').outerHeight(true) + parseInt($('.news-sidebar').css('padding-top')))
-		  		return (this.top = $('.featured-blog').outerHeight(true))
-		  	},
-		    // top: $('.featured-blog').outerHeight(true) + parseInt($('.news-sidebar').css('padding-top')),
-		    bottom: function () {
-		      return (this.bottom = $('#footer').outerHeight(true))
-		    }
-		  }
-		})
-	})*/
 	</script>
 	<!-- main-container end -->

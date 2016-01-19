@@ -14,13 +14,13 @@
 <!-- PROJECT START -->
 <div class="page-wrapper">
 	<div class="banner clearfix">
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row" id="project_header">
 				<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.headerImage width=1425 height=450 crop='crop' quality=80}}}');">
-					<div class="container">
+					<div class="container-fluid">
 						<div class="row">
 							<div class="col-md-8 text-center col-md-offset-2 pv-20">
-								<h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100">{{project.name}}</h2>
+								<h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100" id="project-title">{{project.name}}</h2>
 							</div> <!-- .col-md-8 -->
 						</div> <!-- .row -->
 					</div> <!-- .container -->
@@ -32,12 +32,17 @@
 	<section class="section light-gray-bg clearfix">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-12">
+					
 					<h3>About <i>{{project.name}}</i></h3>
-					<p>{{{project.overview.html}}}</p>
 				</div>
-				<div class="col-md-4">
-					<img id="side-image" src="{{{cloudinaryUrl project.headerImage width=432 height=324}}}" alt="">
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-md-8">
+					{{{project.overview.html}}}
+				</div>
+				<div class="col-sm-6 col-md-4">
+					<img id="side-image" src="{{{cloudinaryUrl project.sideImage width=432 height=324}}}" alt="">
 				</div>
 			</div> <!-- .row -->
 		</div> <!-- .container -->
@@ -115,7 +120,7 @@
 
 				<div class="col-md-4">
 					<div class="footer-content">
-						<h2 class="title">Project Information and Partners</h2>
+						<h3 class="title">Project Information and Partners</h3>
 						<div class="separator-2"></div>
 						<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
 						<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-facebook"></i></a>

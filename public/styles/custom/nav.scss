@@ -13,6 +13,10 @@ body {
 
 .navbar.navbar-default {
 	border-radius: 0;
+	li > a { 
+		font-size: $font-size-base; 
+		color: $gray-dark;
+	}
 }
 
 .navbar-fixed-top {
@@ -33,16 +37,18 @@ body {
 	p {
 		@include transition(all 0.2s ease-in-out);
 		display: inline;
-		font-size: 20px;
+		font-size: $font-size-large;
 		vertical-align: middle;
 		padding-left: 10px;
+		color: $gray-light;
+		text-transform: lowercase;
 	}
 
 	&:hover {
 		img { @include opacity(0.6); }
 		p { 
 			padding-left: 14px; 
-			color: $secondary-color;
+			color: $base-color;
 		}
 	}
 }
