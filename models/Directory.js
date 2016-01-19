@@ -40,5 +40,3 @@ Directory.add({
  * =============
  */
 Directory.register();
-
-exports = module.exports = Directory;

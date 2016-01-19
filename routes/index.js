@@ -36,13 +36,17 @@ exports = module.exports = function(app) {
 
     // Views
     app.get('/', routes.views.index);
+    app.get('/:directory', routes.views.directory);
+    app.get('/:directory/:subdirectory', routes.views.subdirectory);
+
     app.get('/about', routes.views.about);
     app.get('/people', routes.views.people);
 
     app.get('/academics', routes.views.academics);
     app.get('/cmap', routes.views.academics);
 
-    app.get('/research', routes.views.directory);
+
+    // app.get('/research', routes.views.research.directory);
     // app.get('/research/:category', routes.views.subdirectory);
     app.get('/research/publications', routes.views.research.publications);
     app.get('/research/project/:project_key', routes.views.research.project);

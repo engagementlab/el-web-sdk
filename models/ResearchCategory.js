@@ -11,6 +11,8 @@
  * ==========
  */
 
+ // deprecate
+
 var keystone = require('keystone');
 var Listing = require('./Listing');
 var Types = keystone.Field.Types;
