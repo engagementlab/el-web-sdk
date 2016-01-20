@@ -2,19 +2,22 @@
   "apps" : [{
     "name"        : "EL Website",
     "script"      : "keystone.js",
-    "env": {
+    "env_production": {
       "NODE_ENV": "production"
     }
   }],
   "deploy" : {
     "production" : {
-      "user" : "node",
-      "host" : "199.94.80.32",
-      "repo" : "git@github.com:engagementgamelab/EL-Website.git",
-      "ref"  : "origin/master",
-      "path" : "/srv/website",
+      "user": "Johnny",
+      "host": "127.0.0.1",
+      "repo": "git@github.com:engagementgamelab/EL-Website.git",
+      "ref": "origin/master",
+      "path": "/Users/Johnny/Documents/Projects/EL-Website/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env production"
+      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
     }
   }
 }
