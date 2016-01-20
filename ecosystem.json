@@ -1,10 +1,26 @@
 {
   "apps" : [{
     "name"        : "EL Website",
-    "script"      : "/srv/website/keystone.js",
-    "cwd"         : "/srv/website/",
-    "env": {
-      "NODE_ENV": "production"
+    "script"      : "keystone.js",
+    "env_production": {
+      "NODE_ENV": "production",
+      "COOKIE_SECRET": "5@[,CNwnN#03d!yV|.HnRF*10>]yo%PdI]zXoOBSb-mVB.O`Z*f/Akq%{Rhq37Mh",
+      "CLOUDINARY_URL": "cloudinary://851373748637243:uTK26M1JKJjOsesQ9vZsXasj9cw@engagement-lab-home",
+      "EMBEDLY_API_KEY": "6854c1facf7a4eb6bdfe5bbd663ced50"
     }
-  }]
+  }],
+  "deploy" : {
+    "production" : {
+      "user": "node",
+      "host": "199.94.80.32",
+      "repo": "git@github.com:engagementgamelab/EL-Website.git",
+      "ref": "origin/master",
+      "path": "/srv/website",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
+      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
 }

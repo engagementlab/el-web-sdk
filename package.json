@@ -35,7 +35,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-execute": "^0.2.2",
     "grunt-express-server": "^0.4.17",
-    "grunt-forever": "^0.4.7",
     "grunt-mongo-bin": "^0.1.0",
     "grunt-node-inspector": "^0.4.1",
     "grunt-nodemon": "^0.2.1",
