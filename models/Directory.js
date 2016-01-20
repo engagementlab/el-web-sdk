@@ -22,7 +22,9 @@ var Types = keystone.Field.Types;
 var Directory = new keystone.List('Directory', 
 	{	
 		hidden: false,
-		autokey: { path: 'key', from: 'name', unique: true }
+		autokey: { path: 'key', from: 'name', unique: true },
+		nocreate: true,
+		nodelete: true
 	});
 
 /**

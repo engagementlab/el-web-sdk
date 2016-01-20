@@ -23,6 +23,8 @@ var Subdirectory = new keystone.List('Subdirectory',
     {
         hidden: false,
         inherits: Listing,
+        nocreate: true,
+        nodelete: true
     });
 
 var urlValidator = {

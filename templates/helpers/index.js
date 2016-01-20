@@ -381,6 +381,30 @@ module.exports = function() {
 	  );
 
 	}
+
+	// img helper
+	// Used for creating an href link with a URL
+	//
+	//  @text: The text of the link
+	//  @url: The URL of the link
+	//
+	//  *Usage example:*
+	//  `{{"See more..." story.url}}
+
+	_helpers.img = function(image) {
+	  
+	  if (image.filename == null)
+	  	return hbs.SafeString('');
+
+	  path = hbs.escapeExpression(image.path).replace('./public/', '');
+	  filename = hbs.escapeExpression(image.filename);
+
+	  return new hbs.SafeString(
+	    "<img src='" + path + "/" + filename + "' alt='" + filename + "'>"
+	  );
+
+	}
+
 	//  ### index offset helper
 	// Used for increasing index by one
 	//
@@ -444,6 +468,10 @@ module.exports = function() {
 		else
 			return str.substring(0, length) + "...";
 
+	}
+
+	_helpers.safeString = function(string) {
+		return string.replace("\n","").replace("'													","");
 	}
 
 	return _helpers;

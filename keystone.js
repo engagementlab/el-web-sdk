@@ -65,6 +65,7 @@ keystone.set('nav', {
 	'projects': ['projects', 'publications'],
 	'programs': 'programs',
 	'shared': ['resources'],
+	'pages': ['About', 'partners', 'Academics', 'people']
 });
 
 // prefix all built-in tags with 'keystone_'

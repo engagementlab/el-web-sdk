@@ -43,7 +43,8 @@ Listing.add({
 	description: { type: String, label: 'Description', required: true, initial: true },
 
 	image: { 
-		type: Types.LocalFile, label: 'Preview Image',
+		type: Types.LocalFile, 
+		label: 'Image',
 		dest: './public/images/directory',
 		prefix: '/directory',
 		allowedTypes: ['image/png'],
@@ -52,7 +53,7 @@ Listing.add({
 			return 'listing_' + safeString(item.name) + '.' + file.extension;
 		},
 		format: function(item, file) {
-			return '<img src="/images/directory/'+file.filename+'">';
+			return '<img src="/images/directory/' + file.filename + '" alt="' + item.name + '">';
 		}
 	},
 

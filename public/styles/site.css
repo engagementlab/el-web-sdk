@@ -7961,15 +7961,6 @@ html, body, .container {
     display: block;
     margin-top: 100%; }
 
-.partner-icon {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; }
-
 .partners {
   background-color: #dadada; }
   .partners .content-slider-with-controls .image-box {
@@ -7989,7 +7980,7 @@ html, body, .container {
   .partners .client-image:hover {
     opacity: 0.5;
     cursor: pointer; }
-  .partners .client-image.selected i {
+  .partners .client-image.selected img {
     color: #78cbd1 !important; }
 
 /* PROJECT PAGE */
