@@ -162,7 +162,6 @@ module.exports = function(grunt) {
 		'uglify',
 		'concat',
 		'cssmin',
-		'forever:keystone:start',
 		'alldone'
 	]);
 
