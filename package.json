@@ -39,6 +39,7 @@
     "grunt-node-inspector": "^0.4.1",
     "grunt-nodemon": "^0.2.1",
     "grunt-periodic": "^1.0.0",
+    "grunt-pm2-deploy": "^0.2.0",
     "heapdump": "^0.3.7",
     "inherits": "^2.0.1",
     "isarray": "0.0.1",
