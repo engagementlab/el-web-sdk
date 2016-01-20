@@ -61,7 +61,8 @@ exports = module.exports = function(req, res) {
 
                     // Assemble publications along with applicable sections
                     locals.publications[category] = {
-                        records: filteredPubs
+                        records: filteredPubs,
+                        isJournal: (category == 'Journal Article')
                     };
 
                     // Assign subsections, if any

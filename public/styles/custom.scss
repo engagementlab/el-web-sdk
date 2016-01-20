@@ -5,6 +5,10 @@ html, body, .container {
   height: 100%;
 }
 
+.mb-40 { margin-bottom: 40px; }
+.mb-50 { margin-bottom: 50px; }
+.mb-60 { margin-bottom: 60px; }
+
 .no-gutter {
   padding-left: 0;
   padding-right: 0;
@@ -224,6 +228,17 @@ section.publications .subSection {
   display: inline-block;
 }
 
+.book-box {
+  height: 480px;
+  text-align: center;
+  img {
+    height: 320px;
+  }
+  h4:hover {
+    color: $base-color;
+  }
+}
+
 /* NEWS */
 .news-container {
   background-color: $gray-lightest;
@@ -295,10 +310,6 @@ section.publications .subSection {
     margin-top: 10px;
   }
 }
-
-/* #event-section.affix {
-  padding-right: 30px;
-} */
 
 @media (max-width: 991px) { 
   .news-sidebar .media img {

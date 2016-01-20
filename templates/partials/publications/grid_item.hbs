@@ -1,0 +1,22 @@
+{{!--
+/**
+* Engagement Lab Website
+* Developed by Engagement Lab, 2015
+* ==============
+*
+* Book/Guide partial
+* - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+* ==========
+*/
+--}}
+<div class="col-sm-6 col-lg-4">
+	<div class="image-box style-2 mb-20 book-box">
+		<div class="overlay-container overlay-visible">
+			<a href="{{listing.href}}"><img src="{{{cloudinaryUrl listing.image}}}" alt="{{listing.title}}"></a>
+		</div>
+		<div class="body">
+			<a href="{{listing.href}}"><h4>{{listing.title}}</h4></a>
+			<p class="small mb-10">{{listing.author}}</p>
+		</div>
+	</div>
+</div>

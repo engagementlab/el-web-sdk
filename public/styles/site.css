@@ -7871,6 +7871,15 @@ h6.media-heading {
 html, body, .container {
   height: 100%; }
 
+.mb-40 {
+  margin-bottom: 40px; }
+
+.mb-50 {
+  margin-bottom: 50px; }
+
+.mb-60 {
+  margin-bottom: 60px; }
+
 .no-gutter {
   padding-left: 0;
   padding-right: 0; }
@@ -8044,6 +8053,14 @@ html, body, .container {
 section.publications .subSection {
   display: inline-block; }
 
+.book-box {
+  height: 480px;
+  text-align: center; }
+  .book-box img {
+    height: 320px; }
+  .book-box h4:hover {
+    color: #78cbd1; }
+
 /* NEWS */
 .news-container {
   background-color: #f4f4f4; }
@@ -8088,9 +8105,6 @@ section.publications .subSection {
   .featured-blog .summary {
     margin-top: 10px; }
 
-/* #event-section.affix {
-  padding-right: 30px;
-} */
 @media (max-width: 991px) {
   .news-sidebar .media img {
     max-width: none; }
