@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 	    restore: {
 	      task: 'restore',
 	      path: './dump/engagement-lab',
-	      db: 'engagement-lab',
+	      db: 'engagement-lab-staging',
 	      drop: true
 	    },
 	    dump: {

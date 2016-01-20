@@ -6,5 +6,16 @@
     "env": {
       "NODE_ENV": "production"
     }
-  }]
+  }],
+  "deploy" : {
+    "production" : {
+      "user" : "node",
+      "host" : "199.94.80.32",
+      "repo" : "git@github.com:engagementgamelab/EL-Website.git",
+      "ref"  : "origin/master",
+      "path" : "/srv/website",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
+      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
 }
