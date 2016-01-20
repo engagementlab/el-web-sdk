@@ -12,6 +12,7 @@
 var keystone = require('keystone');
 // See: https://github.com/chriso/validator.js
 var validator = require('validator');
+var Listing = require('./Listing');
 var Types = keystone.Field.Types;
 
 /**
@@ -20,14 +21,10 @@ var Types = keystone.Field.Types;
  * See: http://keystonejs.com/docs/database/#lists-options
  */
 var Project = new keystone.List('Project', 
-                          {
-                            sortable: true,
-                            autokey: {
-                                    path: 'key',
-                                    from: 'name',
-                                    unique: true
-                                }
-                          });
+    {
+        hidden: false,
+        inherits: Listing,
+    });
 
 /**
  * Field Validators
@@ -57,151 +54,130 @@ var emailValidator = {
     msg: 'Invalid contact email'
 };
 
-
-
-
 /**
  * Model Fields
  * @main Project
  */
 Project.add({
-    name: {
-        type: String,
-        label: 'Project Name',
-        required: true,
-        index: true
-    },
-    category: {
-        type: Types.Relationship,
-        ref: 'Category',
-        filters: { isProjectCategory: true, isSubcategory: false },
-        required: true,
-        initial: true
-    },
-    subCategory: { 
-        type: Types.Relationship,
-        ref: 'Category',
-        label: 'Subcategory',
-        filters: { isProjectCategory: false, isSubcategory: true },
-        initial: true 
-    },
-    enabled: { 
-        type: Types.Boolean,
-        label: 'Enabled'
-    },
-    featured: { 
-        type: Types.Boolean,
-        label: 'Featured'
-    },
-    byline: {
-        type: String,
-        label: 'Byline Description',
-        validate: bylineValidator,
-        initial: true,
-        required: true
-    },
-    overview: {
-        type: Types.Markdown,
-        label: 'Project Narrative',
-        initial: true,
-        required: true
-    },
-
-    startDate: {
-        type: Date,
-        label: 'Project Start Date',
-        initial: true,
-        required: true
-    },
-    endDate: {
-        type: Date,
-        label: 'Project End Date'
-    },
-    headerImage: {
-        type: Types.CloudinaryImage,
-        label: 'Header Image (large)',
-        folder: 'site/research/projects',
-        autoCleanup: true
-    },
-    sideImage: {
-        type: Types.CloudinaryImage,
-        label: 'Side Column Image (small)',
-        folder: 'site/research/projects',
-        autoCleanup: true
-    },
-    tabHeadings: {
-        type: Types.TextArray,
-        label: 'Detail Tab Headings'
-    },
-    tabText: {
-        type: Types.TextArray,
-        label: 'Detail Tab Text'
-    },
-
-    projectImages: {
-        type: Types.CloudinaryImages,
-        label: 'Project Images',
-        folder: 'site/research/projects',
-        autoCleanup: true
-    },
-    projectImageCaptions: {
-        type: Types.TextArray,
-        label: 'Project Image Captions'
-    },
-
-    // Resource model reference for articles, videos, files
-    articles: {
-        type: Types.Relationship,
-        ref: 'Resource',
-        label: 'External Articles',
-        filters: {
-            type: 'article'
+    
+    child_content : {
+        subdirectory: {
+            type: Types.Relationship,
+            ref: 'Subdirectory',
+            required: true,
+            initial: true
         },
-        many: true
-    },
-    videos: {
-        type: Types.Relationship,
-        ref: 'Resource',
-        label: 'Project Videos',
-        filters: {
-            type: 'video'
+        enabled: { 
+            type: Types.Boolean,
+            label: 'Enabled'
         },
-        many: true
-    },
-    files: {
-        type: Types.Relationship,
-        ref: 'Resource',
-        label: 'Project Files',
-        filters: {
-            type: 'file'
+        featured: { 
+            type: Types.Boolean,
+            label: 'Featured'
         },
-        many: true
-    },
+        byline: {
+            type: String,
+            label: 'Byline Description',
+            validate: bylineValidator,
+            initial: true,
+            required: true
+        },
+        overview: {
+            type: Types.Markdown,
+            label: 'Project Narrative',
+            initial: true,
+            required: true
+        },
 
-    externalLinkUrl: {
-        type: Types.Url,
-        label: 'External Link URL',
-        validate: urlValidator
-    },
-    contactName: {
-        type: String,
-        default: 'Engagement Lab',
-        label: 'Contact Name',
-        required: true
-    },
-    contactEmail: {
-        type: String,
-        default: 'info@elab.emerson.edu',
-        label: 'Contact Email',
-        validate: emailValidator,
-        required: true
-    },
+        startDate: {
+            type: Date,
+            label: 'Project Start Date',
+            initial: true,
+            required: true
+        },
+        endDate: {
+            type: Date,
+            label: 'Project End Date'
+        },
+        headerImage: {
+            type: Types.CloudinaryImage,
+            label: 'Header Image (large)',
+            folder: 'site/research/projects',
+            autoCleanup: true
+        },
+        sideImage: {
+            type: Types.CloudinaryImage,
+            label: 'Side Column Image (small)',
+            folder: 'site/research/projects',
+            autoCleanup: true
+        },
+        tabHeadings: {
+            type: Types.TextArray,
+            label: 'Detail Tab Headings'
+        },
+        tabText: {
+            type: Types.TextArray,
+            label: 'Detail Tab Text'
+        },
 
-    createdAt: {
-        type: Date,
-        default: Date.now,
-        noedit: true,
-        hidden: true
+        projectImages: {
+            type: Types.CloudinaryImages,
+            label: 'Project Images',
+            folder: 'site/research/projects',
+            autoCleanup: true
+        },
+        projectImageCaptions: {
+            type: Types.TextArray,
+            label: 'Project Image Captions'
+        },
+
+        // Resource model reference for articles, videos, files
+        articles: {
+            type: Types.Relationship,
+            ref: 'Resource',
+            label: 'External Articles',
+            filters: {
+                type: 'article'
+            },
+            many: true
+        },
+        videos: {
+            type: Types.Relationship,
+            ref: 'Resource',
+            label: 'Project Videos',
+            filters: {
+                type: 'video'
+            },
+            many: true
+        },
+        files: {
+            type: Types.Relationship,
+            ref: 'Resource',
+            label: 'Project Files',
+            filters: {
+                type: 'file'
+            },
+            many: true
+        },
+
+        externalLinkUrl: {
+            type: Types.Url,
+            label: 'External Link URL',
+            validate: urlValidator
+        },
+        contactName: {
+            type: String,
+            default: 'Engagement Lab',
+            label: 'Contact Name',
+            required: true
+        },
+        contactEmail: {
+            type: String,
+            default: 'info@elab.emerson.edu',
+            label: 'Contact Email',
+            validate: emailValidator,
+            required: true
+        }
     }
 });
 

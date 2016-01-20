@@ -64,7 +64,8 @@ keystone.set('routes', require('./routes'));
 keystone.set('nav', {
 	'projects': ['projects', 'publications'],
 	'programs': 'programs',
-	'shared': ['resources', 'categories']
+	'shared': ['resources'],
+	'pages': ['About', 'partners', 'Academics', 'people']
 });
 
 // prefix all built-in tags with 'keystone_'

@@ -12,7 +12,7 @@
  */
 --}}
 
-<!-- PROJECT DIRECTORY START -->
+<!-- SUBDIRECTORY START -->
 <!-- main-container start -->
 <!-- ================ -->
 <section class="main-container padding-bottom-clear">
@@ -22,8 +22,8 @@
 		<div class="main">
 			<!-- page-title start -->
 			<!-- ================ -->
-			<h1 class="page-title"><strong>Research: </strong><span class="font-light">{{category.name}}</span></h1>
-			<h6 class="lead">{{{category.description.html}}}</h6>
+			<h1 class="page-title"><strong>Research: </strong><span class="font-light">{{name}}</span></h1>
+			{{> page/lead}}
 			<!-- page-title end -->
 		</div>
 		<!-- main end -->
@@ -35,11 +35,11 @@
 <section>
 	<div class="container">
 		<div class="row grid-space-10">
-			{{#if projects}}
+			{{#if listings}}
 				
 				{{!-- Show projects --}}
-				{{#each projects}}
-						{{> project_preview project=this}}
+				{{#each listings}}
+						{{> sublisting listing=this}}
 				{{/each}}
 
 			{{else}}

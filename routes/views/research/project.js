@@ -23,7 +23,9 @@ exports = module.exports = function(req, res) {
         locals = res.locals;
 
     // Init locals
-    locals.section = 'projects';
+    locals.section = req.params.directory;
+    locals.sub_section = req.params.subdirectory;
+
     locals.filters = {
         _key: req.params.project_key
     };
@@ -34,22 +36,26 @@ exports = module.exports = function(req, res) {
         /* This query gets a project by the key in the
            URL and populates resources from its model */
         var projectQuery = Project.model.findOne({
+            'child_content.enabled': true,
             key: locals.filters._key
         }).populate('videos articles files');
 
         // Setup the locals to be used inside view
         projectQuery.exec(function(err, result) {
+            
+            if (result == null) {
+                return res.status(404).send(keystone.wrapHTMLError('It\'s not your fault so don\'t feel bad but this page doesn\'t really exist in the way you thought it would (404)'));
+            }
+
             locals.project = result;
-            locals.sub_section = result.category.key;
 
             // Format dates
-            locals.projectDates = result._.startDate.format('MMMM Do YYYY - ') +
+            locals.projectDates = result._.child_content.startDate.format('MMMM Do YYYY - ') +
                                   ((result.endDate === undefined) ?
                                   'Current' : result.endDate.format('MMMM Do YYYY'));
 
             next(err);
         });
-
     });
 
     // Render the view

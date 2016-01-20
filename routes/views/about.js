@@ -14,6 +14,7 @@
 var keystone = require('keystone');
 var About = keystone.list('About');
 var Partner = keystone.list('Partner');
+var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
 
@@ -25,19 +26,25 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-        var q = About.model.findOne({}, {}, {
+        var queryAbout = About.model.findOne({}, {}, {
             sort: {
                 'createdAt': -1
             }
         });
 
-        q.exec(function(err, result) {
-            locals.about = result;
+        queryAbout.exec(function(err, resultAbout) {
 
-            next(err);
+            locals.about = resultAbout;
+
+            var queryPartners = Partner.model.find({}).sort([
+                ['sortOrder', 'ascending']
+            ]);
+
+            queryPartners.exec(function(err, resultPartners) {
+                locals.partners = resultPartners;
+                next(err);
+            });
         });
-
-        // var q2 <- use partner
     });
 
     // Render the view

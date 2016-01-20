@@ -19,11 +19,11 @@ var Types = keystone.Field.Types;
  * See: http://keystonejs.com/docs/database/#lists-options
  */
 var Person = new keystone.List('Person', 
-															{
-																label: 'People',
-																singular: 'Team Member',
-																sortable: true
-															});
+	{
+		label: 'People',
+		singular: 'Team Member',
+		sortable: true
+	});
 
 /**
  * Model Fields
