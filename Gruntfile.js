@@ -26,9 +26,6 @@ module.exports = function(grunt) {
 	// node jobs
 	grunt.loadNpmTasks('grunt-execute');
 
-	// forever
-	grunt.loadNpmTasks('grunt-forever');
-
 	var options = {
 		config: {
 			src: './grunt/*.js'
@@ -92,6 +89,12 @@ module.exports = function(grunt) {
 	        question: 'You are about to SHUT DOWN the production server. Are you sure?!',
 	        input: '_key:y'
 	      }
+	    },
+	    production: {
+	      options: { 
+	        question: "You are about to deploy the master branch HEAD to the production server. This will also run the 'compile' task and reboot keystone. Are you sure?",
+	        input: '_key:y'
+	      }
 	    }
 	  },
 
@@ -148,7 +151,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('importdata', ['confirm:restore', 'mongobin:restore']);
 
 	grunt.registerTask('alldone', function() {
-	  grunt.log.writeln('>>>>>>>> Code was minified and production server is running! <<<<<<<<');
+	  grunt.log.writeln('>>>>>>>> Packages installed, code minified for production! <<<<<<<<');
 	});
 
 	// default option to connect server
@@ -158,16 +161,23 @@ module.exports = function(grunt) {
 		'concurrent:dev'
 	]);
 
-	grunt.registerTask('production', [
+	// Task to compile script/styles
+	grunt.registerTask('compile', [
 		'uglify',
 		'concat',
 		'cssmin',
 		'alldone'
 	]);
 
-	grunt.registerTask('kill', [
+	// Task to deploy to production
+	grunt.registerTask('deploy', [
+		'confirm:production',
+		'pm2deploy:production'
+	]);
+
+	/*grunt.registerTask('kill', [
 		'confirm:shutdown',
 		'forever:keystone:stop'
-	]);
+	]);*/
 
 };
