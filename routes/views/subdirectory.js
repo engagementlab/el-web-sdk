@@ -28,9 +28,11 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
+        console.log('init')
         var querySub = Subdirectory.model.findOne({key: req.params.subdirectory});
 
         querySub.exec(function(err, resultSub) {
+
 
             if (resultSub === null) {
                 return res.status(404).send(keystone.wrapHTMLError('Oh ho ho ho no! 404 error: no page to render here :('));
@@ -40,8 +42,8 @@ exports = module.exports = function(req, res) {
             locals.lead = resultSub.description;
 
             var queryProject = Project.model.find({
-                'child_content.enabled': true,
-                'child_content.subdirectory': resultSub
+                'enabled': true,
+                'subdirectory': resultSub
             }).sort([
                 ['sortOrder', 'ascending']
             ]);
@@ -50,7 +52,6 @@ exports = module.exports = function(req, res) {
                 _.map(resultProject, function(proj) {
 
                 // Get image code
-                proj.image = proj._.image.format();
                 proj.href = '/' + req.params.directory + 
                 '/' + req.params.subdirectory + 
                 '/' + proj.key;

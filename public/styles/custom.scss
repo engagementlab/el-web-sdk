@@ -281,7 +281,7 @@ html, body, .container {
 }
 
 .team-member img:hover {
-  @include tograyscale(100%);
+  @include teammemberHover();
 }
 
 .light .social-links {
@@ -426,9 +426,23 @@ section.publications .subSection {
     padding-right: 0;
   }
 }
-
 @media (min-width: 768px) {
     .project-box {
       height: 320px;
     }
+}
+.project-box {
+
+  @include transition(all 1s ease);
+
+}
+.project-box:hover {
+
+  @include scaleXY(1.05, 1.05);
+
+}
+.project-box img:hover {
+
+  @include tograyscale(20%);
+
 }

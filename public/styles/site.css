@@ -8091,10 +8091,14 @@ html, body, .container {
   width: 192px; }
 
 .team-member img:hover {
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  filter: grayscale(100%); }
+  -webkit-filter: grayscale(50%);
+  -moz-filter: grayscale(50%);
+  -ms-filter: grayscale(50%);
+  filter: grayscale(50%);
+  -webkit-transform: scale(1.07, 1.07);
+  -ms-transform: scale(1.07, 1.07);
+  -o-transform: scale(1.07, 1.07);
+  transform: scale(1.07, 1.07); }
 
 .light .social-links li a {
   background-color: #bababa;
@@ -8196,6 +8200,23 @@ section.publications .subSection {
 @media (min-width: 768px) {
   .project-box {
     height: 320px; } }
+
+.project-box {
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
+
+.project-box:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  -ms-transform: scale(1.05, 1.05);
+  -o-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05); }
+
+.project-box img:hover {
+  -webkit-filter: grayscale(20%);
+  -moz-filter: grayscale(20%);
+  -ms-filter: grayscale(20%);
+  filter: grayscale(20%); }
 
 body {
   padding-top: 76px; }
