@@ -35,7 +35,7 @@ exports = module.exports = function(req, res) {
 
         querySub.exec(function(err, resultSub) {
 
-            if (resultSub == null) {
+            if (resultSub === null) {
                 return res.status(404).send(keystone.wrapHTMLError('Just because you want it to be true doesn\'t make it true! (404)'));
             }
 

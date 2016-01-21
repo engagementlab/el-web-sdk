@@ -45,10 +45,11 @@ exports = module.exports = function(app) {
 
     app.get('/research/publications', routes.views.research.publications);
     app.get('/research/:subdirectory/:project_key', routes.views.research.project);
+    app.get('/publications/:publication_key', routes.views.research.publication);
 
     app.get('/news', routes.views.news);
     app.get('/press', routes.views.press);
-
+    
     // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
     // app.get('/protected', middleware.requireUser, routes.views.protected);
 

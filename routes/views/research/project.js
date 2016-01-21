@@ -43,7 +43,7 @@ exports = module.exports = function(req, res) {
         // Setup the locals to be used inside view
         projectQuery.exec(function(err, result) {
             
-            if (result == null) {
+            if (result === null) {
                 return res.status(404).send(keystone.wrapHTMLError('It\'s not your fault so don\'t feel bad but this page doesn\'t really exist in the way you thought it would (404)'));
             }
 
@@ -61,4 +61,4 @@ exports = module.exports = function(req, res) {
     // Render the view
     view.render('research/project');
 
-}
+};

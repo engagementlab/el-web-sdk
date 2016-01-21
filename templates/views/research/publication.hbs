@@ -1,0 +1,168 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Project Page Template 
+ * - See Project model for fields
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+<!-- PROJECT START -->
+<div class="banner clearfix">
+	<div class="container-fluid">
+		<div class="row" id="project_header">
+			<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.child_content.headerImage width=1425 height=450 crop='crop' quality=80}}}');">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8 text-center col-md-offset-2 pv-20">
+							<h2 class="title object-non-visible" data-animation-effect="fadeIn" data-effect-delay="100" id="project-title">{{project.name}}</h2>
+						</div> <!-- .col-md-8 -->
+					</div> <!-- .row -->
+				</div> <!-- .container -->
+			</div> <!-- .banner -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+	<div id="page-start"></div>
+</div>
+<section class="section light-gray-bg clearfix">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<h3>About <i>{{project.name}}</i></h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-8">
+				{{{project.child_content.overview.html}}}
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<img id="side-image" src="{{{cloudinaryUrl project.child_content.sideImage width=432 height=324}}}" alt="">
+			</div>
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section>
+<section class="main-container">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<ul class="nav nav-pills" role="tablist">
+					<li class="active"><a href="#pill-0" role="tab" data-toggle="tab" title="video"><i class="fa fa-camera pr-5"></i> Image Gallery</a></li>
+					
+					{{# each project.child_content.tabHeadings}}
+						<li><a href="#pill-{{incIndex @index}}" role="tab" data-toggle="tab" title="images"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
+					{{/each}}
+					
+					{{#if project.child_content.videos}}
+						<li><a href="#pill-video" role="tab" data-toggle="tab" title="text"><i class="fa fa-video-camera pr-5"></i> Video</a></li>
+					{{/if}}
+
+					{{#if project.child_content.files}}
+						<li><a href="#pill-download" role="tab" data-toggle="tab" title="text"><i class="fa fa-floppy-o pr-5"></i> Downloads</a></li>
+					{{/if}}
+				</ul>
+				<div class="tab-content space-bottom">
+					<div class="tab-pane active" id="pill-0">
+						<div class="space-bottom"></div>
+						<div class="row grid-space-20">
+							{{# each project.child_content.projectImages}}
+
+								<div class="col-xs-3">
+									<div class="overlay-container">
+
+										<img src="{{{cloudinaryUrl width=173 quality=60}}}" alt="">
+										<a href="{{{cloudinaryUrl }}}" class="overlay-link small popup-img" title="Second image title">
+											<i class="fa fa-plus"></i>
+										</a>
+									</div>
+								</div>
+
+							{{/each}}
+						</div>
+					</div>
+
+					{{# each project.child_content.tabText}}
+						<div class="tab-pane" id="pill-{{incIndex @index}}">
+							<p>{{this}}</p>
+						</div>
+					{{/each}}
+
+					{{#if project.child_content.videos}}
+						<div class="tab-pane" id="pill-video">
+						{{# each project.child_content.videos}}
+
+							<div class="embed-responsive embed-responsive-16by9">
+								{{{ data.html }}}
+							</div>
+
+						{{/each}}
+						</div>
+					{{/if}}
+
+					{{#if project.child_content.files}}
+						<div class="tab-pane" id="pill-download">
+							<ul>
+							{{# each project.child_content.files}}
+							
+								{{#if this.file}}
+								<li><a href="{{path}}/{{filename}}"><i class="fa fa-file{{fileType this.file}} pr-5"></i> {{name}}</a></li>
+								{{/if}}
+
+							{{/each}}
+							</ul>
+						</div>
+					{{/if}}
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="footer-content">
+					<h3 class="title">Project Information and Partners</h3>
+					<div class="separator-2"></div>
+					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
+					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-facebook"></i></a>
+					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-twitter"></i></a>
+					<ul class="list-icons">
+						<li><b>URL:</b> <a href="www.elab.emerson.edu/games/emergingcitizens"> www.elab.emerson.edu/games/emergingcitizens</a></li>
+						<li><b>Project Dates:</b> {{projectDates}}</li>
+						<li><b>Contact: </b><a href="mailto:info@elab.emerson.edu">info@elab.emerson.edu</a></li>
+					</ul>
+				</div>
+			</div> <!-- .col-md-4 -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section>
+{{#if project.child_content.articles}}
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="separator-2"></div>
+				<h3><i>{{project.name}}</i> News</h3>
+				{{# each project.child_content.articles}}
+
+					<div class="col-sm-4">
+						<div class="image-box style-2 mb-20 text-center">
+							<div class="overlay-container">
+								<img src="{{{data.thumbnailUrl}}}" alt="{{data.title}}">
+								<a href="{{url}}" class="overlay-link"><i class="fa fa-link"></i></a>
+							</div>
+							<div class="body">
+								<h3><a href="{{url}}">{{data.title}}</a></h3>
+								{{#if data.description}}
+									<p>{{limit data.description 100}}</p>										
+								{{/if}}
+							</div>
+						</div>
+					</div>
+
+				{{/each}}
+			</div> <!-- .col-md-12 -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section>
+{{/if}}
