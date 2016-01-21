@@ -38,7 +38,7 @@ exports = module.exports = function(req, res) {
 
         queryDirectory.exec(function(err, resultDirectory) {
             
-            if (resultDirectory == null) {
+            if (resultDirectory === null) {
                 return res.status(404).send(keystone.wrapHTMLError('Good golly gosh darn dang darnit! No page here (404)'));
             }
 
@@ -63,9 +63,7 @@ exports = module.exports = function(req, res) {
                 _.map(resultSubdirectory, function(sub) {
 
                     // Get image code
-                    sub.href = (sub.child_content.href == null)
-                        ? '/' + req.params.directory + '/' + sub.key
-                        : sub.child_content.href;
+                    sub.href = (sub.child_content.href === null) ? '/' + req.params.directory + '/' + sub.key : sub.child_content.href;
                     sub.description = sub.description;
 
                     return sub;

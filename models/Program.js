@@ -13,7 +13,7 @@
 
 var keystone = require('keystone');
 // See: https://github.com/leepowellcouk/mongoose-validator and https://github.com/chriso/validator.js
-var Listing = require('./Listing')
+var Listing = require('./Listing');
 var validator = require('validator');
 var Types = keystone.Field.Types;
 

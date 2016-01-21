@@ -190,7 +190,7 @@ Project.add({
 Project.schema.statics.removeResourceRef = function(resourceId, callback) {
 
 	Project.model.update(
-  	{$or: [
+        {$or: [
 			{'videos': resourceId},
 			{'articles': resourceId}
 		]}, 
@@ -204,11 +204,11 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
 			callback(err, result);
 
 			if(err)
-				console.error(err)
+				console.error(err);
 		}
 	);
 
- }
+ };
 
 /**
  * Model Registration
