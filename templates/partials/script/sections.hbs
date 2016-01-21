@@ -85,6 +85,19 @@
 			});
 		};*/
 
+		{{#ifeq section 'home'}}
+			// Selects a random start time for the video
+			var vid = "https://player.vimeo.com/video/152485138?background=1&autoplay=1&loop=1#t=";
+			var times = [
+				"0m27s",
+				"0m47s",
+				"0m58s",
+				"1m20s",
+				"1m34s"
+			];
+			var time = times[Math.floor(Math.random()*times.length)];
+			$('iframe').prop('src', 'https://player.vimeo.com/video/152485138?background=1&autoplay=1&loop=1#t=' + time);
+		{{/ifeq}}
 		{{#ifeq section 'people'}}
 			$('.bio').readmore({
 			  speed: 250,
