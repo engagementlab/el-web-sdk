@@ -32,7 +32,6 @@ exports = module.exports = function(req, res) {
         /* This query gets a publication by the key in the
            URL and populates resources from its model */
         var publicationQuery = Publication.model.findOne({
-            'child_content.enabled': true,
             key: req.params.publication_key
         }).populate('videos articles files');
 

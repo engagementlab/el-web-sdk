@@ -63,7 +63,7 @@ exports = module.exports = function(req, res) {
                 _.map(resultSubdirectory, function(sub) {
 
                     // Get image code
-                    sub.href = (sub.child_content.href === null) ? '/' + req.params.directory + '/' + sub.key : sub.child_content.href;
+                    sub.href = (sub.child_content.href === undefined) ? '/' + req.params.directory + '/' + sub.key : sub.child_content.href;
                     sub.description = sub.description;
 
                     return sub;

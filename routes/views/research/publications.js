@@ -56,6 +56,12 @@ exports = module.exports = function(req, res) {
                     var filteredPubs = resultPubs.filter(function(pub) {
                         return pub.category == category;
                     });
+
+                    _.map(filteredPubs, function(pub) {
+                        pub.href = '/research/publications/' + pub.key;
+                        return pub;
+                    });
+
                     // Get any sub-sections
                     var subSections = _.pluck(filteredPubs, 'subCategory');
 

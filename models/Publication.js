@@ -39,13 +39,18 @@ Publication.add({
 	url: { type: String, label: 'URL',
 		dependsOn: { category: 'Journal Article' }, initial: true },
 
-	blurb: { type: Types.Textarea, label: 'Blurb Text', required: true, initial: true },
+	blurb: { type: Types.Textarea, label: 'Blurb Text', 
+		dependsOn: { category: 'Journal' }, required: true, initial: true },
 
 	description: { type: Types.Markdown, label: 'Description Text',
-		dependsOn: { category: 'Book' }, required: false, initial: true },
+		dependsOn: { category: ['Book', 'Guide'] }, required: false, initial: true },
 
 	image: { type: Types.CloudinaryImage, label: 'Thumbnail',
 		dependsOn: { category: ['Book', 'Guide'] }, folder: 'research/publications', autoCleanup: true },
+	bannerImage: { type: Types.CloudinaryImage, label: 'Banner Image',
+		dependsOn: { categpry: ['Book', 'Guide'] }, folder: 'research/publications', autoCleanup: true },
+
+	date: { type: Date, label: 'Publication Date', initial: true, required: true },
 
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
