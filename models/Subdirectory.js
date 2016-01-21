@@ -55,6 +55,13 @@ Subdirectory.add({
 });
 
 /**
+ * Caching
+ * =============
+ */
+Subdirectory.schema.set('redisCache', true);
+Subdirectory.schema.set('expires', 60*60*24) // 24 hour caches
+
+/**
  * Model Registration
  * =============
  */

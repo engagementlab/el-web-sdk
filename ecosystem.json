@@ -1,12 +1,9 @@
 {
   "apps" : [{
-    "name"        : "EL Website",
-    "script"      : "keystone.js",
+    "name": "EL Website",
+    "script": "keystone.js",
     "env_production": {
-      "NODE_ENV": "production",
-      "COOKIE_SECRET": "5@[,CNwnN#03d!yV|.HnRF*10>]yo%PdI]zXoOBSb-mVB.O`Z*f/Akq%{Rhq37Mh",
-      "CLOUDINARY_URL": "cloudinary://851373748637243:uTK26M1JKJjOsesQ9vZsXasj9cw@engagement-lab-home",
-      "EMBEDLY_API_KEY": "6854c1facf7a4eb6bdfe5bbd663ced50"
+      "NODE_ENV": "production"
     }
   }],
   "deploy" : {

@@ -69,13 +69,6 @@ Listing.schema.methods.safeName = function() {
 }
 
 /**
- * Caching
- * =============
- */
-Listing.schema.set('redisCache', true);
-Listing.schema.set('expires', 60*60*24) // 24 hour caches
-
-/**
  * Model Registration
  */
 Listing.defaultSort  = 'sortOrder';
