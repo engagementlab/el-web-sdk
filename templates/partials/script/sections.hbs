@@ -86,6 +86,7 @@
 		};*/
 
 		{{#ifeq section 'home'}}
+			
 			// Selects a random start time for the video
 			var vid = "https://player.vimeo.com/video/152485138?background=1&autoplay=1&loop=1#t=";
 			var times = [
@@ -97,6 +98,15 @@
 			];
 			var time = times[Math.floor(Math.random()*times.length)];
 			$('iframe').prop('src', 'https://player.vimeo.com/video/152485138?background=1&autoplay=1&loop=1#t=' + time);
+
+			// Initialize featured projects carousel
+			$(".owl-carousel.content-slider-with-controls").owlCarousel({
+				singleItem: true,
+				autoPlay: false,
+				navigation: true,
+				pagination: true
+			});
+
 		{{/ifeq}}
 		{{#ifeq section 'people'}}
 			$('.bio').readmore({
@@ -123,6 +133,7 @@
 		{{/ifeq}}
 		{{#ifeq section 'about'}}
 
+			// Initialize partners carousel
 			$(".owl-carousel.content-slider-with-controls").owlCarousel({
 				singleItem: true,
 				autoPlay: false,
