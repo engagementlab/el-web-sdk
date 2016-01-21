@@ -19,12 +19,13 @@ var Types = keystone.Field.Types;
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-var Listing = new keystone.List('Listing', 
+	var Listing = new keystone.List('Listing', 
 	{	
 		hidden: true,
 		sortable: true,
 		autokey: { path: 'key', from: 'name', unique: true }
-	});
+	}
+);
 
 /**
  * Local Methods
@@ -41,21 +42,12 @@ safeString = function(str) {
 Listing.add({
 	name: { type: String, label: 'Name', required: true, initial: true, index: true },
 	description: { type: String, label: 'Description', required: true, initial: true },
-
-	image: { 
-		type: Types.LocalFile, 
-		label: 'Image',
-		dest: './public/images/directory',
-		prefix: '/directory',
-		allowedTypes: ['image/png'],
-		filename: function(item, file) {
-			// Sanitize filename
-			return 'listing_' + safeString(item.name) + '.' + file.extension;
-		},
-		format: function(item, file) {
-			return '<img src="/images/directory/' + file.filename + '" alt="' + item.name + '">';
-		}
-	},
+  image: {
+      type: Types.CloudinaryImage,
+      label: 'Directory Image',
+      folder: 'site/listings',
+      autoCleanup: true
+  },
 
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });

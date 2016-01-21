@@ -175,9 +175,4 @@ module.exports = function(grunt) {
 		'pm2deploy:production'
 	]);
 
-	/*grunt.registerTask('kill', [
-		'confirm:shutdown',
-		'forever:keystone:stop'
-	]);*/
-
 };

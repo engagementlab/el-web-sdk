@@ -36,7 +36,7 @@ exports = module.exports = function(req, res) {
         /* This query gets a project by the key in the
            URL and populates resources from its model */
         var projectQuery = Project.model.findOne({
-            'child_content.enabled': true,
+            'enabled': true,
             key: locals.filters._key
         }).populate('videos articles files');
 
@@ -44,15 +44,19 @@ exports = module.exports = function(req, res) {
         projectQuery.exec(function(err, result) {
             
             if (result === null) {
-                return res.status(404).send(keystone.wrapHTMLError('It\'s not your fault so don\'t feel bad but this page doesn\'t really exist in the way you thought it would (404)'));
+                return res.notfound('Cannot find project', 'Sorry, but it looks like the research project you were looking for does not exist! Try <a href="http://elab.emerson.edu/research">going back</a> to research.');
             }
 
+            // Project is the listing, projectData is the content
             locals.project = result;
 
             // Format dates
-            locals.projectDates = result._.child_content.startDate.format('MMMM Do YYYY - ') +
+            locals.projectDates = result._.startDate.format('MMMM Do YYYY - ') +
                                   ((result.endDate === undefined) ?
-                                  'Current' : result.endDate.format('MMMM Do YYYY'));
+                                  'Current' : result._.endDate.format('MMMM Do YYYY'));
+
+            locals.videosTabFirst = ( result.projectImages.length === 0 && result.videos.length > 0 ); 
+            locals.filesTabFirst = ( !locals.videosTabFirst && result.files.length > 0 ); 
 
             next(err);
         });

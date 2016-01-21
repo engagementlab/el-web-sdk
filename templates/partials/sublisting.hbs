@@ -14,8 +14,7 @@
 <div class="col-sm-4 col-lg-3">
 	<div class="image-box style-2 mb-20 project-box">
 		<div class="overlay-container overlay-visible">
-			{{!-- <img src="{{{cloudinaryUrl this width/=372 height=230}}}" alt="{{../listing.name}}" /> --}}
-			<a href="{{listing.href}}"><img src="/images/page-about-banner-2.jpg" alt="{{../listing.name}}"></a>
+			<a href="{{listing.href}}"><img src="{{cloudinaryUrl listing.image width=372 height=230}}" alt="{{listing.name}}"></a>
 		</div>
 		<div class="body">
 			<p><span id="project-title">{{listing.name}}</span> {{listing.description}}</p>

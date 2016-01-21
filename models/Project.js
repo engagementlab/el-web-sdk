@@ -59,126 +59,126 @@ var emailValidator = {
  * @main Project
  */
 Project.add({
-    
-    child_content : {
-        subdirectory: {
-            type: Types.Relationship,
-            ref: 'Subdirectory',
-            required: true,
-            initial: true
-        },
-        enabled: { 
-            type: Types.Boolean,
-            label: 'Enabled'
-        },
-        featured: { 
-            type: Types.Boolean,
-            label: 'Featured'
-        },
-        byline: {
-            type: String,
-            label: 'Byline Description',
-            validate: bylineValidator,
-            initial: true,
-            required: true
-        },
-        overview: {
-            type: Types.Markdown,
-            label: 'Project Narrative',
-            initial: true,
-            required: true
-        },
 
-        startDate: {
-            type: Date,
-            label: 'Project Start Date',
-            initial: true,
-            required: true
-        },
-        endDate: {
-            type: Date,
-            label: 'Project End Date'
-        },
-        headerImage: {
-            type: Types.CloudinaryImage,
-            label: 'Header Image (large)',
-            folder: 'site/research/projects',
-            autoCleanup: true
-        },
-        sideImage: {
-            type: Types.CloudinaryImage,
-            label: 'Side Column Image (small)',
-            folder: 'site/research/projects',
-            autoCleanup: true
-        },
-        tabHeadings: {
-            type: Types.TextArray,
-            label: 'Detail Tab Headings'
-        },
-        tabText: {
-            type: Types.TextArray,
-            label: 'Detail Tab Text'
-        },
+    subdirectory: {
+        type: Types.Relationship,
+        ref: 'Subdirectory',
+        required: true,
+        initial: true,
+        label: 'Subdirectory'
+    },
+    enabled: { 
+        type: Types.Boolean,
+        label: 'Enabled'
+    },
+    featured: { 
+        type: Types.Boolean,
+        label: 'Featured'
+    },
+    byline: {
+        type: String,
+        label: 'Byline Description',
+        validate: bylineValidator,
+        initial: true,
+        required: true
+    },
+    overview: {
+        type: Types.Markdown,
+        label: 'Project Narrative',
+        initial: true,
+        required: true
+    },
 
-        projectImages: {
-            type: Types.CloudinaryImages,
-            label: 'Project Images',
-            folder: 'site/research/projects',
-            autoCleanup: true
-        },
-        projectImageCaptions: {
-            type: Types.TextArray,
-            label: 'Project Image Captions'
-        },
+    startDate: {
+        type: Date,
+        label: 'Project Start Date',
+        initial: true,
+        required: true
+    },
+    endDate: {
+        type: Date,
+        label: 'Project End Date'
+    },
+    headerImage: {
+        type: Types.CloudinaryImage,
+        label: 'Header Image (large)',
+        folder: 'site/research/projects',
+        autoCleanup: true
+    },
+    sideImage: {
+        type: Types.CloudinaryImage,
+        label: 'Side Column Image (small)',
+        folder: 'site/research/projects',
+        autoCleanup: true
+    },
+    tabHeadings: {
+        type: Types.TextArray,
+        label: 'Detail Tab Headings'
+    },
+    tabText: {
+        type: Types.TextArray,
+        label: 'Detail Tab Text'
+    },
 
-        // Resource model reference for articles, videos, files
-        articles: {
-            type: Types.Relationship,
-            ref: 'Resource',
-            label: 'External Articles',
-            filters: {
-                type: 'article'
-            },
-            many: true
-        },
-        videos: {
-            type: Types.Relationship,
-            ref: 'Resource',
-            label: 'Project Videos',
-            filters: {
-                type: 'video'
-            },
-            many: true
-        },
-        files: {
-            type: Types.Relationship,
-            ref: 'Resource',
-            label: 'Project Files',
-            filters: {
-                type: 'file'
-            },
-            many: true
-        },
+    projectImages: {
+        type: Types.CloudinaryImages,
+        label: 'Project Images',
+        folder: 'site/research/projects',
+        autoCleanup: true
+    },
+    projectImageCaptions: {
+        type: Types.TextArray,
+        label: 'Project Image Captions'
+    },
 
-        externalLinkUrl: {
-            type: Types.Url,
-            label: 'External Link URL',
-            validate: urlValidator
+    // Resource model reference for articles, videos, files
+    articles: {
+        type: Types.Relationship,
+        ref: 'Resource',
+        label: 'External Articles',
+        filters: {
+            type: 'article'
         },
-        contactName: {
-            type: String,
-            default: 'Engagement Lab',
-            label: 'Contact Name',
-            required: true
+        many: true
+    },
+    videos: {
+        type: Types.Relationship,
+        ref: 'Resource',
+        label: 'Project Videos',
+        filters: {
+            type: 'video'
         },
-        contactEmail: {
-            type: String,
-            default: 'info@elab.emerson.edu',
-            label: 'Contact Email',
-            validate: emailValidator,
-            required: true
-        }
+        many: true
+    },
+    files: {
+        type: Types.Relationship,
+        ref: 'Resource',
+        label: 'Project Files',
+        filters: {
+            type: 'file'
+        },
+        many: true
+    },
+
+    externalLinkUrl: {
+        type: Types.Url,
+        label: 'External Link URL',
+        validate: urlValidator
+    },
+    contactName: {
+        type: String,
+        default: 'Engagement Lab',
+        label: 'Contact Name',
+        required: true
+    },
+    contactEmail: {
+        type: String,
+        default: 'info@elab.emerson.edu',
+        label: 'Contact Email',
+        validate: emailValidator,
+        required: true
     }
+
 });
 
 /**

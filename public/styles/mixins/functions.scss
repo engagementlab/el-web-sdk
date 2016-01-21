@@ -3,10 +3,19 @@
 	$rgba: rgba(red($hex), green($hex), blue($hex), $trans);
 }
 
-// Go to grayscale
 @mixin tograyscale($amt) {
+
   -webkit-filter: grayscale($amt);
   -moz-filter: grayscale($amt);
   -ms-filter: grayscale($amt);
   filter: grayscale($amt);
+
+}
+
+// Mixin for team member hover
+@mixin teammemberHover() {
+
+	@include tograyscale(50%);
+  @include scaleXY(1.07, 1.07);
+
 }
