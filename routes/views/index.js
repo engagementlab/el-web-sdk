@@ -30,7 +30,8 @@ exports = module.exports = function(req, res) {
 
         // This query gets all featured projects
         var projectQuery = Project.model.find({
-            featured: true
+            'child_content.enabled': true,
+            'child_content.featured': true
         });
 
         // Setup the locals to be used inside view

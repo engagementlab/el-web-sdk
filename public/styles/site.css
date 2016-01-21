@@ -7880,6 +7880,17 @@ html, body, .container {
 .mb-60 {
   margin-bottom: 60px; }
 
+.pv-60 {
+  padding: 60px 0; }
+
+.va-container {
+  height: 100%;
+  display: table; }
+
+.va-align {
+  display: table-cell;
+  vertical-align: middle; }
+
 .no-gutter {
   padding-left: 0;
   padding-right: 0; }
@@ -7939,25 +7950,56 @@ html, body, .container {
 .overlay {
   position: absolute;
   z-index: 3;
-  top: 30%;
-  left: 10%; }
-
-.overlay h1 {
-  color: white; }
+  top: 25%;
+  left: 10%;
+  width: 80%; }
+  .overlay h1, .overlay h3 {
+    color: #ffffff; }
 
 .row .main h1 {
   margin: 0 auto; }
 
-.featured {
-  background: rgba(0, 0, 0, 0.4);
-  min-height: 100%;
-  padding-bottom: 5%; }
+.featured-projects .owl-buttons {
+  margin-top: -48px; }
+  .featured-projects .owl-buttons .owl-next, .featured-projects .owl-buttons .owl-prev {
+    background: none; }
+    .featured-projects .owl-buttons .owl-next:hover, .featured-projects .owl-buttons .owl-prev:hover {
+      opacity: 0.5; }
+    .featured-projects .owl-buttons .owl-next:after, .featured-projects .owl-buttons .owl-prev:after {
+      font-size: 72px; }
 
 .featuredRow {
   padding: 2%; }
 
+.featured-project .va-container {
+  height: 480px; }
+
 .call-to-action h4 {
   line-height: 1.8; }
+
+@media (max-width: 767px) {
+  .overlay {
+    top: 25%; }
+    .overlay h1 {
+      font-size: 19px; }
+    .overlay h3 {
+      font-size: 13px; }
+  .owl-buttons {
+    display: none; } }
+
+@media (min-width: 992px) {
+  .overlay {
+    top: 35%; }
+    .overlay h1 {
+      font-size: 33px; }
+    .overlay h3 {
+      font-size: 24px; } }
+
+@media (min-width: 1200px) {
+  .overlay {
+    top: 35%;
+    left: 20%;
+    width: 60%; } }
 
 /* ABOUT */
 .partner-container {
