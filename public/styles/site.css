@@ -7939,11 +7939,11 @@ html, body, .container {
 .overlay {
   position: absolute;
   z-index: 3;
-  top: 30%;
-  left: 10%; }
-
-.overlay h1 {
-  color: white; }
+  top: 25%;
+  left: 10%;
+  width: 80%; }
+  .overlay h1, .overlay h3 {
+    color: #ffffff; }
 
 .row .main h1 {
   margin: 0 auto; }
@@ -7958,6 +7958,18 @@ html, body, .container {
 
 .call-to-action h4 {
   line-height: 1.8; }
+
+@media (max-width: 768px) {
+  .overlay {
+    top: 10%; } }
+
+@media (max-width: 992px) {
+  .overlay {
+    top: 35%; } }
+
+@media (min-width: 1200px) {
+  .overlay {
+    top: 35%; } }
 
 /* ABOUT */
 .partner-container {
