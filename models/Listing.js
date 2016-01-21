@@ -32,7 +32,7 @@ var Listing = new keystone.List('Listing',
  */
 safeString = function(str) {
     return str.toLowerCase().replace(/\s+/g, '-').replace(',', '');
-};
+}
 
 /**
  * Model Fields
@@ -66,14 +66,7 @@ Listing.add({
  */
 Listing.schema.methods.safeName = function() {
     return safeString(this.name);
-};
-
-/**
- * Caching
- * =============
- */
-Listing.schema.set('redisCache', true);
-Listing.schema.set('expires', 60*60*24); // 24 hour caches
+}
 
 /**
  * Model Registration
