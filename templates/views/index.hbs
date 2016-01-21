@@ -34,25 +34,62 @@
 			<!-- banner end -->
 
 			{{!-- TODO: Most recent blog & event --}}
-			<section class="pv-40 padding-bottom-clear clearfix">
-				<div class="clearfix">
-					<div class="container-fluid">
-						<div class="row grid-space-10">
-							<div class="col-sm-6 col-md-6">
-								<div class="pv-30 ph-20 white-bg feature-box bordered text-center">
+			<section class="recent-events clearfix light-bg">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12 mb-20">
+							<h2 class="title text-center">What's Good at the Lab</h2>
+						</div>
+					</div>
+					<div class="row grid-space-30">
+
+						{{!-- Upcoming event --}}
+						<div class="col-md-4">
+							<div class="pv-30 ph-20 recent-event-box white-bg feature-box bordered text-center">
+								<div class="va-container">
 									<div class="posted-date">
-										<p>Aug</p>
-										<p>30</p>
+										<p class="month">Aug</p>
+										<p class="day">30</p>
 									</div>
-									<div class="summary">
-										<h4>Cute Robots</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus error pariatur deserunt laudantium nam</p>
+									<div class="va-align" id="date-box">
+										<div class="summary">
+											<h4>Cute Robots</h4>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus error pariatur deserunt laudantium nam</p>
+										</div>
+										<a href="#">Go to event</a>
 									</div>
 								</div>
 							</div>
-							<div class="col-sm-6 col-md-3"></div>
-							<div class="col-sm-6 col-md-3"></div>
-							<div class="col-sm-6 col-md-3"></div>
+						</div>
+
+						{{!-- Latest blog --}}
+						<div class="col-md-4">
+							<div class="pv-30 ph-20 recent-event-box white-bg feature-box bordered text-center">
+								<div class="va-container">
+									<div class="va-align">
+										<div class="summary">
+											<h4>Cute Robots</h4>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus error pariatur deserunt laudantium nam</p>
+										</div>
+										<a href="#">Go to blog</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						{{!-- Latest article --}}
+						<div class="col-md-4">
+							<div class="pv-30 ph-20 recent-event-box white-bg feature-box bordered text-center">
+								<div class="va-container">
+									<div class="va-align">
+										<div class="summary">
+											<h4>Cute Robots</h4>
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus error pariatur deserunt laudantium nam</p>
+										</div>
+										<a href="#">Go to article</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

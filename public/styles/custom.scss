@@ -102,6 +102,31 @@ html, body, .container {
 	margin: 0 auto;
 }
 
+.recent-events {
+  padding: 50px 0;
+  background-color: $gray-lightest;
+
+  .recent-event-box {
+    height: 280px;
+
+    .posted-date {
+      text-align: left;
+      p {
+        line-height: 1;
+        margin-bottom: 0;
+        &.month { font-size: 18px; }
+        &.day {
+          font-size: 30px;
+          color: $base-color;
+        }
+      }
+    }
+    #date-box {
+      float: left;
+    }
+  }
+}
+
 .featured-projects {
   .owl-buttons {
     margin-top: -48px;
