@@ -51,7 +51,7 @@ exports = module.exports = function(req, res) {
                 queryListing = Program.model.find({});
             } else {
                 queryListing = Subdirectory.model.find({
-                    'child_content.directory': resultDirectory
+                    'directory': resultDirectory
                 });
             }
 
@@ -63,7 +63,7 @@ exports = module.exports = function(req, res) {
                 _.map(resultSubdirectory, function(sub) {
 
                     // Get image code
-                    sub.href = (sub.child_content.href === undefined) ? '/' + req.params.directory + '/' + sub.key : sub.child_content.href;
+                    sub.href = (sub.href === undefined) ? '/' + req.params.directory + '/' + sub.key : sub.href;
                     sub.description = sub.description;
 
                     return sub;

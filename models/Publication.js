@@ -2,7 +2,7 @@
  * Engagement Lab Website
  * 
  * Publication page Model
- * @module about
+ * @module publication
  * @author Johnny Richardson
  * 
  * For field docs: http://keystonejs.com/docs/database/
@@ -14,7 +14,7 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * @module about
+ * @module publication
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */

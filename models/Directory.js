@@ -23,7 +23,7 @@ var Directory = new keystone.List('Directory',
 	{	
 		hidden: false,
 		autokey: { path: 'key', from: 'name', unique: true },
-		nocreate: true,
+		// nocreate: true,
 		nodelete: true
 	});
 
