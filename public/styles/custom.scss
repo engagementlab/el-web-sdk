@@ -310,12 +310,20 @@ section.publications .subSection {
 .book-box {
   height: 480px;
   text-align: center;
+  @include transition(all 1s ease);
+
   img {
     height: 320px;
   }
   h4:hover {
     color: $base-color;
   }
+}
+.book-box:hover {
+  @include scaleXY(1.05, 1.05);
+}
+.book-box img:hover {
+  @include tograyscale(20%);
 }
 
 /* NEWS */
@@ -432,17 +440,11 @@ section.publications .subSection {
     }
 }
 .project-box {
-
   @include transition(all 1s ease);
-
 }
 .project-box:hover {
-
   @include scaleXY(1.05, 1.05);
-
 }
 .project-box img:hover {
-
   @include tograyscale(20%);
-
 }

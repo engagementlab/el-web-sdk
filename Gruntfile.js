@@ -45,10 +45,14 @@ module.exports = function(grunt) {
 		uglify: {
 		  plugins: {
 		    files: {
-		      'public/release/plugins.min.js': 
+		      'public/release/production.js': 
 		      [
+            'public/js/jquery/*.min.js', // Core
+            'public/bootstrap/*.min.js',
+            //'public/js/template.js',
+            //'public/js/custom.js',
             'public/plugins/*.js',  // Plugins
-            'public/plugins/**/*.js'
+            'public/plugins/**/*.js',
 			    ]
 		    }
 		  }

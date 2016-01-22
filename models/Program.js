@@ -25,6 +25,7 @@ var Types = keystone.Field.Types;
 var Program = new keystone.List('Program', 
 	{	
 		hidden: false,
+        track: true,
 		inherits: Listing
 	});
 

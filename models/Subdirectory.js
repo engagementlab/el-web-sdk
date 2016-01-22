@@ -23,7 +23,7 @@ var Subdirectory = new keystone.List('Subdirectory',
     {
         hidden: false,
         inherits: Listing,
-        nocreate: true,
+        // nocreate: true,
         nodelete: true
     });
 

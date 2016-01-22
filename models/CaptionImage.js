@@ -10,7 +10,8 @@ Types = keystone.Field.Types;
 
 var CaptionImage = new keystone.List('CaptionImage', {
     map: { name: 'name' },
-    autokey: { path: 'slug', from: 'name', unique: true }
+    autokey: { path: 'slug', from: 'name', unique: true },
+    hidden: true
 });
 
 CaptionImage.add({

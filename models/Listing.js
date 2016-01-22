@@ -23,6 +23,7 @@ var Types = keystone.Field.Types;
 	{	
 		hidden: true,
 		sortable: true,
+    track: true,
 		autokey: { path: 'key', from: 'name', unique: true }
 	}
 );

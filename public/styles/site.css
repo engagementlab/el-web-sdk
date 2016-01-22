@@ -8119,11 +8119,26 @@ section.publications .subSection {
 
 .book-box {
   height: 480px;
-  text-align: center; }
+  text-align: center;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease; }
   .book-box img {
     height: 320px; }
   .book-box h4:hover {
     color: #78cbd1; }
+
+.book-box:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  -ms-transform: scale(1.05, 1.05);
+  -o-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05); }
+
+.book-box img:hover {
+  -webkit-filter: grayscale(20%);
+  -moz-filter: grayscale(20%);
+  -ms-filter: grayscale(20%);
+  filter: grayscale(20%); }
 
 /* NEWS */
 .news-container {

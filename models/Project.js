@@ -22,20 +22,15 @@ var Types = keystone.Field.Types;
  */
 var Project = new keystone.List('Project', 
     {
-        hidden: false,
         inherits: Listing,
+        track: true,
+        hidden: false
     });
 
 /**
  * Field Validators
  * @main Project
  */
-var bylineValidator = {
-    validator: function(val) {
-        return validator.isLength(val, 1, 250);
-    },
-    msg: 'Byline cannot exceed 250 characters'
-};
 var urlValidator = {
     validator: function(val) {
         return !val || validator.isURL(val, {
@@ -45,7 +40,7 @@ var urlValidator = {
             allow_underscores: true
         });
     },
-    msg: 'Invalid external link URL'
+    msg: 'Invalid external link URL (e.g. needs http:// and .org/)'
 };
 var emailValidator = {
     validator: function(val) {
@@ -67,20 +62,13 @@ Project.add({
         initial: true,
         label: 'Subdirectory'
     },
-    enabled: { 
+    enabled: {
         type: Types.Boolean,
         label: 'Enabled'
     },
-    featured: { 
+    featured: {
         type: Types.Boolean,
         label: 'Featured'
-    },
-    byline: {
-        type: String,
-        label: 'Byline Description',
-        validate: bylineValidator,
-        initial: true,
-        required: true
     },
     overview: {
         type: Types.Markdown,
@@ -209,6 +197,14 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
 	);
 
  };
+
+// TODO: For future slack integration
+/*Project.schema.pre('save', function(next) {
+    console.log(this.updatedBy)
+    keystone.list('User').model.findById(this.updatedBy, function(err, user) {
+    });
+    next();
+});*/
 
 /**
  * Model Registration

@@ -420,9 +420,9 @@ module.exports = function() {
 	}
 
 	//  ### get filetype helper
-	// Used to obtain filetype as extension with "-o" CSS affix if available from local file ref
+	// Used to obtain filetype as extension with "-o" CSS affix if available from local MIME type file ref
 	//
-	//  @file: Local file reference
+	//  @file: Local file reference's MIME type
 	//
 	//  *Usage example:*
 	//  `{{fileType file}}
@@ -434,7 +434,7 @@ module.exports = function() {
 		if(type.length == 3)
 			return '-' + type + '-o';
 		else 
-			return '';
+			return 'file';
 
 	}
 

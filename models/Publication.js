@@ -34,8 +34,8 @@ Publication.add({
 	author: { type: String, label: 'Author Name(s)', required: true, initial: true },
 
 	category: { type: Types.Select, options: 'Book, Guide, Journal Article', required: true, initial: true },
-	subCategory: { type: Types.Relationship, ref: 'Subdirectory', initial: true },
-
+	// subCategory: { type: Types.Relationship, ref: 'Subdirectory', initial: true },
+	
 	url: { type: String, label: 'URL',
 		dependsOn: { category: 'Journal Article' }, initial: true },
 
