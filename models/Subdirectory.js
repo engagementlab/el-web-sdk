@@ -27,39 +27,18 @@ var Subdirectory = new keystone.List('Subdirectory',
         nodelete: true
     });
 
-var urlValidator = {
-    validator: function(val) {
-        return !val || validator.isURL(val, {
-            protocols: ['http', 'https'],
-            require_tld: true,
-            require_protocol: false,
-            allow_underscores: true
-        });
-    },
-    msg: 'Invalid external link URL'
-};
-
 /**
  * Model Fields
  * @main Project
  */
 Subdirectory.add({
-	child_content: {
-		directory: {
-			type: Types.Relationship,
-			ref: 'Directory',
-			required: true,
-			initial: true
-		}
-	}
+    directory: {
+        type: Types.Relationship,
+        ref: 'Directory',
+        required: true,
+        initial: true
+    }
 });
-
-/**
- * Caching
- * =============
- */
-Subdirectory.schema.set('redisCache', true);
-Subdirectory.schema.set('expires', 60*60*24) // 24 hour caches
 
 /**
  * Model Registration

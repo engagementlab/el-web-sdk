@@ -13,8 +13,8 @@
 
 var keystone = require('keystone');
 // See: https://github.com/leepowellcouk/mongoose-validator and https://github.com/chriso/validator.js
-var Listing = require('./Listing');
 var validator = require('validator');
+var Listing = require('./Listing');
 var Types = keystone.Field.Types;
 
 /**
@@ -37,7 +37,7 @@ var urlValidator = {
         return validator.isURL(val, {
             protocols: ['http', 'https'],
             require_tld: true,
-            require_protocol: false,
+            require_protocol: true,
             allow_underscores: true
         });
     },
@@ -49,14 +49,12 @@ var urlValidator = {
  * @main Program
  */
 Program.add({
-	child_content: {
-        href: {
-            type: Types.Url,
-            label: 'External Link URL',
-            validate: urlValidator,
-            required: true,
-            initial: true
-        }
+    href: {
+        type: Types.Url,
+        label: 'External Link URL',
+        validate: urlValidator,
+        required: true,
+        initial: true
 	}
 });
 
