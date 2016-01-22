@@ -64,8 +64,8 @@ exports = module.exports = function(req, res) {
             
             var events = newsData.events[0];
             locals.recentEvents[1] = {
-                title: events.title,
-                content: events.content,
+                title: events.name.text,
+                content: events.description.text,
                 url: events.url,
                 type: "event"
             };
