@@ -808,7 +808,7 @@ html {
 body {
   font-size: 15px;
   line-height: 1.46667;
-  color: #cccccc;
+  color: #7d7d7d;
   background-color: #ffffff;
   font-weight: 300; }
 
@@ -7885,7 +7885,8 @@ html, body, .container {
 
 .va-container {
   height: 100%;
-  display: table; }
+  display: table;
+  width: 100%; }
 
 .va-align {
   display: table-cell;
@@ -7950,11 +7951,16 @@ html, body, .container {
 .overlay {
   position: absolute;
   z-index: 3;
-  top: 25%;
-  left: 10%;
-  width: 80%; }
+  left: 20%;
+  width: 60%;
+  top: 0;
+  height: 100%; }
   .overlay h1, .overlay h3 {
     color: #ffffff; }
+
+#logo-img {
+  max-height: 320px;
+  display: inline; }
 
 .row .main h1 {
   margin: 0 auto; }
@@ -7965,7 +7971,10 @@ html, body, .container {
   .recent-events .recent-event-box {
     height: 280px; }
     .recent-events .recent-event-box .posted-date {
-      text-align: left; }
+      text-align: left;
+      position: absolute;
+      top: 18px;
+      left: 30px; }
       .recent-events .recent-event-box .posted-date p {
         line-height: 1;
         margin-bottom: 0; }
@@ -7974,8 +7983,6 @@ html, body, .container {
         .recent-events .recent-event-box .posted-date p.day {
           font-size: 30px;
           color: #78cbd1; }
-    .recent-events .recent-event-box #date-box {
-      float: left; }
 
 .featured-projects .owl-buttons {
   margin-top: -48px; }
@@ -7995,29 +8002,33 @@ html, body, .container {
 .call-to-action h4 {
   line-height: 1.8; }
 
+@media (max-width: 1200px) {
+  .overlay {
+    left: 20%;
+    width: 60%; }
+  #logo-img {
+    max-height: 320px; } }
+
+@media (max-width: 992px) {
+  .overlay h1 {
+    font-size: 33px; }
+  .overlay h3 {
+    font-size: 24px; }
+  #logo-img {
+    max-height: 240px; } }
+
 @media (max-width: 767px) {
   .overlay {
-    top: 25%; }
+    left: 10%;
+    width: 80%; }
     .overlay h1 {
       font-size: 19px; }
     .overlay h3 {
       font-size: 13px; }
   .owl-buttons {
-    display: none; } }
-
-@media (min-width: 992px) {
-  .overlay {
-    top: 35%; }
-    .overlay h1 {
-      font-size: 33px; }
-    .overlay h3 {
-      font-size: 24px; } }
-
-@media (min-width: 1200px) {
-  .overlay {
-    top: 35%;
-    left: 20%;
-    width: 60%; } }
+    display: none; }
+  #logo-img {
+    max-height: 120px; } }
 
 /* ABOUT */
 .partner-container {
@@ -8199,7 +8210,7 @@ section.publications .subSection {
     bottom: 0; } }
 
 /* DIRECTORY */
-.overlay-container img {
+#listing-img {
   display: inline;
   max-height: 320px; }
 

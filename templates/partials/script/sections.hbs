@@ -85,19 +85,27 @@
 			});
 		};*/
 
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-64617433-1', 'auto');
+		ga('send', 'pageview');
+
 		{{#ifeq section 'home'}}
 			
 			// Selects a random start time for the video
-			var vid = "https://player.vimeo.com/video/152485138?background=1&autoplay=1&loop=1#t=";
+			var vid = "https://player.vimeo.com/video/152725215?background=1&autoplay=1&loop=1#t=";
 			var times = [
-				"0m27s",
+				"0m0s",
+				"0m22s",
 				"0m47s",
-				"0m58s",
-				"1m20s",
-				"1m34s"
+				"1m14s",
+				"1m51s"
 			];
 			var time = times[Math.floor(Math.random()*times.length)];
-			$('iframe').prop('src', 'https://player.vimeo.com/video/152485138?background=1&autoplay=1&loop=1#t=' + time);
+			$('iframe').prop('src', vid + time);
 
 			// Initialize featured projects carousel
 			$(".owl-carousel.content-slider-with-controls").owlCarousel({
