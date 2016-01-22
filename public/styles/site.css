@@ -8156,7 +8156,8 @@ section.publications .subSection {
   background-color: #f4f4f4; }
 
 .affix {
-  top: 128px; }
+  top: 128px;
+  padding-right: 30px; }
 
 .affix-bottom {
   position: absolute; }
