@@ -12,6 +12,8 @@
  * ==========
  */
 var keystone = require('keystone');
+var Resource = keystone.list('Resource');
+var _ = require('underscore');
 
 // News data propagated by ./jobs/news
 var store = require('json-fs-store')('./tmp');
@@ -33,12 +35,19 @@ exports = module.exports = function(req, res) {
             if(err) throw err;
 
             locals.news = newsData.news;
+            _.each(locals.news, function(post){
+                post.content = post.content.replace(/(^(By)\s+(.*)?[0-9]\s)/, '');
+            });
+
+            locals.featured = newsData.news.shift();
             locals.events = newsData.events;
 
-            next(err);
-
+            Resource.model.find({ type: 'article' }).exec(function(err, articleResult){
+                
+                locals.articles = articleResult;
+                next(err);
+            });
         });
-
     });
 
     // Render the view

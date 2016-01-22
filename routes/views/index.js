@@ -70,7 +70,7 @@ exports = module.exports = function(req, res) {
                 type: "event"
             };
 
-            Resource.model.findOne({}, {}, {
+            Resource.model.findOne({ type: 'article' }, {}, {
                 sort: { 'createdAt': -1 }
             }).exec(function(err, result) {
                 locals.recentEvents[2] = {

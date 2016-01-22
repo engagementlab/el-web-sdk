@@ -18,19 +18,18 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-5 pv-40 ph-30 featured-blog">
-				<h2>Featured Blog Post</h2>
+				<h2>{{featured.title}}</h2>
 				<div class="post-info">
 					<span class="post-date">
 						<i class="icon-calendar"></i>
-						<span class="day">12</span>
-						<span class="month">May 2015</span>
+						<span class="day">{{date published format='DD MMM YYYY'}}</span>
 					</span>
-					<span class="submitted"><i class="icon-user-1"></i> by <a href="#">John Doe</a></span>
-					<span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span>
+					<span class="submitted"><i class="icon-user-1"></i> by <a href="#">{{featured.article}}</a></span>
+					{{!-- <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span> --}}
 				</div>
-				<p class="summary sfb hidden-xs">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, maiores, aliquid. Repellat eum numquam culpa offici, tenetur fugiat dolorum sapiente...
+				<p class="summary sfb hidden-xs">{{featured.content}}
 				</p>
-					<a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+					<a href="{{featured.url}}">Read More <i class="fa fa-chevron-right"></i></a>
 				<p class="tp-caption sfb fadeout small_white hidden-xs">
 				</p>
 			</div>
@@ -63,14 +62,12 @@
 								<span class="post-date">
 									<i class="icon-calendar"></i>
 									<span class="month">{{date published format='MM-DD-YYYY'}}</span>
-									{{!-- <span class="day">{{date published format=''}}</span> --}}
 								</span>
 								<span class="submitted"><i class="icon-user-1"></i> by {{author}}</span>
-								{{!-- <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span> --}}
 							</div>
 						</header>
 						<div class="blogpost-content">
-							<p>"...{{{content}}}..."</p>
+							<p>{{{content}}}...</p>
 						</div>
 					</div>
 				</div>
@@ -89,25 +86,24 @@
 					<h3 class="page-title">Events</h3>
 					<div class="separator-2 mb-20"></div>
 					{{#if events}}
-					{{#each events}}
-					<!-- event start -->
-					<div class="media margin-clear">
-						<div class="media-left">
-							<div class="overlay-container">
-								<a href="{{vanity_url}}"><img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
-								</a>
+						{{#each events}}
+							<!-- event start -->
+							<div class="media margin-clear">
+								<div class="media-left">
+									<div class="overlay-container">
+										<a href="{{vanity_url}}"><img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
+										</a>
+									</div>
+								</div>
+								<div class="media-body">
+									<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
+									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
+								</div>
+								<hr>
 							</div>
-						</div>
-						<div class="media-body">
-							<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
-							<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
-						</div>
-						<hr>
-					</div>
-					<!-- event end -->
-					{{/each}}
+							<!-- event end -->
+						{{/each}}
 					{{/if}}
-					
 					<!-- events end -->
 				</div>
 				<!-- features -->
@@ -115,19 +111,17 @@
 				<div class="separator-2 mb-20"></div>
 				
 				<!-- featured start -->
-				<div class="media margin-clear">
-					<div class="media-left">
-						<div class="overlay-container">
-							<a href="blog-post.html"><img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb"></a>
+				{{#if articles}}
+					{{#each articles}}
+						<div class="media margin-clear">
+							<div class="media-body">
+								<h6 class="media-heading"><a href="{{url}}">{{name}}</a></h6>
+								<p class="small margin-clear">{{summary}}</p>
+							</div>
 						</div>
-					</div>
-					<div class="media-body">
-						<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-						<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2015</p>
-					</div>
-					<hr>
-				</div>
-				
+						<br>
+					{{/each}}
+				{{/if}}
 				<!-- featured end -->
 			</div>
 		</div>
