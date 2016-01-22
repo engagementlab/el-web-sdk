@@ -91,12 +91,18 @@ html, body, .container {
 .overlay {
   position: absolute;
   z-index: 3;
-  top: 25%;
-  left: 10%;
-  width: 80%;
+  left: 20%;
+  width: 60%;
+  top: 0;
+  height: 100%;
   h1, h3 {
     color: $white;
   }
+}
+
+#logo-img {
+  max-height: 320px;
+  display: inline;
 }
 
 .row .main h1 {
@@ -157,31 +163,33 @@ html, body, .container {
   line-height: 1.8;
 }
 
+@media (max-width: 1200px) {
+  .overlay {
+    left: 20%;
+    width: 60%;
+  }
+  #logo-img { max-height: 320px; }
+}
+
+@media (max-width: 992px) {
+  .overlay {
+    h1 { font-size: $font-size-h1; }
+    h3 { font-size: $font-size-h3; }
+  }
+  #logo-img { max-height: 240px; }
+}
+
 @media (max-width: 767px) {
   .overlay {
-    top: 25%;
+    left: 10%;
+    width: 80%;
     h1 { font-size: $font-size-h4; }
     h3 { font-size: $font-size-h6; }
   }
   .owl-buttons {
     display: none;
   }
-}
-
-@media (min-width: 992px) {
-  .overlay {
-    top: 35%;
-    h1 { font-size: $font-size-h1; }
-    h3 { font-size: $font-size-h3; }
-  }
-}
-
-@media (min-width: 1200px) {
-  .overlay {
-    top: 35%;
-    left: 20%;
-    width: 60%;
-  }
+  #logo-img { max-height: 120px; }
 }
 
 /* ABOUT */
@@ -410,7 +418,7 @@ section.publications .subSection {
 }
 
 /* DIRECTORY */
-.overlay-container img {
+#listing-img {
   display: inline;
   max-height: 320px;
 }
