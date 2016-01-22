@@ -7959,6 +7959,24 @@ html, body, .container {
 .row .main h1 {
   margin: 0 auto; }
 
+.recent-events {
+  padding: 50px 0;
+  background-color: #f4f4f4; }
+  .recent-events .recent-event-box {
+    height: 280px; }
+    .recent-events .recent-event-box .posted-date {
+      text-align: left; }
+      .recent-events .recent-event-box .posted-date p {
+        line-height: 1;
+        margin-bottom: 0; }
+        .recent-events .recent-event-box .posted-date p.month {
+          font-size: 18px; }
+        .recent-events .recent-event-box .posted-date p.day {
+          font-size: 30px;
+          color: #78cbd1; }
+    .recent-events .recent-event-box #date-box {
+      float: left; }
+
 .featured-projects .owl-buttons {
   margin-top: -48px; }
   .featured-projects .owl-buttons .owl-next, .featured-projects .owl-buttons .owl-prev {
