@@ -14,7 +14,11 @@
  */
 var keystone = require('keystone');
 var Project = keystone.list('Project');
+var Resource = keystone.list('Resource');
 var _ = require('underscore');
+
+// News data propagated by ./jobs/news
+var store = require('json-fs-store')('./tmp');
 
 exports = module.exports = function(req, res) {
 
@@ -28,6 +32,8 @@ exports = module.exports = function(req, res) {
     // Make any queries
     view.on('init', function(next) {
 
+        locals.recentEvents = [];
+
         // This query gets all featured projects
         var projectQuery = Project.model.find({
             'child_content.enabled': true,
@@ -36,13 +42,44 @@ exports = module.exports = function(req, res) {
 
         // Setup the locals to be used inside view
         projectQuery.exec(function(err, result) {
-
-           /* _.each(result, function(r) {
-                if (r.headerImages.length > 0)
-                    r.headerImage = r.headerImages[0];
-            });*/
-
+            if (err) throw err;
             locals.featured_projects = result;
+        });
+
+        store.load('newsContent', function(err, newsData) {
+
+            // err if JSON parsing failed
+            if(err) throw err;
+
+            var news = newsData.news[0];
+            var content = news.content.replace(/(^(By)\s+(.*)?[0-9]\s)/, ''); // removes the byline
+
+            locals.recentEvents[0] = {
+                date: news.published,
+                title: news.title,
+                content: content,
+                url: news.url,
+                type: "blog"
+            };
+            
+            var events = newsData.events[0];
+            locals.recentEvents[1] = {
+                title: events.title,
+                content: events.content,
+                url: events.url,
+                type: "event"
+            };
+
+            Resource.model.findOne({}, {}, {
+                sort: { 'createdAt': -1 }
+            }).exec(function(err, result) {
+                locals.recentEvents[2] = {
+                    title: result.name,
+                    content: result.summary,
+                    url: result.url,
+                    type: "article"
+                };
+            });
 
             next(err);
         });

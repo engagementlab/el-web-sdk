@@ -28,25 +28,27 @@ var Resource = new keystone.List('Resource', {
  */
 Resource.add({
 	name: { type: String, label: 'Resource Name', required: true, initial: true, index: true },
-  type: { type: Types.Select, label: 'Type', options: 'video, article, file', default: 'video', required: true, initial: true },
-	
+	type: { type: Types.Select, label: 'Type', options: 'video, article, file', default: 'video', required: true, initial: true },
+
 	url: { type: String, label: 'URL',
-        dependsOn: { type: ['video', 'article'] }, initial: true },
+		dependsOn: { type: ['video', 'article'] }, initial: true },
+
+	summary: { type: String, label: 'Summary',
+		dependsOn: { type: 'article' }, required: true, initial: true },
 
 	file: {
-        type: Types.LocalFile,
-        dependsOn: { type: 'file' },
-        label: 'File',
-        dest: 'public/files',
-        prefix: 'files/',
-        filename: function(item, file) {
-            // Sanitize filename
-            return item.id + '-' + file.originalname.replace(/\s+/g, '_');
-        }
-  },
+		type: Types.LocalFile,
+		dependsOn: { type: 'file' },
+		label: 'File',
+		dest: 'public/files',
+		prefix: 'files/',
+		filename: function(item, file) {
+			// Sanitize filename
+			return item.id + '-' + file.originalname.replace(/\s+/g, '_');
+		}
+	},
 
 	data: { type: Types.Embedly, from: 'url', hidden: true },
-
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
 

@@ -7885,7 +7885,8 @@ html, body, .container {
 
 .va-container {
   height: 100%;
-  display: table; }
+  display: table;
+  width: 100%; }
 
 .va-align {
   display: table-cell;
@@ -7965,7 +7966,10 @@ html, body, .container {
   .recent-events .recent-event-box {
     height: 280px; }
     .recent-events .recent-event-box .posted-date {
-      text-align: left; }
+      text-align: left;
+      position: absolute;
+      top: 18px;
+      left: 30px; }
       .recent-events .recent-event-box .posted-date p {
         line-height: 1;
         margin-bottom: 0; }
@@ -7974,8 +7978,6 @@ html, body, .container {
         .recent-events .recent-event-box .posted-date p.day {
           font-size: 30px;
           color: #78cbd1; }
-    .recent-events .recent-event-box #date-box {
-      float: left; }
 
 .featured-projects .owl-buttons {
   margin-top: -48px; }

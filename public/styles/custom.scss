@@ -13,6 +13,7 @@ html, body, .container {
 .va-container {
   height: 100%;
   display: table;
+  width: 100%;
 }
 
 .va-align {
@@ -111,6 +112,9 @@ html, body, .container {
 
     .posted-date {
       text-align: left;
+      position: absolute;
+      top: 18px;
+      left: 30px;
       p {
         line-height: 1;
         margin-bottom: 0;
@@ -120,9 +124,6 @@ html, body, .container {
           color: $base-color;
         }
       }
-    }
-    #date-box {
-      float: left;
     }
   }
 }
