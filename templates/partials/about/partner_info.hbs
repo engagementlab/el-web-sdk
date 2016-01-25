@@ -14,11 +14,12 @@
 	<div class="row">
 		<div class="col-sm-4 col-md-4">
 			<div class="overlay-container">
-				{{img partner.image}}
+				{{!-- {{img partner.image}} --}}
+				<img src="{{{cloudinaryUrl partner.image width=200 height=200 crop='scale' quality=100}}}">
 			</div>
 		</div>
 		<div class="col-sm-8 col-md-8">
-			<div class="body">
+			<div class="body text-center">
 				<h3 class="title">{{partner.name}}</h3>
 				<p>{{partner.description}}</p>
 			</div>
