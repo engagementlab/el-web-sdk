@@ -56,7 +56,7 @@ exports = module.exports = function(req, res) {
                                   'Current' : result._.endDate.format('MMMM Do YYYY'));
 
             // Determine project tabs to be active by default (images are first if defined)
-            if(result.projectImages.length > 0) {
+            if(result.projectImages.length === 0) {
 
                 locals.videosTabFirst = ( result.videos.length > 0 ); 
                 locals.filesTabFirst = ( !locals.videosTabFirst && result.files.length > 0 ); 

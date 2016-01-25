@@ -34,8 +34,9 @@ Resource.add({
 	url: { type: String, label: 'URL',
 		dependsOn: { type: ['video', 'article'] }, initial: true },
 
+	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	summary: { type: String, label: 'Summary',
-		dependsOn: { type: 'article' }, required: true, initial: true },
+		dependsOn: { type: 'article' } },
 
 	file: {
 		type: Types.LocalFile,
@@ -51,6 +52,22 @@ Resource.add({
 
 	data: { type: Types.Embedly, from: 'url', hidden: true },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
+});
+
+/**
+ * Hooks
+ * =============
+ */
+Resource.schema.pre('save', function(next) {
+  
+  if (this.type === 'article') {
+    if (this.summary.length === 0) {
+      var err = new Error('You must define a summary for articles.');
+      next(err);
+    }
+  }
+  
+  next();
 });
 
 

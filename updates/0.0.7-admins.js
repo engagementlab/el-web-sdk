@@ -7,8 +7,8 @@
  * module.exports = function(done) { ... }
  */
 
-/*exports.create = {
+exports.create = {
 	User: [
-	  { 'name.first': 'ZZZZZZ', 'name.last': 'XXXXXX', email: 'somebody@elab.emerson.edu', password: '', isAdmin: true }
+	  // { 'name.first': 'ZZZZZZ', 'name.last': 'XXXXXX', email: 'somebody@elab.emerson.edu', password: '', isAdmin: true }
 	]
-};*/
+};
