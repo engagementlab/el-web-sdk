@@ -1,14 +1,3 @@
-// Appdynamics config
-require("appdynamics").profile({
-    controllerHostName: 'engagementlab.saas.appdynamics.com',
-    controllerPort: 443, 
-    accountName: 'EngagementLab',
-    accountAccessKey: 'rxfibl2fbqga',
-    applicationName: 'Website',
-    tierName: 'Production',
-    nodeName: 'process'
-});
-
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 // Ignore for staging env (heroku)
