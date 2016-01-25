@@ -48,11 +48,11 @@ module.exports = function(grunt) {
 		      'public/release/production.js': 
 		      [
             'public/js/jquery/*.min.js', // Core
-            'public/bootstrap/*.min.js',
+            'public/js/bootstrap/*.min.js',
             //'public/js/template.js',
             //'public/js/custom.js',
             'public/plugins/*.js',  // Plugins
-            'public/plugins/**/*.js',
+            'public/plugins/**/*.js'
 			    ]
 		    }
 		  }

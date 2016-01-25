@@ -39,8 +39,9 @@ Publication.add({
 	url: { type: String, label: 'URL',
 		dependsOn: { category: 'Journal Article' }, initial: true },
 
+	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	blurb: { type: Types.Textarea, label: 'Blurb Text', 
-		dependsOn: { category: 'Journal' }, required: true, initial: true },
+		dependsOn: { category: 'Journal Article' } },
 
 	description: { type: Types.Markdown, label: 'Description Text',
 		dependsOn: { category: ['Book', 'Guide'] }, required: false, initial: true },
@@ -53,6 +54,22 @@ Publication.add({
 	date: { type: Date, label: 'Publication Date', initial: true, required: true },
 
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
+});
+
+/**
+ * Hooks
+ * =============
+ */
+Publication.schema.pre('save', function(next) {
+  
+  if (this.category === 'Journal Article') {
+    if (this.blurb !== undefined && this.blurb.length === 0) {
+      var err = new Error('You must define a blurb for journal articles.');
+      next(err);
+    }
+  }
+  
+  next();
 });
 
 /**

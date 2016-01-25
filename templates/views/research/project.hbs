@@ -59,7 +59,7 @@
 					{{/if}}
 
 					{{#if project.files}}
-						<li class="{{#if filesTabFirst}}active{{/if}}"><a href="#pill-downloads" role="tab" data-toggle="tab" title="downloads"><i class="fa fa-floppy-o pr-5"></i> Downloads</a></li>
+						<li class="{{#if filesTabFirst}}active{{/if}}"><a href="#pill-downloads" role="tab" data-toggle="tab" title="downloads"><i class="fa fa-paperclip pr-5"></i> Resources</a></li>
 					{{/if}}
 					{{#each project.tabHeadings}}
 						<li class="{{#if ../customTabsFirst}}active{{/if}}"><a href="#pill-{{@index}}" role="tab" data-toggle="tab" title="custom-{{@index}}"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
@@ -95,6 +95,7 @@
 							<div class="embed-responsive embed-responsive-16by9">
 								{{{ data.html }}}
 							</div>
+							<br />
 
 						{{/each}}
 						</div>
@@ -124,19 +125,18 @@
 
 			<div class="col-md-4">
 				<div class="footer-content">
-					<h3 class="title">Project Information and Partners</h3>
+					<h3 class="title">Project Information {{!-- and Partners --}}</h3>
 					<div class="separator-2"></div>
-					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
-					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-facebook"></i></a>
-					<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-twitter"></i></a>
+
+					{{#if project.externalLinkUrl}}
+						<a href="{{project.externalLinkUrl}}" title="Project Website" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
+					{{/if}}
+					{{#if project.githubUrl}}
+						<a href="{{project.githubUrl}}" title="Project Github" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-github-alt"></i></a>
+					{{/if}}
 					<ul class="list-icons">
-						{{#if project.externalLinkUrl}}
-							<li><b>URL:</b> <a href="www.elab.emerson.edu/games/emergingcitizens"> www.elab.emerson.edu/games/emergingcitizens</a></li>
-						{{/if}}
 						<li><b>Project Dates:</b> {{projectDates}}</li>
-						{{#if project.contactEmail}}
-							<li><b>Contact: </b><a href="mailto:{{project.contactEmail}}">{{project.contactName}}</a></li>
-						{{/if}}
+						<li><b>Contact:</b> <i class="text-default fa fa-envelope-o pl-10 pr-5"></i>info at elab.emerson.edu</li>
 					</ul>
 				</div>
 			</div> <!-- .col-md-4 -->
