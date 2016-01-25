@@ -28,7 +28,6 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-        console.log('init')
         var querySub = Subdirectory.model.findOne({key: req.params.subdirectory});
 
         querySub.exec(function(err, resultSub) {

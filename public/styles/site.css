@@ -8131,11 +8131,12 @@ section.publications .subSection {
 .book-box {
   height: 480px;
   text-align: center;
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
   .book-box img {
-    height: 320px; }
+    height: 320px;
+    display: inline; }
   .book-box h4:hover {
     color: #78cbd1; }
 
