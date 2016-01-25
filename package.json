@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "async": "^1.4.2",
+    "appdynamics": "4.1.7",
     "cheerio": "^0.19.0",
     "cloudinary": "^1.2.5",
     "dotenv": "^1.1.0",
