@@ -42,7 +42,7 @@ safeString = function(str) {
  */
 Listing.add({
 	name: { type: String, label: 'Name', required: true, initial: true, index: true },
-	description: { type: String, label: 'Description', required: true, initial: true },
+	description: { type: String, label: 'Byline', required: true, initial: true, note: 'This displays under listing\'s image. Do not include \'name\' in this field. <br />Text in the above <i>Name</i> prepends this.'},
   image: {
       type: Types.CloudinaryImage,
       label: 'Directory Image',

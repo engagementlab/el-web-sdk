@@ -16,6 +16,7 @@
 var keystone = require('keystone');
 var Project = keystone.list('Project');
 var Resource = keystone.list('Resource');
+var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
 
@@ -33,12 +34,15 @@ exports = module.exports = function(req, res) {
     // Load the current project
     view.on('init', function(next) {
 
-        /* This query gets a project by the key in the
-           URL and populates resources from its model */
+        /* 
+            This query gets a project by the key in the
+            URL and populates resources from its model 
+        */
         var projectQuery = Project.model.findOne({
             'enabled': true,
             key: locals.filters._key
-        }).populate('videos articles files');
+        })
+        .populate('videos articles files');
 
         // Setup the locals to be used inside view
         projectQuery.exec(function(err, result) {
@@ -54,6 +58,9 @@ exports = module.exports = function(req, res) {
             locals.projectDates = result._.startDate.format('MMMM Do YYYY - ') +
                                   ((result.endDate === undefined) ?
                                   'Current' : result._.endDate.format('MMMM Do YYYY'));
+
+            // Format images into {caption, img}
+            locals.projectImageObjects = _.object(result.projectImageCaptions, result.projectImages);
 
             // Determine project tabs to be active by default (images are first if defined)
             if(result.projectImages.length === 0) {
