@@ -67,17 +67,18 @@
 				</ul>
 				<div class="tab-content space-bottom">
 
-					{{#if project.projectImages}}
+					{{#if projectImageObjects}}
 						<div class="tab-pane active" id="pill-images">
 							<div class="space-bottom"></div>
 							<div class="row grid-space-20">
-								{{# each project.projectImages}}
+								{{!-- @key is caption, this is image object --}}
+								{{# each projectImageObjects}}
 
 									<div class="col-xs-3">
 										<div class="overlay-container">
 
-											<img src="{{{cloudinaryUrl width=173 quality=60}}}" alt="">
-											<a href="{{{cloudinaryUrl }}}" class="overlay-link small popup-img" title="Second image title">
+											<img src="{{{cloudinaryUrl width=173 quality=60}}}" alt="{{@key}}">
+											<a href="{{{cloudinaryUrl}}}" class="overlay-link small popup-img" title="{{@key}}">
 												<i class="fa fa-plus"></i>
 											</a>
 										</div>

@@ -69,17 +69,9 @@ Resource.schema.pre('save', function(next) {
   
   next();
 });
-
-
-/**
- * Relationships
- * =============
- */
-Resource.relationship({ ref: 'Project', refPath: 'projects', path: 'resources' });
-
 Resource.schema.pre('remove', function(next) {
 
-    // Remove resource from all that referenced it 
+  // Remove resource from all that referenced it 
 	keystone.list('Project').model.removeResourceRef(this._id, function(err, removedCount) {
 
 		if(err)
@@ -93,6 +85,13 @@ Resource.schema.pre('remove', function(next) {
 	});
 
 });
+
+
+/**
+ * Relationships
+ * =============
+ */
+Resource.relationship({ ref: 'Project', refPath: 'projects', path: 'resources' });
 
 /**
  * Model Registration
