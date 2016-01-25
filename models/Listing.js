@@ -34,7 +34,7 @@ var Types = keystone.Field.Types;
  */
 safeString = function(str) {
     return str.toLowerCase().replace(/\s+/g, '-').replace(',', '');
-}
+};
 
 /**
  * Model Fields
@@ -59,7 +59,7 @@ Listing.add({
  */
 Listing.schema.methods.safeName = function() {
     return safeString(this.name);
-}
+};
 
 /**
  * Model Registration

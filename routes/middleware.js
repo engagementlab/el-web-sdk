@@ -132,14 +132,14 @@ exports.initErrorHandlers = function(req, res, next) {
             errorTitle: title,
             errorMsg: message
         });
-    }
+    };
     
     res.notfound = function(title, message) {
         res.status(404).render('errors/404', {
             errorTitle: title,
             errorMsg: message
         });
-    }
+    };
     
     next();
     
