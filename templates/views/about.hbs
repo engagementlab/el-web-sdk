@@ -13,63 +13,43 @@
 --}}
 
 <!-- ABOUT START -->
-<!-- banner start -->
-<!-- ================ -->
-<div class="banner border-clear light-translucent-bg" style="background-image:url('images/page-about-banner-2.jpg');">
+<div class="banner border-clear light-gray-bg">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 pv-20">
-				<h2 class="title"><strong>About</strong> The Engagement Lab</h2>
-				<p>{{about.blurb}}</p>
+			<div class="col-md-12 pv-40">
+				{{> page/name name="About Us"}}
+				{{> about/first_paragraph text=about.history1}}
+				{{> about/history_image_set images=about.historyImages1}}
+				{{> about/paragraph text=about.history2}}
+				{{> about/history_image_set images=about.historyImages2}}
+				{{> about/paragraph text=about.history3}}
 			</div>
 		</div>
 	</div>
 </div>
-<!-- banner end -->
-<!-- main-container start -->
-<!-- ================ -->
-<section class="main-container">
+{{!-- <section class="main-container"> --}}
+
+<section class="about-section">
+	<!-- Process & Approach -->
 	<div class="container">
 		<div class="row">
-			<!-- main start -->
-			<!-- ================ -->
-			<div class="main col-md-12">
-				<!-- page-title start -->
-				<!-- ================ -->
-				<h1 class="page-title">Our Mission</h1>
-				<div class="separator-2 mb-20"></div>
-				<!-- page-title end -->
-				<div class="row">
-					<div class="col-md-6">
-						{{about.mission}}
-					</div>
-					<!-- sidebar start -->
-					<!-- ================ -->
-					<aside class="sidebar col-md-6">
-						<div class="block clearfix">
-							<div class="image">
-								<img src="http://publicdomainarchive.com/wp-content/uploads/2015/03/public-domain-images-free-stock-photos-architecture-black-and-white-building-1000x667.jpg" alt="">
-							</div>
-						</div>
-					</aside>
-					<!-- sidebar end -->
-				</div>
+			<div class="col-md-12">
+				{{> page/name name="Our Process + Approach"}}
+				{{> about/first_paragraph text=about.process}}
 			</div>
-			<!-- main end -->
 		</div>
 	</div>
-	{{!-- PARTNERS start --}}
-	<section class="section clearfix partners">
-		<div class="container-fluid border-clear">
+</section>
+
+	<!-- Partners -->
+	<section class="section clearfix partners about-section">
+		<div class="container border-clear">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-12">
-								<h1 class="page-title pv-20">Our Partners</h1>
-							</div>
-						</div>
-						<div class="row">
+							{{> page/name name="Our Partners"}}
+							<br>
 							<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 								<div class="owl-carousel content-slider-with-controls">
 									{{#each partners}}
@@ -87,11 +67,33 @@
 								{{/each}}
 							</div>
 						</div>
-					</div>
-				</div>
+					</div> <!-- .container -->
+				</div> <!-- .col-md-12 -->
+			</div> <!-- .row -->
+		</div> <!-- .container-fluid -->
+	</section>
+
+<section class="about-section">
+	<!-- Collaborate -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				{{> page/name name="Collaborate + Work With Us"}}
+				{{> about/first_paragraph text=about.collaborate}}
 			</div>
 		</div>
-	</section>
-	{{!-- PARTNERS end --}}
+		<div class="row">
+			<div class="col-sm-8 col-md-6">
+			<div class="collaborators">
+				{{> about/collaborator title="Students and Researchers" text="With full time faculty fellows and a new graduate program, there are plenty of educational opportunities" icon="arrows"}}
+				{{> about/collaborator title="Clients and Consulting" text="With full time faculty fellows and a new graduate program, there are plenty of educational opportunities" icon="bullhorn"}}
+				{{> about/collaborator title="Community Based Partnerships (workshops)" text="With full time faculty fellows and a new graduate program, there are plenty of educational opportunities" icon="briefcase"}}
+				</div>
+			</div>
+			<div class="col-sm-4 col-md-6">
+				<img src="/images/layout/logo_color.png" alt="Engagement Lab Logo">
+			</div>
+		</div>
+	</div>
 </section>
-<!-- main-container end -->
+{{!-- </section> --}}

@@ -470,9 +470,5 @@ module.exports = function() {
 
 	}
 
-	_helpers.safeString = function(string) {
-		return string.replace("\n","").replace("'													","");
-	}
-
 	return _helpers;
 };

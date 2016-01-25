@@ -9,6 +9,9 @@ html, body, .container {
 .mb-50 { margin-bottom: 50px; }
 .mb-60 { margin-bottom: 60px; }
 .pv-60 { padding: 60px 0; }
+.pt-10 { padding-top: 10px; }
+.pt-20 { padding-top: 20px; }
+.pt-40 { padding-top: 40px; }
 
 .va-container {
   height: 100%;
@@ -216,10 +219,10 @@ html, body, .container {
     .owl-buttons {
       margin-top: -48px;
       .owl-next {
-        right: -60px;
+        right: -70px;
       }
       .owl-prev {
-        left: -60px;
+        left: -70px;
       }
       .owl-next, .owl-prev {
         background: none;
@@ -246,6 +249,44 @@ html, body, .container {
   }
 }
 
+.about-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.history-image {
+  border: 4px solid $white;
+  border-radius: 8px;
+}
+
+.collaborator {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.collaborator-text {
+  text-align: right;
+  float: left;
+  width: 90%;
+}
+
+.collaborator-icon {
+  text-align: center;
+  float: right;
+  width: 10%;
+  font-size: 20px;
+  padding-top: 6px;
+}
+
+@media (max-width:768px) {
+  .collaborator-text {
+    text-align: center;
+    width: 100%;
+  }
+  .collaborator-icon {
+    display: none;
+  }
+}
 
 /* PROJECT PAGE */
 #project_description {
