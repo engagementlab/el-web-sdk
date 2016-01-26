@@ -41,6 +41,7 @@ exports = module.exports = function(req, res) {
 
                 _.each(locals.articles, function(article) {
                     article.blurb = article.summary;
+                    article.title = article.name;
                 });
 
                 next(err);

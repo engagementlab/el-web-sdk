@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"engagement-lab.people"},{"v":1,"key":{"sortOrder":1},"name":"sortOrder_1","ns":"engagement-lab.people","background":true,"safe":null}]}
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"engagement-lab.people"},{"v":1,"key":{"sortOrder":1},"name":"sortOrder_1","background":true,"safe":null,"ns":"engagement-lab.people"}]}
