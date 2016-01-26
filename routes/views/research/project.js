@@ -17,6 +17,7 @@ var keystone = require('keystone');
 var Project = keystone.list('Project');
 var Resource = keystone.list('Resource');
 var _ = require('underscore');
+var cloudinary = require('cloudinary');
 
 exports = module.exports = function(req, res) {
 
@@ -50,6 +51,16 @@ exports = module.exports = function(req, res) {
             if (result === null) {
                 return res.notfound('Cannot find project', 'Sorry, but it looks like the research project you were looking for does not exist! Try <a href="http://elab.emerson.edu/research">going back</a> to research.');
             }
+
+            _.map(result.articles, function(article) {
+
+                // Set image (if no override, use embedly-provided image as fallback)
+                var hasOverride = article.imageOverride.url !== undefined && article.imageOverride.url.length > 0;
+                article.image = hasOverride ? cloudinary.url(article.imageOverride.public_id, {width: 350, height: 233}) : article.data.thumbnailUrl;
+
+                return article;
+
+            });
 
             // Project is the listing, projectData is the content
             locals.project = result;

@@ -54,6 +54,15 @@ Resource.add({
 		}
 	},
 
+	imageOverride: {
+      type: Types.CloudinaryImage,
+      dependsOn: { type : 'article' },
+      label: 'Image Override',
+      folder: 'site/research',
+      note: 'This should be used if the image provided automatically is not acceptable.',
+      autoCleanup: true
+  },
+
 	data: { type: Types.Embedly, from: 'url', hidden: true },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
@@ -67,15 +76,15 @@ Resource.schema.pre('save', function(next) {
   var err;
   
   if (this.type === 'article') {
-
-    if (this.summary !== undefined && this.summary.length === 0)
-			err = ('You must define a summary for articles.');
     
-    else if (this.date !== undefined && this.date.length === 0)
+    if (this.date !== undefined && this.date.length === 0)
     	err = 'You must provide the date that the article was published. Sorry bub.';
+
+		//  if (this.summary !== undefined && this.summary.length === 0)
+			// err = ('You must define a summary for articles.');
    
-    else if (this.author !== undefined && this.author.length === 0) 
-    	err = 'You must provide the name of the author who published the article.';
+    // else if (this.author !== undefined && this.author.length === 0) 
+	    // 	err = 'You must provide the name of the author who published the article.';
   
   }
 
@@ -113,5 +122,5 @@ Resource.relationship({ ref: 'Project', refPath: 'projects', path: 'resources' }
  * Model Registration
  */
 Resource.defaultSort = '-createdAt';
-Resource.defaultColumns = 'name';
+Resource.defaultColumns = 'name, type, createdAt';
 Resource.register();

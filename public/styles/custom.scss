@@ -217,6 +217,8 @@ html, body, .container {
 }
 
 .featured-projects {
+  color: #fff;
+
   .owl-buttons {
     margin-top: -48px;
     .owl-next, .owl-prev {
@@ -228,6 +230,12 @@ html, body, .container {
         font-size: 72px;
       }
     }
+  }
+  a, h1 {
+    color: #fff;
+  }
+  .banner.border-clear {
+    background-repeat: none;
   }
 }
 
