@@ -24,7 +24,7 @@ var About = new keystone.List('About',
 		label: 'About Page',
 		singular: 'About Page',
 		track: true,
-		nodelete: true,
+		// nodelete: true,
 		nocreate: true
 	});
 
@@ -33,18 +33,23 @@ var About = new keystone.List('About',
  * @main About
  */
 About.add({
-	name: { type: String, default: "About Page", hidden: true, required: true },
-	history1: { type: String, label: "History Paragraph 1", required: true, initial: true, index: true },
-	history2: { type: String, label: "History Paragraph 2", required: true, initial: true, index: true },
-	history3: { type: String, label: "History Paragraph 3", required: true, initial: true, index: true },
+	name: { type: String, default: "About Page", hidden: true, required: true, initial: true },
+	history1: { type: String, label: "History Paragraph 1", required: true },
+	history2: { type: String, label: "History Paragraph 2", required: true },
+	history3: { type: String, label: "History Paragraph 3", required: true },
 	historyImages: {
 	    type: Types.CloudinaryImages,
-	    label: 'History Images (Choose 6)',
+	    label: 'History Images',
 	    folder: 'site/about',
-	    autoCleanup: true
+	    autoCleanup: true,
+	    note: 'Please use 6 images.'
 	},
-	process: { type: String, label: "Process and Approach", required: true, initial: true, index: true },
-	collaborate: { type: String, label: "Collaborate With Us", required: true, initial: true, index: true },
+	process: { type: String, label: "Process and Approach", required: true },
+	
+	collaborate: { type: String, label: "Collaborate With Us", required: true },
+	studentsResearchers: { type: String, label: "Students and Researchers", required: true },
+	clientsConsulting: { type: String, label: "Clients and Consulting", required: true },
+	partnerships: { type: String, label: "Community Based Partnerships", required: true },
 	
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
@@ -53,5 +58,5 @@ About.add({
  * Model Registration
  */
 About.defaultSort = '-createdAt';
-About.defaultColumns = 'name';
+About.defaultColumns = 'name, updatedAt';
 About.register();
