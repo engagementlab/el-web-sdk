@@ -8261,9 +8261,11 @@ section.publications .subSection {
   font-weight: bold;
   text-transform: uppercase; }
 
-.project-box .body {
-  padding-left: 0;
-  padding-right: 0; }
+.project-box {
+  height: 450px; }
+  .project-box .body {
+    padding-left: 0;
+    padding-right: 0; }
 
 /* @media (min-width: 768px) {
     .project-box {
