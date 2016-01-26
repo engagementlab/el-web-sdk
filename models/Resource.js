@@ -64,22 +64,26 @@ Resource.add({
  */
 Resource.schema.pre('save', function(next) {
   
-  if (this.type === 'article') {
-    if (this.summary.length === 0) {
-		var err = new Error('You must define a summary for articles.');
-		next(err);
-    }
-    if (this.date.length === 0) {
-    	var err = new Error('You must provide the date that the article was published. Sorry bub.');
-    	next(err);
-    }
-    if (this.author.length === 0) {
-    	var err = new Error('You must provide the name of the author who published the article.');
-    	next(err);
-    }
-  }
+  var err;
   
-  next();
+  if (this.type === 'article') {
+
+    if (this.summary !== undefined && this.summary.length === 0)
+			err = ('You must define a summary for articles.');
+    
+    else if (this.date !== undefined && this.date.length === 0)
+    	err = 'You must provide the date that the article was published. Sorry bub.';
+   
+    else if (this.author !== undefined && this.author.length === 0) 
+    	err = 'You must provide the name of the author who published the article.';
+  
+  }
+
+  if(err !== undefined && err.length > 0)
+	  next(new Error(err));
+	else
+	  next();
+
 });
 Resource.schema.pre('remove', function(next) {
 
