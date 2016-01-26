@@ -14,13 +14,13 @@
 <div class="col-sm-6 col-md-4">
 	<div class="team-member image-box style-2 mb-20 text-center">
 			
-		<img id="{{person.name.first}}-{{person.name.last}}" src="{{{cloudinaryUrl person.image}}}" alt="{{person.name.first}} {{person.name.last}}" class="photo">
+		<img id="{{cleanString person.name.first}}-{{cleanString person.name.last}}" src="{{{cloudinaryUrl person.image}}}" alt="{{person.name.first}} {{person.name.last}}" class="photo">
 		
 		<div class="body">
 			<h3 class="margin-clear theme-primary">{{person.name.first}} {{person.name.last}}</h3>
 			<p>{{person.title}}</p>
 			<div class="separator mv-10"></div>
-			<div class="bio {{person.name.first}}-{{person.name.last}}">
+			<div class="bio {{cleanString person.name.first}}-{{cleanString person.name.last}}">
 				{{{person.bio.html}}}
 				<ul class="social-links circle light margin-clear pv-20">
 					{{#if person.fbURL}}

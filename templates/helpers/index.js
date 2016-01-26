@@ -33,112 +33,7 @@ module.exports = function() {
 			return options.inverse(this);
 		}
 	};
-	
-	/**
-	 * Port of Ghost helpers to support cross-theming
-	 * ==============================================
-	 * 
-	 * Also used in the default keystonejs-hbs theme
-	 */
-	
-	// ### Date Helper
-	// A port of the Ghost Date formatter similar to the keystonejs - jade interface
-	//
-	//
-	// *Usage example:*
-	// `{{date format='MM YYYY}}`
-	// `{{date publishedDate format='MM YYYY'`
-	//
-	// Returns a string formatted date
-	// By default if no date passed into helper than then a current-timestamp is used
-	//
-	// Options is the formatting and context check this.publishedDate
-	// If it exists then it is formated, otherwise current timestamp returned
-	
-	_helpers.date = function(context, options) {
-		if (!options && context.hasOwnProperty('hash')) {
-			options = context;
-			context = undefined;
-			
-			if (this.publishedDate) {
-				context = this.publishedDate;
-			}
-		}
-		
-		// ensure that context is undefined, not null, as that can cause errors
-		context = context === null ? undefined : context;
-		
-		var f = options.hash.format || 'MMM Do, YYYY',
-			timeago = options.hash.timeago,
-			date;
-		
-		// if context is undefined and given to moment then current timestamp is given
-		// nice if you just want the current year to define in a tmpl
-		if (timeago) {
-			date = moment(context).fromNow();
-		} else {
-			date = moment(context).format(f);
-		}
-		return date;
-	};
-	
-	// ### Category Helper
-	// Ghost uses Tags and Keystone uses Categories
-	// Supports same interface, just different name/semantics
-	//
-	// *Usage example:*
-	// `{{categoryList categories separator=' - ' prefix='Filed under '}}`
-	//
-	// Returns an html-string of the categories on the post.
-	// By default, categories are separated by commas.
-	// input. categories:['tech', 'js']
-	// output. 'Filed Under <a href="blog/tech">tech</a>, <a href="blog/js">js</a>'
-	
-	_helpers.categoryList = function(categories, options) {
-		var autolink = _.isString(options.hash.autolink) && options.hash.autolink === "false" ? false : true,
-			separator = _.isString(options.hash.separator) ? options.hash.separator : ', ',
-			prefix = _.isString(options.hash.prefix) ? options.hash.prefix : '',
-			suffix = _.isString(options.hash.suffix) ? options.hash.suffix : '',
-			output = '';
-		
-		function createTagList(tags) {
-			var tagNames = _.pluck(tags, 'name');
-			
-			if (autolink) {
-				return _.map(tags, function(tag) {
-					return linkTemplate({
-						url: ('/blog/' + tag.key),
-						text: _.escape(tag.name)
-					});
-				}).join(separator);
-			}
-			return _.escape(tagNames.join(separator));
-		}
-		
-		if (categories && categories.length) {
-			output = prefix + createTagList(categories) + suffix;
-		}
-		return new hbs.SafeString(output);
-	};
-	
-	/* To Implement [Ghost Helpers](http://docs.ghost.org/themes/#helpers)
-	 * The [source](https://github.com/TryGhost/Ghost/blob/master/core/server/helpers/index.js)
-	 *
-	 * * `Foreach` Extended Helper
-	 * * `Asset` Helper
-	 * * `Content` Helper
-	 * * `Excerpt` Helper
-	 * * `Has` Helper
-	 * * `Encode` Helper
-	 * * Pagination
-	 * * BodyClass
-	 * * PostClass
-	 * * meta_title
-	 * * meta_description
-	 * * ghost_[footer/header]
-	 *
-	 */
-	
+
 	/**
 	 * KeystoneJS specific helpers
 	 * ===========================
@@ -383,13 +278,7 @@ module.exports = function() {
 	}
 
 	// img helper
-	// Used for creating an href link with a URL
-	//
-	//  @text: The text of the link
-	//  @url: The URL of the link
-	//
-	//  *Usage example:*
-	//  `{{"See more..." story.url}}
+	// Used for creating an img tag with URL to local image, given a localfile object
 
 	_helpers.img = function(image) {
 	  
@@ -467,6 +356,20 @@ module.exports = function() {
 				return str;
 		else
 			return str.substring(0, length) + "...";
+
+	}
+
+	//  ### generic safe string cleaner
+	// Remove all potentially offensive characters from string
+	//
+	//  @str: The string
+	//
+	//  *Usage example:*
+	//  {{trim "Elvis Costello's mom_is///4very%% nice!!"}}}}
+
+	_helpers.cleanString = function (str) {
+
+		return str.replace(/[\\'\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "");
 
 	}
 

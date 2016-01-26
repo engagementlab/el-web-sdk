@@ -1,4 +1,14 @@
-<div class="banner border-clear dark-bg" style="background-image:url('{{{cloudinaryUrl project.headerImage width=1425 height=480 crop='crop' quality=80}}}');">
+{{!-- 
+/**
+	* Engagement Lab Website
+	* Developed by Engagement Lab, 2016
+	* ==============
+	* 
+	* Featured project partial 
+	* ==========
+	*/
+--}}
+<div class="banner border-clear" style="background-image:url('{{{cloudinaryUrl project.headerImage crop='crop' quality=80 effect='gradient_fade:50' x='0.7' background='#bababa'}}}');">
 	<div class="container featured-project">
 		<div class="row">
 			<div class="col-sm-6 col-md-6 col-md-offset-1">
@@ -7,6 +17,7 @@
 						<h1><strong>Featured:</strong></h1>
 						<h1>{{project.name}}</h1>
 						<p>{{project.description}}</p>
+						<p><a href="/research/{{project.subdirectory.key}}/{{project.key}}">Read more</a>
 					</div> <!-- .va-align -->
 				</div> <!-- .va-container -->
 			</div> <!-- .col-sm-6 -->

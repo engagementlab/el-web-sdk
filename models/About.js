@@ -34,22 +34,21 @@ var About = new keystone.List('About',
  */
 About.add({
 	name: { type: String, default: "About Page", hidden: true, required: true, initial: true },
-	history1: { type: String, label: "History Paragraph 1", required: true },
-	history2: { type: String, label: "History Paragraph 2", required: true },
-	history3: { type: String, label: "History Paragraph 3", required: true },
+	history1: { type: Types.Textarea, label: "History Paragraph 1", required: true },
+	history2: { type: Types.Textarea, label: "History Paragraph 2", required: true },
+	history3: { type: Types.Textarea, label: "History Paragraph 3", required: true },
 	historyImages: {
 	    type: Types.CloudinaryImages,
-	    label: 'History Images',
+	    label: 'History Images (Please use 6 images)',
 	    folder: 'site/about',
-	    autoCleanup: true,
-	    note: 'Please use 6 images.'
+	    autoCleanup: true
 	},
-	process: { type: String, label: "Process and Approach", required: true },
+	process: { type: Types.Textarea, label: "Process and Approach", required: true },
 	
-	collaborate: { type: String, label: "Collaborate With Us", required: true },
-	studentsResearchers: { type: String, label: "Students and Researchers", required: true },
-	clientsConsulting: { type: String, label: "Clients and Consulting", required: true },
-	partnerships: { type: String, label: "Community Based Partnerships", required: true },
+	collaborate: { type: Types.Textarea, label: "Collaborate With Us", required: true },
+	studentsResearchers: { type: Types.Textarea, label: "Students and Researchers", required: true },
+	clientsConsulting: { type: Types.Textarea, label: "Clients and Consulting", required: true },
+	partnerships: { type: Types.Textarea, label: "Community Based Partnerships", required: true },
 	
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });

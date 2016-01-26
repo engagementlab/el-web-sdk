@@ -38,7 +38,8 @@ exports = module.exports = function(req, res) {
         var projectQuery = Project.model.find({
             'enabled': true,
             'featured': true
-        });
+        })
+        .populate('subdirectory');
 
         // Setup the locals to be used inside view
         projectQuery.exec(function(err, result) {

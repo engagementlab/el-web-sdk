@@ -7993,14 +7993,20 @@ html, body, .container {
           font-size: 30px;
           color: #78cbd1; }
 
-.featured-projects .owl-buttons {
-  margin-top: -48px; }
-  .featured-projects .owl-buttons .owl-next, .featured-projects .owl-buttons .owl-prev {
-    background: none; }
-    .featured-projects .owl-buttons .owl-next:hover, .featured-projects .owl-buttons .owl-prev:hover {
-      opacity: 0.5; }
-    .featured-projects .owl-buttons .owl-next:after, .featured-projects .owl-buttons .owl-prev:after {
-      font-size: 72px; }
+.featured-projects {
+  color: #fff; }
+  .featured-projects .owl-buttons {
+    margin-top: -48px; }
+    .featured-projects .owl-buttons .owl-next, .featured-projects .owl-buttons .owl-prev {
+      background: none; }
+      .featured-projects .owl-buttons .owl-next:hover, .featured-projects .owl-buttons .owl-prev:hover {
+        opacity: 0.5; }
+      .featured-projects .owl-buttons .owl-next:after, .featured-projects .owl-buttons .owl-prev:after {
+        font-size: 72px; }
+  .featured-projects a, .featured-projects h1 {
+    color: #fff; }
+  .featured-projects .banner.border-clear {
+    background-repeat: none; }
 
 .featuredRow {
   padding: 2%; }
