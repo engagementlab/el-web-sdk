@@ -36,7 +36,7 @@ Person.add({
 	bio: { type: Types.Markdown, label: 'Bio', required: true, initial: true },
 	image: { type: Types.CloudinaryImage, label: 'Image', folder: 'site/team' },	
   
-  category: { type: Types.Select, options: 'directors, lab, assistants, fellows, advisors', default: 'directors', required: true, initial: true },
+  category: { type: Types.Select, options: 'leadership, team, fellows, students, alumni', default: 'team', required: true, initial: true },
 	twitterURL: { type: Types.Url, label: 'Twitter' },	
 	fbURL: { type: Types.Url, label: 'Facebook' },	
 	githubURL: { type: Types.Url, label: 'Github' },

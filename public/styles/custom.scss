@@ -330,7 +330,7 @@ html, body, .container {
 
 /* PEOPLE */
 .team-member img {
-  @include transition(all 1s ease);
+  @include transition(all 0.5s ease);
   @include center-block;
   border-radius: 50%;
   cursor: pointer;
@@ -489,18 +489,19 @@ section.publications .subSection {
 }
 
 .project-box {
+  height: 450px;
   .body {
     padding-left: 0;
     padding-right: 0;
   }
 }
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .project-box {
       height: 320px;
     }
-}
+} */
 .project-box {
-  @include transition(all 1s ease);
+  @include transition(all 0.5s ease);
 }
 .project-box:hover {
   @include scaleXY(1.05, 1.05);
