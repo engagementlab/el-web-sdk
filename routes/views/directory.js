@@ -39,7 +39,7 @@ exports = module.exports = function(req, res) {
         queryDirectory.exec(function(err, resultDirectory) {
             
             if (resultDirectory === null) {
-                return res.status(404).send(keystone.wrapHTMLError('Good golly gosh darn dang darnit! No page here (404)'));
+                return res.notfound('Page not found!', 'The page you were looking for couldn\'t be found (404)!');
             }
 
             locals.name = resultDirectory.name;

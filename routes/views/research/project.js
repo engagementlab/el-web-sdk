@@ -24,7 +24,7 @@ exports = module.exports = function(req, res) {
         locals = res.locals;
 
     // Init locals
-    locals.section = req.params.directory;
+    locals.section = 'research';
     locals.sub_section = req.params.subdirectory;
 
     locals.filters = {
