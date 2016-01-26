@@ -8130,9 +8130,9 @@ html, body, .container {
 
 /* PEOPLE */
 .team-member img {
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -8265,14 +8265,15 @@ section.publications .subSection {
   padding-left: 0;
   padding-right: 0; }
 
-@media (min-width: 768px) {
-  .project-box {
-    height: 320px; } }
-
+/* @media (min-width: 768px) {
+    .project-box {
+      height: 320px;
+    }
+} */
 .project-box {
-  -webkit-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease; }
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
 
 .project-box:hover {
   -webkit-transform: scale(1.05, 1.05);
@@ -8290,7 +8291,8 @@ body {
   padding-top: 76px; }
 
 .navbar {
-  border: none; }
+  border: none;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.08); }
 
 .navbar-nav {
   float: right; }
