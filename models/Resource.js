@@ -37,6 +37,10 @@ Resource.add({
 	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	summary: { type: String, label: 'Summary',
 		dependsOn: { type: 'article' } },
+	date: { type: Date, label: "Date Published",
+		dependsOn: { type: 'article' } },
+	author: { type: String, label: 'Author',
+		dependsOn: { type: 'article' } },
 
 	file: {
 		type: Types.LocalFile,
@@ -62,8 +66,16 @@ Resource.schema.pre('save', function(next) {
   
   if (this.type === 'article') {
     if (this.summary.length === 0) {
-      var err = new Error('You must define a summary for articles.');
-      next(err);
+		var err = new Error('You must define a summary for articles.');
+		next(err);
+    }
+    if (this.date.length === 0) {
+    	var err = new Error('You must provide the date that the article was published. Sorry bub.');
+    	next(err);
+    }
+    if (this.author.length === 0) {
+    	var err = new Error('You must provide the name of the author who published the article.');
+    	next(err);
     }
   }
   

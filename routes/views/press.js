@@ -11,7 +11,10 @@
  *
  * ==========
  */
+
 var keystone = require('keystone');
+var Resource = keystone.list('Resource');
+var _ = require('underscore');
 
 // News data propagated by ./jobs/news
 var store = require('json-fs-store')('./tmp');
@@ -25,21 +28,25 @@ exports = module.exports = function(req, res) {
     locals.section = 'press';
 
     // Load current press content
-    /*view.on('init', function(next) {
+    view.on('init', function(next) {
 
-        store.load('pressContent', function(err, pressData) {
+        store.load('newsContent', function(err, pressData) {
 
             // err if JSON parsing failed
             if(err) throw err;
 
-            // locals.news = newsData.news;
-            // locals.events = newsData.events;
+            Resource.model.find({ type: 'article' }).exec(function(err, articleResult){
 
-            next(err);
+                locals.articles = articleResult;
 
+                _.each(locals.articles, function(article) {
+                    article.blurb = article.summary;
+                });
+
+                next(err);
+            });
         });
-
-    });*/
+    });
 
     // Render the view
     view.render('press');

@@ -14,44 +14,23 @@
 <!-- PRESS START -->
 <!-- main-container start -->
 <!-- ================ -->
-<section class="main-container">
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 pv-20">
+			{{> page/name name="Press Archives"}}			
+			{{> page/lead lead="This is all the things people are have said 'bout us in the late:)"}}
+		</div>
+	</div>
+</div>
+
+<section>
 	<div class="container">
-		<!-- blog start -->
-		<div class="col-md-12 ph-30">
-			<h1 class="page-title">Press Archives</h1>
-			<div class="separator-2 mb-12"></div>
-			{{!-- {{jsonPrint news}} --}}
-			{{#each news}}
-			<!-- blogpost start -->
-			<article class="blogpost">
-				<div class="row grid-space-10">
-					<div class="col-md-6">
-						<div class="overlay-container">
-							<img src="{{image}}" alt="">
-							<a class="overlay-link" href="{{url}}"><i class="fa fa-link"></i></a>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<header>
-							<h3><a href="{{url}}">{{title}}</a></h3>
-							<div class="post-info">
-								<span class="post-date">
-									<i class="icon-calendar"></i>
-									<span class="month">{{date published format='MM-DD-YYYY'}}</span>
-									{{!-- <span class="day">{{date published format=''}}</span> --}}
-								</span>
-								<span class="submitted"><i class="icon-user-1"></i> by {{author}}</span>
-								{{!-- <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span> --}}
-							</div>
-						</header>
-						<div class="blogpost-content">
-							<p>"...{{{content}}}..."</p>
-						</div>
-					</div>
-				</div>
-			</article>
-			{{/each}}
+		<div class="row">
+			<div class="main col-md-12">
+				{{#each articles}}
+					{{> publications/list_item listing=this}}
+				{{/each}}
+			</div>
 		</div>
 	</div>
 </section>
-<!-- main-container end -->
