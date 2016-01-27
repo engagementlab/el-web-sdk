@@ -8366,7 +8366,8 @@ section.publications .subSection {
     transition: all 0.5s ease; }
 
 a .project-box {
-  color: #7d7d7d; }
+  color: #7d7d7d;
+  text-decoration: none; }
 
 .project-box:hover {
   -webkit-transform: scale(1.02, 1.02);
