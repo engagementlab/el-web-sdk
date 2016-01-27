@@ -49,8 +49,6 @@ module.exports = function(grunt) {
 		      [
             'public/js/jquery/*.min.js', // Core
             'public/js/bootstrap/*.min.js',
-            //'public/js/template.js',
-            //'public/js/custom.js',
             'public/plugins/*.js',  // Plugins
             'public/plugins/**/*.js'
 			    ]
