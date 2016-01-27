@@ -50,7 +50,8 @@ module.exports = function(grunt) {
             'public/js/jquery/*.min.js', // Core
             'public/js/bootstrap/*.min.js',
             'public/plugins/*.js',  // Plugins
-            'public/plugins/**/*.js'
+            'public/plugins/**/*.js',
+            'public/bower_components/**/dist/*.min.js'
 			    ]
 		    }
 		  }
@@ -61,6 +62,8 @@ module.exports = function(grunt) {
           src: ['public/css/**/*.css', 
 		            'public/plugins/**/*.css',
 		            'public/fonts/**/*.css',
+		            'public/bower_components/**/dist/css/*.min.css',
+		            '!public/bower_components/glidejs/dist/css/glide.theme.min.css', // We are using our own glide theme; exclude
 		            'public/styles/site.css'],
           dest: 'public/release/tmp/concat.css'
       }
@@ -161,6 +164,11 @@ module.exports = function(grunt) {
 		'periodic:news',
 		'jshint',
 		'concurrent:dev'
+	]);
+
+	grunt.registerTask('css_compile', [
+		'concat',
+		'cssmin'
 	]);
 
 	// Task to compile script/styles

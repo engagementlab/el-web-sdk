@@ -7,7 +7,6 @@
     "async": "^1.4.2",
     "cheerio": "^0.19.0",
     "cloudinary": "^1.2.5",
-    "connect-mongo": "^1.1.0",
     "connect-mongostore": "^0.1.4",
     "dotenv": "^1.1.0",
     "express-handlebars": "^1.1.0",
