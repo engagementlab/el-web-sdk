@@ -33,15 +33,32 @@ keystone.init({
 		extname: '.hbs'
 	}).engine,
 	
+	'mongo': process.env.MONGO_URI,
+
 	'auto update': true,
 	'session': true,
+
 	'auth': true,
 	'user model': 'User'
 
 });
 
-// Load your project's Models
+// Used only for production, otherwise sessions are stored in-memory
+if (process.env.NODE_ENV === 'production') {
 
+	keystone.set('session store', 'connect-mongostore');
+	keystone.set('session store options', {
+	  "db": {
+	    "name": "engagement-lab",
+	    "servers": [
+	      { "host": "127.0.0.1", "port": 27017 }
+	    ]
+	  }
+	});
+
+}
+
+// Load your project's Models
 keystone.import('models');
 
 // Setup common locals for your templates. The following are required for the
@@ -49,10 +66,12 @@ keystone.import('models');
 // for each request) should be added to ./routes/middleware.js
 
 keystone.set('locals', {
+
 	_: require('underscore'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable
+
 });
 
 // Load your project's Routes
