@@ -63,6 +63,21 @@ body {
 	border: none;
 }
 
+.emerson-logo {
+	a { 
+		padding: 16px !important; 
+		img { 
+			height: 42px; 
+			-webkit-filter: invert(100%); filter: invert(100%);
+			@include transition(all 0.25s ease);
+			@include opacity(0.5);
+			&:hover {
+				@include opacity(1);
+			}
+		}
+	}
+}
+
 @media (max-width: 768px) { 
 	body { padding-top: 76px; }
 	.navbar-nav {
@@ -104,6 +119,12 @@ body {
 	}
 	#logo-col {
 		text-align: center;
+	}
+}
+
+@media (max-width: 991px) {
+	.emerson-logo {
+		display: none !important;
 	}
 }
 

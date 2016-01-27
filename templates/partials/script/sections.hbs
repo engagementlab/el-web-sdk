@@ -93,7 +93,7 @@
 
 			$('.client-image').click(function() {
 				// go to slide for index
-				gliderApi.go('=' + $(this).index());
+				gliderApi.go('=' + ($(this).index()+1));
 				selectPartner($(this));
 			});
 

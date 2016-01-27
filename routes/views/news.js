@@ -42,11 +42,15 @@ exports = module.exports = function(req, res) {
             locals.featured = newsData.news.shift();
             locals.events = newsData.events;
 
-            Resource.model.find({ type: 'article' }).exec(function(err, articleResult){
-                
+            // Show the 3 most recently added articles
+            Resource.model.find({ type: 'article' }, {}, {
+                sort: { 'createdAt': -1 }
+            }).limit(3).exec(function(err, articleResult){
+                if (err) throw err;
                 locals.articles = articleResult;
-                next(err);
             });
+
+            next(err);
         });
     });
 

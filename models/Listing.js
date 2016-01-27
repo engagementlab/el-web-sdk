@@ -66,7 +66,7 @@ Listing.add({
     },
     image: {
         type: Types.CloudinaryImage,
-        label: 'Directory Image',
+        label: 'Thumbnail Image',
         folder: 'site/listings',
         autoCleanup: true
     },
