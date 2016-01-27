@@ -5,6 +5,14 @@ html, body, .container {
   height: 100%;
 }
 
+@media (max-width: 768px) {
+  .page-title, .lead {
+    text-align: center;
+  }
+}
+
+// Padding & margin classes
+
 .mb-40 { margin-bottom: 40px; }
 .mb-50 { margin-bottom: 50px; }
 .mb-60 { margin-bottom: 60px; }
@@ -12,6 +20,8 @@ html, body, .container {
 .pt-10 { padding-top: 10px; }
 .pt-20 { padding-top: 20px; }
 .pt-40 { padding-top: 40px; }
+
+// Vertical alignment
 
 .va-container {
   height: 100%;
@@ -24,10 +34,14 @@ html, body, .container {
   vertical-align: middle;
 }
 
+// Remove padding on columns (use sparingly)
+
 .no-gutter {
   padding-left: 0;
   padding-right: 0;
 }
+
+// Custom separators
 
 .separator-4, .separator-5 {
   width: 100%;
@@ -55,6 +69,8 @@ html, body, .container {
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
   border-bottom: 3px solid $base-color;
 }
+
+// Columns of 9 (used for partners)
 
 .col-xs-9,
 .col-sm-9,
@@ -91,6 +107,7 @@ html, body, .container {
 }
 
 /*  Bootstrap Clearfix */
+// Fixes column wrapping when columns are not contained in a row
 
 /*  Tablet  */
 @media (min-width:767px){
@@ -180,10 +197,12 @@ html, body, .container {
   h1, h3 {
     color: $white;
   }
+  h1 { font-size: 44px; }
+  h3 { font-size: $font-size-h2; }
 }
 
 #logo-img {
-  max-height: 320px;
+  max-height: 380px;
   display: inline;
 }
 
@@ -258,13 +277,13 @@ html, body, .container {
     left: 20%;
     width: 60%;
   }
-  #logo-img { max-height: 320px; }
+  #logo-img { max-height: 360px; }
 }
 
 @media (max-width: 992px) {
   .overlay {
     h1 { font-size: $font-size-h1; }
-    h3 { font-size: $font-size-h3; }
+    h3 { font-size: $font-size-h2; }
   }
   #logo-img { max-height: 240px; }
 }
@@ -324,6 +343,7 @@ html, body, .container {
   }
 
   .client-image {
+    @include transition(all 0.25s ease);
     &:hover {
       opacity: 0.5;
       cursor: pointer;
@@ -333,6 +353,7 @@ html, body, .container {
         color: $base-color !important;
       }
     }
+    img { border-radius: 40px; }
   }
 }
 
@@ -409,7 +430,7 @@ html, body, .container {
 
 /* PEOPLE */
 .team-member img {
-  @include transition(all 0.5s ease);
+  @include transition(all 0.33s ease);
   @include center-block;
   border-radius: 50%;
   cursor: pointer;
@@ -445,23 +466,23 @@ section.publications .subSection {
 }
 
 .book-box {
-  height: 480px;
   text-align: center;
   @include transition(all 0.5s ease);
 
   img {
     height: 320px;
     display: inline;
+    @include transition(all 0.5s ease);
   }
   h4:hover {
     color: $base-color;
   }
 }
 .book-box:hover {
-  @include scaleXY(1.05, 1.05);
-}
-.book-box img:hover {
-  @include tograyscale(20%);
+  @include scaleXY(1.02, 1.02);
+  img {
+    @include scaleXY(1.03, 1.03);
+  }
 }
 
 /* NEWS */
@@ -561,6 +582,13 @@ section.publications .subSection {
   max-height: 320px;
 }
 
+.listing-box {
+  a { 
+    color: $gray-dark; 
+    text-decoration: none;
+  }
+}
+
 /* CATEGORY */
 #project-title {
   font-weight: bold;
@@ -568,19 +596,37 @@ section.publications .subSection {
 }
 
 .project-box {
-  height: 450px;
   .body {
     padding-left: 0;
     padding-right: 0;
+    margin-bottom: 20px;
   }
 }
 
 .project-box {
   @include transition(all 0.5s ease);
+  img { @include transition(all 0.5s ease); }
 }
+
+a .project-box {
+    color: $gray-dark;
+    text-decoration: none;
+}
+
 .project-box:hover {
-  @include scaleXY(1.05, 1.05);
+  @include scaleXY(1.02, 1.02);
+  img {
+    @include scaleXY(1.05, 1.05);
+  }
 }
-.project-box img:hover {
-  @include tograyscale(20%);
+
+@media (max-width:767px){
+  .project-box {
+    max-width: 372px;
+    margin: 0 auto;
+
+    .body {
+      text-align: center;
+    }
+  }
 }
