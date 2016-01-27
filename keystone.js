@@ -57,6 +57,8 @@ if (process.env.NODE_ENV === 'production') {
 	});
 
 }
+else
+	console.log('DEVELOPMENT mode!');
 
 // Load your project's Models
 keystone.import('models');

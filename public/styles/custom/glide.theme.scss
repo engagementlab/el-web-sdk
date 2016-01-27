@@ -1,18 +1,20 @@
 .glide__arrows {
   position: absolute;
 }
-.glide--horizontal .glide__arrows {
+.glide__arrows {
   top: 50%;
   width: 92%;
   margin-left: 4%;
+
   // Custom arrow placement on about pg
   &.about {
     width: 105%;
     margin-left: -5%;
   }
 }
-/* Extra small devices (phones, less than 480px) */
-@media (max-width:480px) {
+
+/* hide arrows on devices less than 768px */
+@media (max-width:768px) {
   .glide__arrows {
     display: none;
   }
@@ -28,6 +30,13 @@
   padding: 9px 12px;
   background-color: transparent;
   border: none;
+
+  @include transition(all 0.5s ease);
+
+  // Hover animation
+  &:hover {
+    @include translate(0, -54%);
+  }
 }
 .glide__arrow:focus {
   outline: none;
@@ -42,13 +51,15 @@
 .glide--horizontal .glide__arrow.prev {
   left: 0;
   &:after {
-      content: "\f104";
+    display: inline-block;
+    content: "\f104";
   }
 }
 .glide--horizontal .glide__arrow.next {
   right: 0;
   &:after {
-      content: "\f105";
+    display: inline-block;
+    content: "\f105";
   }
 }
 

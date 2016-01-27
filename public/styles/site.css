@@ -8500,16 +8500,16 @@ body {
 .glide__arrows {
   position: absolute; }
 
-.glide--horizontal .glide__arrows {
+.glide__arrows {
   top: 50%;
   width: 92%;
   margin-left: 4%; }
-  .glide--horizontal .glide__arrows.about {
+  .glide__arrows.about {
     width: 105%;
     margin-left: -5%; }
 
-/* Extra small devices (phones, less than 480px) */
-@media (max-width: 480px) {
+/* hide arrows on devices less than 768px */
+@media (max-width: 768px) {
   .glide__arrows {
     display: none; } }
 
@@ -8522,7 +8522,15 @@ body {
   text-transform: uppercase;
   padding: 9px 12px;
   background-color: transparent;
-  border: none; }
+  border: none;
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .glide__arrows .glide__arrow:hover {
+    -webkit-transform: translate(0, -54%);
+    -ms-transform: translate(0, -54%);
+    -o-transform: translate(0, -54%);
+    transform: translate(0, -54%); }
 
 .glide__arrow:focus {
   outline: none; }
@@ -8537,11 +8545,13 @@ body {
 .glide--horizontal .glide__arrow.prev {
   left: 0; }
   .glide--horizontal .glide__arrow.prev:after {
+    display: inline-block;
     content: "\f104"; }
 
 .glide--horizontal .glide__arrow.next {
   right: 0; }
   .glide--horizontal .glide__arrow.next:after {
+    display: inline-block;
     content: "\f105"; }
 
 .glide__bullets {

@@ -27,6 +27,7 @@ exports = module.exports = function(req, res) {
     // Init locals
     locals.section = 'research';
     locals.sub_section = req.params.subdirectory;
+    locals.key = 'project';
 
     locals.filters = {
         _key: req.params.project_key
