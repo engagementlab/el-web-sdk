@@ -341,6 +341,7 @@ html, body, .container {
   }
 
   .client-image {
+    @include transition(all 0.25s ease);
     &:hover {
       opacity: 0.5;
       cursor: pointer;
@@ -350,6 +351,7 @@ html, body, .container {
         color: $base-color !important;
       }
     }
+    img { border-radius: 40px; }
   }
 }
 
@@ -463,11 +465,12 @@ section.publications .subSection {
 
 .book-box {
   text-align: center;
-  @include transition(all 0.33s ease);
+  @include transition(all 0.5s ease);
 
   img {
     height: 320px;
     display: inline;
+    @include transition(all 0.5s ease);
   }
   h4:hover {
     color: $base-color;
@@ -475,9 +478,9 @@ section.publications .subSection {
 }
 .book-box:hover {
   @include scaleXY(1.02, 1.02);
-}
-.book-box img:hover {
-  @include tograyscale(20%);
+  img {
+    @include scaleXY(1.03, 1.03);
+  }
 }
 
 /* NEWS */
@@ -591,14 +594,20 @@ section.publications .subSection {
   }
 }
 
-.project-box img {
-  @include transition(all 0.6s ease);
+.project-box {
+  @include transition(all 0.5s ease);
+  img { @include transition(all 0.5s ease); }
 }
-.project-box img:hover {
-  @include scaleXY(1.05, 1.05);
+
+a .project-box {
+    color: $gray-dark;
 }
-.project-box img:hover {
-  @include tograyscale(20%);
+
+.project-box:hover {
+  @include scaleXY(1.02, 1.02);
+  img {
+    @include scaleXY(1.05, 1.05);
+  }
 }
 
 @media (max-width:767px){

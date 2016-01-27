@@ -12,14 +12,16 @@
 */
 --}}
 <div class="col-sm-6 col-md-4">
-	<div class="image-box style-2 mb-20 project-box">
-		<div class="overlay-container overlay-visible">
-			<a href="{{listing.href}}"><img src="{{cloudinaryUrl listing.image crop='scale' width=372 height=279}}" alt="{{listing.name}}"></a>
+	<a href="{{listing.href}}">
+		<div class="image-box style-2 mb-20 project-box">
+			<div class="overlay-container overlay-visible">
+				<img src="{{cloudinaryUrl listing.image crop='scale' width=372 height=279}}" alt="{{listing.name}}">
+			</div>
+			<div class="body">
+				{{#if listing.description}}
+					<p><span id="project-title">{{listing.name}}</span> {{limit listing.description 300}}</p>
+				{{/if}}
+			</div>
 		</div>
-		<div class="body">
-			{{#if listing.description}}
-				<p><span id="project-title">{{listing.name}}</span> {{limit listing.description 300}}</p>
-			{{/if}}
-		</div>
-	</div>
+	</a>
 </div>
