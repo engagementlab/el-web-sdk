@@ -582,6 +582,13 @@ section.publications .subSection {
   max-height: 320px;
 }
 
+.listing-box {
+  a { 
+    color: $gray-dark; 
+    text-decoration: none;
+  }
+}
+
 /* CATEGORY */
 #project-title {
   font-weight: bold;
@@ -603,6 +610,7 @@ section.publications .subSection {
 
 a .project-box {
     color: $gray-dark;
+    text-decoration: none;
 }
 
 .project-box:hover {

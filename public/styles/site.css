@@ -8342,6 +8342,10 @@ section.publications .subSection {
   display: inline;
   max-height: 320px; }
 
+.listing-box a {
+  color: #7d7d7d;
+  text-decoration: none; }
+
 /* CATEGORY */
 #project-title {
   font-weight: bold;
