@@ -1,0 +1,22 @@
+{
+  "name": "engagement-lab",
+  "description": "",
+  "main": "keystone.js",
+  "authors": [
+    "Johnny Richardson <johnny@elab.emerson.edu>",
+    "Jay Vachon <jay@elab.emerson.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/engagementgamelab/EL-Website",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "glidejs": "^2.0.6"
+  }
+}

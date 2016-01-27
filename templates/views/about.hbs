@@ -49,13 +49,26 @@
 					<div class="container">
 						<div class="row">
 							{{> page/name name="Our Partners"}}
-							<br>
 							<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
-								<div class="owl-carousel content-slider-with-controls">
-									{{#each partners}}
-										{{> about/partner_info partner=this}}
-									{{/each}}
+
+								{{!-- Glider.js structure --}}
+								<div id="partners_glider" class="glide">
+
+								    <div class="glide__arrows about">
+								        <button class="glide__arrow prev" data-glide-dir="<"></button>
+								        <button class="glide__arrow next" data-glide-dir=">"></button>
+								    </div>
+
+								    <div class="glide__wrapper">
+								        <ul class="glide__track">
+													{{#each partners}}
+														<li class="glide__slide">{{> about/partner_info partner=this}}</li>
+													{{/each}}
+								        </ul>
+								    </div>
+
 								</div>
+
 							</div>
 						</div>
 					</div>

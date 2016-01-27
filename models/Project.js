@@ -111,7 +111,7 @@ Project.add({
         projectImageCaptions: {
             type: Types.TextArray,
             label: 'Project Image Captions',
-            collapse: true
+            note: 'Each image specified above must have a caption'
         },
         // Resource model reference for videos
         videos: {
@@ -231,6 +231,7 @@ Project.schema.pre('save', function(next) {
     // TODO: For future slack integration
     // keystone.list('User').model.findById(this.updatedBy, function(err, user) {
     // });
+
     next();
 
 });

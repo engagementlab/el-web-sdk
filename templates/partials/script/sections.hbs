@@ -42,12 +42,11 @@
 				$('iframe').prop('src', vid + time);
 
 				// Initialize featured projects carousel
-				$(".owl-carousel.content-slider-with-controls").owlCarousel({
-					singleItem: true,
-					autoPlay: false,
-					navigation: true,
-					pagination: true
-				});
+				$("#featured_glider").glide({
+		        type: "carousel",
+		        autoplay: false,
+		        autoheight: true
+		    });
 			}
 
 		{{/ifeq}}
@@ -78,22 +77,23 @@
 		{{/ifeq}}
 		{{#ifeq section 'about'}}
 
-			// Initialize partners carousel
-			$(".owl-carousel.content-slider-with-controls").owlCarousel({
-				singleItem: true,
-				autoPlay: false,
-				navigation: true,
-				pagination: false,
-				beforeMove: function(elem) {
-					index = $(this)[0].currentItem;
-					selectPartner($('.client-image').eq(index));
-				}
-			});
+			var gliderDom = $("#partners_glider");
 
-			var owl = $('.owl-carousel');
+			// Initialize partners carousel
+			var gliderObj = gliderDom.glide({
+	        type: "carousel",
+	        autoplay: false,
+	        autoheight: true,
+	        afterTransition: function(evt) {
+	        	// Select corresponding partner
+						selectPartner($('.client-image').eq(evt.index));
+					}
+	    });
+	    var gliderApi = gliderObj.data('glide_api');
 
 			$('.client-image').click(function() {
-				owl.trigger('owl.goTo', $(this).index());
+				// go to slide for index
+				gliderApi.go('=' + $(this).index());
 				selectPartner($(this));
 			});
 

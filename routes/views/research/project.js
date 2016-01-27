@@ -56,7 +56,10 @@ exports = module.exports = function(req, res) {
 
                 // Set image (if no override, use embedly-provided image as fallback)
                 var hasOverride = article.imageOverride.url !== undefined && article.imageOverride.url.length > 0;
-                article.image = hasOverride ? cloudinary.url(article.imageOverride.public_id, {width: 350, height: 233}) : article.data.thumbnailUrl;
+                
+                article.image = hasOverride ? 
+                                cloudinary.url(article.imageOverride.public_id, {width: 350, height: 233}) :
+                                article.data.thumbnailUrl;
 
                 return article;
 

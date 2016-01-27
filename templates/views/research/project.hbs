@@ -107,8 +107,8 @@
 							<ul>
 							{{#each project.files}}
 							
-								{{#if this.file}}
-									<li><a href="/files/{{file.filename}}"><i class="fa fa-file{{fileType this.file}} pr-5"></i> {{name}}</a></li>
+								{{#if file}}
+									<li><a href="/files/{{file.filename}}"><i class="fa fa-file{{fileType file}} pr-5"></i> {{name}}</a></li>
 								{{/if}}
 
 							{{/each}}

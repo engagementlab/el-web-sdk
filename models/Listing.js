@@ -10,7 +10,6 @@
  *
  * ==========
  */
-
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
@@ -19,14 +18,16 @@ var Types = keystone.Field.Types;
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */
-	var Listing = new keystone.List('Listing', 
-	{	
-		hidden: true,
-		sortable: true,
+var Listing = new keystone.List('Listing', {
+    hidden: true,
+    sortable: true,
     track: true,
-		autokey: { path: 'key', from: 'name', unique: true }
-	}
-);
+    autokey: {
+        path: 'key',
+        from: 'name',
+        unique: true
+    }
+});
 
 /**
  * Local Methods
@@ -41,16 +42,41 @@ safeString = function(str) {
  * @main Listing
  */
 Listing.add({
-	name: { type: String, label: 'Name', required: true, initial: true, index: true },
-	description: { type: String, label: 'Byline', required: true, initial: true, note: 'This displays under listing\'s image. Do not include \'name\' in this field. <br />Text in the above <i>Name</i> prepends this.'},
-  image: {
-      type: Types.CloudinaryImage,
-      label: 'Directory Image',
-      folder: 'site/listings',
-      autoCleanup: true
-  },
+    name: {
+        type: String,
+        label: 'Name',
+        required: true,
+        initial: true,
+        index: true
+    },
+    /*internalName: {
+        type: String,
+        hidden: true,
+        watch: 'name',
+        value: function() {
+          return this.name.replace('@', '');
+        }
+    },*/
+    description: {
+        type: String,
+        label: 'Byline',
+        required: true,
+        initial: true,
+        note: 'This displays under listing\'s image. Do not include \'name\' in this field. <br />Text in the above <i>Name</i> prepends this.'
+    },
+    image: {
+        type: Types.CloudinaryImage,
+        label: 'Directory Image',
+        folder: 'site/listings',
+        autoCleanup: true
+    },
 
-	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        noedit: true,
+        hidden: true
+    }
 });
 
 /**
@@ -62,9 +88,20 @@ Listing.schema.methods.safeName = function() {
 };
 
 /**
+ * Hooks
+ * =============
+ */
+/*Listing.schema.pre('save', function(next) {
+
+    // this.key = this.key.replace('@', 'at');
+    console.log(this)
+
+});*/
+
+/**
  * Model Registration
  */
-Listing.defaultSort  = 'sortOrder';
+Listing.defaultSort = 'sortOrder';
 Listing.defaultColumns = 'name';
 Listing.register();
 
