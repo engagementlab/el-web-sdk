@@ -197,10 +197,12 @@ html, body, .container {
   h1, h3 {
     color: $white;
   }
+  h1 { font-size: 44px; }
+  h3 { font-size: $font-size-h2; }
 }
 
 #logo-img {
-  max-height: 320px;
+  max-height: 380px;
   display: inline;
 }
 
@@ -275,13 +277,13 @@ html, body, .container {
     left: 20%;
     width: 60%;
   }
-  #logo-img { max-height: 320px; }
+  #logo-img { max-height: 360px; }
 }
 
 @media (max-width: 992px) {
   .overlay {
     h1 { font-size: $font-size-h1; }
-    h3 { font-size: $font-size-h3; }
+    h3 { font-size: $font-size-h2; }
   }
   #logo-img { max-height: 240px; }
 }
