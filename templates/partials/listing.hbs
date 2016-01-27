@@ -1,8 +1,8 @@
 <div class="image-box style-3 pv-40 listing-box">
-	<div class="row grid-space-0">
+	<div class="row">
 		<div class="col-md-6">
 			<div class="overlay-container" id="listing-img">
-				<a href="{{listing.href}}">{{img listing.image}}</a>
+				<a href="{{listing.href}}"><img src="{{{cloudinaryUrl listing.image width=600 height=450 crop='scale' quality=80}}}"></a>
 			</div>
 		</div>
 		<div class="col-md-6">
