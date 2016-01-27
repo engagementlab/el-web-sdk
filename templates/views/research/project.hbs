@@ -71,20 +71,26 @@
 						<div class="tab-pane active" id="pill-images">
 							<div class="space-bottom"></div>
 							<div class="row grid-space-20">
-								{{!-- @key is caption, this is image object --}}
-								{{# each projectImageObjects}}
 
-									<div class="col-xs-3">
-										<div class="overlay-container">
+							{{!-- Glider.js structure --}}
+						<div id="project_images_glider" class="glide">
 
-											<img src="{{{cloudinaryUrl width=173 quality=60}}}" alt="{{@key}}">
-											<a href="{{{cloudinaryUrl}}}" class="overlay-link small popup-img" title="{{@key}}">
-												<i class="fa fa-plus"></i>
-											</a>
-										</div>
+							    <div class="glide__arrows">
+							        <button class="glide__arrow prev" data-glide-dir="<"></button>
+							        <button class="glide__arrow next" data-glide-dir=">"></button>
+							    </div>
+
+							    <div class="glide__wrapper">
+							        <ul class="glide__track" style="margin-left:-40px">
+											{{!-- @key is caption, "this" is image object --}}
+											{{# each projectImageObjects}}
+												<li class="glide__slide"><img src="{{{cloudinaryUrl width=173 quality=60}}}" alt="{{@key}}"></li>
+											{{/each}}
+
+							        </ul>
+									  </div>
 									</div>
 
-								{{/each}}
 								</div>
 						</div>
 					{{/if}}

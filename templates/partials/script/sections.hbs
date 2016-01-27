@@ -86,14 +86,15 @@
 	        autoheight: true,
 	        afterTransition: function(evt) {
 	        	// Select corresponding partner
-						selectPartner($('.client-image').eq(evt.index));
+						selectPartner($('.client-image').eq(evt.index-1));
 					}
 	    });
 	    var gliderApi = gliderObj.data('glide_api');
 
 			$('.client-image').click(function() {
 				// go to slide for index
-				gliderApi.go('=' + $(this).index());
+				var ind = $(this).index()+1;
+				gliderApi.go('=' + ind);
 				selectPartner($(this));
 			});
 
@@ -102,5 +103,12 @@
 				selector.addClass('selected');
 			}
 		{{/ifeq}}
+
+		{{subSection}}
+
+		// {{#ifeq section 'about'}}
+		
+		// {{/ifeq}}
+
 	})
 </script>
