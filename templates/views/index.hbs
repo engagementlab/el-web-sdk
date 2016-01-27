@@ -38,20 +38,20 @@
 			<!-- banner end -->
 
 			{{#if recentEvents}}
-			<section class="recent-events clearfix light-bg">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 mb-20">
-							<h2 class="title text-center">What's Good at the Lab</h2>
+				<section class="recent-events clearfix light-bg">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 mb-20">
+								<h2 class="title text-center">What's Good at the Lab</h2>
+							</div>
+						</div>
+						<div class="row grid-space-30">
+							{{#each recentEvents}}
+								{{> index/recent_event colSize=eventsColumnSize event=this}}
+							{{/each}}
 						</div>
 					</div>
-					<div class="row grid-space-30">
-						{{#each recentEvents}}
-							{{> index/recent_event colSize=eventsColumnSize event=this}}
-						{{/each}}
-					</div>
-				</div>
-			</section>
+				</section>
 			{{/if}}
 			{{#if featured_projects}}
 				<section class="featured-projects">
