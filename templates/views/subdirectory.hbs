@@ -5,31 +5,23 @@
  * Developed by Engagement Lab, 2015
  * ==============
  * 
- * Project Directory Page Template 
- * - See Project model for fields
+ * Subdirectory Page Template 
  * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
  * ==========
  */
 --}}
 
 <!-- SUBDIRECTORY START -->
-<!-- main-container start -->
 <!-- ================ -->
 <section class="main-container padding-bottom-clear">
 	<div class="container">
-		<!-- main start -->
-		<!-- ================ -->
 		<div class="main">
-			<!-- page-title start -->
-			<!-- ================ -->
 			<h1 class="page-title"><strong>Research: </strong><span class="font-light">{{name}}</span></h1>
 			{{> page/lead}}
-			<!-- page-title end -->
 		</div>
-		<!-- main end -->
 	</div>
 
-	<div class="container">
+	<div class="container pv-20">
 		<div class="row">
 			{{#if listings}}
 				
@@ -46,4 +38,3 @@
 		</div>
 	</div>
 </section>
-<!-- section end -->

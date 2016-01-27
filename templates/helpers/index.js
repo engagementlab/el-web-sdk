@@ -69,6 +69,47 @@ module.exports = function() {
 		});
 		return rtn;
 	};
+
+	// ### Date Helper
+	// A port of the Ghost Date formatter similar to the keystonejs - jade interface
+	//
+	//
+	// *Usage example:*
+	// `{{date format='MM YYYY}}`
+	// `{{date publishedDate format='MM YYYY'`
+	//
+	// Returns a string formatted date
+	// By default if no date passed into helper than then a current-timestamp is used
+	//
+	// Options is the formatting and context check this.publishedDate
+	// If it exists then it is formated, otherwise current timestamp returned
+	
+	_helpers.date = function(context, options) {
+		if (!options && context.hasOwnProperty('hash')) {
+			options = context;
+			context = undefined;
+			
+			if (this.publishedDate) {
+				context = this.publishedDate;
+			}
+		}
+		
+		// ensure that context is undefined, not null, as that can cause errors
+		context = context === null ? undefined : context;
+		
+		var f = options.hash.format || 'MMM Do, YYYY',
+			timeago = options.hash.timeago,
+			date;
+		
+		// if context is undefined and given to moment then current timestamp is given
+		// nice if you just want the current year to define in a tmpl
+		if (timeago) {
+			date = moment(context).fromNow();
+		} else {
+			date = moment(context).format(f);
+		}
+		return date;
+	};
 	
 	// ### CloudinaryUrl Helper
 	// Direct support of the cloudinary.url method from Handlebars (see

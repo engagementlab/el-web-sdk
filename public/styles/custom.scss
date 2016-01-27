@@ -5,6 +5,14 @@ html, body, .container {
   height: 100%;
 }
 
+@media (max-width: 768px) {
+  .page-title, .lead {
+    text-align: center;
+  }
+}
+
+// Padding & margin classes
+
 .mb-40 { margin-bottom: 40px; }
 .mb-50 { margin-bottom: 50px; }
 .mb-60 { margin-bottom: 60px; }
@@ -12,6 +20,8 @@ html, body, .container {
 .pt-10 { padding-top: 10px; }
 .pt-20 { padding-top: 20px; }
 .pt-40 { padding-top: 40px; }
+
+// Vertical alignment
 
 .va-container {
   height: 100%;
@@ -24,10 +34,14 @@ html, body, .container {
   vertical-align: middle;
 }
 
+// Remove padding on columns (use sparingly)
+
 .no-gutter {
   padding-left: 0;
   padding-right: 0;
 }
+
+// Custom separators
 
 .separator-4, .separator-5 {
   width: 100%;
@@ -55,6 +69,8 @@ html, body, .container {
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
   border-bottom: 3px solid $base-color;
 }
+
+// Columns of 9 (used for partners)
 
 .col-xs-9,
 .col-sm-9,
@@ -91,6 +107,7 @@ html, body, .container {
 }
 
 /*  Bootstrap Clearfix */
+// Fixes column wrapping when columns are not contained in a row
 
 /*  Tablet  */
 @media (min-width:767px){
@@ -409,7 +426,7 @@ html, body, .container {
 
 /* PEOPLE */
 .team-member img {
-  @include transition(all 0.5s ease);
+  @include transition(all 0.33s ease);
   @include center-block;
   border-radius: 50%;
   cursor: pointer;
@@ -445,9 +462,8 @@ section.publications .subSection {
 }
 
 .book-box {
-  height: 480px;
   text-align: center;
-  @include transition(all 0.5s ease);
+  @include transition(all 0.33s ease);
 
   img {
     height: 320px;
@@ -458,7 +474,7 @@ section.publications .subSection {
   }
 }
 .book-box:hover {
-  @include scaleXY(1.05, 1.05);
+  @include scaleXY(1.02, 1.02);
 }
 .book-box img:hover {
   @include tograyscale(20%);
@@ -568,19 +584,30 @@ section.publications .subSection {
 }
 
 .project-box {
-  height: 450px;
   .body {
     padding-left: 0;
     padding-right: 0;
+    margin-bottom: 20px;
   }
 }
 
-.project-box {
-  @include transition(all 0.5s ease);
+.project-box img {
+  @include transition(all 0.6s ease);
 }
-.project-box:hover {
+.project-box img:hover {
   @include scaleXY(1.05, 1.05);
 }
 .project-box img:hover {
   @include tograyscale(20%);
+}
+
+@media (max-width:767px){
+  .project-box {
+    max-width: 372px;
+    margin: 0 auto;
+
+    .body {
+      text-align: center;
+    }
+  }
 }

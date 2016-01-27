@@ -7871,6 +7871,10 @@ h6.media-heading {
 html, body, .container {
   height: 100%; }
 
+@media (max-width: 768px) {
+  .page-title, .lead {
+    text-align: center; } }
+
 .mb-40 {
   margin-bottom: 40px; }
 
@@ -8200,9 +8204,9 @@ html, body, .container {
 
 /* PEOPLE */
 .team-member img {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: all 0.33s ease;
+  -o-transition: all 0.33s ease;
+  transition: all 0.33s ease;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -8239,11 +8243,10 @@ section.publications .subSection {
   display: inline-block; }
 
 .book-box {
-  height: 480px;
   text-align: center;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+  -webkit-transition: all 0.33s ease;
+  -o-transition: all 0.33s ease;
+  transition: all 0.33s ease; }
   .book-box img {
     height: 320px;
     display: inline; }
@@ -8251,10 +8254,10 @@ section.publications .subSection {
     color: #78cbd1; }
 
 .book-box:hover {
-  -webkit-transform: scale(1.05, 1.05);
-  -ms-transform: scale(1.05, 1.05);
-  -o-transform: scale(1.05, 1.05);
-  transform: scale(1.05, 1.05); }
+  -webkit-transform: scale(1.02, 1.02);
+  -ms-transform: scale(1.02, 1.02);
+  -o-transform: scale(1.02, 1.02);
+  transform: scale(1.02, 1.02); }
 
 .book-box img:hover {
   -webkit-filter: grayscale(20%);
@@ -8331,18 +8334,17 @@ section.publications .subSection {
   font-weight: bold;
   text-transform: uppercase; }
 
-.project-box {
-  height: 450px; }
-  .project-box .body {
-    padding-left: 0;
-    padding-right: 0; }
+.project-box .body {
+  padding-left: 0;
+  padding-right: 0;
+  margin-bottom: 20px; }
 
-.project-box {
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+.project-box img {
+  -webkit-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  transition: all 0.6s ease; }
 
-.project-box:hover {
+.project-box img:hover {
   -webkit-transform: scale(1.05, 1.05);
   -ms-transform: scale(1.05, 1.05);
   -o-transform: scale(1.05, 1.05);
@@ -8353,6 +8355,13 @@ section.publications .subSection {
   -moz-filter: grayscale(20%);
   -ms-filter: grayscale(20%);
   filter: grayscale(20%); }
+
+@media (max-width: 767px) {
+  .project-box {
+    max-width: 372px;
+    margin: 0 auto; }
+    .project-box .body {
+      text-align: center; } }
 
 body {
   padding-top: 76px; }
