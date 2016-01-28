@@ -47,14 +47,12 @@ Resource.add({
 		dependsOn: { type: 'file' },
 		label: 'File',
 		filenameFormatter: function(item, filename) {
-			return item._id + require('path').extname(filename);
+			return item.key + require('path').extname(filename);
 		},
 		containerFormatter: function(item, filename) {
-			return 'resources';
+			return 'files';
 		}
 	},
-
-
 
 	imageOverride: {
       type: Types.CloudinaryImage,
@@ -76,6 +74,20 @@ Resource.add({
 Resource.schema.pre('save', function(next) {
   
   var err;
+
+  /*
+	  If Azure file upload succeeded but returned no filename, we have to generate manually and save it since
+	  keystone's createBlockBlobFromLocalFile implementation does not account for Azure returning 
+	  only "commmittedBlocks" arrays for huge files, and not file metadata.
+	  I considered submitting a fix PR for azurefile.prototype.uploadFile but I will wait for keystone release ~0.0.4.
+
+	  Using filetype as the string to obtain the file extension is not 100% foolproof as it's a MIME type,
+	  but it works for most common file formats. 
+  */
+  if(this.file.filename === undefined) {
+  	this.file.filename = this.key + this.file.filetype.replace('application/', '.');
+  	this.file.url = this.file.url.replace('undefined', this.file.filename);
+  }
   
   if (this.type === 'article') {
     
