@@ -8175,11 +8175,11 @@ ul.resources {
 
 /* PEOPLE */
 .team-member {
-  cursor: pointer; }
+  cursor: pointer;
+  height: 315px; }
   .team-member a {
     color: #7d7d7d;
-    text-decoration: none;
-    /* no underline */ }
+    text-decoration: none; }
   .team-member a:hover {
     color: #78cbd1; }
 

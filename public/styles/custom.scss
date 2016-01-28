@@ -374,10 +374,12 @@ ul.resources {
 /* PEOPLE */
 .team-member {
   cursor: pointer;
+  // Needs explicit height to avoid layout issue
+  height: 315px;
 
   a {
     color: $gray-dark;
-    text-decoration: none; /* no underline */
+    text-decoration: none;
   }
   a:hover {
     color: $base-color;
