@@ -158,18 +158,20 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="separator-2"></div>
-				<h3><i>{{project.name}}</i> News</h3>
+				<div class="separator-5"></div>
+				<h2 class="mt-20 title"><i>{{project.name}}</i> News</h2>
+			</div>
+		</div>
+		<div class="row">
 				{{# each project.articles}}
 
 					<div class="col-sm-4">
-						<div class="image-box style-2 mb-20 text-center">
+						<div class="image-box style-2 mb-20 text-center news-box">
 							<div class="overlay-container">
-								<img src="{{image}}" alt="{{data.title}}" width="350" height="233">
-								<a href="{{url}}" class="overlay-link"><i class="fa fa-link"></i></a>
+								<a href="{{url}}"><img src="{{image}}" alt="{{data.title}}" width="350" height="233"></a>
 							</div>
 							<div class="body">
-								<h3><a href="{{url}}">{{data.title}}</a></h3>
+								<h4><a href="{{url}}">{{data.title}}</a></h4>
 								{{#if data.description}}
 									<p>{{limit data.description 100}}</p>										
 								{{/if}}
@@ -178,7 +180,7 @@
 					</div>
 
 				{{/each}}
-			</div> <!-- .col-md-12 -->
+			{{!-- </div> <!-- .col-md-12 --> --}}
 		</div> <!-- .row -->
 	</div> <!-- .container -->
 </section>
