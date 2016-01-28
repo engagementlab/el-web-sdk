@@ -15,7 +15,7 @@
 <div class="banner clearfix">
 	<div class="container-fluid">
 		<div class="row" id="project_header">
-			<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.headerImage width=1425 height=450 crop='crop' quality=80}}}');">
+			<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.headerImage width=1425 height=450 crop='fill' quality=80}}}');">
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-8 text-center col-md-offset-2 pv-20">
@@ -40,7 +40,7 @@
 				{{{project.overview.html}}}
 			</div>
 			<div class="col-sm-6 col-md-4">
-				<img id="side-image" src="{{{cloudinaryUrl project.sideImage width=432 height=324}}}" alt="">
+				<img id="side-image" src="{{{cloudinaryUrl project.sideImage crop='fill' width=420 height=420}}}" alt="">
 			</div>
 		</div> <!-- .row -->
 	</div> <!-- .container -->

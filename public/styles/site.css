@@ -8495,15 +8495,6 @@ body {
 .navbar-toggle {
   margin-top: 22px; }
 
-/* 
-.logo-footer {
-	ul {
-		display: inline;
-		li {
-			display: inline;
-		}
-	}
-} */
 #logo-footer {
   width: 96px;
   opacity: 0.5; }

@@ -39,10 +39,10 @@ About.add({
 	history3: { type: Types.Textarea, label: "History Paragraph 3", required: true },
 	history4: { type: Types.Textarea, label: "History Paragraph 4", required: false },
 	historyImages: {
-	    type: Types.CloudinaryImages,
-	    label: 'History Images (Please use 6 images)',
-	    folder: 'site/about',
-	    autoCleanup: true
+		type: Types.CloudinaryImages,
+		label: 'History Images (Please use 6 images)',
+		folder: 'site/about',
+		autoCleanup: true
 	},
 	process: { type: Types.Textarea, label: "Process and Approach", required: true },
 	

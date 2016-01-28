@@ -57,7 +57,7 @@ exports = module.exports = function(req, res) {
 
             locals.recentEvents[0] = {
                 date: news.published,
-                title: news.title,
+                title: news.title.replace('[VIDEO]', ''), // TODO: might need more sanitation of the title
                 content: content,
                 url: news.url,
                 type: "blog"
