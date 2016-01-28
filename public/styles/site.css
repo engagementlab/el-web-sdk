@@ -8223,6 +8223,15 @@ html, body, .container {
     color: white; } }
 
 /* PEOPLE */
+.team-member {
+  cursor: pointer; }
+  .team-member a {
+    color: #7d7d7d;
+    text-decoration: none;
+    /* no underline */ }
+  .team-member a:hover {
+    color: #78cbd1; }
+
 .team-member img {
   -webkit-transition: all 0.33s ease;
   -o-transition: all 0.33s ease;
@@ -8231,19 +8240,17 @@ html, body, .container {
   margin-left: auto;
   margin-right: auto;
   border-radius: 50%;
-  cursor: pointer;
   height: 192px;
   width: 192px; }
-
-.team-member img:hover {
-  -webkit-filter: grayscale(50%);
-  -moz-filter: grayscale(50%);
-  -ms-filter: grayscale(50%);
-  filter: grayscale(50%);
-  -webkit-transform: scale(1.07, 1.07);
-  -ms-transform: scale(1.07, 1.07);
-  -o-transform: scale(1.07, 1.07);
-  transform: scale(1.07, 1.07); }
+  .team-member img:hover {
+    -webkit-filter: grayscale(50%);
+    -moz-filter: grayscale(50%);
+    -ms-filter: grayscale(50%);
+    filter: grayscale(50%);
+    -webkit-transform: scale(1.07, 1.07);
+    -ms-transform: scale(1.07, 1.07);
+    -o-transform: scale(1.07, 1.07);
+    transform: scale(1.07, 1.07); }
 
 .light .social-links li a {
   background-color: #bababa;
@@ -8533,10 +8540,10 @@ body {
   .glide__arrows.about {
     width: 105%;
     margin-left: -5%; }
-  .glide__arrows.project {
+  .glide__arrows.project, .glide__arrows.people {
     width: 105%;
     margin-left: -5%; }
-    .glide__arrows.project .glide__arrow {
+    .glide__arrows.project .glide__arrow, .glide__arrows.people .glide__arrow {
       color: gray; }
 
 @media (max-width: 768px) {

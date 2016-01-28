@@ -35,7 +35,7 @@
 				<div class="row grid-space-10 team-row1">
 						{{!-- Show leadership --}}
 						{{#each leadership}}
-							{{> team_member person=this}}
+							{{> people/person person=this}}
 						{{/each}}
 
 				</div>
@@ -46,7 +46,7 @@
 
 					{{!-- Show lab team --}}
 					{{#each team}}
-						{{> team_member person=this}}
+						{{> people/person person=this}}
 					{{/each}}
 
 				</div>
@@ -57,7 +57,7 @@
 
 					{{!-- Show assistants --}}
 					{{#each fellows}}
-						{{> team_member person=this}}
+						{{> people/person person=this}}
 					{{/each}}
 
 				</div>
@@ -68,7 +68,7 @@
 
 					{{!-- Show fellows --}}
 					{{#each students}}
-						{{> team_member person=this}}
+						{{> people/person person=this}}
 					{{/each}}
 
 				</div>
@@ -79,7 +79,7 @@
 
 					{{!-- Show fellows --}}
 					{{#each alumni}}
-						{{> team_member person=this}}
+						{{> people/person person=this}}
 					{{/each}}
 
 				</div>
