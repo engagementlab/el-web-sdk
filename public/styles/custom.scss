@@ -9,6 +9,10 @@ html, body, .container {
   font-family: $font-theme-smallcaps;
 }
 
+.font-smallcaps { font-family: $font-theme-smallcaps; }
+.font-light { font-family: $font-theme-light; }
+.font-default { font-family: $font-theme; }
+
 @media (max-width: 768px) {
   .page-title, .lead {
     text-align: center;

@@ -901,7 +901,6 @@ h4 {
 
 h5 {
   font-size: 15px;
-  text-transform: uppercase;
   font-weight: 700; }
 
 h6 {
@@ -7881,6 +7880,15 @@ html, body, .container {
 .page-title, .title {
   font-family: "HalisGR-SBook", sans-serif; }
 
+.font-smallcaps {
+  font-family: "HalisGR-SBook", sans-serif; }
+
+.font-light {
+  font-family: "HalisR-ExtraLight", sans-serif; }
+
+.font-default {
+  font-family: "HalisGR-Book", sans-serif; }
+
 @media (max-width: 768px) {
   .page-title, .lead {
     text-align: center; } }
@@ -8389,8 +8397,7 @@ body {
     font-size: 19px;
     vertical-align: middle;
     padding-left: 10px;
-    color: #bababa;
-    font-family: "HalisGR-SBook", sans-serif; }
+    color: #bababa; }
   .logo-container:hover img {
     opacity: 0.6;
     filter: alpha(opacity=60); }
