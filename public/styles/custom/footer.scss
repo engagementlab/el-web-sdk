@@ -1,10 +1,21 @@
-#logo-footer {
-	width: 96px;
-	opacity: 0.5;
+.logos-footer {
+	#logo {
+		width: 96px;
+	}
+	#logo-emerson {
+		max-width: 400px;
+		img { margin-right: 2em; }
+	}
+	img {
+		display: initial;
+		opacity: 0.5;
+		margin-left: 2em;
+		margin-bottom: 1em;
+	}
 }
 
-#emerson-logo-footer {
-	width: 240px;
-	opacity: 0.5;
-	padding-bottom: 10px;
+@media (max-width: 768px) {
+	.logos-footer #logo-emerson {
+		max-width: 300px;
+	}
 }

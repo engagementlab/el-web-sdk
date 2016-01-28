@@ -8495,14 +8495,23 @@ body {
 .navbar-toggle {
   margin-top: 22px; }
 
-#logo-footer {
-  width: 96px;
-  opacity: 0.5; }
+.logos-footer #logo {
+  width: 96px; }
 
-#emerson-logo-footer {
-  width: 240px;
+.logos-footer #logo-emerson {
+  max-width: 400px; }
+  .logos-footer #logo-emerson img {
+    margin-right: 2em; }
+
+.logos-footer img {
+  display: initial;
   opacity: 0.5;
-  padding-bottom: 10px; }
+  margin-left: 2em;
+  margin-bottom: 1em; }
+
+@media (max-width: 768px) {
+  .logos-footer #logo-emerson {
+    max-width: 300px; } }
 
 .glide__arrows {
   position: absolute; }
@@ -8514,8 +8523,12 @@ body {
   .glide__arrows.about {
     width: 105%;
     margin-left: -5%; }
+  .glide__arrows.project {
+    width: 105%;
+    margin-left: -5%; }
+    .glide__arrows.project .glide__arrow {
+      color: gray; }
 
-/* hide arrows on devices less than 768px */
 @media (max-width: 768px) {
   .glide__arrows {
     display: none; } }
@@ -8605,3 +8618,10 @@ body {
 
 .glide--slider .glide__arrow.disabled {
   opacity: 0.33; }
+
+.glide__slide img {
+  margin-left: auto;
+  margin-right: auto; }
+
+.glide__slide .caption {
+  text-align: center; }

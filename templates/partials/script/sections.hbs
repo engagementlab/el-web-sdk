@@ -104,11 +104,18 @@
 			}
 		{{/ifeq}}
 
-		{{subSection}}
+		{{#ifeq key 'project'}}
 
-		// {{#ifeq section 'about'}}
+			var gliderDom = $("#project_images_glider");
+
+			// Initialize project images carousel
+			gliderDom.glide({
+	        type: "carousel",
+	        autoplay: false,
+	        autoheight: true
+	    });
 		
-		// {{/ifeq}}
+		{{/ifeq}}
 
 	})
 </script>

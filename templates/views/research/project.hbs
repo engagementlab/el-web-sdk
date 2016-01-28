@@ -75,7 +75,7 @@
 							{{!-- Glider.js structure --}}
 						<div id="project_images_glider" class="glide">
 
-							    <div class="glide__arrows">
+							    <div class="glide__arrows project">
 							        <button class="glide__arrow prev" data-glide-dir="<"></button>
 							        <button class="glide__arrow next" data-glide-dir=">"></button>
 							    </div>
@@ -84,7 +84,10 @@
 							        <ul class="glide__track" style="margin-left:-40px">
 											{{!-- @key is caption, "this" is image object --}}
 											{{# each projectImageObjects}}
-												<li class="glide__slide"><img src="{{{cloudinaryUrl width=173 quality=60}}}" alt="{{@key}}"></li>
+												<li class="glide__slide">
+													<img src="{{{cloudinaryUrl width=500 quality=60}}}" alt="{{@key}}">
+													<div class="caption">{{@key}}</div>
+												</li>
 											{{/each}}
 
 							        </ul>
@@ -114,7 +117,7 @@
 							{{#each project.files}}
 							
 								{{#if file}}
-									<li><a href="/files/{{file.filename}}"><i class="fa fa-file{{fileType file}} pr-5"></i> {{name}}</a></li>
+									<li><a href="{{file.url}}"><i class="fa fa-file{{fileType file}} pr-5"></i> {{name}}</a></li>
 								{{/if}}
 
 							{{/each}}
