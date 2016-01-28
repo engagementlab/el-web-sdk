@@ -50,7 +50,7 @@ Resource.add({
 			return item.key + require('path').extname(filename);
 		},
 		containerFormatter: function(item, filename) {
-			return 'files';
+			return 'resources';
 		}
 	},
 
