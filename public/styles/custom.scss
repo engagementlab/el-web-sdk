@@ -376,17 +376,29 @@ ul.resources {
 }
 
 /* PEOPLE */
+.team-member {
+  cursor: pointer;
+  // Needs explicit height to avoid layout issue
+  height: 315px;
+
+  a {
+    color: $gray-dark;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $base-color;
+  }
+}
 .team-member img {
   @include transition(all 0.33s ease);
   @include center-block;
   border-radius: 50%;
-  cursor: pointer;
   height: 192px;
   width: 192px;
-}
 
-.team-member img:hover {
-  @include teammemberHover();
+  &:hover {
+    @include teammemberHover();
+  }
 }
 
 .light .social-links {

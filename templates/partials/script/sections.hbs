@@ -50,29 +50,39 @@
 			}
 
 		{{/ifeq}}
-		{{#ifeq section 'people'}}
-			
-			/*$('.bio').readmore({
-			  speed: 250,
-			  collapsedHeight: 115,
-			  lessLink: '<a href="#">Close</a>',
-			  moreLink: '<a href="#">...</a>',
-			  afterToggle: function(trigger, element, expanded) {
+		{{#ifeq section 'person'}}
 
-		    	var teamMember = $(element).closest('.team-member');
-		    	var navHeight = parseInt($('body').css('padding-top'));
 
-		    	if(! expanded) { // The "Close" link was clicked
-		  	      $('html, body').animate( { scrollTop: teamMember.offset().top - navHeight }, {duration: 100 } );
-		  	    }
-			  }
-			});
+			var gliderDom = $("#people_glider");
+	    var gliderApi;
 
-			$('.team-member img.photo').click(function(evt) {
+			// Initialize people carousel
+			var gliderObj = gliderDom.glide({
+	        type: "carousel",
+	        autoplay: false,
+	        autoheight: true,
+	        startAt: $(gliderDom).data('starting-index')+1,
+	        afterTransition: function(evt) {
+	        	
+	        	// Show corresponding category and change URL
+	        	updateCategory();
 
-				$('.bio.' + evt.currentTarget.id).readmore('toggle');
+						var personKey = $(".glide__slide.active .person-bio-left").data('key');
+						window.history.pushState(null, null, personKey)
+					}
+	    });
+	    gliderApi = gliderObj.data('glide_api');
 
-			});*/
+	    function updateCategory() {
+	    	
+	    	var person = $(".glide__slide.active .person-bio-left");
+				var cat = person.data('category');
+				
+				$('#person_category').text(cat);
+
+	    }
+
+	    updateCategory();
 
 		{{/ifeq}}
 		{{#ifeq section 'about'}}

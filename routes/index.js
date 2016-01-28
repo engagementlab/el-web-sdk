@@ -40,6 +40,7 @@ exports = module.exports = function(app) {
 
     app.get('/about', routes.views.about);
     app.get('/people', routes.views.people);
+    app.get('/people/:person', routes.views.person);
 
     app.get('/academics', routes.views.academics);
     app.get('/cmap', routes.views.academics);
