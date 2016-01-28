@@ -7878,7 +7878,7 @@ html, body, .container {
   height: 100%; }
 
 .page-title, .title {
-  font-family: "HalisGR-SBook", sans-serif; }
+  font-family: 'HalisGR-SBook'; }
 
 .font-smallcaps {
   font-family: "HalisGR-SBook", sans-serif; }
