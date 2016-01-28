@@ -8493,9 +8493,14 @@ body {
 .navbar-toggle {
   margin-top: 22px; }
 
-#logo-footer {
-  width: 96px;
-  opacity: 0.5; }
+.logos_footer #logo {
+  width: 96px; }
+
+.logos_footer img {
+  display: initial;
+  opacity: 0.5;
+  margin-left: 2em;
+  margin-bottom: 1em; }
 
 .glide__arrows {
   position: absolute; }
