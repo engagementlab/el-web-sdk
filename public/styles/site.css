@@ -8440,6 +8440,21 @@ body {
   background-color: #ffffff;
   border: none; }
 
+.emerson-logo a {
+  padding: 16px !important; }
+  .emerson-logo a img {
+    height: 42px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    opacity: 0.5;
+    filter: alpha(opacity=50); }
+    .emerson-logo a img:hover {
+      opacity: 1;
+      filter: alpha(opacity=100); }
+
 @media (max-width: 768px) {
   body {
     padding-top: 76px; }
@@ -8470,6 +8485,10 @@ body {
     margin-bottom: 0; }
   #logo-col {
     text-align: center; } }
+
+@media (max-width: 991px) {
+  .emerson-logo {
+    display: none !important; } }
 
 .navbar-toggle {
   margin-top: 22px; }
