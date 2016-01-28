@@ -9,7 +9,6 @@
  *
  * ==========
  */
- 'use strict';
 var keystone = require('keystone');
 // See: https://github.com/chriso/validator.js
 var validator = require('validator');

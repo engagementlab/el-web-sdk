@@ -17,12 +17,15 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 pv-40">
-				{{> page/name name="About Us"}}
+				{{> page/name name="History"}}
 				{{> about/first_paragraph text=about.history1}}
 				{{> about/history_image_set images=about.historyImages1}}
 				{{> about/paragraph text=about.history2}}
 				{{> about/history_image_set images=about.historyImages2}}
 				{{> about/paragraph text=about.history3}}
+				{{#if about.history4}}
+					<p class="lead">{{about.history4}}</p>
+				{{/if}}
 			</div>
 		</div>
 	</div>
@@ -34,7 +37,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				{{> page/name name="Our Process + Approach"}}
+				{{> page/name name="About Us"}}
 				{{> about/first_paragraph text=about.process}}
 			</div>
 		</div>

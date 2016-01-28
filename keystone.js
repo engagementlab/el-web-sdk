@@ -48,12 +48,12 @@ if (process.env.NODE_ENV === 'production') {
 
 	keystone.set('session store', 'connect-mongostore');
 	keystone.set('session store options', {
-	  "db": {
-	    "name": "engagement-lab",
-	    "servers": [
-	      { "host": "127.0.0.1", "port": 27017 }
-	    ]
-	  }
+		"db": {
+			"name": "engagement-lab",
+			"servers": [
+				{ "host": "127.0.0.1", "port": 27017 }
+			]
+		}
 	});
 
 }
