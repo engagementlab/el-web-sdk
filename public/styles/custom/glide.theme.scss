@@ -11,9 +11,19 @@
     width: 105%;
     margin-left: -5%;
   }
+  &.project {
+    // Custom arrow placement on projects
+    width: 105%;
+    margin-left: -5%;
+    
+    .glide__arrow {
+    // Custom arrow color on projects
+      color: gray;
+    }
+  }
 }
 
-/* hide arrows on devices less than 768px */
+// Hide arrows on devices less than 768px
 @media (max-width:768px) {
   .glide__arrows {
     display: none;
@@ -107,4 +117,15 @@
 }
 .glide--slider .glide__arrow.disabled {
   opacity: 0.33;
+}
+
+// Added to base styling
+.glide__slide {
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .caption {
+    text-align: center;
+  }
 }

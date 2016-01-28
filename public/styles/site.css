@@ -8488,8 +8488,12 @@ body {
   .glide__arrows.about {
     width: 105%;
     margin-left: -5%; }
+  .glide__arrows.project {
+    width: 105%;
+    margin-left: -5%; }
+    .glide__arrows.project .glide__arrow {
+      color: gray; }
 
-/* hide arrows on devices less than 768px */
 @media (max-width: 768px) {
   .glide__arrows {
     display: none; } }
@@ -8579,3 +8583,10 @@ body {
 
 .glide--slider .glide__arrow.disabled {
   opacity: 0.33; }
+
+.glide__slide img {
+  margin-left: auto;
+  margin-right: auto; }
+
+.glide__slide .caption {
+  text-align: center; }

@@ -43,16 +43,18 @@ Resource.add({
 		dependsOn: { type: 'article' } },
 
 	file: {
-		type: Types.LocalFile,
+		type: Types.AzureFile,
 		dependsOn: { type: 'file' },
 		label: 'File',
-		dest: 'public/files',
-		prefix: 'files/',
-		filename: function(item, file) {
-			// Sanitize filename
-			return item.id + '-' + file.originalname.replace(/\s+/g, '_');
+		filenameFormatter: function(item, filename) {
+			return item._id + require('path').extname(filename);
+		},
+		containerFormatter: function(item, filename) {
+			return 'resources';
 		}
 	},
+
+
 
 	imageOverride: {
       type: Types.CloudinaryImage,
