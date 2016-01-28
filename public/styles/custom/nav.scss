@@ -42,7 +42,7 @@ body {
 		vertical-align: middle;
 		padding-left: 10px;
 		color: $gray-light;
-		text-transform: lowercase;
+		font-family: $font-theme-smallcaps;
 	}
 
 	&:hover {

@@ -5,6 +5,10 @@ html, body, .container {
   height: 100%;
 }
 
+.page-title, .title {
+  font-family: $font-theme-smallcaps;
+}
+
 @media (max-width: 768px) {
   .page-title, .lead {
     text-align: center;

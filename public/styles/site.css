@@ -7878,6 +7878,9 @@ h6.media-heading {
 html, body, .container {
   height: 100%; }
 
+.page-title, .title {
+  font-family: "HalisGR-SBook", sans-serif; }
+
 @media (max-width: 768px) {
   .page-title, .lead {
     text-align: center; } }
@@ -8387,7 +8390,7 @@ body {
     vertical-align: middle;
     padding-left: 10px;
     color: #bababa;
-    text-transform: lowercase; }
+    font-family: "HalisGR-SBook", sans-serif; }
   .logo-container:hover img {
     opacity: 0.6;
     filter: alpha(opacity=60); }
