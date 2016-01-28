@@ -124,6 +124,12 @@ a:focus,
 a:active {
 	color: $base-color-hover;
 }
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	color: $base-color;
+}
+h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+	color: $base-color;
+}
 mark,
 .mark {
 	background-color: $base-color;

@@ -27,6 +27,12 @@ a:focus,
 a:active {
   color: #0c9ec7; }
 
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  color: #78cbd1; }
+
+h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+  color: #78cbd1; }
+
 mark,
 .mark {
   background-color: #78cbd1;
@@ -8201,14 +8207,20 @@ html, body, .container {
 #project-title {
   margin: 60px 0; }
 
-.news-box img {
-  width: 350px;
-  height: 233px;
-  object-fit: cover; }
+.news-box {
+  height: 395px; }
+  .news-box img {
+    width: 350px;
+    height: 233px;
+    object-fit: cover; }
+  .news-box .body {
+    padding-left: 0;
+    padding-right: 0; }
 
-.news-box .body {
-  padding-left: 0;
-  padding-right: 0; }
+ul.resources {
+  list-style-type: none;
+  font-size: 19px;
+  padding-left: 8px; }
 
 /* Large and Medium devices (desktops, tablets less than 1199px) */
 @media (min-width: 768px) {
@@ -8273,8 +8285,10 @@ section.publications .subSection {
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease; }
-  .book-box h4:hover {
-    color: #78cbd1; }
+  .book-box p {
+    color: #7d7d7d; }
+    .book-box p:hover {
+      color: #7d7d7d; }
 
 .book-box:hover {
   -webkit-transform: scale(1.02, 1.02);
@@ -8390,12 +8404,14 @@ a .project-box {
     -o-transform: scale(1.05, 1.05);
     transform: scale(1.05, 1.05); }
 
+.caption {
+  padding: 10px 0; }
+
 @media (max-width: 767px) {
-  .project-box {
-    max-width: 372px;
-    margin: 0 auto; }
-    .project-box .body {
-      text-align: center; } }
+  .project-box, .listing-box, .news-box {
+    text-align: center; }
+    .project-box img, .listing-box img, .news-box img {
+      margin: 0 auto; } }
 
 body {
   padding-top: 76px; }

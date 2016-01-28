@@ -413,6 +413,7 @@ html, body, .container {
 }
 
 .news-box {
+  height: 395px;
   img {
     width: 350px;
     height: 233px;
@@ -422,6 +423,12 @@ html, body, .container {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+ul.resources {
+  list-style-type: none;
+  font-size: $font-size-h4;
+  padding-left: 8px;
 }
 
 /* Large and Medium devices (desktops, tablets less than 1199px) */
@@ -486,8 +493,11 @@ section.publications .subSection {
     display: inline;
     @include transition(all 0.5s ease);
   }
-  h4:hover {
-    color: $base-color;
+  p {
+    color: $gray-dark;
+    &:hover {
+      color: $gray-dark;
+    }
   }
 }
 .book-box:hover {
@@ -633,13 +643,13 @@ a .project-box {
   }
 }
 
-@media (max-width:767px){
-  .project-box {
-    max-width: 372px;
-    margin: 0 auto;
+.caption {
+  padding: 10px 0;
+}
 
-    .body {
-      text-align: center;
-    }
+@media (max-width:767px){
+  .project-box, .listing-box, .news-box {
+    text-align: center;
+    img { margin: 0 auto; }
   }
 }
