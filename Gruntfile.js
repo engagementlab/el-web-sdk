@@ -62,6 +62,7 @@ module.exports = function(grunt) {
           src: ['public/css/**/*.css', 
 		            'public/plugins/**/*.css',
 		            'public/fonts/**/*.css',
+		            'public/fonts/*.css',
 		            'public/bower_components/**/dist/css/*.min.css',
 		            '!public/bower_components/glidejs/dist/css/glide.theme.min.css', // We are using our own glide theme; exclude
 		            'public/styles/site.css'],
