@@ -86,7 +86,7 @@
 											{{# each projectImageObjects}}
 												<li class="glide__slide">
 													<img src="{{{cloudinaryUrl width=500 quality=60}}}" alt="{{@key}}">
-													<div class="caption">{{@key}}</div>
+													<div class="caption lead">{{@key}}</div>
 												</li>
 											{{/each}}
 
@@ -113,11 +113,11 @@
 
 					{{#if project.files}}
 						<div class="tab-pane {{#if filesTabFirst}}active{{/if}}" id="pill-downloads">
-							<ul>
+							<ul class="resources">
 							{{#each project.files}}
 							
 								{{#if file}}
-									<li><a href="{{file.url}}"><i class="fa fa-file{{fileType file}} pr-5"></i> {{name}}</a></li>
+									<li><a href="{{file.url}}"><i class="fa fa-download pr-5"></i> {{name}}</a></li>
 								{{/if}}
 
 							{{/each}}
@@ -158,29 +158,28 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+				<h1 class="title"><i>{{project.name}}</i> News</h1>
 				<div class="separator-5"></div>
-				<h2 class="mt-20 title"><i>{{project.name}}</i> News</h2>
+				<div class="clearfix mb-10"></div>
 			</div>
 		</div>
 		<div class="row">
-				{{# each project.articles}}
-
-					<div class="col-sm-4">
-						<div class="image-box style-2 mb-20 text-center news-box">
-							<div class="overlay-container">
-								<a href="{{url}}"><img src="{{image}}" alt="{{data.title}}" width="350" height="233"></a>
-							</div>
-							<div class="body">
-								<h4><a href="{{url}}">{{data.title}}</a></h4>
-								{{#if data.description}}
-									<p>{{limit data.description 100}}</p>										
-								{{/if}}
-							</div>
+			{{# each project.articles}}
+				<div class="col-sm-6 col-md-4">
+					<div class="image-box style-2 mb-20 text-center news-box">
+						<div class="overlay-container">
+							<a href="{{url}}"><img src="{{image}}" alt="{{data.title}}" width="350" height="233"></a>
+						</div>
+						<div class="body">
+							<h4><a href="{{url}}">{{data.title}}</a></h4>
+							{{#if data.description}}
+								<p>{{limit data.description 100}}</p>										
+							{{/if}}
 						</div>
 					</div>
+				</div>
 
-				{{/each}}
-			{{!-- </div> <!-- .col-md-12 --> --}}
+			{{/each}}
 		</div> <!-- .row -->
 	</div> <!-- .container -->
 </section>

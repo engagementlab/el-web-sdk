@@ -27,6 +27,12 @@ a:focus,
 a:active {
   color: #0c9ec7; }
 
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+  color: #78cbd1; }
+
+h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+  color: #78cbd1; }
+
 mark,
 .mark {
   background-color: #78cbd1;
@@ -7872,6 +7878,9 @@ h6.media-heading {
 html, body, .container {
   height: 100%; }
 
+.page-title, .title {
+  font-family: "HalisGR-SBook", sans-serif; }
+
 @media (max-width: 768px) {
   .page-title, .lead {
     text-align: center; } }
@@ -7961,70 +7970,6 @@ html, body, .container {
     width: 11.111%;
     float: left; } }
 
-/*  Bootstrap Clearfix */
-/*  Tablet  */
-@media (min-width: 767px) {
-  /* Column clear fix */
-  .col-lg-1:nth-child(12n+1),
-  .col-lg-2:nth-child(6n+1),
-  .col-lg-3:nth-child(4n+1),
-  .col-lg-4:nth-child(3n+1),
-  .col-lg-6:nth-child(2n+1),
-  .col-md-1:nth-child(12n+1),
-  .col-md-2:nth-child(6n+1),
-  .col-md-3:nth-child(4n+1),
-  .col-md-4:nth-child(3n+1),
-  .col-md-6:nth-child(2n+1) {
-    clear: none; }
-  .col-sm-1:nth-child(12n+1),
-  .col-sm-2:nth-child(6n+1),
-  .col-sm-3:nth-child(4n+1),
-  .col-sm-4:nth-child(3n+1),
-  .col-sm-6:nth-child(2n+1) {
-    clear: left; } }
-
-/*  Medium Desktop  */
-@media (min-width: 992px) {
-  /* Column clear fix */
-  .col-lg-1:nth-child(12n+1),
-  .col-lg-2:nth-child(6n+1),
-  .col-lg-3:nth-child(4n+1),
-  .col-lg-4:nth-child(3n+1),
-  .col-lg-6:nth-child(2n+1),
-  .col-sm-1:nth-child(12n+1),
-  .col-sm-2:nth-child(6n+1),
-  .col-sm-3:nth-child(4n+1),
-  .col-sm-4:nth-child(3n+1),
-  .col-sm-6:nth-child(2n+1) {
-    clear: none; }
-  .col-md-1:nth-child(12n+1),
-  .col-md-2:nth-child(6n+1),
-  .col-md-3:nth-child(4n+1),
-  .col-md-4:nth-child(3n+1),
-  .col-md-6:nth-child(2n+1) {
-    clear: left; } }
-
-/*  Large Desktop  */
-@media (min-width: 1200px) {
-  /* Column clear fix */
-  .col-md-1:nth-child(12n+1),
-  .col-md-2:nth-child(6n+1),
-  .col-md-3:nth-child(4n+1),
-  .col-md-4:nth-child(3n+1),
-  .col-md-6:nth-child(2n+1),
-  .col-sm-1:nth-child(12n+1),
-  .col-sm-2:nth-child(6n+1),
-  .col-sm-3:nth-child(4n+1),
-  .col-sm-4:nth-child(3n+1),
-  .col-sm-6:nth-child(2n+1) {
-    clear: none; }
-  .col-lg-1:nth-child(12n+1),
-  .col-lg-2:nth-child(6n+1),
-  .col-lg-3:nth-child(4n+1),
-  .col-lg-4:nth-child(3n+1),
-  .col-lg-6:nth-child(2n+1) {
-    clear: left; } }
-
 /* HOME */
 .overlay {
   position: absolute;
@@ -8041,7 +7986,7 @@ html, body, .container {
     font-size: 28px; }
 
 #logo-img {
-  max-height: 380px;
+  max-height: 400px;
   display: inline; }
 
 .row .main h1 {
@@ -8201,14 +8146,20 @@ html, body, .container {
 #project-title {
   margin: 60px 0; }
 
-.news-box img {
-  width: 350px;
-  height: 233px;
-  object-fit: cover; }
+.news-box {
+  height: 395px; }
+  .news-box img {
+    width: 350px;
+    height: 233px;
+    object-fit: cover; }
+  .news-box .body {
+    padding-left: 0;
+    padding-right: 0; }
 
-.news-box .body {
-  padding-left: 0;
-  padding-right: 0; }
+ul.resources {
+  list-style-type: none;
+  font-size: 19px;
+  padding-left: 8px; }
 
 /* Large and Medium devices (desktops, tablets less than 1199px) */
 @media (min-width: 768px) {
@@ -8280,8 +8231,10 @@ section.publications .subSection {
     -webkit-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease; }
-  .book-box h4:hover {
-    color: #78cbd1; }
+  .book-box p {
+    color: #7d7d7d; }
+    .book-box p:hover {
+      color: #7d7d7d; }
 
 .book-box:hover {
   -webkit-transform: scale(1.02, 1.02);
@@ -8397,12 +8350,14 @@ a .project-box {
     -o-transform: scale(1.05, 1.05);
     transform: scale(1.05, 1.05); }
 
+.caption {
+  padding: 10px 0; }
+
 @media (max-width: 767px) {
-  .project-box {
-    max-width: 372px;
-    margin: 0 auto; }
-    .project-box .body {
-      text-align: center; } }
+  .project-box, .listing-box, .news-box {
+    text-align: center; }
+    .project-box img, .listing-box img, .news-box img {
+      margin: 0 auto; } }
 
 body {
   padding-top: 76px; }
@@ -8442,7 +8397,7 @@ body {
     vertical-align: middle;
     padding-left: 10px;
     color: #bababa;
-    text-transform: lowercase; }
+    font-family: "HalisGR-SBook", sans-serif; }
   .logo-container:hover img {
     opacity: 0.6;
     filter: alpha(opacity=60); }
