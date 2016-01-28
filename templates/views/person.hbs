@@ -1,0 +1,45 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * 
+ * Person Full Bio Carousel template
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+
+<section class="section light-gray-bg clearfix">
+	<div class="container">
+		<div class="row">
+			<h1 class="page-title pt-10" id="person_category"></h1>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">		
+			
+			{{!-- Glider.js structure --}}
+			<div id="people_glider" class="glide" data-starting-index="{{starting_index}}">
+
+			    <div class="glide__arrows people">
+			        <button class="glide__arrow prev" data-glide-dir="<"></button>
+			        <button class="glide__arrow next" data-glide-dir=">"></button>
+			    </div>
+
+			    <div class="glide__wrapper">
+			        <ul class="glide__track" style="margin-left:-40px">
+								{{#each people_bios}}
+									<li class="glide__slide">
+										{{> people/bio person=this}}
+									</li>
+								{{/each}}
+			        </ul>
+			    </div>
+
+			</div>
+
+		</div>
+	</div>
+</section>
