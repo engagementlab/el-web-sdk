@@ -359,10 +359,37 @@ module.exports = function() {
 
 	_helpers.fileType = function (file) {
 
-		var type = file.filetype.replace('application/', '');
+		var cssTypesApp = 
+		{
+			'pdf': 'pdf',
+		  'zip': 'zip',
+		  'ogg': 'audio', 
+		  'vnd.openxmlformats-officedocument.wordprocessingml.document': 'word',
+		  'vnd.openxmlformats-officedocument.presentationml.presentation': 'powerpoint',
+		  'vnd.openxmlformats-officedocument.spreadsheetml.sheet': 'excel'
+		};
 
-		if(type.length == 3)
-			return '-' + type + '-o';
+		var fileType = file.filetype;
+		var cssType;
+
+		if(fileType.indexOf('audio/') !== -1)
+			cssType = 'audio';
+
+		else if(fileType.indexOf('video/') !== -1)
+			cssType = 'video';
+
+		else if(fileType.indexOf('image/') !== -1)
+			cssType = 'image';
+		
+		// Find if there is a supported application/ icon
+		else {
+			var mimeType = file.filetype.replace('application/', '');
+
+			Object.keys(cssTypesApp).forEach( function(t,i) { if(t == mimeType) cssType = cssTypesApp[t] } );
+		}
+
+		if(cssType !== undefined)
+			return cssType + '-o';
 		else 
 			return 'file';
 

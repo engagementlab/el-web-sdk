@@ -417,7 +417,7 @@
 	z-index: 2;
 	width: 100%;
 	height: 100%;
-	@inlcude transition(all 0.2s ease-in-out);
+	@include transition(all 0.2s ease-in-out);
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translateZ(0) scale(1.0, 1.0);	
 }
