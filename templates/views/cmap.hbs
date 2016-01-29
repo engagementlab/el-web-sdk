@@ -1,0 +1,86 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * CMAP Page Template 
+ * - See Cmap model for fields
+ * - Use {{jsonPrint about}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+
+<section class="cmap">
+	<section class="section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<img src="{{{cloudinaryUrl cmap.logo width=600 height=450 crop='fill' quality=80}}}">
+				</div>
+				<div class="col-md-8">
+					<p class="lead"><span class="inline-header">The MA in Civic Media, Art & Practice</span> {{cmap.programDescription}}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section" id="apply">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="lead inline-header">Is CMAP the right program for you?</p>
+					<div class="lead">{{{cmap.apply.html}}}</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section" id="elements">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-header mb-40">Core Elements of the CMAP Experience</h3>
+				</div>
+			</div>
+			<div class="row dark">
+				{{#each elements}}
+					<div class="col-sm-6 col-md-3 text-center pv-20" id="element-{{@index}}">
+						<h3 class="ph-20">{{header}}</h3>
+						<h4 class="pv-20">{{subheader}}</h4>
+						<p>{{element}}</p>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</section>
+	<section class="section dark" id="curriculum">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-header">Curriculum</h3>
+					<div class="lead">{{cmap.curriculum}}</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section dark" id="structure">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-header">The Structure</h3>
+					<div class="lead">{{{cmap.structure.html}}}</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="section dark" id="courses">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-header">Core Courses</h3>
+					<div class="lead">{{{cmap.courses.html}}}</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</section>
