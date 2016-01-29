@@ -102,11 +102,6 @@ h6 a {
 .dark .footer h6 a {
   color: #999999;
 }
-h1 {
-  font-size: 33px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
 h1.logo-font {
   text-transform: none;
   font-weight: 300;

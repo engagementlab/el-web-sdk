@@ -310,7 +310,7 @@ fieldset[disabled] .btn-default {
 	position: absolute;
 	content: "";
 	top: 0;
-	@inlcude opacity(0);
+	@include opacity(0);
 	right: 0px;
 	z-index: 2;
 	@include transition(all 0.2s ease-in-out);
@@ -1169,7 +1169,7 @@ ul.pagination li.active a,
 	}
 }
 .progress-bar {
-	@inclue transition(width 1.5s ease);
+	@include transition(width 1.5s ease);
 }
 .progress .label {
 	position: absolute;

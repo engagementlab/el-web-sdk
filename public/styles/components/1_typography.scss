@@ -165,7 +165,7 @@ p.large {
 }
 a {
 	color: $base-color;
-	@inlcude transition(all 0.2s ease-in-out);
+	@include transition(all 0.2s ease-in-out);
 }
 a:hover {
 	color: $base-color-hover;
