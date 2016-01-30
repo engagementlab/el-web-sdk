@@ -14,6 +14,8 @@
  */
 var keystone = require('keystone');
 var Academics = keystone.list('Academics');
+var Cmap = keystone.list('Cmap');
+var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
 
@@ -26,7 +28,7 @@ exports = module.exports = function(req, res) {
     // Load the current project
     view.on('init', function(next) {
 
-        var q = Academics.model.findOne({}, {}, {
+        /*var q = Academics.model.findOne({}, {}, {
             sort: {
                 'createdAt': -1
             }
@@ -36,11 +38,28 @@ exports = module.exports = function(req, res) {
             locals.academics = result;
 
             next(err);
+        });*/
+
+        var q = Cmap.model.findOne({}, {}, {
+            sort: { 'createdAt': -1 }
+        });
+
+        q.exec(function(err, result) {
+            locals.cmap = result;
+            locals.elements = [];
+            for (var i = 0; i < result.headers.length; i++) {
+                locals.elements.push({
+                    header: result.headers[i],
+                    subheader: result.subheaders[i],
+                    element: result.elements[i]
+                });
+            };
+            next(err);
         });
 
     });
 
     // Render the view
-    view.render('academics');
+    view.render('cmap');
 
 };

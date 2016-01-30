@@ -69,6 +69,10 @@ Project.add({
             type: Types.Boolean,
             label: 'Featured'
         },
+        cmapProject: {
+            type: Types.Boolean,
+            label: "CMAP Project"
+        },
         overview: {
             type: Types.Markdown,
             label: 'Project Narrative',

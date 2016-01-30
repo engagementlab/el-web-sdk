@@ -91,7 +91,7 @@ keystone.set('nav', {
 	'programs': 'programs',
 	'shared': ['resources'],
 	'about': ['About', 'partners', 'Academics', 'people'],
-	'structure': ['directories', 'subdirectories', 'users']
+	'structure': ['directories', 'subdirectories', 'users', 'Cmap']
 });
 
 // prefix all built-in tags with 'keystone_'

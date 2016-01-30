@@ -30,7 +30,6 @@
 		</div>
 	</div>
 </div>
-{{!-- <section class="main-container"> --}}
 
 <section class="about-section">
 	<!-- Process & Approach -->
@@ -44,50 +43,50 @@
 	</div>
 </section>
 
-	<!-- Partners -->
-	<section class="section clearfix partners about-section">
-		<div class="container border-clear">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="container">
-						<div class="row">
-							{{> page/name name="Our Partners"}}
-							<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+<!-- Partners -->
+<section class="section clearfix partners about-section">
+	<div class="container border-clear">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container">
+					<div class="row">
+						{{> page/name name="Our Partners"}}
+						<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
 
-								{{!-- Glider.js structure --}}
-								<div id="partners_glider" class="glide">
+							{{!-- Glider.js structure --}}
+							<div id="partners_glider" class="glide">
 
-								    <div class="glide__arrows about">
-								        <button class="glide__arrow prev" data-glide-dir="<"></button>
-								        <button class="glide__arrow next" data-glide-dir=">"></button>
-								    </div>
+							    <div class="glide__arrows about">
+							        <button class="glide__arrow prev" data-glide-dir="<"></button>
+							        <button class="glide__arrow next" data-glide-dir=">"></button>
+							    </div>
 
-								    <div class="glide__wrapper">
-								        <ul class="glide__track">
-													{{#each partners}}
-														<li class="glide__slide">{{> about/partner_info partner=this}}</li>
-													{{/each}}
-								        </ul>
-								    </div>
-
-								</div>
+							    <div class="glide__wrapper">
+							        <ul class="glide__track">
+										{{#each partners}}
+											<li class="glide__slide">{{> about/partner_info partner=this}}</li>
+										{{/each}}
+							        </ul>
+							    </div>
 
 							</div>
+
 						</div>
 					</div>
-					<div class="container pv-20">
-						<div class="clients-container">
-							<div class="clients">
-								{{#each partners}}
-									{{> about/partner_icon partner=this}}
-								{{/each}}
-							</div>
+				</div>
+				<div class="container pv-20">
+					<div class="clients-container">
+						<div class="clients">
+							{{#each partners}}
+								{{> about/partner_icon partner=this}}
+							{{/each}}
 						</div>
-					</div> <!-- .container -->
-				</div> <!-- .col-md-12 -->
-			</div> <!-- .row -->
-		</div> <!-- .container-fluid -->
-	</section>
+					</div>
+				</div> <!-- .container -->
+			</div> <!-- .col-md-12 -->
+		</div> <!-- .row -->
+	</div> <!-- .container-fluid -->
+</section>
 
 <section class="about-section">
 	<!-- Collaborate -->
@@ -112,4 +111,3 @@
 		</div>
 	</div>
 </section>
-{{!-- </section> --}}
