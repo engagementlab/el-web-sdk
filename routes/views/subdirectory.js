@@ -33,9 +33,8 @@ exports = module.exports = function(req, res) {
         querySub.exec(function(err, resultSub) {
 
 
-            if (resultSub === null) {
-                return res.status(404).send(keystone.wrapHTMLError('Oh ho ho ho no! 404 error: no page to render here :('));
-            }
+            if (resultSub === null)
+                return res.notfound('Uh oh.', 'Sorry, but it looks like the fun stuff is missing (404)! Maybe go <a href="http://elab.emerson.edu/">back home</a>?');
 
             locals.name = resultSub.name;
             locals.lead = resultSub.description;

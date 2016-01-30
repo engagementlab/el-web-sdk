@@ -39,7 +39,7 @@ exports = module.exports = function(req, res) {
         publicationQuery.exec(function(err, result) {
             
             if (result === null) {
-                return res.status(404).send(keystone.wrapHTMLError('You just got 404\'d ;)\nEnjoy the rest of your life!'));
+                return res.notfound('Cannot find publication', 'Sorry, but it looks like the publication you were looking for does not exist! Try <a href="http://elab.emerson.edu/research/publications">going back</a> to the directory.');
             }
 
             locals.publication = result;

@@ -35,9 +35,8 @@ exports = module.exports = function(req, res) {
 
         querySub.exec(function(err, resultSub) {
 
-            if (resultSub === null) {
-                return res.status(404).send(keystone.wrapHTMLError('Just because you want it to be true doesn\'t make it true! (404)'));
-            }
+            if (resultSub === null)
+                return res.notfound('Cannot find directory', 'Sorry, but it looks like something went awry! Try <a href="http://elab.emerson.edu/research">going back</a> to research.');
 
             locals.name = resultSub.name;
             locals.lead = resultSub.description;
