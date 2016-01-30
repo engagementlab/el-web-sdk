@@ -11,9 +11,9 @@
 * ==========
 */
 --}}
-<!-- NEWS START -->
-<!-- banner start -->
-<!-- ================ -->
+{{!-- NEWS START --}}
+{{!-- banner start --}}
+{{!-- ================ --}}
 <div class="clearfix dark light-gray-bg banner" style="background-image:url('{{featured.image}}');">
 	<div class="container-fluid">
 		<div class="row">
@@ -25,7 +25,6 @@
 						<span class="day">{{date published format='DD MMM YYYY'}}</span>
 					</span>
 					<span class="submitted"><i class="icon-user-1"></i> by <a href="#">{{featured.author}}</a></span>
-					{{!-- <span class="comments"><i class="icon-chat"></i> <a href="#">22 comments</a></span> --}}
 				</div>
 				<p class="summary sfb hidden-xs">{{featured.content}}
 				</p>
@@ -36,19 +35,18 @@
 		</div>
 	</div>
 </div>
-<!-- banner end -->
-<!-- main-container start -->
-<!-- ================ -->
+{{!-- banner end --}}
+{{!-- main-container start --}}
+{{!-- ================ --}}
 <section class="news-container">
 	<div class="container-fluid no-gutter">
-		<!-- blog start -->
+		{{!-- blog start --}}
 		<div class="col-md-8 ph-30 blog-feed">
 			<h1 class="page-title mb-10">Blog Feed</h1>
 			<div class="separator-5"></div>
 			<div class="clearfix mb-10"></div>
-			{{!-- {{jsonPrint news}} --}}
 			{{#each news}}
-			<!-- blogpost start -->
+			{{!-- blogpost start --}}
 			<article class="blogpost">
 				<div class="row grid-space-10">
 					<div class="col-sm-4 col-md-4">
@@ -79,8 +77,8 @@
 			</article>
 			{{/each}}
 		</div>
-		<!-- blog end -->
-		<!-- events start -->
+		{{!-- blog end --}}
+		{{!-- events start --}}
 		<div class="col-md-4 ph-30 news-sidebar" >
 			<div class="affix-section">
 				<div id="event-section">
@@ -89,30 +87,31 @@
 					<div class="clearfix mb-10"></div>
 					{{#if events}}
 						{{#each events}}
-							<!-- event start -->
-							<div class="media margin-clear">
-								<div class="media-left">
+							{{!-- event start --}}
+							<div class="row grid-space-10">
+								<div class="col-sm-5 col-md-5">
 									<div class="overlay-container">
 										<a href="{{vanity_url}}"><img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
 										</a>
 									</div>
 								</div>
-								<div class="media-body">
+								<div class="col-sm-5 col-md-5">
+
 									<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
-									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>
+									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>									
+								
 								</div>
-								<hr>
 							</div>
-							<!-- event end -->
+							{{!-- event end --}}
 						{{/each}}
 					{{/if}}
-					<!-- events end -->
+					{{!-- events end --}}
 				</div>
-				<!-- features -->
+				{{!-- features --}}
 				<h3 class="page-title">Featured Press and Announcements</h3>
 				<div class="separator-5 mb-20"></div>
 				
-				<!-- featured start -->
+				{{!-- featured start --}}
 				{{#if articles}}
 					{{#each articles}}
 						<div class="media margin-clear">
@@ -125,10 +124,10 @@
 					{{/each}}
 					<p><a href="/press">More press and announcements <i class="fa fa-chevron-right" aria-hidden="true"></i></a></p>
 				{{/if}}
-				<!-- featured end -->
+				{{!-- featured end --}}
 			</div>
 		</div>
 
 	</div>
 </section>
-<!-- main-container end -->
+{{!-- main-container end --}}

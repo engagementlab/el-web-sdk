@@ -42,6 +42,9 @@ Person.add({
 	fbURL: { type: Types.Url, label: 'Facebook' },	
 	githubURL: { type: Types.Url, label: 'Github' },
 	websiteURL: { type: Types.Url, label: 'Website' },	
+
+	email: { type: String, label: 'Email' },
+	phone: { type: String, label: 'Phone' },
 	
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 

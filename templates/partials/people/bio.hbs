@@ -32,6 +32,14 @@
 		{{/if}}
 	</ul>
 
+	{{#if person.email}}
+		<div><i class="text-default fa fa-envelope pl-10 pr-5"></i>{{emailFormat person.email}}</div>
+	{{/if}}
+
+	{{#if person.phone}}
+		<div><i class="text-default fa fa-phone pl-10 pr-5"></i>{{person.phone}}</div>
+	{{/if}}
+
 </div>
 
 <div class="col-sm-6 col-md-7">

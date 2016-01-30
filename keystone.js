@@ -9,6 +9,10 @@ var keystone = require('keystone');
 var handlebars = require('express-handlebars');
 var mongooseRedisCache = require('mongoose-redis-cache');
 
+var Slack = require('slack-node');
+ 
+webhookUri = "https://hooks.slack.com/services/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";
+
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
@@ -95,6 +99,18 @@ keystone.set('cloudinary prefix', 'keystone');
 
 // prefix each image public_id with [{prefix}]/{list.path}/{field.path}/
 keystone.set('cloudinary folders', true);
-
+ 
+slack = new Slack();
+slack.setWebhook(webhookUri);
+ 
+/*slack.webhook({
+  channel: "#website_updates",
+  username: "ELBot",  
+  icon_emoji: ":ghost:",
+  text: "Hello world!"
+}, function(err, response) {
+  console.log(response);
+});
+*/
 // Start Keystone to connect to your database and initialise the web server
 keystone.start();

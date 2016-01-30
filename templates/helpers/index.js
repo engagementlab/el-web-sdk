@@ -441,5 +441,15 @@ module.exports = function() {
 
 	}
 
+	//  ### format email as words
+	// Replace @ and last dot in email address
+	//
+	//  @str: The email
+	_helpers.emailFormat = function (str) {
+			
+		return str.replace(/_([^_]*)$/, ' dot ' + '$1').replace('@', ' at ');
+
+	}
+
 	return _helpers;
 };

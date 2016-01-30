@@ -8288,8 +8288,10 @@ section.publications .subSection {
 
 .news-sidebar {
   padding-top: 50px; }
-  .news-sidebar .media img {
-    max-width: 96px; }
+  .news-sidebar img.media-object {
+    padding-bottom: 1em; }
+  .news-sidebar #event-section {
+    padding-bottom: 2em; }
 
 .banner {
   background-size: cover; }

@@ -487,9 +487,14 @@ section.publications .subSection {
 .news-sidebar {
   padding-top: 50px;
 
-  .media img {
-    max-width: 96px;
+  img.media-object  {
+    padding-bottom: 1em;
   }
+
+  #event-section {
+    padding-bottom: 2em;
+  }
+
 }
 
 .banner {
