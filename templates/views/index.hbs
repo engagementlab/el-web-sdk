@@ -37,7 +37,7 @@
 			</section>
 			<!-- banner end -->
 
-			{{#if recentEvents}}
+			{{#if featured_content}}
 				<section class="recent-events clearfix light-bg">
 					<div class="container">
 						<div class="row">
@@ -46,7 +46,7 @@
 							</div>
 						</div>
 						<div class="row grid-space-30">
-							{{#each recentEvents}}
+							{{#each featured_content}}
 								{{> index/recent_event colSize=eventsColumnSize event=this}}
 							{{/each}}
 						</div>

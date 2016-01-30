@@ -8325,6 +8325,10 @@ section.publications .subSection {
     top: 0;
     bottom: 0; } }
 
+.no-events {
+  padding-bottom: 2em;
+  font-style: italic; }
+
 /* DIRECTORY */
 #listing-img {
   display: inline;

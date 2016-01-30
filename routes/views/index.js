@@ -32,7 +32,7 @@ exports = module.exports = function(req, res) {
     // Make any queries
     view.on('init', function(next) {
 
-        locals.recentEvents = [];
+        locals.featured_content = [];
 
         // This query gets all featured projects
         var projectQuery = Project.model.find({
@@ -55,7 +55,7 @@ exports = module.exports = function(req, res) {
             var news = newsData.news[0];
             var content = news.content.replace(/(^(By)\s+(.*)?[0-9]\s)/, ''); // removes the byline
 
-            locals.recentEvents[0] = {
+            locals.featured_content[0] = {
                 date: news.published,
                 title: news.title.replace('[VIDEO]', ''), // TODO: might need more sanitation of the title
                 content: content,
@@ -63,18 +63,20 @@ exports = module.exports = function(req, res) {
                 type: "blog"
             };
             
-            var events = newsData.events[0];
-            locals.recentEvents[1] = {
-                title: events.name.text,
-                content: events.description.text,
-                url: events.url,
-                type: "event"
-            };
+            if(newsData.events.length > 0) {
+                var events = newsData.events[0];
+                locals.featured_content[1] = {
+                    title: events.name.text,
+                    content: events.description.text,
+                    url: events.url,
+                    type: "event"
+                };
+            }
 
             Resource.model.findOne({ type: 'article' }, {}, {
                 sort: { 'createdAt': -1 }
             }).exec(function(err, result) {
-                locals.recentEvents[2] = {
+                locals.featured_content[2] = {
                     title: result.name,
                     content: result.summary,
                     url: result.url,
