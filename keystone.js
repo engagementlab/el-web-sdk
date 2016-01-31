@@ -8,10 +8,9 @@ if (process.env.NODE_ENV !== 'staging')
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
 var mongooseRedisCache = require('mongoose-redis-cache');
-
 var Slack = require('slack-node');
- 
-webhookUri = "https://hooks.slack.com/services/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";
+
+var slackInstance;
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -67,6 +66,17 @@ else
 // Load your project's Models
 keystone.import('models');
 
+// Slack API instantiation
+slackInstance = new Slack(process.env.SLACK_API_KEY);
+slackInstance.setWebhook(process.env.SLACK_HOOK_URI);
+slackInstance.channel = '#website_updates';
+slackInstance.user = 'ELBot';
+slackInstance.user_icon = 'http://res.cloudinary.com/engagement-lab-home/image/upload/v1454193996/site/logo_bot.png';
+
+// slack needs to be be accessible anywhere;
+// this is not a keystone config var, though (yet)
+keystone.set('slack', slackInstance);
+
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
 // for each request) should be added to ./routes/middleware.js
@@ -91,7 +101,7 @@ keystone.set('nav', {
 	'programs': 'programs',
 	'shared': ['resources'],
 	'about': ['About', 'partners', 'Academics', 'people'],
-	'structure': ['directories', 'subdirectories', 'users', 'Cmap']
+	'structure': ['directories', 'subdirectories', 'users']
 });
 
 // prefix all built-in tags with 'keystone_'
@@ -99,18 +109,6 @@ keystone.set('cloudinary prefix', 'keystone');
 
 // prefix each image public_id with [{prefix}]/{list.path}/{field.path}/
 keystone.set('cloudinary folders', true);
- 
-slack = new Slack();
-slack.setWebhook(webhookUri);
- 
-/*slack.webhook({
-  channel: "#website_updates",
-  username: "ELBot",  
-  icon_emoji: ":ghost:",
-  text: "Hello world!"
-}, function(err, response) {
-  console.log(response);
-});
-*/
+
 // Start Keystone to connect to your database and initialise the web server
 keystone.start();

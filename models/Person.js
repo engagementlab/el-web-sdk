@@ -12,6 +12,7 @@
 
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var slack = require('../slack');
 
 /**
  * @module team
@@ -48,6 +49,19 @@ Person.add({
 	phone: { type: String, label: 'Phone' },
 	
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
+
+});
+
+/**
+ * Hooks
+ * =============
+ */
+Person.schema.pre('save', function(next) {
+
+    // Make a post to slack when this Person is updated
+    slack.post(Person.schema, this, true);
+
+    next();
 
 });
 

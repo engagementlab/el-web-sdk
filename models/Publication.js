@@ -12,6 +12,7 @@
 
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var slack = require('../slack');
 
 /**
  * @module publication
@@ -67,9 +68,12 @@ Publication.schema.pre('save', function(next) {
       var err = new Error('You must define a blurb for journal articles.');
       next(err);
     }
-  }
-  
-  next();
+  } 
+
+  // Make a post to slack when this Publication is updated
+  slack.post(Publication.schema, this, true);
+
+	next();
 });
 
 /**

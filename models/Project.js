@@ -14,6 +14,7 @@ var keystone = require('keystone');
 var validator = require('validator');
 var Listing = require('./Listing');
 var Types = keystone.Field.Types;
+var slack = require('../slack');
 
 /**
  * @module project
@@ -229,11 +230,10 @@ Project.schema.pre('save', function(next) {
         var msg = (this.tabHeadings.length > this.tabText.length) ? 'more' : 'fewer';
         var err = new Error('You cannot have ' + msg + ' custom tab headings than tab text.');
         next(err);
-    }
+    }    
 
-    // TODO: For future slack integration
-    // keystone.list('User').model.findById(this.updatedBy, function(err, user) {
-    // });
+    // Make a post to slack when this Project is updated
+    slack.post(Project.schema, this, true);
 
     next();
 
