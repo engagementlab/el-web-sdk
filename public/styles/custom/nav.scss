@@ -82,6 +82,13 @@ body {
 	}
 }
 
+#at-emerson {
+	position: absolute;
+	font-size: 12px;
+	top: 50px;
+	left: 80px;
+}
+
 @media (max-width: 768px) { 
 	body { padding-top: 76px; }
 	.navbar-nav {
@@ -99,11 +106,17 @@ body {
 	.navbar-default .navbar-nav > li > a {
 		border-bottom: none;
 	}
+	.emerson-logo {
+		display: none !important;
+	}
 }
 
 @media (max-width: 991px) { 
 	.main-navigation > .navbar-collapse > ul {
 		text-align: center;
+	}
+	.emerson-logo {
+		margin-bottom: -35px;
 	}
 }
 
@@ -126,9 +139,9 @@ body {
 	}
 }
 
-@media (max-width: 991px) {
-	.emerson-logo {
-		display: none !important;
+@media (min-width: 767px) {
+	#at-emerson {
+		display: none;
 	}
 }
 
