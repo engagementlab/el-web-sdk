@@ -1,3 +1,12 @@
+/**
+ * Engagement Lab Website
+ * 
+ * Slack plugin for posting CMS changes to specified channel
+ * @author Johnny Richardson
+ *
+ * ==========
+ */
+
 var _keystone = require('keystone');
 
 module.exports = {
@@ -35,10 +44,8 @@ module.exports = {
                 var modelName = schema.tree.__t.default;
 
                 // If there was a slack error, just return so the doc is saved
-                if(err) {
-                    next();
+                if(err)
                     return;
-                }
 
                 if(response.ok) {
                     
@@ -46,16 +53,21 @@ module.exports = {
                     var slackUser = _.filter(response.members, function(member) {
                                         return _.some(member, {email: user.email});
                                     })[0];
-                    var slackMsg = '<@' + slackUser.name + '> updated the ' + modelName + ' "' + document.name + '"!';
+                    var userName;
+
+                    // If no slack user, just use person's name
+                    if(slackUser === undefined) {
+                        console.warn("Slack user not found! Using keystone username.");
+                        userName = user.name.first + ' ' + user.name.last;
+                    }
+                    else
+                        userName = '<@' + slackUser.name + '>';
+
+                    var slackMsg = userName + ' updated the ' + modelName + ' "' + document.name + '"!';
 
                     // Generate a random accolade?
                     if(accolade !== undefined && accolade !== false)
-                        slackMsg += ' ' + Sentencer.make('<@' + slackUser.name + '>' + ' is ' + affirmatives[accoladeInd] + ' {{ an_adjective }} {{ noun }}!');
-
-                    if(slackUser === undefined) {
-                        next();
-                        return;
-                    }
+                        slackMsg += ' ' + Sentencer.make(userName + ' is ' + affirmatives[accoladeInd] + ' {{ an_adjective }} {{ noun }}!');
 
                     // Send slack message
                     slack.webhook({
