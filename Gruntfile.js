@@ -92,9 +92,7 @@ module.exports = function(grunt) {
 	    },
 	    production: {
 	      options: { 
-	        question: "You are about to deploy the master branch HEAD to the production server.\n
-	        					 This will also run the 'compile' task and reboot keystone.\n
-	        					 Are you sure?",
+	        question: "You are about to deploy the master branch HEAD to the production server.\nThis will also run the 'compile' task and reboot keystone.\nAre you sure?",
 	        input: '_key:y'
 	      }
 	    }
