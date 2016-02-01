@@ -41,8 +41,6 @@ module.exports = {
 
             slack.api('users.list', function(err, response) {
 
-                var modelName = schema.tree.__t.default;
-
                 // If there was a slack error, just return so the doc is saved
                 if(err)
                     return;
