@@ -76,17 +76,19 @@ Resource.schema.pre('save', function(next) {
   var err;
 
   /*
-	If Azure file upload succeeded but returned no filename, we have to generate manually and save it since
-	keystone's createBlockBlobFromLocalFile implementation does not account for Azure returning 
-	only "commmittedBlocks" arrays for huge files, and not file metadata.
-	I considered submitting a fix PR for azurefile.prototype.uploadFile but I will wait for keystone release ~0.0.4.
+		If Azure file upload succeeded but returned no filename, we have to generate manually and save it since
+		keystone's createBlockBlobFromLocalFile implementation does not account for Azure returning 
+		only "commmittedBlocks" arrays for huge files, and not file metadata.
+		I considered submitting a fix PR for azurefile.prototype.uploadFile but I will wait for keystone release ~0.0.4.
 
-	Using filetype as the string to obtain the file extension is not 100% foolproof as it's a MIME type,
-	but it works for most common file formats. 
+		Using filetype as the string to obtain the file extension is not 100% foolproof as it's a MIME type,
+		but it works for most common file formats. 
   */
-  if(this.file !== undefined && this.file.filename === undefined) {
-	this.file.filename = this.key + this.file.filetype.replace('application/', '.');
-	this.file.url = this.file.url.replace('undefined', this.file.filename);
+  if(this.file !== undefined && this.file.length > 0 && this.file.filename === undefined) {
+	
+		this.file.filename = this.key + this.file.filetype.replace('application/', '.');
+		this.file.url = this.file.url.replace('undefined', this.file.filename);
+  
   }
   
   if (this.type === 'article') {
@@ -104,7 +106,14 @@ Resource.schema.pre('save', function(next) {
 	if(err !== undefined && err.length > 0)
 		next(new Error(err));
 	else
+	{
+
+    // Make a post to slack when this Resource is updated
+    slack.post(Resource.model, this, true);
+
 		next();
+		
+	}
 
 });
 Resource.schema.pre('remove', function(next) {
