@@ -84,7 +84,7 @@ Resource.schema.pre('save', function(next) {
 	Using filetype as the string to obtain the file extension is not 100% foolproof as it's a MIME type,
 	but it works for most common file formats. 
   */
-  if(this.file.filename === undefined) {
+  if(this.file !== undefined && this.file.filename === undefined) {
 	this.file.filename = this.key + this.file.filetype.replace('application/', '.');
 	this.file.url = this.file.url.replace('undefined', this.file.filename);
   }
