@@ -182,12 +182,12 @@
 				<div class="col-sm-6 col-md-4">
 					<div class="image-box style-2 mb-20 text-center news-box">
 						<div class="overlay-container">
-							<a href="{{url}}"><img src="{{image}}" alt="{{data.title}}" width="350" height="233"></a>
+							<a href="{{url}}"><img src="{{image}}" alt="{name}}" width="350" height="233"></a>
 						</div>
 						<div class="body">
-							<h4><a href="{{url}}">{{data.title}}</a></h4>
-							{{#if data.description}}
-								<p>{{limit data.description 100}}</p>										
+							<h4><a href="{{url}}">{{name}}</a></h4>
+							{{#if summary}}
+								<p>{{limit summary 100}}</p>										
 							{{/if}}
 						</div>
 					</div>
