@@ -7921,6 +7921,15 @@ html, body, .container {
 .pt-40 {
   padding-top: 40px; }
 
+.pb-10 {
+  padding-bottom: 20px; }
+
+.pb-20 {
+  padding-bottom: 20px; }
+
+.pb-40 {
+  padding-bottom: 40px; }
+
 .va-container {
   height: 100%;
   display: table;
