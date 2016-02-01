@@ -24,6 +24,7 @@ var Person = new keystone.List('Person',
 		label: 'People',
 		singular: 'Team Member',
 		sortable: true,
+		track: true,
 		autokey: { path: 'key', from: 'name', unique: true }
 	});
 

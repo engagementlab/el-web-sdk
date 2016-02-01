@@ -92,7 +92,9 @@ module.exports = function(grunt) {
 	    },
 	    production: {
 	      options: { 
-	        question: "You are about to deploy the master branch HEAD to the production server. This will also run the 'compile' task and reboot keystone. Are you sure?",
+	        question: "You are about to deploy the master branch HEAD to the production server.\n
+	        					 This will also run the 'compile' task and reboot keystone.\n
+	        					 Are you sure?",
 	        input: '_key:y'
 	      }
 	    }
@@ -180,8 +182,8 @@ module.exports = function(grunt) {
 	// Task to deploy to production
 	grunt.registerTask('deploy', [
 		'confirm:production',
-		'pm2deploy:production',
-		'bump'
+		'pm2deploy:production'
+		//'bump'
 	]);
 
 };
