@@ -57,7 +57,7 @@ module.exports = {
 
                     // If no slack user, just use person's name
                     if(slackUser === undefined) {
-                        console.warn("Slack user not found! Using keystone username.");
+                        console.log("Slack user not found! Using keystone username.");
                         userName = user.name.first + ' ' + user.name.last;
                     }
                     else

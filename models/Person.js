@@ -24,6 +24,7 @@ var Person = new keystone.List('Person',
 		label: 'People',
 		singular: 'Team Member',
 		sortable: true,
+		track: true,
 		autokey: { path: 'key', from: 'name', unique: true }
 	});
 
@@ -42,6 +43,7 @@ Person.add({
   category: { type: Types.Select, options: 'leadership, team, fellows, students, alumni', default: 'team', required: true, initial: true },
 	twitterURL: { type: Types.Url, label: 'Twitter' },	
 	fbURL: { type: Types.Url, label: 'Facebook' },	
+	linkedInURL: { type: Types.Url, label: 'LinkedIn' },	
 	githubURL: { type: Types.Url, label: 'Github' },
 	websiteURL: { type: Types.Url, label: 'Website' },	
 

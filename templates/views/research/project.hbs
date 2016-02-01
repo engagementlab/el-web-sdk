@@ -68,32 +68,44 @@
 				<div class="tab-content space-bottom">
 
 					{{#if project.projectImages}}
+
 						<div class="tab-pane active" id="pill-images">
 							<div class="space-bottom"></div>
+							{{#ifeq projectImagesLength 1}}
+								
+								{{!-- Do not use Glider.js for only one image  --}}
+								{{# each projectImageObjects}}
+									<img src="{{{cloudinaryUrl width=500 quality=60}}}" alt="{{@key}}">
+									<div class="caption lead">{{@key}}</div>
+								{{/each}}
 
-							{{!-- Glider.js structure --}}
-							<div id="project_images_glider" class="glide">
+							{{else}}
 
-								    <div class="glide__arrows project">
-								        <button class="glide__arrow prev" data-glide-dir="<"></button>
-								        <button class="glide__arrow next" data-glide-dir=">"></button>
-								    </div>
+								{{!-- Glider.js structure --}}
+								<div id="project_images_glider" class="glide">
 
-								    <div class="glide__wrapper">
-								        
-								        <ul class="glide__track" style="margin-left:-40px">
-													{{!-- @key is caption, "this" is image object --}}
-													{{# each projectImageObjects}}
-														<li class="glide__slide">
-															<img src="{{{cloudinaryUrl width=500 quality=60}}}" alt="{{@key}}">
-															<div class="caption lead">{{@key}}</div>
-														</li>
-													{{/each}}
-								        </ul>
+									    <div class="glide__arrows project">
+									        <button class="glide__arrow prev" data-glide-dir="<"></button>
+									        <button class="glide__arrow next" data-glide-dir=">"></button>
+									    </div>
 
-										</div>
+									    <div class="glide__wrapper">
+									        
+									        <ul class="glide__track" style="margin-left:-40px">
+														{{!-- @key is caption, "this" is image object --}}
+														{{# each projectImageObjects}}
+															<li class="glide__slide">
+																<img src="{{{cloudinaryUrl width=500 quality=60}}}" alt="{{@key}}">
+																<div class="caption lead">{{@key}}</div>
+															</li>
+														{{/each}}
+									        </ul>
 
-							</div>
+											</div>
+
+								</div>
+
+							{{/ifeq}}
 
 						</div>
 					{{/if}}

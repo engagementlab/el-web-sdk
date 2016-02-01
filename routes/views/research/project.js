@@ -85,6 +85,9 @@ exports = module.exports = function(req, res) {
                 locals.customTabsFirst = ( !locals.videosTabFirst && !locals.filesTabFirst );
 
             }
+            else {
+                locals.projectImagesLength = result.projectImages.length;
+            }
 
             next(err);
         });
