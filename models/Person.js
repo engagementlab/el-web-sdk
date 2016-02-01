@@ -61,7 +61,7 @@ Person.add({
 Person.schema.pre('save', function(next) {
 
     // Make a post to slack when this Person is updated
-    slack.post(Person.schema, this, true);
+    slack.post(Person, this, true);
 
     next();
 
