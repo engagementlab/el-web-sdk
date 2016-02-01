@@ -440,6 +440,7 @@ section.publications .subSection {
 }
 
 .book-box {
+  height: 480px;
   text-align: center;
   @include transition(all 0.5s ease);
 
