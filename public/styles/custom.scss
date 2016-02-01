@@ -249,6 +249,8 @@ html, body, .container {
 .partners {
   background-color: $gray-lighter;
 
+  .glide__arrow { display: none; }
+
   .content-slider-with-controls {
     .image-box {
       margin-bottom: 0;
