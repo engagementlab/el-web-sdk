@@ -25,7 +25,7 @@ var Person = new keystone.List('Person',
 		singular: 'Team Member',
 		sortable: true,
 		track: true,
-		autokey: { path: 'key', from: 'name', unique: true }
+		autokey: { path: 'key', from: 'name', unique: true },
 	});
 
 /**
@@ -61,7 +61,12 @@ Person.add({
 Person.schema.pre('save', function(next) {
 
     // Make a post to slack when this Person is updated
-    slack.post(Person, this, true);
+    var person = this;
+    
+    slack.post(
+    	Person.model, this, true, 
+    	function() { return person.name.first + ' ' + person.name.last; }
+    );
 
     next();
 
