@@ -8564,6 +8564,21 @@ body {
   .cmap .lead p {
     font-size: 21px; } }
 
+.tama .tama-text {
+  text-align: center;
+  color: #BB11EF; }
+
+.tama #tama-name {
+  font-size: 50px; }
+
+.tama #tama-feeling {
+  font-size: 40px; }
+
+.tama .tama-container {
+  padding: 20px 0; }
+  .tama .tama-container img {
+    margin: 0 auto; }
+
 .glide__arrows {
   position: absolute; }
 
