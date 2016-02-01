@@ -8246,6 +8246,7 @@ section.publications .subSection {
   display: inline-block; }
 
 .book-box {
+  height: 480px;
   text-align: center;
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
