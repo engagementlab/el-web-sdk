@@ -23,7 +23,7 @@ module.exports = {
             throw "Slack plugin: A document reference must be defined!";
         else if(document.updatedBy === undefined)
             throw "Slack plugin: document.updatedBy not present; ensure 'track' option is enabled on the model caller.";
-        else if(custom_name !== undefined && typeof document.custom_name !== 'function')
+        else if(custom_name !== undefined && typeof custom_name !== 'function')
             throw "Slack plugin: custom_name must be a function!";
 
         var slack = _keystone.get('slack');
