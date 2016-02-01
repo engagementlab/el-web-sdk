@@ -343,6 +343,16 @@ html, body, .container {
   margin: 60px 0;
 }
 
+#pill-images {
+   .caption {
+    text-align: center;
+  }
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .news-box {
   height: 395px;
   img {

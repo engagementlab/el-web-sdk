@@ -2,6 +2,7 @@
   "name": "engagement-lab",
   "description": "",
   "main": "keystone.js",
+  "version": "0.0.4",
   "authors": [
     "Johnny Richardson <johnny@elab.emerson.edu>",
     "Jay Vachon <jay@elab.emerson.edu>"

@@ -20,12 +20,6 @@ module.exports = function(grunt) {
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
 
-	// periodic jobs
-	grunt.loadNpmTasks('grunt-periodic');
-
-	// node jobs
-	grunt.loadNpmTasks('grunt-execute');
-
 	var options = {
 		config: {
 			src: './grunt/*.js'
@@ -104,7 +98,6 @@ module.exports = function(grunt) {
 	    }
 	  },
 
-	  //TODO: mongorestore -h ds053370.mongolab.com:53370 -d heroku_npvs26cw -u heroku_npvs26cw -p ak1h7ut2fgjsgs7lr6nt3lukkb dump/engagement-lab --drop
 		mongobin: {
 	    options: {
 	      host: '127.0.0.1',
@@ -122,15 +115,19 @@ module.exports = function(grunt) {
 	    }
 	  },
 
-	  // production daemon
-	  forever: {
-		  keystone: {
-		    options: {
-		      index: 'keystone.js',
-		      logDir: 'logs'
-		    }
-		  }
-		}
+	  bump: {
+	    options: {
+	      files: ['package.json'],
+	      commit: true,
+	      commitMessage: 'Production Release v%VERSION%',
+	      commitFiles: ['package.json'],
+	      createTag: true,
+	      tagName: 'v%VERSION%',
+	      tagMessage: 'Version %VERSION%',
+	      push: true
+	    }
+	  }
+
 
 	};
 
@@ -183,7 +180,8 @@ module.exports = function(grunt) {
 	// Task to deploy to production
 	grunt.registerTask('deploy', [
 		'confirm:production',
-		'pm2deploy:production'
+		'pm2deploy:production',
+		'bump'
 	]);
 
 };
