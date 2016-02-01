@@ -11,23 +11,25 @@ var _keystone = require('keystone');
 
 module.exports = {
 
-    post: function(schema, document, accolade) {
+    post: function(model, document, accolade, custom_name) {
 
         // Production-level apps only
         if (process.env.NODE_ENV !== 'production')
             return;
 
-        if(schema === undefined)
-            throw "Slack plugin: A schema must be defined!";
-        else if(document == undefined)
+        if(model === undefined)
+            throw "Slack plugin: A model must be defined!";
+        else if(document === undefined)
             throw "Slack plugin: A document reference must be defined!";
-        else if(document.updatedBy == undefined)
+        else if(document.updatedBy === undefined)
             throw "Slack plugin: document.updatedBy not present; ensure 'track' option is enabled on the model caller.";
+        else if(custom_name !== undefined && typeof document.custom_name !== 'function')
+            throw "Slack plugin: custom_name must be a function!";
 
         var slack = _keystone.get('slack');
         var _ = require('underscore');
         var Sentencer = require('sentencer');
-        var modelName = schema.tree.__t.default;
+        var modelName = model.modelName;
 
         // TODO: Pull from config
         var affirmatives = [
@@ -52,6 +54,7 @@ module.exports = {
                                         return _.some(member, {email: user.email});
                                     })[0];
                     var userName;
+                    var documentName;
 
                     // If no slack user, just use person's name
                     if(slackUser === undefined) {
@@ -61,7 +64,12 @@ module.exports = {
                     else
                         userName = '<@' + slackUser.name + '>';
 
-                    var slackMsg = userName + ' updated the ' + modelName + ' "' + document.name + '"!';
+                    if(custom_name !== undefined)
+                        documentName = custom_name();
+                    else
+                        documentName = document.name;
+
+                    var slackMsg = userName + ' updated the ' + modelName + ' "' + documentName + '"!';
 
                     // Generate a random accolade?
                     if(accolade !== undefined && accolade !== false)
