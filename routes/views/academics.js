@@ -28,18 +28,6 @@ exports = module.exports = function(req, res) {
     // Load the current project
     view.on('init', function(next) {
 
-        /*var q = Academics.model.findOne({}, {}, {
-            sort: {
-                'createdAt': -1
-            }
-        });
-
-        q.exec(function(err, result) {
-            locals.academics = result;
-
-            next(err);
-        });*/
-
         var q = Cmap.model.findOne({}, {}, {
             sort: { 'createdAt': -1 }
         });

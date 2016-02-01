@@ -62,7 +62,7 @@
 						<li class="{{#if filesTabFirst}}active{{/if}}"><a href="#pill-downloads" role="tab" data-toggle="tab" title="downloads"><i class="fa fa-paperclip pr-5"></i> Resources</a></li>
 					{{/if}}
 					{{#each project.tabHeadings}}
-						<li class="{{#if ../customTabsFirst}}active{{/if}}"><a href="#pill-{{@index}}" role="tab" data-toggle="tab" title="custom-{{@index}}"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
+						<li class="{{#if ../customTabsFirst}}{{#ifeq @index 0}}active{{/ifeq}}{{/if}}"><a href="#pill-{{@index}}" role="tab" data-toggle="tab" title="custom-{{@index}}"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
 					{{/each}}
 				</ul>
 				<div class="tab-content space-bottom">
