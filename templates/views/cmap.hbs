@@ -83,4 +83,46 @@
 			</div>
 		</div>
 	</section>
+	<section class="section" id="faculty">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-header">Faculty</h3>
+				</div>
+			</div>
+			{{#if people}}
+				<div class="row grid-space-10">
+				{{!-- Show leadership --}}
+					{{#each people}}
+						{{> people/person person=this}}
+					{{/each}}
+				</div>
+			{{else}}
+				<div class="row">
+					<div class="col-md-12">
+						<p class="lead">No people have been marked for this page. Please go to the Keystone dashboard and mark people as "Show on CMAP page." Thanks!</p>
+						<p class="lead">Love,</p>
+						<p class="lead">Jay</p>
+					</div>
+				</div>
+			{{/if}}
+		</div>
+	</section>
+	{{#if projects}}
+	<section class="section" id="projects">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="section-header">Projects</h3>
+				</div>
+			</div>
+			<div class="row">
+				{{!-- Show projects --}}
+				{{#each projects}}
+					{{> sublisting listing=this}}
+				{{/each}}
+			</div>
+		</div>
+	</section>
+	{{/if}}
 </section>

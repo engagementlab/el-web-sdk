@@ -14,6 +14,8 @@
  */
 var keystone = require('keystone');
 var Academics = keystone.list('Academics');
+var Person = keystone.list('Person');
+var Project = keystone.list('Project');
 var Cmap = keystone.list('Cmap');
 var _ = require('underscore');
 
@@ -33,6 +35,8 @@ exports = module.exports = function(req, res) {
         });
 
         q.exec(function(err, result) {
+
+            // Get page elements
             locals.cmap = result;
             locals.elements = [];
             for (var i = 0; i < result.headers.length; i++) {
@@ -41,7 +45,38 @@ exports = module.exports = function(req, res) {
                     subheader: result.subheaders[i],
                     element: result.elements[i]
                 });
-            };
+            }
+
+            // Get faculty
+            Person.model.find({ 'cmapPerson': true }).sort([
+                ['sortOrder', 'ascending']
+            ]).exec(function(err, result){
+                if (err) throw err;
+                locals.people = result;
+            });
+
+            // Get projects
+            Project.model.find({
+                'enabled': true,
+                'cmapProject': true
+            }).sort([
+                ['sortOrder', 'ascending']
+            ]).exec(function(err, resultProject) {
+                _.map(resultProject, function(proj) {
+
+                // Get image code
+                proj.href = '/' + req.params.directory + 
+                '/' + req.params.subdirectory + 
+                '/' + proj.key;
+                proj.description = proj.description;
+
+                return proj;
+
+                });
+
+                locals.projects = resultProject;
+            });
+
             next(err);
         });
 

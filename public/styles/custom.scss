@@ -606,3 +606,9 @@ a .project-box {
     img { margin: 0 auto; }
   }
 }
+
+@media (min-width: 768px) {
+  .project-box {
+    height: 440px;
+  }
+}

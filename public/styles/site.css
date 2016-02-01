@@ -8381,6 +8381,10 @@ a .project-box {
     .project-box img, .listing-box img, .news-box img {
       margin: 0 auto; } }
 
+@media (min-width: 768px) {
+  .project-box {
+    height: 440px; } }
+
 body {
   padding-top: 76px; }
 
@@ -8535,6 +8539,9 @@ body {
     background-color: #51d0b1; }
   .cmap #elements #element-3 {
     background-color: #fcb75c; }
+
+.cmap #projects {
+  background-color: #f2f2f2; }
 
 .cmap .dark {
   color: #ffffff; }

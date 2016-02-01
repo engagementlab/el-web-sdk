@@ -25,7 +25,7 @@ var Cmap = new keystone.List('Cmap',
 		singular: 'CMAP Page',
 		track: true,
 		nodelete: true,
-		// nocreate: true
+		nocreate: true
 	});
 
 /**
