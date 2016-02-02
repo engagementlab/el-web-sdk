@@ -53,19 +53,6 @@ exports = module.exports = function(req, res) {
                 return res.notfound('Cannot find project', 'Sorry, but it looks like the research project you were looking for does not exist! Try <a href="http://elab.emerson.edu/research">going back</a> to research.');
             }
 
-            // Get custom tab header and content 
-            // First, map out headers via a match
-            var tabHeaders = result.customTabs.html.match(/<h1[^>]*>(.*?)<\/h1>/g)
-                             .map(function(val) {
-                                return val.replace(/<\/?h1[^>]*>/g,'');
-                             });
-            // Then get contents by replacing headers with '|sep|' (to avoid remove legit content) and splitting
-            var tabContents = result.customTabs.html.replace(/<h1[^>]*>(.*?)<\/h1>/g, '|sep|').split('|sep|');
-            // First index is empty
-            tabContents.shift(); 
-            
-            locals.projectCustomTabs = { headers: tabHeaders, content: tabContents };
-
             _.map(result.articles, function(article) {
 
                 // Set image (if no override, use embedly-provided image as fallback)
@@ -100,6 +87,23 @@ exports = module.exports = function(req, res) {
             }
             else {
                 locals.projectImagesLength = result.projectImages.length;
+            }
+
+            if(result.customTabs.html !== undefined) {
+            
+                // Get custom tab header and content 
+                // First, map out headers via a match
+                var tabHeaders = result.customTabs.html.match(/<h1[^>]*>(.*?)<\/h1>/g)
+                                 .map(function(val) {
+                                    return val.replace(/<\/?h1[^>]*>/g,'');
+                                 });
+                // Then get contents by replacing headers with '|sep|' (to avoid remove legit content) and splitting
+                var tabContents = result.customTabs.html.replace(/<h1[^>]*>(.*?)<\/h1>/g, '|sep|').split('|sep|');
+                // First index is empty
+                tabContents.shift(); 
+                
+                locals.projectCustomTabs = { headers: tabHeaders, content: tabContents };
+
             }
 
             next(err);
