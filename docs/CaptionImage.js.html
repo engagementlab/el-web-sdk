@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: CaptionImage.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,46 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: CaptionImage.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Deprecated?
+
+var keystone = require('keystone'),
+Types = keystone.Field.Types;
+
+/**
+ * CaptionImage Model
+ * ==================
+*/
+
+var CaptionImage = new keystone.List('CaptionImage', {
+    map: { name: 'name' },
+    autokey: { path: 'slug', from: 'name', unique: true },
+    hidden: true
+});
+
+CaptionImage.add({
+  image: { type: Types.CloudinaryImage, folder: 'research/projects', autoCleanup: true, required: true, initial: false },
+  caption: { type: Types.Textarea, height: 150 }
+});
 
 
-    <h3> </h3>
+/**
+ * Relationships
+ * =============
+ */
+CaptionImage.relationship({ ref: 'Project', refPath: 'projects', path: 'headerImages' });
 
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+CaptionImage.register();</code></pre>
+        </article>
+    </section>
 
 
 

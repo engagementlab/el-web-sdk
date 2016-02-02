@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Subdirectory.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,66 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Subdirectory.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Engagement Lab Website
+ * 
+ * Research category Modelz
+ * @class subdirectory
+ * @author Jay Vachon
+ * 
+ * For field docs: http://keystonejs.com/docs/database/
+ *
+ * ==========
+ */
 
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
+var Listing = require('./Listing');
 
-    <h3> </h3>
+/**
+ * @module subdirectory
+ * @constructor
+ * See: http://keystonejs.com/docs/database/#lists-options
+ */
+var Subdirectory = new keystone.List('Subdirectory', 
+    {
+        hidden: false,
+        inherits: Listing,
+        // nocreate: true,
+        nodelete: true
+    });
 
+/**
+ * Model Fields
+ * @main Project
+ */
+Subdirectory.add({
+    directory: {
+        type: Types.Relationship,
+        ref: 'Directory',
+        required: true,
+        initial: true
+    }
+});
 
+/**
+ * Model Registration
+ * =============
+ */
+Subdirectory.register();
 
-
-
-
-
-
-
-
-    
-
-
-
-
-
+</code></pre>
+        </article>
+    </section>
 
 
 

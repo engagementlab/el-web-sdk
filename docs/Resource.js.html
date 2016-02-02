@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Resource.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Resource.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Engagement Lab Website
+ * 
+ * Resource page Model
+ * @module resource
+ * @author Johnny Richardson
+ * 
+ * For field docs: http://keystonejs.com/docs/database/
+ *
+ * ==========
+ */
+
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
+var slack = require('../slack');
+
+/**
+ * @module resource
+ * @constructor
+ * See: http://keystonejs.com/docs/database/#lists-options
+ */
+var Resource = new keystone.List('Resource', {
+	autokey: { from: 'name', path: 'key', unique: true },
+  track: true
+});
+
+/**
+ * Model Fields
+ * @main Resource
+ */
+Resource.add({
+	name: { type: String, label: 'Resource Name', required: true, initial: true, index: true },
+	type: { type: Types.Select, label: 'Type', options: 'video, article, file', default: 'video', required: true, initial: true },
+
+	url: { type: String, label: 'URL',
+		dependsOn: { type: ['video', 'article'] }, initial: true },
+
+	// This field is required in the save hook below instead of here as keystone dependsOn workaround
+	summary: { type: String, label: 'Summary',
+		dependsOn: { type: 'article' } },
+	date: { type: Date, label: "Date Published",
+		dependsOn: { type: 'article' } },
+	author: { type: String, label: 'Author',
+		dependsOn: { type: 'article' } },
+
+	file: {
+		type: Types.AzureFile,
+		dependsOn: { type: 'file' },
+		label: 'File',
+		filenameFormatter: function(item, filename) {
+			return item.key + require('path').extname(filename);
+		},
+		containerFormatter: function(item, filename) {
+			return 'resources';
+		}
+	},
+
+	imageOverride: {
+      type: Types.CloudinaryImage,
+      dependsOn: { type : 'article' },
+      label: 'Image Override',
+      folder: 'site/research',
+      note: 'This should be used if the image provided automatically is not acceptable.',
+      autoCleanup: true
+  },
+
+	data: { type: Types.Embedly, from: 'url', hidden: true },
+	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
+});
+
+/**
+ * Hooks
+ * =============
+ */
+Resource.schema.pre('save', function(next) {
+  
+  var err;
+
+  /*
+		If Azure file upload succeeded but returned no filename, we have to generate manually and save it since
+		keystone's createBlockBlobFromLocalFile implementation does not account for Azure returning 
+		only "commmittedBlocks" arrays for huge files, and not file metadata.
+		I considered submitting a fix PR for azurefile.prototype.uploadFile but I will wait for keystone release ~0.0.4.
+
+		Using filetype as the string to obtain the file extension is not 100% foolproof as it's a MIME type,
+		but it works for most common file formats. 
+  */
+  if(this.file !== undefined &amp;&amp; this.file.filetype !== undefined &amp;&amp; this.file.filename === undefined) {
+	
+		this.file.filename = this.key + this.file.filetype.replace('application/', '.');
+		this.file.url = this.file.url.replace('undefined', this.file.filename);
+  
+  }
+  
+  if (this.type === 'article') {
+    
+    if (this.date !== undefined &amp;&amp; this.date.length === 0)
+		err = 'You must provide the date that the article was published. Sorry bub.';
+
+		//  if (this.summary !== undefined &amp;&amp; this.summary.length === 0)
+		// err = ('You must define a summary for articles.');
+
+		// else if (this.author !== undefined &amp;&amp; this.author.length === 0) 
+		// 	err = 'You must provide the name of the author who published the article.';
+  }
+
+	if(err !== undefined &amp;&amp; err.length > 0)
+		next(new Error(err));
+	else
+	{
+
+    // Make a post to slack when this Resource is updated
+    slack.post(Resource.model, this, true);
+
+		next();
+
+	}
+
+});
+Resource.schema.pre('remove', function(next) {
+
+  // Remove resource from all that referenced it 
+	keystone.list('Project').model.removeResourceRef(this._id, function(err, removedCount) {
+
+		if(err)
+			console.error(err);
+    
+		if(removedCount > 0) {
+			console.log("Removed " +  removedCount + " references to '"+ this._id + "'");
+			next();
+		}
+
+	});
+
+});
+
+
+/**
+ * Relationships
+ * =============
+ */
+Resource.relationship({ ref: 'Project', refPath: 'projects', path: 'resources' });
+
+/**
+ * Model Registration
+ */
+Resource.defaultSort = '-createdAt';
+Resource.defaultColumns = 'name, type, createdAt';
+Resource.register();
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-academics.html">academics</a></li><li><a href="module-project.html">project</a></li><li><a href="module-publication.html">publication</a></li><li><a href="module-resource.html">resource</a></li><li><a href="module-team.html">team</a></li></ul><h3>Classes</h3><ul><li><a href="about.html">about</a></li><li><a href="cmap.html">cmap</a></li><li><a href="listing.html">listing</a></li><li><a href="program.html">program</a></li><li><a href="research_category.html">research_category</a></li><li><a href="See_%2525252525252525252525252520http___keystonejs.com_docs_database__lists-options.html">lists-options</a></li><li><a href="subdirectory.html">subdirectory</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CaptionImage">CaptionImage</a></li><li><a href="global.html#safeString">safeString</a></li><li><a href="global.html#urlValidator">urlValidator</a></li><li><a href="global.html#User">User</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Tue Feb 02 2016 13:00:41 GMT-0500 (EST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
