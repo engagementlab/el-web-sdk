@@ -8,6 +8,7 @@ if (process.env.NODE_ENV !== 'staging')
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
 var mongooseRedisCache = require('mongoose-redis-cache');
+var tamagagement = require('./tamagagement');
 var Slack = require('slack-node');
 
 var slackInstance;
@@ -76,6 +77,8 @@ slackInstance.user_icon = 'http://res.cloudinary.com/engagement-lab-home/image/u
 // slack needs to be be accessible anywhere;
 // this is not a keystone config var, though (yet)
 keystone.set('slack', slackInstance);
+
+keystone.set('tamagagement', tamagagement);
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
