@@ -89,7 +89,7 @@ exports = module.exports = function(req, res) {
                 locals.projectImagesLength = result.projectImages.length;
             }
 
-            if(result.customTabs.html !== undefined) {
+            if(result.customTabs.html !== undefined && result.customTabs.html.length > 0) {
             
                 // Get custom tab header and content 
                 // First, map out headers via a match
