@@ -15,7 +15,7 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * @module about
+ * about model
  * @constructor
  * See: http://keystonejs.com/docs/database/#lists-options
  */

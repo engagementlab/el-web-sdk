@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Tamagagement.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,59 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Tamagagement.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Engagement Lab Website
+ * 
+ * Tamagagement Model
+ * @class subdirectory
+ * @author Jay Vachon
+ * 
+ * For field docs: http://keystonejs.com/docs/database/
+ *
+ * ==========
+ */
 
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
-    <h3> </h3>
+/**
+ * @module subdirectory
+ * @constructor
+ * See: http://keystonejs.com/docs/database/#lists-options
+ */
+var Tamagagement = new keystone.List('Tamagagement', 
+    {
+        hidden: true,
+        nocreate: true,
+        nodelete: true
+    });
 
-
-
-
-
-
-
-
-
-
+/**
+ * Model Fields
+ * @main Project
+ */
+/*Tamagagement.add({
     
+});*/
 
+/**
+ * Model Registration
+ * =============
+ */
+Tamagagement.register();
 
-
-
-
+</code></pre>
+        </article>
+    </section>
 
 
 

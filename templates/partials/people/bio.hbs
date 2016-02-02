@@ -12,7 +12,7 @@
 --}}
 
 <div class="col-sm-6 col-md-4 text-center person-bio-left" data-category="{{person.category}}" data-key="{{person.key}}">
-	<img id="{{cleanString person.name.first}}-{{cleanString person.name.last}}" src="{{{cloudinaryUrl person.image}}}" alt="{{person.name.first}} {{person.name.last}}" class="photo">
+	<img id="{{cleanString person.name.first}}-{{cleanString person.name.last}}" src="{{{cloudinaryUrl person.image width=192 height=192}}}" alt="{{person.name.first}} {{person.name.last}}" class="photo">
 
 	<ul class="social-links circle light margin-clear pv-20">
 		{{#if person.fbURL}}

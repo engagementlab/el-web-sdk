@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: Academics.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,64 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: Academics.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Engagement Lab Website
+ * 
+ * Academics page Model
+ * @module academics
+ * @author Johnny Richardson
+ * 
+ * For field docs: http://keystonejs.com/docs/database/
+ *
+ * ==========
+ */
 
+var keystone = require('keystone');
+var Types = keystone.Field.Types;
 
-    <h3> </h3>
+/**
+ * @module academics
+ * @constructor
+ * See: http://keystonejs.com/docs/database/#lists-options
+ */
+var Academics = new keystone.List('Academics', 
+	{
+		label: 'Academics Page',
+		singular: 'Academics Page',
+		track: true,
+		nodelete: true,
+		nocreate: true
+	});
 
+/**
+ * Model Fields
+ * @main Academics
+ */
+Academics.add({
+	intro: { type: Types.Textarea, label: 'Intro Text', required: true, initial: true, index: true },
+	logo: { type: Types.CloudinaryImage, label: 'Image', folder: 'site/academics' },	
+	
+	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
+});
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+/**
+ * Model Registration
+ */
+Academics.defaultSort = '-createdAt';
+Academics.defaultColumns = 'blurb, mission';
+Academics.register();
+</code></pre>
+        </article>
+    </section>
 
 
 

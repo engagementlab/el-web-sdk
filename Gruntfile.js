@@ -99,6 +99,7 @@ module.exports = function(grunt) {
 	  },
 
 		mongobin: {
+
 	    options: {
 	      host: '127.0.0.1',
 	      port: '27017',
@@ -111,8 +112,9 @@ module.exports = function(grunt) {
 	      drop: true
 	    },
 	    dump: {
-	        out: './dump/'
+	        out: './dump/nightly/'
 	    }
+
 	  },
 
 	  bump: {
@@ -124,10 +126,10 @@ module.exports = function(grunt) {
 	      createTag: true,
 	      tagName: 'v%VERSION%',
 	      tagMessage: 'Version %VERSION%',
-	      push: true
+	      push: true,
+	      pushTo: 'origin'
 	    }
 	  }
-
 
 	};
 
@@ -137,7 +139,7 @@ module.exports = function(grunt) {
 	grunt.initConfig(configs);
 
 	// load periodic
-	grunt.registerTask('news', [
+	grunt.registerTask('periodic', [
 		'periodic'
 	]);
 
@@ -150,20 +152,21 @@ module.exports = function(grunt) {
 		'execute:news'
 	]);
 
-	grunt.registerTask('exportdata', ['mongobin:dump']);
+	grunt.registerTask('backupdata', ['mongobin:dump']);
 	grunt.registerTask('importdata', ['confirm:restore', 'mongobin:restore']);
 
 	grunt.registerTask('alldone', function() {
 	  grunt.log.writeln('>>>>>>>> Packages installed, code minified for production! <<<<<<<<');
 	});
 
-	// default option to connect server
+	// Default option to connect server (development)
 	grunt.registerTask('default', [
 		'periodic:news',
 		'jshint',
 		'concurrent:dev'
 	]);
 
+	// Experimental: clean/compile all css to minified file
 	grunt.registerTask('css_compile', [
 		'concat',
 		'cssmin'
