@@ -8,10 +8,12 @@ if (process.env.NODE_ENV !== 'staging')
 var keystone = require('keystone');
 var handlebars = require('express-handlebars');
 var mongooseRedisCache = require('mongoose-redis-cache');
-var tamagagement = require('./tamagagement');
+var tamabehavior = require('./tamabehavior');
 var Slack = require('slack-node');
+var Twitter = require('twitter');
 
 var slackInstance;
+var twitterInstance;
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -74,11 +76,19 @@ slackInstance.channel = '#website_updates';
 slackInstance.user = 'ELBot';
 slackInstance.user_icon = 'http://res.cloudinary.com/engagement-lab-home/image/upload/v1454193996/site/logo_bot.png';
 
+// Twitter API instantiation
+twitterInstance = new Twitter({
+	consumer_key: process.env.TWITTER_CONSUMER_KEY,
+	consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+	access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+	access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+});
+
 // slack needs to be be accessible anywhere;
 // this is not a keystone config var, though (yet)
 keystone.set('slack', slackInstance);
-
-keystone.set('tamagagement', tamagagement);
+keystone.set('twitter', twitterInstance);
+keystone.set('tamabehavior', tamabehavior);
 
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely

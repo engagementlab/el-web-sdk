@@ -545,6 +545,15 @@ section.publications .subSection {
   }
 }
 
+ul.twitter-feed {
+  list-style-type: none;
+  padding-left: 0;
+  padding-bottom: 30px;
+  li {
+    padding-bottom: 10px;
+  }
+}
+
 @media (max-width: 991px) { 
   .news-sidebar .media img {
       max-width: none;

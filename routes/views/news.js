@@ -14,6 +14,7 @@
 var keystone = require('keystone');
 var Resource = keystone.list('Resource');
 var _ = require('underscore');
+var twitter = keystone.get('twitter');
 
 // News data propagated by ./jobs/news
 var store = require('json-fs-store')('./tmp');
@@ -50,7 +51,23 @@ exports = module.exports = function(req, res) {
                 locals.articles = articleResult;
             });
 
-            next(err);
+            locals.twitter = {};
+
+            twitter.get('statuses/user_timeline.json?count=3', function(err, tweets, response) {
+                
+                if (err) throw error;
+
+                locals.twitter.user = tweets[0].user.screen_name;
+                locals.twitter.tweets = [];
+
+                for (var i = 0; i < tweets.length; i++) {
+                    var tweet = tweets[i];
+                    locals.twitter.tweets.push({
+                        text: tweet.text
+                    });
+                };
+                next(err);
+            });
         });
     });
 

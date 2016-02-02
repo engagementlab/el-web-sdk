@@ -82,6 +82,16 @@
 		<div class="col-md-4 ph-30 news-sidebar" >
 			<div class="affix-section">
 				<div id="event-section">
+					{{#if twitter.tweets}}
+						<h1 class="page-title mb-10">@{{twitter.user}}</h1>
+						<div class="separator-5"></div>
+						<div class="clearfix mb-10"></div>
+						<ul class="twitter-feed">
+						{{#each twitter.tweets}}
+						    <li class="tweet">{{{this.text}}}</li>
+						{{/each}}
+						</ul>
+					{{/if}}
 					<h1 class="page-title mb-10">Events</h1>
 					<div class="separator-5"></div>
 					<div class="clearfix mb-10"></div>

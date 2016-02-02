@@ -13,8 +13,10 @@
  * ==========
  */
 var keystone = require('keystone');
+var Tamagagement = keystone.get('Tamagagement');
+var About = keystone.get('About');
 var moment = require('moment');
-var tamagagement = keystone.get('tamagagement');
+var behavior = keystone.get('tamabehavior');
 
 exports = module.exports = function(req, res) {
 
@@ -24,17 +26,36 @@ exports = module.exports = function(req, res) {
     // Make any queries
     view.on('init', function(next) {
 
-        var mood = tamagagement.getMood();
+        // Tamagagement.model.findOne({}, {}, {}).exec(function(err, result) {
 
-        locals.mood = mood.id;
-        locals.message = mood.message;
-        locals.actions = mood.actions;
+            var mood = behavior.getMood('result');
 
+            locals.mood = mood.id;
+            locals.message = mood.message;
+            locals.actions = mood.actions;
+
+            next();
+        // });
+    });
+
+    view.on('post', { action: 'punch' }, function(next) {
+        behavior.doAction('punch');
         next();
     });
 
-    view.on('post', { action: 'tama.set_mood' }, function(next) {
-        console.log("hey :)");
+    view.on('post', { action: 'tickle' }, function(next) {
+        behavior.doAction('tickle');
+        next();
+    });
+
+    view.on('post', { action: 'insult' }, function(next) {
+        behavior.doAction('insult');
+        next();
+    });
+
+    view.on('post', { action: 'revive' }, function(next) {
+        behavior.doAction('revive');
+        next();
     });
 
     // Render the view
