@@ -35,10 +35,14 @@ Publication.add({
 	author: { type: String, label: 'Author Name(s)', required: true, initial: true },
 
 	category: { type: Types.Select, options: 'Book, Guide, Journal Article', required: true, initial: true },
-	// subCategory: { type: Types.Relationship, ref: 'Subdirectory', initial: true },
 	
 	url: { type: String, label: 'URL',
 		dependsOn: { category: 'Journal Article' }, initial: true },
+	urls: {
+		type: Types.TextArray,
+		label: 'Links to purchase book',
+		note: 'Must be in format "http://www.something.org"'
+	},
 
 	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	blurb: { type: Types.Textarea, label: 'Blurb Text', 
@@ -49,8 +53,9 @@ Publication.add({
 
 	image: { type: Types.CloudinaryImage, label: 'Thumbnail',
 		dependsOn: { category: ['Book', 'Guide'] }, folder: 'research/publications', autoCleanup: true },
+
 	bannerImage: { type: Types.CloudinaryImage, label: 'Banner Image',
-		dependsOn: { categpry: ['Book', 'Guide'] }, folder: 'research/publications', autoCleanup: true },
+		dependsOn: { category: ['Book', 'Guide'] }, folder: 'research/publications', autoCleanup: true },
 
 	date: { type: Date, label: 'Publication Date', initial: true, required: true },
 

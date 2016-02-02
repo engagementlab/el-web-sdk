@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="separator-4"></div>
-				<h3 class="text-center pv-30">Fellows</h3>
+				<h3 class="text-center pv-30">Faculty Fellows</h3>
 				<div class="row grid-space-10 team-row3">
 
 					{{!-- Show assistants --}}
@@ -68,17 +68,6 @@
 
 					{{!-- Show fellows --}}
 					{{#each students}}
-						{{> people/person person=this}}
-					{{/each}}
-
-				</div>
-
-				<div class="separator-4"></div>
-				<h3 class="text-center pv-30">Alumni</h3>
-				<div class="row grid-space-10 team-row4">
-
-					{{!-- Show fellows --}}
-					{{#each alumni}}
 						{{> people/person person=this}}
 					{{/each}}
 

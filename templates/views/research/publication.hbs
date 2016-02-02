@@ -33,19 +33,22 @@
 		<div class="row">
 			<div class="col-sm-6 col-md-8">
 				<h3>About</h3>
-				<div class="separator-2"></div>
 				{{{publication.description.html}}}
 			</div>
 			<div class="col-sm-6 col-md-4">
 				<h3>Additional Information</h3>
-				<div class="separator-2"></div>
-				<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
-				<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-facebook"></i></a>
-				<a href="http://elab.emerson.edu/games/emerging-citizens/" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-twitter"></i></a>
-				<ul class="list-icons">
-					<li><b>URL:</b> <a href="www.elab.emerson.edu/games/emergingcitizens"> www.elab.emerson.edu/games/emergingcitizens</a></li>
-					<li><b>Published </b> {{publication.date}}</li>
-				</ul>
+				<p><b>Author(s): </b> {{publication.author}}</p>
+				{{#if publication.date}}
+					<p><b>Published: </b> {{date}}</p>
+				{{/if}}
+				{{#if publication.urls}}
+					<h4>Purchase</h4>
+					<ul class="list-icons">
+					{{#each publication.urls}}
+						<li><a href="{{this}}"> {{this}}</a></li>
+					{{/each}}
+					</ul>
+				{{/if}}
 			</div> <!-- .col-md-4 -->
 		</div> <!-- .row -->
 	</div> <!-- .container -->

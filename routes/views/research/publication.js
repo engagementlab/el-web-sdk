@@ -14,6 +14,7 @@
  * ==========
  */
 var keystone = require('keystone');
+var moment = require('moment');
 var Publication = keystone.list('Publication');
 var Resource = keystone.list('Resource');
 
@@ -42,7 +43,9 @@ exports = module.exports = function(req, res) {
                 return res.notfound('Cannot find publication', 'Sorry, but it looks like the publication you were looking for does not exist! Try <a href="http://elab.emerson.edu/research/publications">going back</a> to the directory.');
             }
 
+            locals.date = moment(result.date).format();
             locals.publication = result;
+
             next(err);
         });
     });
