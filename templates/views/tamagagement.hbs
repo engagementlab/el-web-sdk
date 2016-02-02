@@ -30,9 +30,10 @@
 			<div class="col-md-12">
 				<h3 class="tama-text" id="tama-feeling">{{message}}</h3>
 				{{#each actions}}
-					<form method="POST" value="tama.set_mood" name="action">
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
+				<form method="POST">
+					<input type="hidden" value="{{this}}" name="action">
+					<button type="submit" class="btn btn-default">{{this}}</button>
+				</form>
 				{{/each}}
 			</div>
 		</div>

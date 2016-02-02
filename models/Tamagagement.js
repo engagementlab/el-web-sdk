@@ -29,9 +29,9 @@ var Tamagagement = new keystone.List('Tamagagement',
  * Model Fields
  * @main Project
  */
-/*Tamagagement.add({
-    
-});*/
+Tamagagement.add({
+    happiness: { type: Types.Number, hidden: true, default: 0.5 }
+});
 
 /**
  * Model Registration

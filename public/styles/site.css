@@ -8330,6 +8330,13 @@ section.publications .subSection {
   .featured-blog .summary {
     margin-top: 10px; }
 
+ul.twitter-feed {
+  list-style-type: none;
+  padding-left: 0;
+  padding-bottom: 30px; }
+  ul.twitter-feed li {
+    padding-bottom: 10px; }
+
 @media (max-width: 991px) {
   .news-sidebar .media img {
     max-width: none; }

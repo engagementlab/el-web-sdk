@@ -24,7 +24,8 @@
     "sentencer": "^0.1.5",
     "slack-node": "^0.1.7",
     "underscore": "^1.8.3",
-    "validator": "^4.3.0"
+    "validator": "^4.3.0",
+    "twitter": "^1.2.5"
   },
   "devDependencies": {
     "core-util-is": "^1.0.2",
