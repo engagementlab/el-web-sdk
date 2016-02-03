@@ -38,6 +38,8 @@ exports = module.exports = function(app) {
     // Views
     app.get('/', routes.views.index);
 
+    app.get('/unlockinghealth', routes.views.html.unlockinghealth);
+
     app.get('/about', routes.views.about);
     app.get('/people', routes.views.people);
     app.get('/people/:person', routes.views.person);

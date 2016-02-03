@@ -24,7 +24,7 @@
 
 		{{#ifeq section 'home'}}
 			
-			// Only load the video on desktops
+			// Load the video only on desktops
 			if (!jQuery.browser.mobile) {
 				
 				// Selects a random start time for the video
@@ -43,9 +43,11 @@
 
 			// Initialize featured projects carousel
 			$("#featured_glider").glide({
+
 	        type: "carousel",
 	        autoplay: false,
 	        autoheight: true
+
 	    });
 
 		{{/ifeq}}
@@ -53,9 +55,11 @@
 		{{#ifeq section 'about'}}
 
 			var gliderDom = $("#partners_glider");
+			var gliderApi;
 
 			// Initialize partners carousel
 			var gliderObj = gliderDom.glide({
+
 	        type: "carousel",
 	        autoplay: false,
 	        autoheight: true,
@@ -63,8 +67,9 @@
 	        	// Select corresponding partner
 						selectPartner($('.client-image').eq(evt.index-1));
 					}
+	    
 	    });
-	    var gliderApi = gliderObj.data('glide_api');
+	    gliderApi = gliderObj.data('glide_api');
 
 			$('.client-image').click(function() {
 				// go to slide for index
@@ -85,34 +90,38 @@
 			var gliderDom = $("#people_glider");
 	    var gliderApi;
 
-			// Initialize people carousel
-			var gliderObj = gliderDom.glide({
-	        type: "carousel",
-	        autoplay: false,
-	        autoheight: false,
-	        startAt: $(gliderDom).data('starting-index')+1,
-	        afterTransition: function(evt) {
-	        	
-	        	// Show corresponding category
-	        	updateCategory();
+			imageLoaded(gliderDom, function() {
 
-	        	// Update URL with the person's key
-						var personKey = $(".glide__slide.active .person-bio-left").data('key');
-						window.history.pushState(null, null, personKey);
-					}
-	    });
-	    gliderApi = gliderObj.data('glide_api');
+				// Initialize people carousel
+				var gliderObj = gliderDom.glide({
+		        type: "carousel",
+		        autoplay: false,
+		        autoheight: false,
+		        startAt: $(gliderDom).data('starting-index')+1,
+		        afterTransition: function(evt) {
+		        	
+		        	// Show corresponding category
+		        	updateCategory();
 
-	    function updateCategory() {
-	    	
-	    	var person = $(".glide__slide.active .person-bio-left");
-				var cat = person.data('category');
-				
-				$('#person_category').text(cat);
+		        	// Update URL with the person's key
+							var personKey = $(".glide__slide.active .person-bio-left").data('key');
+							window.history.pushState(null, null, personKey);
+						}
+		    });
+		    gliderApi = gliderObj.data('glide_api');
 
-	    }
+		    function updateCategory() {
+		    	
+		    	var person = $(".glide__slide.active .person-bio-left");
+					var cat = person.data('category');
+					
+					$('#person_category').text(cat);
 
-	    updateCategory();
+		    }
+
+		    updateCategory();
+
+			});
 
 		{{/ifeq}}
 
@@ -120,13 +129,23 @@
 
 			var gliderDom = $("#project_images_glider");
 
-			// Initialize project images carousel
-			// - Do autoheight for desktop only
-			gliderDom.glide({
-	        type: "carousel",
-	        autoplay: false,
-	        autoheight: !jQuery.browser.mobile
-	    });
+			imageLoaded(gliderDom, function() {
+
+				// Initialize project images carousel
+				// - Do autoheight for desktop only
+				gliderDom.glide({
+		        type: "carousel",
+		        autoplay: false,
+		        autoheight: !jQuery.browser.mobile,
+		     		// Monkey patch to fix height issue
+		        afterInit: function(e) {
+		        	var initHeight = $('.glide__slide.active img').height() + $('.glide__slide.active .caption').height();
+		        	console.log(initHeight)
+		        	$('.glide__wrapper').css('height', initHeight +'px');
+		        }
+		    });
+			
+			});
 		
 		{{/ifeq}}
 
