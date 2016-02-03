@@ -149,16 +149,16 @@
 
 			<div class="col-md-4">
 				<div class="footer-content">
-					<h3 class="title">Project Information {{!-- and Partners --}}</h3>
-					<div class="separator-2"></div>
+					<h3 class="title">Project Information</h3>
+					<div class="separator-5"></div>
 
+					<ul class="list-icons">
 					{{#if project.externalLinkUrl}}
-						<a href="{{project.externalLinkUrl}}" title="Project Website" class="btn radius-50 btn-default-transparent btn-lg">Project Website</a>
+						<li><a href="{{project.externalLinkUrl}}">Project Website<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
 					{{/if}}
 					{{#if project.githubUrl}}
-						<a href="{{project.githubUrl}}" title="Project Github" class="btn radius-50 btn-default-transparent btn-lg"><i class="fa fa-github-alt"></i></a>
+						<li><a href="{{project.githubUrl}}">GitHub Repository<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
 					{{/if}}
-					<ul class="list-icons">
 						<li><b>Project Dates:</b> {{projectDates}}</li>
 						<li><b>Contact:</b> <i class="text-default fa fa-envelope-o pl-10 pr-5"></i>info at elab.emerson.edu</li>
 					</ul>

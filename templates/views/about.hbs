@@ -14,19 +14,16 @@
 
 <section class="section">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12 pt-20 pb-10">
-				{{> page/name name="About Us"}}
-			</div>
-		</div>
 		<div class="row pb-40">
-			<div class="col-md-6">
+			<div class="col-md-12">
 				<div class="embed-responsive embed-responsive-16by9">
-					<iframe src="//player.vimeo.com/video/146805861" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<iframe src="https://player.vimeo.com/video/146805861" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
 			</div>
-			<div class="col-md-6">
-				{{> page/name2 name=about.missionStatement}}
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{{> page/name name=about.missionStatement}}
 				{{> about/first_paragraph text=about.process}}
 			</div>
 		</div>
