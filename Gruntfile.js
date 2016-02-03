@@ -130,19 +130,13 @@ module.exports = function(grunt) {
 	      pushTo: 'origin'
 	    }
 	  }
-
 	};
 
 	var configs = require('load-grunt-configs')(grunt, options);
 	
 	// Project configuration.
 	grunt.initConfig(configs);
-
-	// load periodic
-	grunt.registerTask('periodic', [
-		'periodic'
-	]);
-
+	
 	// load jshint
 	grunt.registerTask('lint', [
 		'jshint'
@@ -152,8 +146,13 @@ module.exports = function(grunt) {
 		'execute:news'
 	]);
 
-	grunt.registerTask('backupdata', ['mongobin:dump']);
-	grunt.registerTask('importdata', ['confirm:restore', 'mongobin:restore']);
+	grunt.registerTask('backupdata', [
+		'mongobin:dump'
+	]);
+	grunt.registerTask('importdata', [
+		'confirm:restore',
+		'mongobin:restore'
+	]);
 
 	grunt.registerTask('alldone', function() {
 	  grunt.log.writeln('>>>>>>>> Packages installed, code minified for production! <<<<<<<<');

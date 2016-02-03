@@ -65,7 +65,7 @@ exports = module.exports = function(req, res) {
                     locals.twitter.tweets.push({
                         text: tweet.text
                     });
-                };
+                }
                 next(err);
             });
         });

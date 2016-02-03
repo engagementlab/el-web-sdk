@@ -239,5 +239,5 @@ Project.schema.pre('save', function(next) {
  * Model Registration
  */
 Project.defaultSort = 'sortOrder';
-Project.defaultColumns = 'name, category, enabled, featured';
+Project.defaultColumns = 'name, subdirectory, enabled, featured';
 Project.register();

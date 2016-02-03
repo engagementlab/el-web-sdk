@@ -8,7 +8,7 @@
  @module grunt
 
  - news is an hourly pull of Medium and Eventbrite feeds
- - mongobackup is a daily backup of the CMS database
+ - backup is a daily backup of the CMS database
 
  Created by Johnny Richardson on 12/15/15.
 ==============
@@ -20,7 +20,7 @@ module.exports = {
     tasks: ['news']
   },
 
-  mongobackup: {
+  backup: {
   	when: 'daily',
   	tasks: ['backupdata']
   }
