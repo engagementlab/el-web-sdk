@@ -20,9 +20,9 @@ var Types = keystone.Field.Types;
  */
 var Tamagagement = new keystone.List('Tamagagement', 
     {
-        // hidden: true,
-        // nocreate: true,
-        // nodelete: true
+        hidden: true,
+        nocreate: true,
+        nodelete: true
     });
 
 /**
