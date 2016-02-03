@@ -11,4 +11,24 @@
 			margin: 0 auto;
 		}
 	}
+	.actions-container {
+		text-align: center;
+	}
+	ul.actions {
+		display: inline-block;
+		li {
+			display: inline;
+			form {
+				display: inline;
+				.btn {
+					font-size: $font-size-large;
+					padding: 14px 30px;
+				}
+				.btn-default {
+					background-color: #ff0000;
+					border: none;
+				}
+			}
+		}
+	}
 }

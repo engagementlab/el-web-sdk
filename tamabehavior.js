@@ -55,8 +55,8 @@ module.exports = {
 		hurt: {
 			messages: [
 				'OOff! Errol\'s in SO much physical pain',
-				'What a bunch of agony Errol looks to be in right now',
-				'That right there is a "hurting" ghost'
+				'Wow what a bunch of agony Errol looks to be in right now',
+				'Now that right there is a "hurting" ghost :|'
 			],
 			actions: [ 'punch', 'heal' ]
 		},
@@ -66,7 +66,7 @@ module.exports = {
 				'Do ghosts dream? Errol\'s investigating!',
 				'Nope - that\'s not sleep apnea. This ghost just had a real busy day!'
 			],
-			actions: [ 'wake' ]
+			actions: ''
 		},
 		dead: {
 			messages: [
@@ -91,7 +91,7 @@ module.exports = {
 			labels: [ 
 				'tickle that ghost',
 				'compliment hat',
-				'bear hug'
+				'bare hug <3'
 			]
 		},
 		insult: {
@@ -138,15 +138,13 @@ module.exports = {
         } else {
         	key = 'normal';
 
+        	// TODO:
         	// Get bored after a week of no interactions
-        	// also reset values
+        	// should also reset values
         	if (Date.now() - model.lastInteraction > 864000000*7) {
-        		// this.happiness = 0.5;
-        		// this.health = 1.0;
         		key = 'bored';
         	}
         	
-        	console.log(model.health);
         	if (model.health < 100) {
         		if (model.health >= 50)
         			key = 'hurt';
