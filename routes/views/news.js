@@ -45,7 +45,7 @@ exports = module.exports = function(req, res) {
 
             // Show the 3 most recently added articles
             Resource.model.find({ type: 'article' }, {}, {
-                sort: { 'createdAt': -1 }
+                sort: { date: -1 }
             }).limit(3).exec(function(err, articleResult){
                 if (err) throw err;
                 locals.articles = articleResult;

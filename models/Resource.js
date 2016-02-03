@@ -30,18 +30,18 @@ var Resource = new keystone.List('Resource', {
  */
 Resource.add({
 	name: { type: String, label: 'Resource Name', required: true, initial: true, index: true },
-	type: { type: Types.Select, label: 'Type', options: 'video, article, file', default: 'video', required: true, initial: true },
+	type: { type: Types.Select, label: 'Type', options: 'video, article, blog post, file', default: 'video', required: true, initial: true },
 
 	url: { type: String, label: 'URL',
-		dependsOn: { type: ['video', 'article'] }, initial: true },
+		dependsOn: { type: ['video', 'article', 'blog post'] }, initial: true },
 
 	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	summary: { type: String, label: 'Summary',
-		dependsOn: { type: 'article' } },
+		dependsOn: { type: ['article', 'blog post'] } },
 	date: { type: Date, label: "Date Published",
-		dependsOn: { type: 'article' } },
+		dependsOn: { type: ['article', 'blog post'] } },
 	author: { type: String, label: 'Author',
-		dependsOn: { type: 'article' } },
+		dependsOn: { type: ['article', 'blog post'] } },
 
 	file: {
 		type: Types.AzureFile,
