@@ -60,8 +60,6 @@ exports = module.exports = function(req, res) {
 
                 _.map(resultProject, function(proj) {
 
-                    console.log(proj)
-
                     // Get image code
                     proj.href = '/' + req.params.directory + 
                     '/' + proj.subdirectory.key + 

@@ -53,35 +53,37 @@ exports = module.exports = function(req, res) {
             if(err) throw err;
 
             var news = newsData.news[0];
-            var content = news.content.replace(/(^(By)\s+(.*)?[0-9]\s)/, ''); // removes the byline
+            var newsContent = news.content.replace(/(^(By)\s+(.*)?[0-9]\s)/, ''); // removes the byline
 
-            locals.featured_content[0] = {
+            locals.featured_content.push({
                 date: news.published,
                 title: news.title.replace('[VIDEO]', ''), // TODO: might need more sanitation of the title
-                content: content,
+                content: newsContent,
                 url: news.url,
                 type: "blog"
-            };
+            });
             
             if(newsData.events.length > 0) {
                 var events = newsData.events[0];
-                locals.featured_content[1] = {
+                locals.featured_content.push({
                     title: events.name.text,
                     content: events.description.text,
                     url: events.url,
                     type: "event"
-                };
+                });
             }
 
             Resource.model.findOne({ type: 'article' }, {}, {
                 sort: { 'createdAt': -1 }
             }).exec(function(err, result) {
-                locals.featured_content[2] = {
+                locals.featured_content.push({
                     title: result.name,
                     content: result.summary,
                     url: result.url,
                     type: "article"
-                };
+                });
+
+                console.log(locals.featured_content)
             });
 
             next(err);

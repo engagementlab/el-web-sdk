@@ -68,12 +68,12 @@ Publication.add({
  */
 Publication.schema.pre('save', function(next) {
   
-  if (this.category === 'Journal Article') {
+  /*if (this.category === 'Journal Article') {
     if (this.blurb !== undefined && this.blurb.length === 0) {
       var err = new Error('You must define a blurb for journal articles.');
       next(err);
     }
-  } 
+  }*/ 
 
   // Make a post to slack when this Publication is updated
   slack.post(Publication.schema, this, true);

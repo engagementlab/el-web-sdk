@@ -112,7 +112,7 @@ module.exports = function(grunt) {
 	      drop: true
 	    },
 	    dump: {
-	        out: './dump/nightly/'
+	        out: './dump/daily_bk/'
 	    }
 
 	  },
@@ -136,7 +136,7 @@ module.exports = function(grunt) {
 	
 	// Project configuration.
 	grunt.initConfig(configs);
-	
+
 	// load jshint
 	grunt.registerTask('lint', [
 		'jshint'

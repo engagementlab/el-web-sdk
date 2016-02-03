@@ -87,6 +87,7 @@ twitterInstance = new Twitter({
 // slack needs to be be accessible anywhere;
 // this is not a keystone config var, though (yet)
 keystone.set('slack', slackInstance);
+
 keystone.set('twitter', twitterInstance);
 keystone.set('tamabehavior', tamabehavior);
 
