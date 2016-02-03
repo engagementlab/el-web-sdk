@@ -5,4 +5,5 @@ module.exports = {
 			logConcurrentOutput: true
 		}
 	}
+
 };

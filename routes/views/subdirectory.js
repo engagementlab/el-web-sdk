@@ -29,18 +29,21 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
 
-        var querySub = Subdirectory.model.findOne({key: req.params.subdirectory});
+        // Retrieves all listings for the input subdirectory
+        var querySub = Subdirectory.model.findOne({
+            key: req.params.subdirectory
+        });
 
         querySub.exec(function(err, resultSub) {
-
 
             if (resultSub === null && !getAll)
                 return res.notfound('Uh oh.', 'Sorry, but it looks like the fun stuff is missing (404)! Maybe go <a href="http://elab.emerson.edu/">back home</a>?');
 
             var projectFilter = { enabled: true };
 
+            // TODO: Show all subdirs?
             if(!getAll) {
-                projectFilter['subdirectory'] = resultSub;
+                projectFilter.subdirectory = resultSub;
 
                 locals.name = resultSub.name;
                 locals.lead = resultSub.description;
@@ -50,23 +53,26 @@ exports = module.exports = function(req, res) {
 
             var queryProject = Project.model.find( projectFilter ).sort([
                 ['sortOrder', 'ascending']
-            ]);
+            ])
+            .populate('subdirectory');
 
             queryProject.exec(function(err, resultProject) {
+
                 _.map(resultProject, function(proj) {
 
-                // Get image code
-                proj.href = '/' + req.params.directory + 
-                '/' + req.params.subdirectory + 
-                '/' + proj.key;
-                proj.description = proj.description;
+                    // Get image code
+                    proj.href = '/' + req.params.directory + 
+                    '/' + proj.subdirectory.key + 
+                    '/' + proj.key;
+                    proj.description = proj.description;
 
-                return proj;
+                    return proj;
 
                 });
 
                 locals.listings = resultProject;
                 next(err);
+
             });
         });
     });
