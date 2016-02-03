@@ -30,7 +30,7 @@ module.exports = {
 				'Look at this freakin ghost! Have you ever seen a more content otherworldly spirit?',
 				'Errol\'s like, "sometimes you just gotta chill haha."'
 			],
-			actions: [ 'tickle', 'punch', 'insult' ]
+			actions: [ 'tickle', 'insult' ]
 		},
 		sad: {
 			messages: [
@@ -56,7 +56,7 @@ module.exports = {
 			messages: [
 				'Yep that\'s a dead ghost all right.',
 				'Even ghosts can die... "boo" hoo, right? lol',
-				'Dang the best really do die young.'
+				'Dang the "best" ones really do die young huh.'
 			],
 			actions: [ 'revive' ]
 		},
@@ -66,19 +66,11 @@ module.exports = {
 				'Add some excitement into Errol\'s boring ghosty life.',
 				'So. Bored. Boring. Boredom. Errol come on!!'
 			],
-			actions: [ 'tickle', 'punch', 'insult' ]
+			actions: [ 'tickle', 'insult' ]
 		}
 	},
 
-	actions: {
-		tickle: function() { this.happiness = Math.min(1.0, this.happiness+0.25); },
-		insult: function() { this.happiness = Math.max(0.0, this.happiness-0.25); },
-		heal: function() { this.health = Math.min(1.0, this.health+0.25); },
-		punch: function() { this.health = Math.max(0.0, this.health-0.25); }
-	},
-
 	getMood: function(model) {
-		// console.log(model.happiness);
 		
 		var key = this.mood.id;
 		if (key === 'dead') {
@@ -95,19 +87,21 @@ module.exports = {
 
 	        	// Get bored after a week of no interactions
 	        	// also reset values
-	        	if (this.lastInteraction > 0 && Date.now() - this.lastInteraction > 864000000*7) {
-	        		this.happiness = 0.5;
-	        		this.health = 1.0;
+	        	if (Date.now() - model.lastInteraction > 864000000*7) {
+	        		// this.happiness = 0.5;
+	        		// this.health = 1.0;
 	        		key = 'bored';
 	        	}
-	        	console.log(this.happiness);
-	        	if (this.happiness == 1.0)
-	        		key = 'esctatic';
-	        	else if (this.happiness >= 0.75)
+	        	
+	        	if (model.happiness == 100)
+	        		key = 'ecstatic';
+	        	else if (model.happiness >= 75)
 	        		key = 'happy';
-	        	else if (this.happiness <= 0.25)
+	        	else if (model.happiness > 25)
+	        		key = 'normal';
+	        	else if (model.happiness > 0)
 	        		key = 'sad';
-	        	else if (this.happiness == 0)
+	        	else
 	        		key = 'heartbroken';
 	        }
 		}
@@ -126,14 +120,5 @@ module.exports = {
 
 	getMessage: function(mood) {
 		return mood.messages[Math.floor(Math.random()*mood.messages.length)];
-	},
-
-	doAction: function(action) {
-		if (this.happiness == undefined)
-			this.happiness = 0.5;
-		if (this.health == undefined)
-			this.health = 1.0;
-		this.lastInteraction = Date.now();
-		this.actions[action]();
 	}
 };

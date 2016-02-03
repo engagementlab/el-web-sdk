@@ -13,44 +13,73 @@
  * ==========
  */
 var keystone = require('keystone');
-var Tamagagement = keystone.get('Tamagagement');
-var About = keystone.get('About');
+var Tamagagement = keystone.list('Tamagagement');
 var moment = require('moment');
 var behavior = keystone.get('tamabehavior');
 
+
 exports = module.exports = function(req, res) {
+
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
+    function update(field, value, callback) {
+        Tamagagement.model.findOne({}, {}, {}).exec(function(err, result) {
+            result[field] = Math.max(0, Math.min(100, result[field] + value));
+            result.save(function(err) {
+                if (err) throw err;
+
+                var mood = behavior.getMood(result);
+                locals.mood = mood.id;
+                locals.message = mood.message;
+                locals.actions = mood.actions;
+
+                console.log(field + ", " + result[field] + " .. " + value);
+                callback(result[field]);
+            });
+        });
+    }
+    
     // Make any queries
     view.on('init', function(next) {
 
-        // Tamagagement.model.findOne({}, {}, {}).exec(function(err, result) {
+        Tamagagement.model.findOne({}, {}, {}).exec(function(err, result) {
 
-            var mood = behavior.getMood('result');
+            if (err) throw err;
+
+            var mood = behavior.getMood(result);
 
             locals.mood = mood.id;
             locals.message = mood.message;
             locals.actions = mood.actions;
 
             next();
-        // });
+        });
     });
 
     view.on('post', { action: 'punch' }, function(next) {
-        behavior.doAction('punch');
-        next();
+        update('health', -25, function(val){
+            next();
+        });
+    });
+
+    view.on('post', { action: 'heal' }, function(next) {
+        update('health', 25, function(val){
+            next();
+        });
     });
 
     view.on('post', { action: 'tickle' }, function(next) {
-        behavior.doAction('tickle');
-        next();
+        update('happiness', 25, function(val){
+            next();
+        });
     });
 
     view.on('post', { action: 'insult' }, function(next) {
-        behavior.doAction('insult');
-        next();
+        update('happiness', -25, function(val){
+            next();
+        });
     });
 
     view.on('post', { action: 'revive' }, function(next) {

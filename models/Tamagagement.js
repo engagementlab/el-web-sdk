@@ -20,9 +20,9 @@ var Types = keystone.Field.Types;
  */
 var Tamagagement = new keystone.List('Tamagagement', 
     {
-        hidden: true,
-        nocreate: true,
-        nodelete: true
+        // hidden: true,
+        // nocreate: true,
+        // nodelete: true
     });
 
 /**
@@ -30,7 +30,9 @@ var Tamagagement = new keystone.List('Tamagagement',
  * @main Project
  */
 Tamagagement.add({
-    happiness: { type: Types.Number, hidden: true, default: 0.5 }
+    happiness: { type: Types.Number, hidden: true, default: 50 },
+    health: { type: Types.Number, hidden: true, default: 100 },
+    lastInteraction: { type: Types.Date, hidden: true, default: Date.now() }
 });
 
 /**

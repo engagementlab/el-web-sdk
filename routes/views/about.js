@@ -15,6 +15,7 @@ var keystone = require('keystone');
 var About = keystone.list('About');
 var Partner = keystone.list('Partner');
 var _ = require('underscore');
+var Tamagagement = keystone.list('Tamagagement');
 
 exports = module.exports = function(req, res) {
 
