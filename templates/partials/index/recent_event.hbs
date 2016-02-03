@@ -9,12 +9,12 @@
 			{{/if}} --}}
 			<div class="va-align">
 				<div class="summary">
-					<h4>{{event.title}}</h4>
-					{{#if event.content}}
-						<p>{{{limit event.content 150}}}</p>
+					<h4>{{event.name}}</h4>
+					{{#if event.text}}
+						<p>{{{event.text}}}</p>
 					{{/if}}
 				</div>
-				<a href="{{event.url}}">Go to {{event.type}} <span><i class="fa fa-chevron-right" aria-hidden="true"></i></span></a>
+				<a href="{{event.url}}">{{event.urlText}} <span><i class="fa fa-chevron-right" aria-hidden="true"></i></span></a>
 			</div>
 		</div>
 	</div>

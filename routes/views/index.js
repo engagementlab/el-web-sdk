@@ -14,6 +14,7 @@
  */
 var keystone = require('keystone');
 var Project = keystone.list('Project');
+var NewsBox = keystone.list('NewsBox');
 var Resource = keystone.list('Resource');
 var _ = require('underscore');
 
@@ -45,9 +46,16 @@ exports = module.exports = function(req, res) {
         projectQuery.exec(function(err, result) {
             if (err) throw err;
             locals.featured_projects = result;
+
+            NewsBox.model.find({}).exec(function(err, result) {
+                locals.featured_content = result;
+                console.log(result);
+                next(err);
+            });
         });
 
-        store.load('newsContent', function(err, newsData) {
+
+        /*store.load('newsContent', function(err, newsData) {
 
             // err if JSON parsing failed
             if(err) throw err;
@@ -87,7 +95,7 @@ exports = module.exports = function(req, res) {
             });
 
             next(err);
-        });
+        });*/
 
     });
 

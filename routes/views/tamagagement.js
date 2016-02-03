@@ -40,7 +40,7 @@ exports = module.exports = function(req, res) {
             });
         });
     }
-    
+
     // Make any queries
     view.on('init', function(next) {
 
@@ -59,13 +59,13 @@ exports = module.exports = function(req, res) {
     });
 
     view.on('post', { action: 'punch' }, function(next) {
-        update('health', -25, function(val){
+        update('health', -50, function(val){
             next();
         });
     });
 
     view.on('post', { action: 'heal' }, function(next) {
-        update('health', 25, function(val){
+        update('health', 50, function(val){
             next();
         });
     });

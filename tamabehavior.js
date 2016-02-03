@@ -44,6 +44,12 @@ module.exports = {
 			],
 			actions: [ 'tickle', 'punch' ]
 		},
+		hurt: {
+			messages: [
+				'hurt'
+			],
+			actions: [ 'punch', 'heal' ]
+		},
 		sleeping: {
 			messages: [
 				'SHHH!!! Errol\'s sleeping. Keep it down silly ;)',
@@ -93,16 +99,24 @@ module.exports = {
 	        		key = 'bored';
 	        	}
 	        	
-	        	if (model.happiness == 100)
-	        		key = 'ecstatic';
-	        	else if (model.happiness >= 75)
-	        		key = 'happy';
-	        	else if (model.happiness > 25)
-	        		key = 'normal';
-	        	else if (model.happiness > 0)
-	        		key = 'sad';
-	        	else
-	        		key = 'heartbroken';
+	        	if (model.health < 100) {
+	        		if (model.health >= 50)
+	        			key = 'hurt';
+	        		else
+	        			key = 'dead';
+	        	} else {
+		        	if (model.happiness == 100)
+		        		key = 'ecstatic';
+		        	else if (model.happiness >= 75)
+		        		key = 'happy';
+		        	else if (model.happiness > 25)
+		        		key = 'normal';
+		        	else if (model.happiness > 0)
+		        		key = 'sad';
+		        	else
+		        		key = 'heartbroken';
+		        }
+
 	        }
 		}
 
