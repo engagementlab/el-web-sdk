@@ -44,7 +44,7 @@ exports = module.exports = function(req, res) {
             'enabled': true,
             key: locals.filters._key
         })
-        .populate('videos articles files');
+        .populate('videos articles blogs files');
 
         // Setup the locals to be used inside view
         projectQuery.exec(function(err, result) {
@@ -53,7 +53,9 @@ exports = module.exports = function(req, res) {
                 return res.notfound('Cannot find project', 'Sorry, but it looks like the research project you were looking for does not exist! Try <a href="http://elab.emerson.edu/research">going back</a> to research.');
             }
 
-            _.map(result.articles, function(article) {
+            // "Articles" are both external articles and blogs, because why the fuck not?
+            var projectArticles = result.articles.concat(result.blogs);
+            _.map(projectArticles, function(article) {
 
                 // Set image (if no override, use embedly-provided image as fallback)
                 var hasOverride = article.imageOverride.url !== undefined && article.imageOverride.url.length > 0;
@@ -65,9 +67,7 @@ exports = module.exports = function(req, res) {
                 return article;
 
             });
-
-            // Project is the listing, projectData is the content
-            locals.project = result;
+            locals.projectArticles = projectArticles;
 
             // Format dates
             locals.projectDates = result._.startDate.format('MMMM Do YYYY - ') +
@@ -105,6 +105,9 @@ exports = module.exports = function(req, res) {
                 locals.projectCustomTabs = { headers: tabHeaders, content: tabContents };
 
             }
+
+            // Project data not re-formatted above
+            locals.project = result;
 
             next(err);
         });

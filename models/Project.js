@@ -131,7 +131,6 @@ Project.add({
             },
             many: true
         },
-
         // Resource model reference for articles
         articles: {
             type: Types.Relationship,
@@ -139,6 +138,16 @@ Project.add({
             label: 'External Articles',
             filters: {
                 type: 'article'
+            },
+            many: true
+        },
+        // Resource model reference for articles
+        blogs: {
+            type: Types.Relationship,
+            ref: 'Resource',
+            label: 'Blog Posts',
+            filters: {
+                type: 'blog post'
             },
             many: true
         }

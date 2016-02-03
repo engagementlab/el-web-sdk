@@ -35,7 +35,9 @@ exports = module.exports = function(req, res) {
             // err if JSON parsing failed
             if(err) throw err;
 
-            Resource.model.find({ type: 'article' }).exec(function(err, articleResult){
+            Resource.model.find({ type: 'article' }, {}, {
+                sort: { date: -1 }
+            }).exec(function(err, articleResult){
 
                 locals.articles = articleResult;
 
