@@ -31,8 +31,8 @@
 				<h3 class="tama-text" id="tama-feeling">{{message}}</h3>
 				{{#each actions}}
 				<form method="POST">
-					<input type="hidden" value="{{this}}" name="action">
-					<button type="submit" class="btn btn-default">{{this}}</button>
+					<input type="hidden" value="{{this.id}}" name="action">
+					<button type="submit" class="btn btn-default">{{this.label}}</button>
 				</form>
 				{{/each}}
 			</div>

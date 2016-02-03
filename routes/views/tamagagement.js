@@ -29,16 +29,17 @@ exports = module.exports = function(req, res) {
             result[field] = Math.max(0, Math.min(100, result[field] + value));
             result.save(function(err) {
                 if (err) throw err;
-
-                var mood = behavior.getMood(result);
-                locals.mood = mood.id;
-                locals.message = mood.message;
-                locals.actions = mood.actions;
-
-                console.log(field + ", " + result[field] + " .. " + value);
-                callback(result[field]);
+                setLocals(result);
+                callback(result);
             });
         });
+    }
+
+    function setLocals(model) {
+        var mood = behavior.getMood(model);
+        locals.mood = mood.id;
+        locals.message = mood.message;
+        locals.actions = mood.actions;
     }
 
     // Make any queries
@@ -47,13 +48,7 @@ exports = module.exports = function(req, res) {
         Tamagagement.model.findOne({}, {}, {}).exec(function(err, result) {
 
             if (err) throw err;
-
-            var mood = behavior.getMood(result);
-
-            locals.mood = mood.id;
-            locals.message = mood.message;
-            locals.actions = mood.actions;
-
+            setLocals(result);
             next();
         });
     });
@@ -83,8 +78,9 @@ exports = module.exports = function(req, res) {
     });
 
     view.on('post', { action: 'revive' }, function(next) {
-        behavior.doAction('revive');
-        next();
+        update('health', 100, function(val){
+            next();
+        });
     });
 
     // Render the view

@@ -29,6 +29,7 @@ body {
 
 	margin: 16px 0;
 	display: inline-block;
+	width: 400px;
 	
 	img {
 		@include transition(all 0.2s ease-in-out);
@@ -38,7 +39,7 @@ body {
 	p {
 		@include transition(all 0.2s ease-in-out);
 		display: inline;
-		font-size: $font-size-large;
+		font-size: 17px;
 		vertical-align: middle;
 		padding-left: 10px;
 		color: $gray-light;
@@ -109,6 +110,9 @@ body {
 	.emerson-logo {
 		display: none !important;
 	}
+	.logo-container > p {
+		font-size: 13px;
+	}
 }
 
 @media (max-width: 991px) { 
@@ -136,12 +140,6 @@ body {
 	}
 	#logo-col {
 		text-align: center;
-	}
-}
-
-@media (min-width: 767px) {
-	#at-emerson {
-		display: none;
 	}
 }
 

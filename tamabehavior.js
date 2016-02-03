@@ -14,13 +14,17 @@ module.exports = {
 	moods: {
 		ecstatic: {
 			messages: [
-				'ecstatic'
+				'Gosh dang DARNit!! This ghost is hip-Hop-CRAZY alright!',
+				'omg who can handle this much joy right??? :D',
+				'Hahaha Errol is in such good spirits right now, like really'
 			],
 			actions: [ 'insult', 'punch' ]
 		},
 		happy: {
 			messages: [
-				'happy'
+				'Oh wow this ghost is just so happy!',
+				'Errol looks so nice when he\'s overflowing with love',
+				'Now that is one happy camper!'
 			],
 			actions: [ 'tickle', 'insult' ]
 		},
@@ -34,19 +38,25 @@ module.exports = {
 		},
 		sad: {
 			messages: [
-				'sad'
+				'Oh dang that\'s a sad face',
+				'Ugh i really hate to see him like this',
+				'Well we can\'t be happy all the time right Errol?'
 			],
 			actions: [ 'tickle', 'insult' ]
 		},
 		heartbroken: {
 			messages: [
-				'heartbroken'
+				'Oh geeeez have you ever seen a ghost this sad eh?',
+				'That\'s just about the saddest ghost ever huh. Just so unhappy and like really sad :\'(',
+				'Wow things are really tough for Errol these days'
 			],
 			actions: [ 'tickle', 'punch' ]
 		},
 		hurt: {
 			messages: [
-				'hurt'
+				'OOff! Errol\'s in SO much physical pain',
+				'What a bunch of agony Errol looks to be in right now',
+				'That right there is a "hurting" ghost'
 			],
 			actions: [ 'punch', 'heal' ]
 		},
@@ -76,57 +86,95 @@ module.exports = {
 		}
 	},
 
+	actions: {
+		tickle: {
+			labels: [ 
+				'tickle that ghost',
+				'compliment hat',
+				'bear hug'
+			]
+		},
+		insult: {
+			labels: [
+				'call that ghost stupid',
+				'insult hat',
+				'ignore that beautiful face'
+			]
+		},
+		punch: {
+			labels: [ 
+				'punch directly in the neck',
+				'kick shins',
+				'poke every eye'
+			]
+		},
+		heal: {
+			labels: [
+				'offer soothing remedy',
+				'bless with sage oils',
+				'bandage ghost wounds'
+			]
+		},
+		revive: {
+			labels: [
+				'bring back to "life"',
+				'perform CPR',
+				'resurrect those old bones'
+			]
+		},
+		wake: {
+			labels: [ 'wake' ]
+		}
+	},
+
 	getMood: function(model) {
 		
 		var key = this.mood.id;
-		if (key === 'dead') {
+		var hour = new Date().getHours();
+       	
+       	// Be asleep between 10pm and 9am - wow! Errol sure sleeps a lot :)
+        if (hour > 22 || hour < 9) {
+        	key = 'sleeping';
+        } else {
+        	key = 'normal';
 
-		} else {
-
-			var hour = new Date().getHours();
-	       	
-	       	// Be asleep between 10pm and 9am - wow! Errol sure sleeps a lot :)
-	        if (hour > 22 || hour < 9) {
-	        	key = 'sleeping';
-	        } else {
-	        	key = 'normal';
-
-	        	// Get bored after a week of no interactions
-	        	// also reset values
-	        	if (Date.now() - model.lastInteraction > 864000000*7) {
-	        		// this.happiness = 0.5;
-	        		// this.health = 1.0;
-	        		key = 'bored';
-	        	}
-	        	
-	        	if (model.health < 100) {
-	        		if (model.health >= 50)
-	        			key = 'hurt';
-	        		else
-	        			key = 'dead';
-	        	} else {
-		        	if (model.happiness == 100)
-		        		key = 'ecstatic';
-		        	else if (model.happiness >= 75)
-		        		key = 'happy';
-		        	else if (model.happiness > 25)
-		        		key = 'normal';
-		        	else if (model.happiness > 0)
-		        		key = 'sad';
-		        	else
-		        		key = 'heartbroken';
-		        }
-
+        	// Get bored after a week of no interactions
+        	// also reset values
+        	if (Date.now() - model.lastInteraction > 864000000*7) {
+        		// this.happiness = 0.5;
+        		// this.health = 1.0;
+        		key = 'bored';
+        	}
+        	
+        	console.log(model.health);
+        	if (model.health < 100) {
+        		if (model.health >= 50)
+        			key = 'hurt';
+        		else
+        			key = 'dead';
+        	} else {
+	        	if (model.happiness == 100)
+	        		key = 'ecstatic';
+	        	else if (model.happiness >= 75)
+	        		key = 'happy';
+	        	else if (model.happiness > 25)
+	        		key = 'normal';
+	        	else if (model.happiness > 0)
+	        		key = 'sad';
+	        	else
+	        		key = 'heartbroken';
 	        }
+
 		}
 
         var mood = this.moods[key];
         var msg = this.getMessage(mood);
+        var acts = this.getActions(mood);
 
         this.mood = {
         	id: key,
         	message: msg,
-        	actions: mood.actions
+        	actions: acts
         };
 
 		return this.mood;
@@ -134,5 +182,18 @@ module.exports = {
 
 	getMessage: function(mood) {
 		return mood.messages[Math.floor(Math.random()*mood.messages.length)];
+	},
+
+	getActions: function(mood) {
+		var acts = [];
+		for (var i = 0; i < mood.actions.length; i++) {
+			var key = mood.actions[i];
+			var labels = this.actions[key].labels;
+			acts.push({
+				id: key,
+				label: labels[Math.floor(Math.random()*labels.length)]
+			});
+		};
+		return acts;
 	}
 };
