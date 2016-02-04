@@ -8595,6 +8595,8 @@ body {
     background-color: #51d0b1; }
   .cmap #elements #element-3 {
     background-color: #fcb75c; }
+  .cmap #elements #columns {
+    display: flex; }
 
 .cmap #projects {
   background-color: #f2f2f2; }
@@ -8616,9 +8618,13 @@ body {
   list-style-type: none;
   padding-left: 0; }
 
+@media (max-width: 991px) {
+  .cmap #elements #columns {
+    display: block; } }
+
 @media (min-width: 768px) {
   .cmap .lead p {
-    font-size: 21px; } }
+    font-size: 20px; } }
 
 .tama .tama-text {
   text-align: center;
