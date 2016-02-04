@@ -113,6 +113,12 @@
 		        autoplay: false,
 		        autoheight: false,
 		        startAt: $(gliderDom).data('starting-index')+1,
+		        afterInit: function(evt) {
+		        	// The people list is invisible by default, show it, but only after a delay to allow page to load
+		        	setTimeout(function() { 			        	
+			        	gliderDom.fadeTo(500, 1);
+		        	} , 500);
+		        },
 		        afterTransition: function(evt) {
 		        	
 		        	// Show corresponding category

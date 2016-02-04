@@ -236,8 +236,8 @@ Project.schema.pre('save', function(next) {
     this.wasNew = this.isNew;
     this.wasModified = this.isModified();
 
-    if (this.projectImageCaptions.length > this.projectImages.length) {
-        var err = new Error('You cannot have more image captions than images.');
+    if (this.projectImages.length > 0 && (this.projectImages.length < this.projectImageCaptions.length)) {
+        var err = new Error('You cannot have more images than their respective captions.');
         next(err);
     }
 
