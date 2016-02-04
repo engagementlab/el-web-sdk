@@ -49,14 +49,6 @@ Listing.add({
         initial: true,
         index: true
     },
-    /*internalName: {
-        type: String,
-        hidden: true,
-        watch: 'name',
-        value: function() {
-          return this.name.replace('@', '');
-        }
-    },*/
     description: {
         type: String,
         label: 'Byline',

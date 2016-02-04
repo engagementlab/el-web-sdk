@@ -1,12 +1,6 @@
 <div class="col-md-4">
-	<div class="pv-30 ph-20 recent-event-box white-bg feature-box bordered text-center">
+	<div class="pv-30 ph-20 recent-event-box feature-box text-center" id="box-{{@index}}">
 		<div class="va-container">
-			{{!-- {{#if event.date}}
-			<div class="posted-date">
-				<p class="month">{{date event.date format='MMM'}}</p>
-				<p class="day">{{date event.date format='DD'}}</p>
-			</div>
-			{{/if}} --}}
 			<div class="va-align">
 				<div class="summary">
 					<h4>{{event.name}}</h4>
@@ -17,5 +11,8 @@
 				<a href="{{event.url}}">{{event.urlText}} <span><i class="fa fa-chevron-right" aria-hidden="true"></i></span></a>
 			</div>
 		</div>
+	</div>
+	<div class="vertical-separator">
+		
 	</div>
 </div>

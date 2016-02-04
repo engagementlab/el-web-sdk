@@ -49,7 +49,6 @@ exports = module.exports = function(req, res) {
 
             NewsBox.model.find({}).exec(function(err, result) {
                 locals.featured_content = result;
-                console.log(result);
                 next(err);
             });
         });
