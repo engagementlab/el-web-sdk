@@ -447,7 +447,7 @@ module.exports = function() {
 	//  @str: The email
 	_helpers.emailFormat = function (str) {
 			
-		return str.replace(/_([^_]*)$/, ' dot ' + '$1').replace('@', ' at ');
+		return str.replace('@', ' at ');
 
 	}
 

@@ -13,6 +13,10 @@ module.exports = {
 
     post: function(model, document, accolade, custom_name) {
 
+        // Do nothing if document not new/modified
+        if(!(document.wasNew || document.wasModified))
+            return;
+
         // Production-level apps only
         if (process.env.NODE_ENV !== 'production')
             return;
@@ -29,7 +33,7 @@ module.exports = {
         var slack = _keystone.get('slack');
         var _ = require('underscore');
         var Sentencer = require('sentencer');
-        var modelName = model.modelName;
+        var modelName =  model.modelName || document.constructor.modelName;
 
         // TODO: Pull from config
         var affirmatives = [
@@ -69,7 +73,7 @@ module.exports = {
                     else
                         documentName = document.name;
 
-                    var slackMsg = userName + ' updated the ' + modelName + ' "' + documentName + '"!';
+                    var slackMsg = userName + (document.wasNew ? ' created' : ' updated') + ' the ' + modelName + ' "' + documentName + '"!';
 
                     // Generate a random accolade?
                     if(accolade !== undefined && accolade !== false)

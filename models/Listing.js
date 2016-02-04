@@ -12,6 +12,7 @@
  */
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+var slack = require('../slack');
 
 /**
  * @module listing
@@ -83,12 +84,22 @@ Listing.schema.methods.safeName = function() {
  * Hooks
  * =============
  */
-/*Listing.schema.pre('save', function(next) {
+Listing.schema.pre('save', function(next) {
 
-    // this.key = this.key.replace('@', 'at');
-    console.log(this)
+    // Save state for post hook
+    this.wasNew = this.isNew;
+    this.wasModified = this.isModified();
 
-});*/
+    next();
+
+});
+
+Listing.schema.post('save', function(next) {
+
+    // Make a post to slack when this Listing is updated
+    slack.post(Listing.schema, this, true);
+
+});
 
 /**
  * Model Registration

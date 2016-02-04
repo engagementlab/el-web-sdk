@@ -232,15 +232,23 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
  */
 Project.schema.pre('save', function(next) {
 
+    // Save state for post hook
+    this.wasNew = this.isNew;
+    this.wasModified = this.isModified();
+
     if (this.projectImageCaptions.length > this.projectImages.length) {
         var err = new Error('You cannot have more image captions than images.');
         next(err);
     }
 
+    next();
+
+});
+
+Project.schema.post('save', function(next) {
+
     // Make a post to slack when this Project is updated
     slack.post(Project.model, this, true);
-
-    next();
 
 });
 

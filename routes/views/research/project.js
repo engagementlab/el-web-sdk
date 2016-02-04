@@ -71,7 +71,7 @@ exports = module.exports = function(req, res) {
 
             // Format dates
             locals.projectDates = result._.startDate.format('MMMM Do YYYY - ') +
-                                  ((result.endDate === undefined) ?
+                                  ((result.endDate === undefined || result.endDate === null) ?
                                   'Current' : result._.endDate.format('MMMM Do YYYY'));
 
             // Format images into {caption, img}

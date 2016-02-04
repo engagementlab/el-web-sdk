@@ -24,8 +24,15 @@ var Publication = new keystone.List('Publication',
 		sortable: true,
 		track: true,
 		map: { name: 'title' },
-		autokey: { path: 'key', from: 'name', unique: true }
+		autokey: { path: 'key', from: 'title', unique: true }
 	});
+
+/** 
+	* Caching fields for 'post' save hook
+	*/
+var docIsNew;
+var docIsModified;
+
 /**
  * Model Fields
  * @main Publication
@@ -68,17 +75,32 @@ Publication.add({
  */
 Publication.schema.pre('save', function(next) {
   
-  /*if (this.category === 'Journal Article') {
+  /* if (this.category === 'Journal Article') {
     if (this.blurb !== undefined && this.blurb.length === 0) {
       var err = new Error('You must define a blurb for journal articles.');
       next(err);
     }
-  }*/ 
+  } */
+  
+  // Save state for post hook
+  this.wasNew = this.isNew;
+  this.wasModified = this.isModified();
 
-  // Make a post to slack when this Publication is updated
-  slack.post(Publication.schema, this, true);
+  next();
 
-	next();
+});
+
+Publication.schema.post('save', function(next) {
+
+  var publication = this;
+
+  // Make a post to slack when this Publication is updated    
+  slack.post(
+  	Publication.model, this, true, 
+  	function() { return publication.title; }
+  );
+
+
 });
 
 /**

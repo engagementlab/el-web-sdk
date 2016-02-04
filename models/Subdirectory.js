@@ -44,5 +44,9 @@ Subdirectory.add({
  * Model Registration
  * =============
  */
+// Cache model in redis every .5 hr
+Subdirectory.set('redisCache', true);
+Subdirectory.set('expires', 60 * 30 * 1000);
+
 Subdirectory.register();
 
