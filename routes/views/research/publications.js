@@ -55,6 +55,13 @@ exports = module.exports = function(req, res) {
                     var filteredPubs = resultPubs.filter(function(pub) {
                         return pub.category == category;
                     });
+                    
+                    if(category === 'Journal Article') {
+                        // Sort articles by date
+                        filteredPubs = filteredPubs.sort(function(a, b) {
+                            return new Date(b.date) - new Date(a.date);
+                        });
+                    }
 
                     _.map(filteredPubs, function(pub) {
                         pub.href = '/research/publications/' + pub.key;
@@ -67,8 +74,9 @@ exports = module.exports = function(req, res) {
                     // Assemble publications along with applicable sections
                     locals.publications[category] = {
                         records: filteredPubs,
-                        isJournal: (category == 'Journal Article')
+                        isJournal: (category === 'Journal Article')
                     };
+                    
 
                     // Assign subsections, if any
                     if (subSections[0] !== null && subSections.length > 0)

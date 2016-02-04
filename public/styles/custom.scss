@@ -77,10 +77,6 @@ html, body, .container {
   left: 0;
 }
 
-.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
-  border-bottom: 3px solid $base-color;
-}
-
 // Columns of 9 (used for partners)
 
 .col-xs-9,
@@ -348,6 +344,20 @@ html, body, .container {
   margin: 60px 0;
 }
 
+
+// Pills
+@media (min-width: 768px) {
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
+    border-bottom: 3px solid $base-color;
+  }
+}
+@media (max-width: 768px) {
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
+    background-color: $base-color;
+    color: $white;
+  }
+}
+
 #pill-images {
    .caption {
     text-align: center;
@@ -373,8 +383,14 @@ html, body, .container {
 
 ul.resources {
   list-style-type: none;
-  font-size: $font-size-h4;
   padding-left: 8px;
+
+  * {
+    font-size: $font-size-base;
+  }
+  a {
+    font-size: $font-size-h4;
+  }
 }
 
 /* Large and Medium devices (desktops, tablets less than 1199px) */

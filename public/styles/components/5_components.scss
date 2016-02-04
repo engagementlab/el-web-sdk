@@ -883,9 +883,18 @@ ul.pagination li.active a,
 	background-color: #fafafa;
 	border: 1px solid #eaeaea;
 }
-.nav-pills > li + li {
-	margin-left: 5px;
+
+@media (min-width: 768px) {
+	.nav-pills > li + li {
+		margin-left: 5px;
+	}
 }
+@media (max-width: 768px) {
+	.nav-pills > li + li {
+		margin-left: 0px;
+	}	
+}
+
 .nav-pills.nav-stacked > li + li {
 	margin-left: 0;
 }

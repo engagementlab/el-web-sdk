@@ -35,7 +35,6 @@ Resource.add({
 	url: { type: String, label: 'URL',
 		dependsOn: { type: ['video', 'article', 'blog post'] }, initial: true },
 
-	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	summary: { type: String, label: 'Summary',
 		dependsOn: { type: ['article', 'blog post'] } },
 	date: { type: Date, label: "Date Published",
@@ -54,6 +53,8 @@ Resource.add({
 			return 'resources';
 		}
 	},
+	fileSummary: { type: Types.Markdown, label: 'File Summary',
+		dependsOn: { type: ['file'] } },
 
 	imageOverride: {
       type: Types.CloudinaryImage,
