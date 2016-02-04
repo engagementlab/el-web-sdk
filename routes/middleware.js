@@ -13,10 +13,12 @@
 var keystone = require('keystone');
 var _ = require('underscore');
 
-// DB Models for use on nav (cached query)
+// DB Models for use on nav
 var Subdirectory = keystone.list('Subdirectory');
 
-var querySub = Subdirectory.model.find({});
+var querySub = Subdirectory.model.find({}).sort([
+                ['sortOrder', 'ascending']
+               ]);
 querySub.select('key name');
 
 /**
@@ -43,9 +45,7 @@ exports.initLocals = function(req, res, next) {
                 href: '/research/' + sub.key
             };
 
-        }).sort([
-            ['sortOrder', 'ascending']
-        ]);
+        });
 
         locals.navLinks = [{
             label: 'About',

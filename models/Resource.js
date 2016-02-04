@@ -59,7 +59,7 @@ Resource.add({
 	imageOverride: {
       type: Types.CloudinaryImage,
       dependsOn: { type : 'article' },
-      label: 'Image Override',
+      label: 'Image Override (350 x 233)',
       folder: 'site/research',
       note: 'This should be used if the image provided automatically is not acceptable.',
       autoCleanup: true
