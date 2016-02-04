@@ -130,7 +130,12 @@
 							<ul class="resources">
 							{{#each project.files}}
 								{{#if file}}
+									{{#if fileSummary.html}}
+										<div class="separator-3"></div>
+										{{{fileSummary.html}}}
+									{{/if}}
 									<li><a href="{{file.url}}"><i class="fa fa-file-{{fileType file}} pr-5"></i> {{name}}</a></li>
+									
 								{{/if}}
 
 							{{/each}}

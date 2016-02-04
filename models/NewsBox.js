@@ -65,4 +65,5 @@ NewsBox.add({
  * Model Registration
  */
 NewsBox.defaultSort = 'sortOrder';
+NewsBox.defaultColumns = 'name, type';
 NewsBox.register();
