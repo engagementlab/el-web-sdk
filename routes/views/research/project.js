@@ -55,6 +55,11 @@ exports = module.exports = function(req, res) {
 
             // "Articles" are both external articles and blogs, because why the fuck not?
             var projectArticles = result.articles.concat(result.blogs);
+            // console.log(projectArticles);
+
+            // console.log("-------------------------");
+            // console.log(projectArticles);
+
             _.map(projectArticles, function(article) {
 
                 // Set image (if no override, use embedly-provided image as fallback)
@@ -67,6 +72,12 @@ exports = module.exports = function(req, res) {
                 return article;
 
             });
+
+            projectArticles = _.sortBy(projectArticles, function(a) { 
+                var dt = new Date(a.date); 
+                return -dt; 
+            });
+
             locals.projectArticles = projectArticles;
 
             // Format dates
