@@ -8102,7 +8102,7 @@ html, body, .container {
     margin-top: 100%; }
 
 .partners {
-  background-color: #dadada; }
+  background-color: #ffffff; }
   .partners .glide__arrow {
     display: none; }
   .partners .content-slider-with-controls .image-box {
@@ -8128,8 +8128,6 @@ html, body, .container {
       cursor: pointer; }
     .partners .client-image.selected img {
       color: #78cbd1 !important; }
-    .partners .client-image img {
-      border-radius: 40px; }
 
 .about-section {
   padding-top: 50px;
@@ -8627,6 +8625,22 @@ body {
   padding: 20px 0; }
   .tama .tama-container img {
     margin: 0 auto; }
+
+.tama .actions-container {
+  text-align: center; }
+
+.tama ul.actions {
+  display: inline-block; }
+  .tama ul.actions li {
+    display: inline; }
+    .tama ul.actions li form {
+      display: inline; }
+      .tama ul.actions li form .btn {
+        font-size: 19px;
+        padding: 14px 30px; }
+      .tama ul.actions li form .btn-default {
+        background-color: #ff0000;
+        border: none; }
 
 .glide__arrows {
   position: absolute; }

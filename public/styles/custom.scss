@@ -246,7 +246,7 @@ html, body, .container {
 }
 
 .partners {
-  background-color: $gray-lighter;
+  background-color: $white;
 
   .glide__arrow { display: none; }
 
@@ -285,7 +285,6 @@ html, body, .container {
         color: $base-color !important;
       }
     }
-    img { border-radius: 40px; }
   }
 }
 

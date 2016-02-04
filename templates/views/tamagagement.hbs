@@ -29,12 +29,18 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h3 class="tama-text" id="tama-feeling">{{message}}</h3>
-				{{#each actions}}
-				<form method="POST">
-					<input type="hidden" value="{{this.id}}" name="action">
-					<button type="submit" class="btn btn-default">{{this.label}}</button>
-				</form>
-				{{/each}}
+				<div class="actions-container">
+					<ul class="actions">
+						{{#each actions}}
+						<li>
+							<form method="POST">
+								<input type="hidden" value="{{this.id}}" name="action">
+								<button type="submit" class="btn btn-default">{{this.label}}</button>
+							</form>
+						</li>
+						{{/each}}
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
