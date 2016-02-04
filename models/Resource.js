@@ -77,6 +77,10 @@ Resource.schema.pre('save', function(next) {
   
   var err;
 
+  // Save state for post hook
+  this.wasNew = this.isNew;
+  this.wasModified = this.isModified();
+
   /*
 		If Azure file upload succeeded but returned no filename, we have to generate manually and save it since
 		keystone's createBlockBlobFromLocalFile implementation does not account for Azure returning 
@@ -107,17 +111,18 @@ Resource.schema.pre('save', function(next) {
 
 	if(err !== undefined && err.length > 0)
 		next(new Error(err));
-	else
-	{
-
-    // Make a post to slack when this Resource is updated
-    slack.post(Resource.model, this, true);
-
-		next();
-
-	}
+	
+	next();
 
 });
+
+Resource.schema.post('save', function(next) {
+
+  // Make a post to slack when this Resource is updated
+  slack.post(Resource.model, this, true);
+
+});
+
 Resource.schema.pre('remove', function(next) {
 
   // Remove resource from all that referenced it 

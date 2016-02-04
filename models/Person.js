@@ -60,6 +60,16 @@ Person.add({
  */
 Person.schema.pre('save', function(next) {
 
+    // Save state for post hook
+    this.wasNew = this.isNew;
+    this.wasModified = this.isModified();
+
+    next();
+
+});
+
+Person.schema.post('save', function(next) {
+
     // Make a post to slack when this Person is updated
     var person = this;
     
@@ -68,9 +78,8 @@ Person.schema.pre('save', function(next) {
     	function() { return person.name.first + ' ' + person.name.last; }
     );
 
-    next();
-
 });
+
 
 /**
  * Model Registration

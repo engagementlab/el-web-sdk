@@ -16,6 +16,7 @@ var keystone = require('keystone');
 var validator = require('validator');
 var Listing = require('./Listing');
 var Types = keystone.Field.Types;
+var slack = require('../slack');
 
 /**
  * @module program
@@ -57,6 +58,27 @@ Program.add({
         required: true,
         initial: true
 	}
+});
+
+/**
+ * Hooks
+ * =============
+ */
+Program.schema.pre('save', function(next) {
+
+    // Save state for post hook
+    this.wasNew = this.isNew;
+    this.wasModified = this.isModified();
+
+    next();
+
+});
+
+Program.schema.post('save', function(next) {
+
+    // Make a post to slack when this Program is updated
+    slack.post(Program.schema, this, true);
+
 });
 
 /**
