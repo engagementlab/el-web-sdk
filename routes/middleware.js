@@ -13,7 +13,7 @@
 var keystone = require('keystone');
 var _ = require('underscore');
 
-// DB Models for use on nav (cached query)
+// DB Models for use on nav
 var Subdirectory = keystone.list('Subdirectory');
 
 var querySub = Subdirectory.model.find({}).sort([

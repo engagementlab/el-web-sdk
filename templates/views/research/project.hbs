@@ -92,11 +92,10 @@
 									    <div class="glide__wrapper">
 									        
 									        <ul class="glide__track" style="margin-left:-40px">
-														{{!-- @key is caption, "this" is image object --}}
 														{{# each projectImageObjects}}
 															<li class="glide__slide">
-																<img src="{{{cloudinaryUrl width=500 quality=60}}}" alt="{{@key}}">
-																<div class="caption lead">{{@key}}</div>
+																<img src="{{{cloudinaryUrl img width=500 quality=60}}}" alt="{{@key}}">
+																<div class="caption lead">{{caption}}</div>
 															</li>
 														{{/each}}
 									        </ul>

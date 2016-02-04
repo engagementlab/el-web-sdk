@@ -75,7 +75,10 @@ exports = module.exports = function(req, res) {
                                   'Current' : result._.endDate.format('MMMM Do YYYY'));
 
             // Format images into {caption, img}
-            locals.projectImageObjects = _.object(result.projectImageCaptions, result.projectImages);
+            locals.projectImageObjects = [];
+            _.each(result.projectImageCaptions, function(str, i) {
+                locals.projectImageObjects.push( {caption: str, img: result.projectImages[i]} );
+            });
 
             // Determine project tabs to be active by default (images are first if defined)
             if(result.projectImages.length === 0) {
