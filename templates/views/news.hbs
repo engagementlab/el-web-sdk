@@ -90,6 +90,7 @@
 						{{#each twitter.tweets}}
 						    <li class="tweet">{{{this.text}}}</li>
 						{{/each}}
+							<li class="tweet"><a href="https://twitter.com/{{twitter.user}}">More from @{{twitter.user}} <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
 						</ul>
 					{{/if}}
 					<h1 class="page-title mb-10">Events</h1>
