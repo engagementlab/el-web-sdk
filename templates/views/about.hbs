@@ -62,47 +62,40 @@
 
 <!-- Partners -->
 <section class="section clearfix partners about-section">
-	<div class="container border-clear">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="container">
-					<div class="row">
-						{{> page/name name="Our Partners"}}
-						<div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+			
+			<div class="col-md-12 pb-20">
+				{{> page/name name="Our Partners"}}
+			</div>
 
-							{{!-- Glider.js structure --}}
-							<div id="partners_glider" class="glide">
+			{{!-- Partners slider --}}
+			<div class="col-sm-12 col-md-8 col-md-offset-2">
+				<div id="partners_glider" class="glide">
+					<div class="glide__wrapper">
 
-							    <div class="glide__arrows about">
-							        <button class="glide__arrow prev" data-glide-dir="<"></button>
-							        <button class="glide__arrow next" data-glide-dir=">"></button>
-							    </div>
+						<ul class="glide__track" style="margin-left:-40px">
+							{{#each partners}}
+								<li class="glide__slide">{{> about/partner_info partner=this}}</li>
+							{{/each}}
+						</ul>
 
-							    <div class="glide__wrapper">
-							        <ul class="glide__track">
-										{{#each partners}}
-											<li class="glide__slide">{{> about/partner_info partner=this}}</li>
-										{{/each}}
-							        </ul>
-							    </div>
-
-							</div>
-
-						</div>
 					</div>
 				</div>
-				<div class="container pv-20">
-					<div class="clients-container">
-						<div class="clients">
-							{{#each partners}}
-								{{> about/partner_icon partner=this}}
-							{{/each}}
-						</div>
+			</div>
+
+			{{!-- Partner icons --}}
+			<div class="col-md-12 pv-20">
+				<div class="clients-container">
+					<div class="clients">
+						{{#each partners}}
+							{{> about/partner_icon partner=this}}
+						{{/each}}
 					</div>
-				</div> <!-- .container -->
-			</div> <!-- .col-md-12 -->
-		</div> <!-- .row -->
-	</div> <!-- .container-fluid -->
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="about-section">
