@@ -139,7 +139,7 @@ html, body, .container {
 
 .recent-events {
   padding: 50px 0;
-  background-color: $gray-lightest;
+  background-color: $white;
 
   .recent-event-box {
     height: 280px;
@@ -160,6 +160,16 @@ html, body, .container {
       }
     }
   }
+}
+
+#box-0:after, #box-1:after {
+  content: '';
+  height: 60%;
+  width: 3px;
+  position: absolute;
+  right: 0;
+  top: 20%;
+  background-color: $gray-light;
 }
 
 .featured-projects {

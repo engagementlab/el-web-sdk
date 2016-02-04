@@ -8020,7 +8020,7 @@ html, body, .container {
 
 .recent-events {
   padding: 50px 0;
-  background-color: #f4f4f4; }
+  background-color: #ffffff; }
   .recent-events .recent-event-box {
     height: 280px; }
     .recent-events .recent-event-box .posted-date {
@@ -8036,6 +8036,15 @@ html, body, .container {
         .recent-events .recent-event-box .posted-date p.day {
           font-size: 30px;
           color: #78cbd1; }
+
+#box-0:after, #box-1:after {
+  content: '';
+  height: 60%;
+  width: 3px;
+  position: absolute;
+  right: 0;
+  top: 20%;
+  background-color: #bababa; }
 
 .featured-projects {
   color: #fff; }
@@ -8586,6 +8595,8 @@ body {
     background-color: #51d0b1; }
   .cmap #elements #element-3 {
     background-color: #fcb75c; }
+  .cmap #elements #columns {
+    display: flex; }
 
 .cmap #projects {
   background-color: #f2f2f2; }
@@ -8607,9 +8618,13 @@ body {
   list-style-type: none;
   padding-left: 0; }
 
+@media (max-width: 991px) {
+  .cmap #elements #columns {
+    display: block; } }
+
 @media (min-width: 768px) {
   .cmap .lead p {
-    font-size: 21px; } }
+    font-size: 20px; } }
 
 .tama .tama-text {
   text-align: center;

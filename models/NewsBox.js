@@ -22,7 +22,7 @@ var validator = require('validator');
 var NewsBox = new keystone.List('NewsBox', {
 	track: true,
 	sortable: true,
-	nocreate: true,
+	// nocreate: true,
 	nodelete: true
 });
 
