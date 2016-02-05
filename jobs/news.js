@@ -16,6 +16,7 @@
   @constructor
   @static
 **/
+require('dotenv').load();
 var _ = require('underscore');
 
 // HTTP requester
@@ -25,11 +26,11 @@ var feed = require("feed-read");
 // File manipulation
 var store = require('json-fs-store')('./tmp');
 
-var embedlyKey = '6854c1facf7a4eb6bdfe5bbd663ced50';
+var embedlyKey = process.env.EMBEDLY_API_KEY;
 
 var eventsParams = {
     host: 'http://eventbriteapi.com',
-    path: '/v3/users/me/owned_events/?token=HC62RVWGRYQNBDLBNVFQ&status=live'
+    path: '/v3/users/me/owned_events/?token=' + process.env.EVENTBRITE_TOKEN + '&status=live'
 };
 var blogParams = {
     host: 'https://medium.com',
@@ -52,6 +53,7 @@ request(eventsParams.host + eventsParams.path, function(error, response, body) {
     feed(blogParams.host + blogParams.path, function(err, rss) {
 
         var articles = [];
+        var articleInd = 0;
 
         // Output data after all articles retrieved via embedly
         var queryDone = _.after(rss.length, function() {
@@ -64,8 +66,8 @@ request(eventsParams.host + eventsParams.path, function(error, response, body) {
             });
         });        
 
-        // Retrieve article's embed via embedly
-        _.each(rss, function(article) {
+        // Get embed data for article
+        getEmbed = function(article) {
 
             request('http://api.embed.ly/1/extract?key=' + embedlyKey + '&url=' + article.link, function(error, response, articleBody) {
 
@@ -83,9 +85,19 @@ request(eventsParams.host + eventsParams.path, function(error, response, body) {
                 
                 queryDone();
 
+                if(articleInd < rss.length-1) {
+                    articleInd++;
+                    // Get next article
+                    getEmbed(rss[articleInd]);
+                }
+
             });
             
-        });
+        };
+
+        // Retrieve first article's embed via embedly;
+        // This method will then retrieve all subsequent ones
+        getEmbed(rss[0]);
 
     });
 
