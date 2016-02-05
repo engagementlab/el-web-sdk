@@ -3986,10 +3986,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .nav-tabs.nav-justified > .active > a:focus {
     border-bottom-color: #fff;
   }
+  .nav-pills > li {
+    float: left;
+  }
 }
-.nav-pills > li {
-  float: left;
-}
+
 .nav-pills > li > a {
   border-radius: 4px;
 }

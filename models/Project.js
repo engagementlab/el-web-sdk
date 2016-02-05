@@ -201,13 +201,19 @@ Project.schema.statics.removeResourceRef = function(resourceId, callback) {
                 'videos': resourceId
             }, {
                 'articles': resourceId
+            }, {
+                'blogs': resourceId
+            }, {
+                'files': resourceId
             }]
         },
 
         {
             $pull: {
                 'videos': resourceId,
-                'articles': resourceId
+                'articles': resourceId,
+                'blogs': resourceId,
+                'files': resourceId
             }
         },
 

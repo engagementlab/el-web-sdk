@@ -153,6 +153,23 @@ html, body, .container {
       }
     }
   }
+
+  @media (min-width: 1024px) {
+    #box-0:after, #box-1:after {
+        content: '';
+        height: 60%;
+        width: 3px;
+        position: absolute;
+        right: 0;
+        top: 20%;
+        background-color: $gray-lightest;
+    }
+  }
+  @media (max-width: 1024px) {
+    #box-0, #box-1 {
+      border-bottom: 3px solid $gray-lightest;
+    }
+  }
 }
 
 .featured-projects {
@@ -222,18 +239,6 @@ html, body, .container {
     display: none;
   }
   #logo-img { max-height: 80px; }
-}
-
-@media (min-width: 991px) {
-  #box-0:after, #box-1:after {
-    content: '';
-    height: 60%;
-    width: 3px;
-    position: absolute;
-    right: 0;
-    top: 20%;
-    background-color: $gray-lighter;
-  }
 }
 
 /* ABOUT */

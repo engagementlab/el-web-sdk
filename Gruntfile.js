@@ -59,6 +59,7 @@ module.exports = function(grunt) {
 		            'public/fonts/*.css',
 		            'public/bower_components/**/dist/css/*.min.css',
 		            '!public/bower_components/glidejs/dist/css/glide.theme.min.css', // We are using our own glide theme; exclude
+		            '!public/static', // Do not use any static css
 		            'public/styles/site.css'],
           dest: 'public/release/tmp/concat.css'
       }
@@ -67,7 +68,16 @@ module.exports = function(grunt) {
 		cssmin: {
 		  target: {
 		  	options: { keepSpecialComments: 0 },
-		    files: { 'public/release/style.min.css': ['public/release/tmp/concat.css'] }
+		    files: { 'public/release/style.min.css': ['public/release/tmp/concat.css'],
+						     'public/release/bootstrap.min.css': ['public/styles/bootstrap/bootstrap.css']
+						   }
+		    /*files: [{
+		      expand: true,
+		      cwd: 'release/css',
+		      src: [],
+		      dest: 'release/style',
+		      ext: '.min.css'
+		    }]*/
 		  }
 		},
 
