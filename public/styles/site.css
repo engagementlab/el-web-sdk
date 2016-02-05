@@ -8036,15 +8036,18 @@ html, body, .container {
         .recent-events .recent-event-box .posted-date p.day {
           font-size: 30px;
           color: #78cbd1; }
-
-#box-0:after, #box-1:after {
-  content: '';
-  height: 60%;
-  width: 3px;
-  position: absolute;
-  right: 0;
-  top: 20%;
-  background-color: #bababa; }
+  @media (min-width: 1024px) {
+    .recent-events #box-0:after, .recent-events #box-1:after {
+      content: '';
+      height: 60%;
+      width: 3px;
+      position: absolute;
+      right: 0;
+      top: 20%;
+      background-color: #bababa; } }
+  @media (max-width: 1024px) {
+    .recent-events #box-0, .recent-events #box-1 {
+      border-bottom: 3px solid #f4f4f4; } }
 
 .featured-projects {
   color: #fff; }
@@ -8189,9 +8192,7 @@ html, body, .container {
 @media (max-width: 768px) {
   .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus, .nav-pills > li > a:hover, .nav-pills > li > a:focus {
     background-color: #78cbd1;
-    color: #ffffff; }
-  .nav-pills > li {
-    float: none; } }
+    color: #ffffff; } }
 
 #pill-images .caption {
   text-align: center; }
@@ -8227,7 +8228,7 @@ ul.resources {
 /* Small devices (tablets, phones less than 767px) */
 @media (max-width: 767px) {
   #project_header .banner h2 {
-    font-size: 3.2em;
+    font-size: 4em;
     color: white; } }
 
 /* PEOPLE */
