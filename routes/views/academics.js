@@ -64,13 +64,13 @@ exports = module.exports = function(req, res) {
                 ]).exec(function(err, resultProject) {
                     _.map(resultProject, function(proj) {
 
-                    // Get image code
-                    proj.href = '/' + req.params.directory + 
-                    '/' + req.params.subdirectory + 
-                    '/' + proj.key;
-                    proj.description = proj.description;
+                        // Get image code
+                        proj.href = '/' + req.params.directory + 
+                        '/' + req.params.subdirectory + 
+                        '/' + proj.key;
+                        proj.description = proj.description;
 
-                    return proj;
+                        return proj;
 
                     });
 

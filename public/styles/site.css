@@ -8659,14 +8659,23 @@ body {
   display: inline-block; }
   .tama ul.actions li {
     display: inline; }
-    .tama ul.actions li form {
-      display: inline; }
-      .tama ul.actions li form .btn {
-        font-size: 19px;
-        padding: 14px 30px; }
-      .tama ul.actions li form .btn-default {
-        background-color: #ff0000;
-        border: none; }
+
+.tama form {
+  display: inline; }
+  .tama form .btn {
+    font-size: 19px;
+    padding: 14px 30px; }
+  .tama form .btn-default {
+    background-color: #ff0000;
+    border: none; }
+
+.tama .tama-comment {
+  font-size: 24px;
+  color: #FF00D0; }
+
+.tama .tama-author {
+  font-size: 16px;
+  color: #006EFF; }
 
 .glide__arrows {
   position: absolute; }
