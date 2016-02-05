@@ -40,5 +40,6 @@ TamaComment.add({
  * Model Registration
  * =============
  */
+TamaComment.defaultSort = 'sortOrder';
 TamaComment.register();
 
