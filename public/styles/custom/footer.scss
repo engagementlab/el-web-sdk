@@ -15,7 +15,8 @@
 }
 
 @media (max-width: 768px) {
-	.logos-footer #logo-emerson {
-		max-width: 300px;
+	.logos-footer {
+		#logo-emerson { max-width: 240px; }
+		img { margin-left: 0; }
 	}
 }
