@@ -51,35 +51,35 @@ exports = module.exports = function(req, res) {
             Person.model.find({ 'cmapPerson': true }).sort([
                 ['sortOrder', 'ascending']
             ]).exec(function(err, result){
+                
                 if (err) throw err;
                 locals.people = result;
-            });
 
-            // Get projects
-            Project.model.find({
-                'enabled': true,
-                'cmapProject': true
-            }).sort([
-                ['sortOrder', 'ascending']
-            ]).exec(function(err, resultProject) {
-                _.map(resultProject, function(proj) {
+                // Get projects
+                Project.model.find({
+                    'enabled': true,
+                    'cmapProject': true
+                }).sort([
+                    ['sortOrder', 'ascending']
+                ]).exec(function(err, resultProject) {
+                    _.map(resultProject, function(proj) {
 
-                // Get image code
-                proj.href = '/' + req.params.directory + 
-                '/' + req.params.subdirectory + 
-                '/' + proj.key;
-                proj.description = proj.description;
+                    // Get image code
+                    proj.href = '/' + req.params.directory + 
+                    '/' + req.params.subdirectory + 
+                    '/' + proj.key;
+                    proj.description = proj.description;
 
-                return proj;
+                    return proj;
+
+                    });
+
+                    locals.projects = resultProject;
+                    next(err);
 
                 });
-
-                locals.projects = resultProject;
             });
-
-            next(err);
         });
-
     });
 
     // Render the view
