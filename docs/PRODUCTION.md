@@ -16,7 +16,7 @@ If you _do_ want to use pm2, you should read their [quick start](http://pm2.keym
 
 The docs mentioned above go into a lot of detail, but here's the basic steps to deploy.
 
-Your ```ecosystem.json`` file already looks something like this, just plug what you need in:
+Your ``ecosystem.json`` file already looks something like this, just plug what you need in:
 
 ```
 {
@@ -46,14 +46,14 @@ Your ```ecosystem.json`` file already looks something like this, just plug what 
 
 This file basically tells pm2 to deploy the master branch HEAD to the production server, install packages, run the 'compile' task to minify/uglify assets, start the 'periodic' grunt task, and re/boot keystone.
 
-Note that you will still need to set ```NODE_ENV``` to 'production' in your server's ```.env```.
+Note that you will still need to set ``NODE_ENV`` to 'production' in your server's ``.env``.
 
 ## Authenticating like a boss
 
-If you run the deployment normally, you will need to enter the production user's password constantly. It's annoying. So you should setup auto-login by using ```ssh-keygen``` and ```ssh-copy-id``` locally. Here's a [great tutorial](http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/) on doing all that. I believe in you!
+If you run the deployment normally, you will need to enter the production user's password constantly. It's annoying. So you should setup auto-login by using ``ssh-keygen`` and ``ssh-copy-id`` locally. Here's a [great tutorial](http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/) on doing all that. I believe in you!
 
-_Disclaimer_: When you run ```ssh-keygen``` you should not assign a password to your keys as pm2 can't handle this. This can pose a security risk since anyone with access to your terminal can theoretically ssh into your production server. So you ought not to do deployments from a remote server that other people have access to -- only a local machine, and ideally have your production's SSH port behind a VPN. Just be aware!
+_Disclaimer_: When you run ``ssh-keygen`` you should not assign a password to your keys as pm2 can't handle this. This can pose a security risk since anyone with access to your terminal can theoretically ssh into your production server. So you ought not to do deployments from a remote server that other people have access to -- only a local machine, and ideally have your production's SSH port behind a VPN. Just be aware!
 
 ## Run it!
 
-If your ```ecosystem.json`` is setup correctly, that's all you should need to do. Run ```grunt deploy``` and let the magic happen.
+If your ``ecosystem.json`` is setup correctly, that's all you should need to do. Run ``grunt deploy`` and let the magic happen.

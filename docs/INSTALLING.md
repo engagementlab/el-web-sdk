@@ -97,3 +97,7 @@ To visit the dashboard, navigate to `localhost:3000/keystone`. The login credent
 user: user@elab.emerson.edu
 pass: engagement
 ```
+
+##More
+* Check out the [production deployment help](PRODUCTION.md).
+* Also, check out the [code docs](code/).
