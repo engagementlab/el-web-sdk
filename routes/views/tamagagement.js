@@ -60,7 +60,6 @@ exports = module.exports = function(req, res) {
 
             if (err) throw err;
             locals.comments = result;
-            console.log(result);
 
             next();
         });
@@ -109,6 +108,7 @@ exports = module.exports = function(req, res) {
             logErrors: true
         }, function(err) {
             if (err) throw err;
+            return res.redirect('/tamagagement');
             next();
         })
     });
