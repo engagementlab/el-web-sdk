@@ -25,8 +25,7 @@ exports = module.exports = function(req, res) {
 
     // locals.section is used to set the currently selected
     // item in the header navigation.
-    locals.section = 'research';
-    locals.sub_section = 'publications';
+    locals.section = 'publications';
 
     // Load publications categories and sort them
     view.on('init', function(next) {
@@ -64,7 +63,7 @@ exports = module.exports = function(req, res) {
                     }
 
                     _.map(filteredPubs, function(pub) {
-                        pub.href = '/research/publications/' + pub.key;
+                        pub.href = '/publications/' + pub.key;
                         return pub;
                     });
 
@@ -91,6 +90,6 @@ exports = module.exports = function(req, res) {
     });
 
     // Render the view
-    view.render('research/publications');
+    view.render('projects/publications');
 
 };

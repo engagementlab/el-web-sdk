@@ -124,6 +124,6 @@ exports = module.exports = function(req, res) {
     });
 
     // Render the view
-    view.render('research/project');
+    view.render('projects/project');
 
 };

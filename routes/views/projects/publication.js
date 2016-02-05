@@ -51,6 +51,6 @@ exports = module.exports = function(req, res) {
     });
 
     // Render the view
-    view.render('research/publication');
+    view.render('projects/publication');
 
 };

@@ -17,7 +17,7 @@
 		<div class="main">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="page-title"><strong>Research: </strong><span class="font-light">{{name}}</span></h1>
+					<h1 class="page-title"><strong>Publications</strong></h1>
 					{{> page/lead}}
 				</div>
 			</div>
@@ -26,6 +26,7 @@
 	{{#if publications}}
 		<div class="container">
 			{{#each publications}}
+				<a id="{{lowerCase @key}}s" name="{{lowerCase @key}}s">&nbsp;</a>
 				<div class="row">
 					<div class="col-md-12">
 						<h3>{{@key}}s</h3>

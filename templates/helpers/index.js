@@ -451,5 +451,17 @@ module.exports = function() {
 
 	}
 
+	_helpers.upperCase = function (str) {
+
+		return str.charAt(0).toUpperCase() + str.slice(1);
+
+	}
+
+	_helpers.lowerCase = function (str) {
+
+		return str.toLowerCase();
+		
+	}
+
 	return _helpers;
 };
