@@ -1,6 +1,6 @@
 {
   "name": "engagement-lab",
-  "version": "0.0.5",
+  "version": "0.1.5",
   "private": true,
   "dependencies": {
     "appdynamics": "4.1.7",

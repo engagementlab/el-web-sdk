@@ -55,10 +55,6 @@ exports = module.exports = function(req, res) {
 
             // "Articles" are both external articles and blogs, because why the fuck not?
             var projectArticles = result.articles.concat(result.blogs);
-            // console.log(projectArticles);
-
-            // console.log("-------------------------");
-            // console.log(projectArticles);
 
             _.map(projectArticles, function(article) {
 
@@ -90,6 +86,7 @@ exports = module.exports = function(req, res) {
             _.each(result.projectImageCaptions, function(str, i) {
                 locals.projectImageObjects.push( {caption: str, img: result.projectImages[i]} );
             });
+            console.log(locals.projectImageObjects)
 
             // Determine project tabs to be active by default (images are first if defined)
             if(result.projectImages.length === 0) {
@@ -99,9 +96,8 @@ exports = module.exports = function(req, res) {
                 locals.customTabsFirst = ( !locals.videosTabFirst && !locals.filesTabFirst );
 
             }
-            else {
+            else
                 locals.projectImagesLength = result.projectImages.length;
-            }
 
             if(result.customTabs.html !== undefined && result.customTabs.html.length > 0) {
             

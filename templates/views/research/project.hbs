@@ -75,8 +75,8 @@
 								
 								{{!-- Do not use Glider.js for only one image  --}}
 								{{# each projectImageObjects}}
-									<img src="{{{cloudinaryUrl width=500 quality=60}}}" alt="{{@key}}">
-									<div class="caption lead">{{@key}}</div>
+									<img src="{{{cloudinaryUrl img width=500 quality=60}}}" alt="{{caption}}">
+									<div class="caption lead">{{caption}}</div>
 								{{/each}}
 
 							{{else}}
