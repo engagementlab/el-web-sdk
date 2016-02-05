@@ -8096,18 +8096,6 @@ html, body, .container {
   #logo-img {
     max-height: 80px; } }
 
-/* @media (min-width: 991px) {
-  #box-0:after, #box-1:after {
-    content: '';
-    height: 60%;
-    width: 3px;
-    position: absolute;
-    right: 0;
-    top: 20%;
-    background-color: $gray-lighter;
-  }
-}
- */
 /* ABOUT */
 .partner-container {
   display: inline-block;
@@ -8234,7 +8222,7 @@ ul.resources {
 /* Small devices (tablets, phones less than 767px) */
 @media (max-width: 767px) {
   #project_header .banner h2 {
-    font-size: 4em;
+    font-size: 3.2em;
     color: white; } }
 
 /* PEOPLE */
