@@ -131,10 +131,10 @@ Resource.schema.pre('remove', function(next) {
 		if(err)
 			console.error(err);
     
-		if(removedCount > 0) {
+		if(removedCount > 0)
 			console.log("Removed " +  removedCount + " references to '"+ this._id + "'");
-			next();
-		}
+		
+		next();
 
 	});
 
