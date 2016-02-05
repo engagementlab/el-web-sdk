@@ -20,7 +20,7 @@ var Types = keystone.Field.Types;
  */
 var TamaComment = new keystone.List('TamaComment', 
     {
-        // hidden: true,
+        hidden: true,
         // nocreate: true,
         // nodelete: true
         track: true
