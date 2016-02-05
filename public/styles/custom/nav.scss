@@ -83,7 +83,7 @@ body {
 	}
 }
 
-#at-emerson {
+#at-emerson-sm {
 	position: absolute;
 	font-size: 12px;
 	top: 50px;
@@ -111,8 +111,9 @@ body {
 		display: none !important;
 	}
 	.logo-container > p {
-		font-size: 13px;
+		font-size: 16px;
 	}
+	#at-emerson-lg { display: none; }
 }
 
 @media (max-width: 991px) { 
@@ -141,6 +142,10 @@ body {
 	#logo-col {
 		text-align: center;
 	}
+}
+
+@media (min-width: 768px) {
+	#at-emerson-sm { display: none; }
 }
 
 .navbar-toggle {

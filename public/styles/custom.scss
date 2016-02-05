@@ -13,12 +13,6 @@ html, body, .container {
 .font-light { font-family: $font-theme-light; }
 .font-default { font-family: $font-theme; }
 
-@media (max-width: 768px) {
-  .page-title, .lead {
-    text-align: center;
-  }
-}
-
 // Padding & margin classes
 
 .mb-40 { margin-bottom: 40px; }
@@ -142,7 +136,6 @@ html, body, .container {
   background-color: $white;
 
   .recent-event-box {
-    height: 280px;
 
     .posted-date {
       text-align: left;
@@ -169,7 +162,7 @@ html, body, .container {
         position: absolute;
         right: 0;
         top: 20%;
-        background-color: $gray-light;
+        background-color: $gray-lightest;
     }
   }
   @media (max-width: 1024px) {
@@ -220,7 +213,7 @@ html, body, .container {
 }
 
 @media (max-width: 1200px) {
-  .overlay {
+ .overlay {
     left: 20%;
     width: 60%;
   }
@@ -336,7 +329,7 @@ html, body, .container {
 
 @media (max-width:768px) {
   .collaborator-text {
-    text-align: center;
+    text-align: left;
     width: 100%;
   }
   .collaborator-icon {
@@ -532,6 +525,14 @@ section.publications .subSection {
       width: 100%;
       object-fit: cover;
     }
+
+    header {
+      padding-left: 0;
+    }
+
+    .blogpost-content {
+      padding-left: 0;
+    }
   }
 }
 
@@ -601,6 +602,12 @@ ul.twitter-feed {
     width: auto;
     top: 0;
     bottom: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .blogpost header {
+    padding-top: 0;
   }
 }
 

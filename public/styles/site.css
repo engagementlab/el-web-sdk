@@ -7901,10 +7901,6 @@ html, body, .container {
 .font-default {
   font-family: "HalisGR-Book", sans-serif; }
 
-@media (max-width: 768px) {
-  .page-title, .lead {
-    text-align: center; } }
-
 .mb-40 {
   margin-bottom: 40px; }
 
@@ -8021,21 +8017,19 @@ html, body, .container {
 .recent-events {
   padding: 50px 0;
   background-color: #ffffff; }
-  .recent-events .recent-event-box {
-    height: 280px; }
-    .recent-events .recent-event-box .posted-date {
-      text-align: left;
-      position: absolute;
-      top: 18px;
-      left: 30px; }
-      .recent-events .recent-event-box .posted-date p {
-        line-height: 1;
-        margin-bottom: 0; }
-        .recent-events .recent-event-box .posted-date p.month {
-          font-size: 18px; }
-        .recent-events .recent-event-box .posted-date p.day {
-          font-size: 30px;
-          color: #78cbd1; }
+  .recent-events .recent-event-box .posted-date {
+    text-align: left;
+    position: absolute;
+    top: 18px;
+    left: 30px; }
+    .recent-events .recent-event-box .posted-date p {
+      line-height: 1;
+      margin-bottom: 0; }
+      .recent-events .recent-event-box .posted-date p.month {
+        font-size: 18px; }
+      .recent-events .recent-event-box .posted-date p.day {
+        font-size: 30px;
+        color: #78cbd1; }
   @media (min-width: 1024px) {
     .recent-events #box-0:after, .recent-events #box-1:after {
       content: '';
@@ -8044,7 +8038,7 @@ html, body, .container {
       position: absolute;
       right: 0;
       top: 20%;
-      background-color: #bababa; } }
+      background-color: #f4f4f4; } }
   @media (max-width: 1024px) {
     .recent-events #box-0, .recent-events #box-1 {
       border-bottom: 3px solid #f4f4f4; } }
@@ -8102,6 +8096,18 @@ html, body, .container {
   #logo-img {
     max-height: 80px; } }
 
+/* @media (min-width: 991px) {
+  #box-0:after, #box-1:after {
+    content: '';
+    height: 60%;
+    width: 3px;
+    position: absolute;
+    right: 0;
+    top: 20%;
+    background-color: $gray-lighter;
+  }
+}
+ */
 /* ABOUT */
 .partner-container {
   display: inline-block;
@@ -8167,7 +8173,7 @@ html, body, .container {
 
 @media (max-width: 768px) {
   .collaborator-text {
-    text-align: center;
+    text-align: left;
     width: 100%; }
   .collaborator-icon {
     display: none; } }
@@ -8329,6 +8335,10 @@ section.publications .subSection {
     .blog-feed .blogpost img {
       width: 100%;
       object-fit: cover; }
+    .blog-feed .blogpost header {
+      padding-left: 0; }
+    .blog-feed .blogpost .blogpost-content {
+      padding-left: 0; }
 
 .news-sidebar {
   padding-top: 50px; }
@@ -8374,6 +8384,10 @@ ul.twitter-feed {
     width: auto;
     top: 0;
     bottom: 0; } }
+
+@media (min-width: 768px) {
+  .blogpost header {
+    padding-top: 0; } }
 
 .no-events {
   padding-bottom: 2em;
@@ -8505,7 +8519,7 @@ body {
     -webkit-filter: grayscale(0);
     filter: grayscale(0); }
 
-#at-emerson {
+#at-emerson-sm {
   position: absolute;
   font-size: 12px;
   top: 50px;
@@ -8527,7 +8541,9 @@ body {
   .emerson-logo {
     display: none !important; }
   .logo-container > p {
-    font-size: 13px; } }
+    font-size: 16px; }
+  #at-emerson-lg {
+    display: none; } }
 
 @media (max-width: 991px) {
   .main-navigation > .navbar-collapse > ul {
@@ -8548,6 +8564,10 @@ body {
   #logo-col {
     text-align: center; } }
 
+@media (min-width: 768px) {
+  #at-emerson-sm {
+    display: none; } }
+
 .navbar-toggle {
   margin-top: 22px; }
 
@@ -8567,7 +8587,9 @@ body {
 
 @media (max-width: 768px) {
   .logos-footer #logo-emerson {
-    max-width: 300px; } }
+    max-width: 240px; }
+  .logos-footer img {
+    margin-left: 0; } }
 
 .cmap .section {
   padding: 40px 0; }
