@@ -8096,18 +8096,6 @@ html, body, .container {
   #logo-img {
     max-height: 80px; } }
 
-/* @media (min-width: 991px) {
-  #box-0:after, #box-1:after {
-    content: '';
-    height: 60%;
-    width: 3px;
-    position: absolute;
-    right: 0;
-    top: 20%;
-    background-color: $gray-lighter;
-  }
-}
- */
 /* ABOUT */
 .partner-container {
   display: inline-block;
@@ -8438,12 +8426,6 @@ a .project-box {
 
 .caption {
   padding: 10px 0; }
-
-@media (max-width: 767px) {
-  .project-box, .listing-box, .news-box {
-    text-align: center; }
-    .project-box img, .listing-box img, .news-box img {
-      margin: 0 auto; } }
 
 @media (min-width: 768px) {
   .project-box {
