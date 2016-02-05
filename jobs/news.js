@@ -34,7 +34,7 @@ var eventsParams = {
 };
 var blogParams = {
     host: 'https://medium.com',
-    path: '/feed/@Engagement_Lab'
+    path: '/feed/engagement-lab-emerson-college'
 };
 
 var fileContent = {
