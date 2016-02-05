@@ -16,10 +16,13 @@ var _ = require('underscore');
 // DB Models for use on nav
 var Subdirectory = keystone.list('Subdirectory');
 
-var querySub = Subdirectory.model.find({}).sort([
-                ['sortOrder', 'ascending']
-               ]);
+var querySub =  Subdirectory.model.where("key")
+                .ne("publications").sort([
+                    ['sortOrder', 'ascending']
+                ]);
 querySub.select('key name');
+
+var publicationsCats = ['book', 'guide', 'article'];
 
 /**
 	Initialises the standard view locals
@@ -37,12 +40,22 @@ exports.initLocals = function(req, res, next) {
     querySub.lean();
     querySub.exec(function(err, resultSub) {
 
-        var researchSub = _.map(resultSub, function(sub) {
+        var projectsSub = _.map(resultSub, function(sub) {
 
             return {
                 label: sub.name,
                 key: sub.key,
-                href: '/research/' + sub.key
+                href: '/projects/' + sub.key
+            };
+
+        });
+
+        var publicationsSub = _.map(publicationsCats, function(cat) {
+
+            return {
+                label: (cat.charAt(0).toUpperCase() + cat.slice(1)) + 's',
+                key: 'publications',
+                href: '/publications/#' + cat + 's'
             };
 
         });
@@ -52,14 +65,15 @@ exports.initLocals = function(req, res, next) {
             key: 'about',
             href: '/about'
         }, {
-            label: 'Research',
-            key: 'research',
-            href: '/research',
-            subLinks: researchSub
+            label: 'Projects',
+            key: 'projects',
+            href: '/projects',
+            subLinks: projectsSub
         }, {
-            label: 'Academics',
-            key: 'academics',
-            href: '/academics'
+            label: 'Publications',
+            key: 'publications',
+            href: '/publications',
+            subLinks: publicationsSub
         }, {
             label: 'People',
             key: 'people',

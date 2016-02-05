@@ -47,9 +47,9 @@ exports = module.exports = function(app) {
     app.get('/academics', routes.views.academics);
     app.get('/cmap', routes.views.academics);
 
-    app.get('/research/publications', routes.views.research.publications);
-    app.get('/research/publications/:publication_key', routes.views.research.publication);
-    app.get('/research/:subdirectory/:project_key', routes.views.research.project);
+    app.get('/publications', routes.views.projects.publications);
+    app.get('/publications/:publication_key', routes.views.projects.publication);
+    app.get('/projects/:subdirectory/:project_key', routes.views.projects.project);
 
     app.get('/news', routes.views.news);
     app.get('/press', routes.views.press);
@@ -59,9 +59,9 @@ exports = module.exports = function(app) {
     // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
     // app.get('/protected', middleware.requireUser, routes.views.protected);
 
-    // Redirect research to /all
-    app.get('/research/', function(req, res, next) {
-        res.redirect('/research/all');
+    // Redirect projects to /all
+    app.get('/projects/', function(req, res, next) {
+        res.redirect('/projects/all');
     });
 
     // Dynamic directory routes

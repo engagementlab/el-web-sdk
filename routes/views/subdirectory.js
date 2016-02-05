@@ -49,7 +49,7 @@ exports = module.exports = function(req, res) {
                 locals.lead = resultSub.description;
             }
             else
-                locals.name = 'All Projects';
+                locals.name = 'All';
 
             var queryProject = Project.model.find( projectFilter ).sort([
                 ['sortOrder', 'ascending']
