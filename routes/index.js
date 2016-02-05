@@ -44,12 +44,14 @@ exports = module.exports = function(app) {
     app.get('/people', routes.views.people);
     app.get('/people/:person', routes.views.person);
 
-    app.get('/academics', routes.views.academics);
-    app.get('/cmap', routes.views.academics);
+    // app.get('/academics', routes.views.academics);
 
     app.get('/research/publications', routes.views.research.publications);
     app.get('/research/publications/:publication_key', routes.views.research.publication);
     app.get('/research/:subdirectory/:project_key', routes.views.research.project);
+
+    app.get('/cmap', routes.views.cmap);
+    app.get('/programs/cmap', routes.views.cmap);
 
     app.get('/news', routes.views.news);
     app.get('/press', routes.views.press);

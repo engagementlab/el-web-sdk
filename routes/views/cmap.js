@@ -2,11 +2,11 @@
  * Engagement Lab Website
  * Developed by Engagement Lab, 2015
  * ==============
- * Academics page view controller.
+ * CMAP page view controller.
  *
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
- * @class academics
+ * @class cmap
  * @static
  * @author Johnny Richardson
  *
@@ -25,7 +25,7 @@ exports = module.exports = function(req, res) {
         locals = res.locals;
 
     // Init locals
-    locals.section = 'academics';
+    locals.section = 'programs';
 
     // Load the current project
     view.on('init', function(next) {
@@ -51,7 +51,7 @@ exports = module.exports = function(req, res) {
             Person.model.find({ 'cmapPerson': true }).sort([
                 ['sortOrder', 'ascending']
             ]).exec(function(err, result){
-                
+
                 if (err) throw err;
                 locals.people = result;
 
