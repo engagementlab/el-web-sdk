@@ -8427,6 +8427,10 @@ a .project-box {
 .caption {
   padding: 10px 0; }
 
+@media (max-width: 767px) {
+  .project-box img, .listing-box img, .news-box img {
+    margin: 0 auto; } }
+
 @media (min-width: 768px) {
   .project-box {
     height: 440px; } }
