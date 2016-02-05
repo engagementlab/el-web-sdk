@@ -18,17 +18,28 @@
 		display: inline-block;
 		li {
 			display: inline;
-			form {
-				display: inline;
-				.btn {
-					font-size: $font-size-large;
-					padding: 14px 30px;
-				}
-				.btn-default {
-					background-color: #ff0000;
-					border: none;
-				}
-			}
 		}
+	}
+	form {
+		display: inline;
+		.btn {
+			font-size: $font-size-large;
+			padding: 14px 30px;
+		}
+		.btn-default {
+			background-color: #ff0000;
+			border: none;
+		}
+		textarea {
+			
+		}
+	}
+	.tama-comment {
+		font-size: 24px;
+		color: #FF00D0;
+	}
+	.tama-author {
+		font-size: 16px;
+		color: #006EFF;
 	}
 }

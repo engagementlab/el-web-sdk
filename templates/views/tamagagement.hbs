@@ -40,6 +40,19 @@
 						</li>
 						{{/each}}
 					</ul>
+					<div class="separator-5 pv-20"></div>
+					<h3 class="tama-text">Things recently said to Errol:</h3>
+					{{#each comments}}
+					<p class="tama-comment">"{{this.content}}" <span class="tama-author"><i>-{{this.author}}</i></span></p>
+					{{/each}}
+					<form method="POST">
+						<input type="hidden" name="action" value="comment.create">
+						<strong>Share your love for Errol:</strong>
+						<p><textarea name="content"></textarea></p>
+						<strong>Your name:</strong>
+						<p><input type="text" name="author" maxlength="100"></p>
+						<p><button type="submit" class="btn btn-default">post comment :)</button></p>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -14,9 +14,9 @@
  */
 var keystone = require('keystone');
 var Tamagagement = keystone.list('Tamagagement');
+var TamaComment = keystone.list('TamaComment');
 var moment = require('moment');
 var behavior = keystone.get('tamabehavior');
-
 
 exports = module.exports = function(req, res) {
 
@@ -53,6 +53,19 @@ exports = module.exports = function(req, res) {
         });
     });
 
+    view.on('init', function(next) {
+        TamaComment.model.find({},{}, {
+            sort: { createdAt: -1 }
+        }).limit(5).exec(function(err, result){
+
+            if (err) throw err;
+            locals.comments = result;
+            console.log(result);
+
+            next();
+        });
+    });
+
     view.on('post', { action: 'punch' }, function(next) {
         update('health', -50, function(val){
             next();
@@ -81,6 +94,23 @@ exports = module.exports = function(req, res) {
         update('health', 100, function(val){
             next();
         });
+    });
+
+    view.on('post', { action: 'comment.create' }, function(next) {
+        var body = req.body;
+        var newComment = new TamaComment.model({
+            author: body.author,
+            content: body.content
+        });
+        
+        var updater = newComment.getUpdateHandler(req);
+        updater.process(req.body, {
+            flashErrors: true,
+            logErrors: true
+        }, function(err) {
+            if (err) throw err;
+            next();
+        })
     });
 
     // Render the view

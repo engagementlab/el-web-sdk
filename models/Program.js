@@ -27,6 +27,7 @@ var Program = new keystone.List('Program',
 	{	
 		hidden: false,
         track: true,
+        sortable: true,
 		inherits: Listing
 	});
 
@@ -84,5 +85,5 @@ Program.schema.post('save', function(next) {
 /**
  * Model Registration
  */
-Program.defaultSort = '-createdAt';
+Program.defaultSort = 'sortOrder';
 Program.register();
