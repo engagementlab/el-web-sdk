@@ -1,3 +1,8 @@
+// People glider height fix
+#people_glider .glide__slide.active {
+  min-height: 450px;
+}
+
 .glide__arrows {
   position: absolute;
 }
@@ -12,12 +17,12 @@
     margin-left: -5%;
   }
   &.project, &.people {
-    // Custom arrow placement on projects
+    // Custom arrow placement on projects and people
     width: 105%;
     margin-left: -5%;
     
     .glide__arrow {
-    // Custom arrow color on projects
+    // Custom arrow color on projects and people
       color: gray;
     }
   }

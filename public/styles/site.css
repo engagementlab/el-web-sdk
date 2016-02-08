@@ -8692,6 +8692,9 @@ body {
   font-size: 16px;
   color: #006EFF; }
 
+#people_glider .glide__slide.active {
+  min-height: 450px; }
+
 .glide__arrows {
   position: absolute; }
 
