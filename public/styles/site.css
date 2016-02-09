@@ -7902,7 +7902,8 @@ html, body, .container {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    opacity: 0; }
 
 .page-title, .title {
   font-family: "HalisGR-SBook", sans-serif; }

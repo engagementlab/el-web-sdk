@@ -45,7 +45,15 @@
 					"1m51s"
 				];
 				var time = times[Math.floor(Math.random()*times.length)];
-				$('iframe').prop('src', vid + time);
+				var iframe = $('iframe');
+
+				// Embed video w/ start time
+				iframe.prop('src', vid + time);
+
+				// Show player only on froogaloop ready event
+				$f(iframe[0]).addEvent('ready', function() {
+					iframe.fadeTo(1000, 1);
+		    });
 
 			}
 

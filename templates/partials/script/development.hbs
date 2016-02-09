@@ -38,6 +38,11 @@
 {{!-- Initialization of Plugins --}}
 <script type="text/javascript" src="/js/template.js"></script>
 
+{{#ifeq section 'home'}}
+	{{!-- Vimeo froogaloop --}}
+	<script type="text/javascript" src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+{{/ifeq}}
+
 {{!-- Custom Scripts --}}
 <script type="text/javascript" src="/js/custom.js"></script>
 {{!-- <script type="text/javascript" src="/js/build/dest/output.js"></script> --}}
