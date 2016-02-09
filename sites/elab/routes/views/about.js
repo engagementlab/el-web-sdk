@@ -13,9 +13,7 @@
  */
 var keystone = require('keystone');
 var About = keystone.list('About');
-var Partner = keystone.list('Partner');
 var _ = require('underscore');
-var Tamagagement = keystone.list('Tamagagement');
 
 exports = module.exports = function(req, res) {
 
@@ -47,15 +45,6 @@ exports = module.exports = function(req, res) {
                     locals.about.historyImages2.push(resultAbout.historyImages[i]);
                 }
             }
-
-            var queryPartners = Partner.model.find({}).sort([
-                ['sortOrder', 'ascending']
-            ]);
-
-            queryPartners.exec(function(err, resultPartners) {
-                locals.partners = resultPartners;
-                next(err);
-            });
         });
     });
 
