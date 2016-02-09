@@ -41,10 +41,10 @@ Publication.add({
 	title: { type: String, label: 'Title', required: true, initial: true, index: true },
 	author: { type: String, label: 'Author Name(s)', required: true, initial: true },
 
-	category: { type: Types.Select, options: 'Book, Guide, Article', required: true, initial: true },
+	category: { type: Types.Select, options: 'Book, Guide, Articles and Chapters', required: true, initial: true },
 	
 	url: { type: String, label: 'URL',
-		dependsOn: { category: 'Article' }, initial: true },
+		dependsOn: { category: 'Articles and Chapters' }, initial: true },
 	urls: {
 		type: Types.TextArray,
 		label: 'Links to purchase book',
@@ -53,7 +53,7 @@ Publication.add({
 
 	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	blurb: { type: Types.Textarea, label: 'Blurb Text', 
-		dependsOn: { category: 'Article' } },
+		dependsOn: { category: 'Articles and Chapters' } },
 
 	description: { type: Types.Markdown, label: 'Description Text',
 		dependsOn: { category: ['Book', 'Guide'] }, required: false, initial: true },
