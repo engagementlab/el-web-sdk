@@ -1,0 +1,148 @@
+{{!< default}}
+{{!--
+/**
+* Engagement Lab Website
+* Developed by Engagement Lab, 2015
+* ==============
+*
+* News/blog Template
+* - See About model for fields
+* - Use {{jsonPrint news}} to print entire json...DEBUG ONLY
+* ==========
+*/
+--}}
+{{!-- NEWS START --}}
+{{!-- banner start --}}
+{{!-- ================ --}}
+<div class="clearfix dark light-gray-bg banner" style="background-image:url('{{featured.image}}');">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-5 pv-40 ph-30 featured-blog">
+				<h2>{{featured.title}}</h2>
+				<div class="post-info">
+					<span class="post-date">
+						<i class="icon-calendar"></i>
+						<span class="day">{{date featured.published format='DD MMM YYYY'}}</span>
+					</span>
+					<span class="submitted"><i class="icon-user-1"></i> by <a href="#">{{featured.author}}</a></span>
+				</div>
+				<p class="summary sfb hidden-xs">{{featured.content}}
+				</p>
+					<a href="{{featured.url}}">Read More <i class="fa fa-chevron-right"></i></a>
+				<p class="tp-caption sfb fadeout small_white hidden-xs">
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+{{!-- banner end --}}
+{{!-- main-container start --}}
+{{!-- ================ --}}
+<section class="news-container">
+	<div class="container-fluid no-gutter">
+		{{!-- blog start --}}
+		<div class="col-md-8 ph-30 blog-feed">
+			<h1 class="page-title mb-10">Blog Feed</h1>
+			<div class="separator-5"></div>
+			<div class="clearfix mb-10"></div>
+			{{#each news}}
+			{{!-- blogpost start --}}
+			<article class="blogpost">
+				<div class="row grid-space-10">
+					<div class="col-sm-4 col-md-4">
+						<div class="overlay-container">
+							<a href="{{url}}"><img src="{{image}}" alt=""></a>
+						</div>
+					</div>
+					<div class="col-sm-8 col-md-8">
+						<header>
+							<h3><a href="{{url}}">{{title}}</a></h3>
+							<div class="post-info">
+								<span class="post-date">
+									<i class="icon-calendar"></i>
+									<span class="month">{{date published format='MM-DD-YYYY'}}</span>
+								</span>
+								<span class="submitted"><i class="icon-user-1"></i> by {{author}}</span>
+							</div>
+						</header>
+						<div class="blogpost-content">
+							<p>{{{content}}}...</p>
+						</div>
+					</div>
+				</div>
+				<footer class="clearfix">
+					{{!-- <div class="tags pull-left"><i class="icon-tags"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div> --}}
+					<div class="link pull-right"><i class="icon-link"></i><a href="{{url}}">Read More</a></div>
+				</footer>
+			</article>
+			{{/each}}
+		</div>
+		{{!-- blog end --}}
+		{{!-- events start --}}
+		<div class="col-md-4 ph-30 news-sidebar" >
+			<div class="affix-section">
+				<div id="event-section">
+					{{#if twitter.tweets}}
+						<h1 class="page-title mb-10">@{{twitter.user}}</h1>
+						<div class="separator-5"></div>
+						<div class="clearfix mb-10"></div>
+						<ul class="twitter-feed">
+						{{#each twitter.tweets}}
+							<li class="tweet"><p class="small">{{{this.text}}}</p></li>
+						{{/each}}
+							<li class="tweet"><a href="https://twitter.com/{{twitter.user}}">More from @{{twitter.user}} <i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+						</ul>
+					{{/if}}
+					<h1 class="page-title mb-10">Events</h1>
+					<div class="separator-5"></div>
+					<div class="clearfix mb-10"></div>
+					{{#if events}}
+						{{#each events}}
+							{{!-- event start --}}
+							<div class="row grid-space-10">
+								<div class="col-sm-5 col-md-5">
+									<div class="overlay-container">
+										<a href="{{vanity_url}}"><img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
+										</a>
+									</div>
+								</div>
+								<div class="col-sm-5 col-md-5">
+
+									<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
+									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>									
+								
+								</div>
+							</div>
+							{{!-- event end --}}
+						{{/each}}
+					{{else}}
+						<div class="row grid-space-10 no-events">
+							No upcoming events. Check back soon!
+						</div>
+					{{/if}}
+					{{!-- events end --}}
+				</div>
+				{{!-- features --}}
+				<h3 class="page-title">Featured Press and Announcements</h3>
+				<div class="separator-5 mb-20"></div>
+				
+				{{!-- featured start --}}
+				{{#if articles}}
+					{{#each articles}}
+						<div class="media margin-clear">
+							<div class="media-body">
+								<h6 class="media-heading"><a href="{{url}}">{{name}}</a></h6>
+								<p class="small margin-clear">{{summary}}</p>
+							</div>
+						</div>
+						<br>
+					{{/each}}
+					<p><a href="/press">More press and announcements <i class="fa fa-chevron-right" aria-hidden="true"></i></a></p>
+				{{/if}}
+				{{!-- featured end --}}
+			</div>
+		</div>
+
+	</div>
+</section>
+{{!-- main-container end --}}

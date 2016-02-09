@@ -1,0 +1,125 @@
+{{!< default}}
+{{!--
+/**
+* Engagement Lab Website
+* Developed by Engagement Lab, 2015
+* ==============
+*
+* About Page Template
+* - See About model for fields
+* - Use {{jsonPrint about}} to print entire json...DEBUG ONLY
+* ==========
+*/
+--}}
+
+<section class="section">
+	<div class="container">
+		<div class="row pb-40">
+			<div class="col-md-12">
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe src="https://player.vimeo.com/video/154233162" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{{> page/name name=about.missionStatement}}
+				{{> about/first_paragraph text=about.process}}
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="banner border-clear light-gray-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 pv-40">
+				{{> page/name name="History"}}
+				{{> about/first_paragraph text=about.history1}}
+				{{> about/history_image_set images=about.historyImages1}}
+				{{> about/paragraph text=about.history2}}
+				{{> about/history_image_set images=about.historyImages2}}
+				{{> about/paragraph text=about.history3}}
+				{{#if about.history4}}
+					<p class="lead">{{about.history4}}</p>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</div>
+
+{{!-- <section class="about-section">
+	<!-- Process & Approach -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				{{> page/name name="About Us"}}
+				{{> about/first_paragraph text=about.process}}
+			</div>
+		</div>
+	</div>
+</section> --}}
+
+<section class="about-section">
+	<!-- Collaborate -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				{{> page/name name="Collaborate + Work With Us"}}
+				{{> about/first_paragraph text=about.collaborate}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-8 col-md-6">
+			<div class="collaborators">
+				{{> about/collaborator title="Students and Researchers" text="The Engagement Lab is always looking for exemplary students. Emerson undergraduates can work on directed studies with lab faculty, or apply for lab assistantships. We are accepting applications for our 1-year MA program in Civic Media Art and Practice (CMAP), which is housed in the lab and offers the opportunity to work on projects with faculty and staff." icon="arrows"}}
+				{{!-- {{> about/collaborator title="Clients and Consulting" text="With full time faculty fellows and a new graduate program, there are plenty of educational opportunities" icon="bullhorn"}} --}}
+				{{> about/collaborator title="Community Based Partnerships (workshops)" text="The Engagement Lab is dedicated to fostering meaningful and mutual relationships with organizations or individuals committed to positive social impact. Partnership opportunities include: graduate studio courses, specific design or research projects, workshops or organizational capacity building." icon="briefcase"}}
+				</div>
+			</div>
+			<div class="col-sm-4 col-md-6">
+				<img src="/images/logos/logo_color.png" alt="Engagement Lab Logo">
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Partners -->
+<section class="section clearfix partners{{!--  about-section --}}">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-12">
+				{{!-- {{> page/name name="Our Partners"}} --}}
+				<h1 class="page-title text-center">Our Partners</h1>
+			</div>
+
+			{{!-- Partners slider --}}
+			{{!-- <div class="col-sm-12 col-md-8 col-md-offset-2">
+				<div id="partners_glider" class="glide">
+					<div class="glide__wrapper">
+
+						<ul class="glide__track" style="margin-left:-40px">
+							{{#each partners}}
+								<li class="glide__slide">{{> about/partner_info partner=this}}</li>
+							{{/each}}
+						</ul>
+
+					</div>
+				</div>
+			</div> --}}
+
+			{{!-- Partner icons --}}
+			<div class="col-md-12 pv-20">
+				<div class="clients-container">
+					<div class="clients">
+						{{#each partners}}
+							{{> about/partner_icon partner=this}}
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

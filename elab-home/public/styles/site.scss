@@ -1,0 +1,45 @@
+/* Scss Document */
+
+// Core variables and mixins
+@import "skin";
+@import "mixins";
+
+/* Theme Name:The Project - Responsive Website Template
+Author:HtmlCoder
+Author URI:http://www.htmlcoder.me
+Author e-mail:htmlcoder.me@gmail.com
+Version:1.1.0
+Created:March 2015
+License URI:http://support.wrapbootstrap.com/
+File Description:Main CSS file of the template */
+
+/* TABLE OF CONTENTS
+1) Typography
+2) Layout
+3) Sections
+4) Pages ( blog, about etc )
+5) Components
+6) Navigations
+7) Blocks/Widgets
+8) Main Slideshow
+9) Owl carousel
+* */
+
+@import "components/1_typography";
+@import "components/2_layout";
+@import "components/3_sections";
+@import "components/4_pages";
+@import "components/5_components";
+@import "components/6_navigations";
+@import "components/7_blocks-widgets";
+@import "components/8_main-slideshow";
+@import "components/9_owl-carousel";
+
+// Our custom SCSS
+@import "custom";
+@import "custom/nav";
+@import "custom/footer";
+@import "custom/cmap";
+@import "custom/tamagagement";
+@import "custom/glide.theme";
+

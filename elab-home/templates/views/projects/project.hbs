@@ -1,0 +1,204 @@
+{{!< default}}
+{{!-- 
+/**
+ * Engagement Lab Website
+ * Developed by Engagement Lab, 2015
+ * ==============
+ * 
+ * Project Page Template 
+ * - See Project model for fields
+ * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
+ * ==========
+ */
+--}}
+<!-- PROJECT START -->
+<div class="banner clearfix">
+	<div class="container-fluid">
+		<div class="row" id="project_header">
+			<div class="banner pv-40" style="background-image:url('{{{cloudinaryUrl project.headerImage width=1425 height=450 crop='fill' quality=90}}}');">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8 text-center col-md-offset-2 pv-20">
+							<h2 class="title" id="project-title">{{project.name}}</h2>
+						</div> <!-- .col-md-8 -->
+					</div> <!-- .row -->
+				</div> <!-- .container -->
+			</div> <!-- .banner -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+	<div id="page-start"></div>
+</div>
+<section class="section light-gray-bg clearfix">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>About <i>{{project.name}}</i></h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-8">
+				{{{project.overview.html}}}
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<img id="side-image" src="{{{cloudinaryUrl project.sideImage crop='fill' width=420 height=420}}}" alt="">
+			</div>
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section>
+<section class="main-container">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<ul class="nav nav-pills" role="tablist">
+					{{#if project.projectImages}}
+						<li class="active"><a href="#pill-images" role="tab" data-toggle="tab" title="images"><i class="fa fa-camera pr-5"></i> Images</a></li>
+					{{/if}}
+					
+					{{#if project.videos}}
+						<li class="{{#if videosTabFirst}}active{{/if}}"><a href="#pill-videos" role="tab" data-toggle="tab" title="videos"><i class="fa fa-video-camera pr-5"></i> Videos</a></li>
+					{{/if}}
+
+					{{#if project.files}}
+						<li class="{{#if filesTabFirst}}active{{/if}}"><a href="#pill-downloads" role="tab" data-toggle="tab" title="downloads"><i class="fa fa-paperclip pr-5"></i> Resources</a></li>
+					{{/if}}
+					{{#each projectCustomTabs.headers}}
+						<li class="{{#if ../customTabsFirst}}{{#ifeq @index 0}}active{{/ifeq}}{{/if}}"><a href="#pill-{{@index}}" role="tab" data-toggle="tab" title="custom-{{@index}}"><i class="fa fa-pencil pr-5"></i> {{this}}</a></li>
+					{{/each}}
+				</ul>
+				<div class="tab-content space-bottom">
+
+					{{#if project.projectImages}}
+
+						<div class="tab-pane active" id="pill-images">
+							<div class="space-bottom"></div>
+							{{#ifeq projectImagesLength 1}}
+								
+								{{!-- Do not use Glider.js for only one image  --}}
+								{{# each projectImageObjects}}
+									<img src="{{{cloudinaryUrl img width=500 quality=60}}}" alt="{{caption}}">
+									<div class="caption lead">{{caption}}</div>
+								{{/each}}
+
+							{{else}}
+
+								{{!-- Glider.js structure --}}
+								<div id="project_images_glider" class="glide">
+
+									    <div class="glide__arrows project">
+									        <button class="glide__arrow prev" data-glide-dir="<"></button>
+									        <button class="glide__arrow next" data-glide-dir=">"></button>
+									    </div>
+
+									    <div class="glide__wrapper">
+									        
+									        <ul class="glide__track" style="margin-left:-40px">
+														{{# each projectImageObjects}}
+															<li class="glide__slide">
+																<img src="{{{cloudinaryUrl img width=500 quality=60}}}" alt="{{@key}}">
+																<div class="caption lead">{{caption}}</div>
+															</li>
+														{{/each}}
+									        </ul>
+
+											</div>
+
+								</div>
+
+							{{/ifeq}}
+
+						</div>
+					{{/if}}
+
+					{{!-- Project Videos --}}
+					{{#if project.videos}}
+						<div class="tab-pane {{#if videosTabFirst}}active{{/if}}" id="pill-videos">
+						{{#each project.videos}}
+
+							<div class="embed-responsive embed-responsive-16by9">
+								{{{ data.html }}}
+							</div>
+							<br />
+
+						{{/each}}
+						</div>
+					{{/if}}
+
+					{{!-- Project Files --}}
+					{{#if project.files}}
+						<div class="tab-pane {{#if filesTabFirst}}active{{/if}}" id="pill-downloads">
+							<ul class="resources">
+							{{#each project.files}}
+								{{#if file}}
+									{{#if fileSummary.html}}
+										<div class="separator-3"></div>
+										{{{fileSummary.html}}}
+									{{/if}}
+									<li><a href="{{file.url}}"><i class="fa fa-file-{{fileType file}} pr-5"></i> {{name}}</a></li>
+									
+								{{/if}}
+
+							{{/each}}
+							</ul>
+						</div>
+					{{/if}}
+
+					{{!-- Project Custom Tabs --}}
+					{{#each projectCustomTabs.content}}
+						<div class="tab-pane {{#if ../customTabsFirst}}{{#ifeq @index 0}}active{{/ifeq}}{{/if}}" id="pill-{{@index}}">
+							{{{this}}}
+						</div>
+					{{/each}}
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="footer-content">
+					<h3 class="title">Project Information</h3>
+					<div class="separator-5"></div>
+
+					<ul class="list-icons">
+					{{#if project.externalLinkUrl}}
+						<li><a href="{{project.externalLinkUrl}}">Project Website<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+					{{/if}}
+					{{#if project.githubUrl}}
+						<li><a href="{{project.githubUrl}}">GitHub Repository<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+					{{/if}}
+						<li><b>Project Dates:</b> {{projectDates}}</li>
+						<li><b>Contact:</b> <i class="text-default fa fa-envelope-o pl-10 pr-5"></i>info at elab.emerson.edu</li>
+					</ul>
+				</div>
+			</div> <!-- .col-md-4 -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section>
+{{#if projectArticles}}
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="title"><i>{{project.name}}</i> News</h1>
+				<div class="separator-5"></div>
+				<div class="clearfix mb-10"></div>
+			</div>
+		</div>
+		<div class="row">
+			{{# each projectArticles}}
+				<div class="col-sm-6 col-md-4">
+					<div class="image-box style-2 mb-20 text-center news-box">
+						<div class="overlay-container">
+							<a href="{{url}}"><img src="{{image}}" alt="{{name}}" width="350" height="233"></a>
+						</div>
+						<div class="body">
+							<h4><a href="{{url}}">{{name}}</a></h4>
+							{{#if summary}}
+								<p>{{limit summary 100}}</p>										
+							{{/if}}
+						</div>
+					</div>
+				</div>
+
+			{{/each}}
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section>
+{{/if}}
