@@ -1,5 +1,8 @@
 {
   "name": "civic-media-project",
   "version": "0.0.1",
-  "main": "app.js"
+  "main": "app.js",
+  "dependencies": {
+  	"mongoose": "4.4.2"
+  }
 }

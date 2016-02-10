@@ -10,23 +10,28 @@ var express = require('express'),
 
 var keystoneConfig = {};
 var hbsHelpers = new require('./templates/helpers')();
+var mongooseOpened = false;
 
-var appFactory = function(site, route) {
+var appFactory = function(site, route, db) {
 	var app = express();	
-	var keystone = require(site);
+	var mongo = require(site)(db);
 
+	console.log("site: " + site)
+	console.log(mongo)
 	
 	return setGlobalConfig(
 		require('keystone'), 
 		route,
-		app
+		app,
+		mongo
 	);
  
 };
 
-var setGlobalConfig = function(keystoneInst, siteRoute, app) {
+var setGlobalConfig = function(keystoneInst, siteRoute, app, db) {
+
 	keystoneInst.init({
-		'brand' 'Engagement Lab',
+		'brand': 'Engagement Lab',
 		'module root': __dirname + '/sites/' + siteRoute + '/'
 
 	});
@@ -40,6 +45,9 @@ var setGlobalConfig = function(keystoneInst, siteRoute, app) {
 	keystoneInst.set('static', ['../../public', 'public']);
 	keystoneInst.set('views', './templates/views');
 	keystoneInst.set('view engine', 'hbs');
+
+	keystoneInst.set('mongoose', db);
+	// keystoneInst.set('model_prefix', siteRoute + '_');
 		
 	keystoneInst.set('custom engine',
 		handlebars.create({
@@ -60,6 +68,9 @@ var setGlobalConfig = function(keystoneInst, siteRoute, app) {
 
 	});
 
+	// console.log(siteRoute)
+	// console.log(keystoneInst._options.mongoose)
+
 	// prefix all built-in tags with 'keystone_'
 	keystoneInst.set('cloudinary prefix', 'keystone');
 
@@ -78,6 +89,7 @@ var setGlobalConfig = function(keystoneInst, siteRoute, app) {
 	});
 
 	keystoneInst.mount('/', app);
+	
 
 	return keystoneInst.app;
 
@@ -88,5 +100,5 @@ server.listen(3000, function() {
 	console.log('Server started!');
 });
 
-evh.register('localhost', appFactory('engagement-lab', 'elab'));
-evh.register('cmp.localhost', appFactory('civic-media-project', 'cmp'));
+evh.register('localhost', appFactory('engagement-lab-home', 'elab', 'engagement-lab'));
+evh.register('cmp.localhost', appFactory('civic-media-project', 'cmp', 'civic-media-project'));
