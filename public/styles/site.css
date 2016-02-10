@@ -7896,7 +7896,7 @@ html, body, .container {
   overflow: hidden;
   max-width: 100%;
   height: auto;
-  background: url(/images/home/el-background.png) center center no-repeat; }
+  background-color: #78cbd1; }
   .embed-container iframe, .embed-container object, .embed-container embed {
     position: absolute;
     top: 0;
@@ -8693,8 +8693,10 @@ body {
   font-size: 16px;
   color: #006EFF; }
 
-#people_glider .glide__slide.active {
-  min-height: 450px; }
+#people_glider .glide__slide {
+  opacity: 0; }
+  #people_glider .glide__slide.active {
+    min-height: 450px; }
 
 .glide__arrows {
   position: absolute; }

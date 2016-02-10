@@ -1,6 +1,12 @@
 // People glider height fix
-#people_glider .glide__slide.active {
-  min-height: 450px;
+#people_glider {
+  .glide__slide {
+    opacity: 0;
+
+    &.active {
+      min-height: 450px;
+    }
+  }
 }
 
 .glide__arrows {

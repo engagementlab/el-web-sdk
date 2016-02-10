@@ -123,18 +123,22 @@
 		        startAt: $(gliderDom).data('starting-index')+1,
 		        afterInit: function(evt) {
 		        	// The people list is invisible by default, show it, but only after a delay to allow page to load
-		        	setTimeout(function() { 			        	
-			        	gliderDom.fadeTo(500, 1);
+		        	setTimeout(function() {
+			        	$(evt.current[0]).fadeTo(500, 1);
 		        	} , 500);
 		        },
+		        beforeTransition: function(evt) {
+		        	$(evt.current[0]).fadeTo(100, 0);
+		        },
 		        afterTransition: function(evt) {
-		        	
-		        	// Show corresponding category
+		         	// Show corresponding category
 		        	updateCategory();
 
 		        	// Update URL with the person's key
 							var personKey = $(".glide__slide.active .person-bio-left").data('key');
 							window.history.pushState(null, null, personKey);
+
+		        	$(evt.current[0]).fadeTo(100, 1);
 						}
 		    });
 		    gliderApi = gliderObj.data('glide_api');
