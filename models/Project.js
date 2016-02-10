@@ -122,8 +122,8 @@ Project.add({
             label: 'Github URL',
             validate: urlValidator,
             note: 'Must be in format "http://www.something.org"'
-        },
-        executiveSummaryFile: {
+        }
+        /*executiveSummaryFile: {
             type: Types.AzureFile,
             label: 'Executive Summary Report',
             filenameFormatter: function(item, filename) {
@@ -132,7 +132,7 @@ Project.add({
             containerFormatter: function(item, filename) {
                 return 'resources';
             }
-        }
+        }*/
 
     },
 
