@@ -1,1 +1,1 @@
-module.exports = { return { mongoose: require('mongoose'), keystone: require('keystone') } }();
+module.exports = function(){ return { mongoose: require('mongoose'), keystone: require('keystone') }; }();

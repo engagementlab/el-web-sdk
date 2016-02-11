@@ -4,10 +4,11 @@ require('dotenv').load();
 
 var express = require('express'),
 		server = express(),
+		// https://www.npmjs.com/package/express-vhost
 		virtual = require('express-vhost'),
 		siteConfig = require('./sites/config');
 
-var appFactory = function(site) {
+var mountSiteModule = function(site) {
 	var appInstance = express();
 	
 	var sitePath = require.resolve(site),
@@ -32,7 +33,7 @@ var appFactory = function(site) {
 			keystoneApp
 		);
 
-		console.log('> "' + site + '" mounted!');
+		console.log('> Site "' + site + '" mounted!');
 	
 	});
  
@@ -40,8 +41,11 @@ var appFactory = function(site) {
 
 server.use(virtual.vhost(server.enabled('trust proxy')));
 server.listen(3000, function() {
-	console.log('Server started!');
-});
 
-appFactory('engagement-lab-home');
-appFactory('civic-media-project');
+	console.log('Server started! Please wait for sites to mount.');
+
+	// Bootstrap our site modules here
+	mountSiteModule('engagement-lab-home');
+	mountSiteModule('civic-media-project');
+
+});
