@@ -7895,8 +7895,13 @@ html, body, .container {
   height: 0;
   overflow: hidden;
   max-width: 100%;
-  height: auto;
-  background-color: #78cbd1; }
+  height: auto; }
+  @media (max-width: 767px) {
+    .embed-container {
+      background-color: #78cbd1; } }
+  @media (min-width: 767px) {
+    .embed-container {
+      background: url(/images/home/el-background.png) center center no-repeat; } }
   .embed-container iframe, .embed-container object, .embed-container embed {
     position: absolute;
     top: 0;

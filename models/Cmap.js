@@ -35,7 +35,7 @@ var Cmap = new keystone.List('Cmap',
 Cmap.add({
 		name: { type: String, default: "CMAP Page", hidden: true, required: true },
 		logo: { type: Types.CloudinaryImage, label: "CMAP logo", folder: "site/cmap", autoCleanup: true },
-		programDescription: { type: Types.Textarea, label: "Lead" },
+		programDescription: { type: Types.Markdown, label: "Lead" },
 		apply1: { type: Types.Markdown, label: "Is CMAP the right program for you? (Paragraph 1)" },
 		apply2: { type: Types.Markdown, label: "Is CMAP the right program for you? (After Paragraph 1)" },
 		curriculum: { type: String, label: "Curriculum" },
