@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		
 		nodemon: {
 			serve: {
-				script: 'keystone.js',
+				script: 'server.js',
 				options: {
 					ignore: ['node_modules/**']
 				}

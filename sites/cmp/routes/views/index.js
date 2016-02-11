@@ -15,9 +15,6 @@
 var keystone = require('keystone');
 var _ = require('underscore');
 
-// News data propagated by ./jobs/news
-var store = require('json-fs-store')('./tmp');
-
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
