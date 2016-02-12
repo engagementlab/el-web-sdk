@@ -1,0 +1,153 @@
+
+body {
+  padding-top: 76px;
+}
+
+.navbar {
+	border: none;
+	box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.08);
+}
+
+.navbar-nav {
+	float: right;
+}
+
+.navbar.navbar-default {
+	border-radius: 0;
+	li > a { 
+		font-size: $font-size-base; 
+		color: $gray-dark;
+	}
+}
+
+.navbar-fixed-top {
+	margin-top: 0 !important;
+	background-color: #fff !important;
+}
+
+.logo-container {
+
+	margin: 16px 0;
+	display: inline-block;
+	width: 400px;
+	
+	img {
+		@include transition(all 0.2s ease-in-out);
+		height: 45px;
+		display: inline;
+	}
+	p {
+		@include transition(all 0.2s ease-in-out);
+		display: inline;
+		font-size: 17px;
+		vertical-align: middle;
+		padding-left: 10px;
+		color: $gray-light;
+	}
+
+	&:hover {
+		img { @include opacity(0.6); }
+		p { 
+			padding-left: 14px; 
+			color: $base-color;
+		}
+	}
+}
+
+.main-navigation .dropdown-menu {
+	top: 100%;
+}
+
+.dropdown-menu > li > a {
+	background-color: $white;
+	border: none;
+}
+
+.emerson-logo {
+	a { 
+		padding: 16px !important; 
+		img { 
+			height: 42px; 
+			@include transition(all 0.2s ease);
+			@include opacity(0.6);
+			-webkit-filter: grayscale(1);
+			filter: grayscale(1);
+		}
+		&:hover {
+			img {
+				@include opacity(1);
+				-webkit-filter: grayscale(0);
+				filter: grayscale(0);
+			}
+		}
+	}
+}
+
+#at-emerson-sm {
+	position: absolute;
+	font-size: 12px;
+	top: 50px;
+	left: 80px;
+}
+
+@media (max-width: 768px) { 
+	body { padding-top: 76px; }
+	.navbar-nav {
+		width: 100%;
+		li {
+			text-align: left;
+		}
+	}
+	.dropdown-menu {
+		display: none;
+	}
+	.dropdown > a:before {
+		display: none;
+	}
+	.navbar-default .navbar-nav > li > a {
+		border-bottom: none;
+	}
+	.emerson-logo {
+		display: none !important;
+	}
+	.logo-container > p {
+		font-size: 16px;
+	}
+	#at-emerson-lg { display: none; }
+}
+
+@media (max-width: 991px) { 
+	.main-navigation > .navbar-collapse > ul {
+		text-align: center;
+	}
+	.emerson-logo {
+		margin-bottom: -35px;
+	}
+}
+
+@media (max-width: 991px) and (min-width: 768px) { 
+	body { padding-top: 138px; }
+	.navbar-nav {
+
+		float: none;
+		
+		> li {
+			float: none;
+			display: inline-block;
+		}
+	}
+	.logo-container {
+		margin-bottom: 0;
+	}
+	#logo-col {
+		text-align: center;
+	}
+}
+
+@media (min-width: 768px) {
+	#at-emerson-sm { display: none; }
+}
+
+.navbar-toggle {
+	margin-top: 22px;
+}

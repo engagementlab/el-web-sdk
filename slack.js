@@ -8,10 +8,13 @@
  */
 
 var _keystone = require('keystone');
+var _slackApiInst
 
-module.exports = {
+var KeystoneSlacker = (function(slack) { 
 
-    post: function(model, document, accolade, custom_name) {
+    _slackApiInst = slack;
+
+    Post: function(model, document, accolade, custom_name, channel) {
 
         // Do nothing if document not new/modified
         if(!(document.wasNew || document.wasModified))
@@ -30,7 +33,7 @@ module.exports = {
         else if(custom_name !== undefined && typeof custom_name !== 'function')
             throw "Slack plugin: custom_name must be a function!";
 
-        var slack = _keystone.get('slack');
+        var slack = _slackApiInst;
         var _ = require('underscore');
         var Sentencer = require('sentencer');
         var modelName =  model.modelName || document.constructor.modelName;
@@ -82,7 +85,7 @@ module.exports = {
                     // Send slack message
                     slack.webhook({
 
-                          channel: slack.channel,
+                          channel: channel || slack.channel,
                           username: slack.user,  
                           icon_emoji: slack.user_icon,
                           text: slackMsg
@@ -102,4 +105,6 @@ module.exports = {
         });
     }
 
-};
+});
+
+module.exports = KeystoneSlacker;
