@@ -74,17 +74,6 @@ Project.add({
             initial: true,
             required: true
         },
-
-        startDate: {
-            type: Date,
-            label: 'Project Start Date',
-            initial: true,
-            required: true
-        },
-        endDate: {
-            type: Date,
-            label: 'Project End Date'
-        },
         headerImage: {
             type: Types.CloudinaryImage,
             label: 'Header Image (large)',
@@ -97,6 +86,54 @@ Project.add({
             folder: 'site/research/projects',
             autoCleanup: true
         }
+    },
+
+    'Project Information', {
+
+        startDate: {
+            type: Date,
+            label: 'Project Start Date',
+            initial: true,
+            required: true
+        },
+        endDate: {
+            type: Date,
+            label: 'Project End Date'
+        },
+
+        investigatorPerson: {
+            type: String,
+            label: 'Principal Investigator'
+        },
+
+        managerPerson: {
+            type: String,
+            label: 'Project Manager'
+        },
+        
+        externalLinkUrl: {
+            type: Types.Url,
+            label: 'Project Website URL',
+            validate: urlValidator,
+            note: 'Must be in format "http://www.something.org"'
+        },
+        githubUrl: {
+            type: Types.Url,
+            label: 'Github URL',
+            validate: urlValidator,
+            note: 'Must be in format "http://www.something.org"'
+        }
+        /*executiveSummaryFile: {
+            type: Types.AzureFile,
+            label: 'Executive Summary Report',
+            filenameFormatter: function(item, filename) {
+                return item.key + require('path').extname(filename);
+            },
+            containerFormatter: function(item, filename) {
+                return 'resources';
+            }
+        }*/
+
     },
 
     'Project Media', {
@@ -170,22 +207,6 @@ Project.add({
             label: 'Custom Tab Text',
             hidden: true
         }
-    },
-
-    'Other', {
-        externalLinkUrl: {
-            type: Types.Url,
-            label: 'Project Website URL',
-            validate: urlValidator,
-            note: 'Must be in format "http://www.something.org"'
-        },
-        githubUrl: {
-            type: Types.Url,
-            label: 'Github URL',
-            validate: urlValidator,
-            note: 'Must be in format "http://www.something.org"'
-        }
-
     });
 
 /**

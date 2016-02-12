@@ -7895,14 +7895,20 @@ html, body, .container {
   height: 0;
   overflow: hidden;
   max-width: 100%;
-  height: auto;
-  background: url(/images/home/el-background.png) center center no-repeat; }
+  height: auto; }
+  @media (max-width: 767px) {
+    .embed-container {
+      background-color: #78cbd1; } }
+  @media (min-width: 767px) {
+    .embed-container {
+      background: url(/images/home/el-background.png) center center no-repeat; } }
   .embed-container iframe, .embed-container object, .embed-container embed {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    opacity: 0; }
 
 .page-title, .title {
   font-family: "HalisGR-SBook", sans-serif; }
@@ -8691,6 +8697,11 @@ body {
 .tama .tama-author {
   font-size: 16px;
   color: #006EFF; }
+
+#people_glider .glide__slide {
+  opacity: 0; }
+  #people_glider .glide__slide.active {
+    min-height: 450px; }
 
 .glide__arrows {
   position: absolute; }

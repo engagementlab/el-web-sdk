@@ -46,8 +46,15 @@ var fileContent = {
 // Get events
 request(eventsParams.host + eventsParams.path, function(error, response, body) {
 
-    if (!error && response.statusCode == 200)
-        fileContent.events = JSON.parse(body).events;
+    if (!error && response.statusCode == 200) {
+        var arrEvents = JSON.parse(body).events;
+
+        // Cap events saved at 5
+        var arrEventsCapped = _.reject(arrEvents, 
+                                       function(e) { return _.indexOf(arrEvents, e) > 4 }
+                                      );
+        fileContent.events = arrEventsCapped;
+    }
 
     // Next get Medium RSS feed
     feed(blogParams.host + blogParams.path, function(err, rss) {
@@ -76,7 +83,7 @@ request(eventsParams.host + eventsParams.path, function(error, response, body) {
                 // Form data for template 
                 articles.push({
                                 content: articleJson.description,
-                                title: articleJson.title,
+                                title: articleJson.title.replace(' - Engagement Lab @ Emerson College', ''),
                                 published: articleJson.published,
                                 author: articleJson.authors[0].name,
                                 image: articleJson.images[0].url,

@@ -13,7 +13,14 @@ html, body, .container {
   overflow: hidden;
   max-width: 100%;
   height: auto;
-  background: url(/images/home/el-background.png) center center no-repeat;
+  // Small devices (tablets, phones less than 767px)
+  @media (max-width: 767px) {
+    background-color: #78cbd1;
+  }
+  // Other
+  @media (min-width: 767px) {
+    background: url(/images/home/el-background.png) center center no-repeat;
+  }
 
   iframe, object, embed {
       position: absolute;
@@ -21,6 +28,7 @@ html, body, .container {
       left: 0;
       width: 100%;
       height: 100%;
+      opacity: 0;
   }
 }
 

@@ -33,7 +33,7 @@ var Directory = new keystone.List('Directory',
  */
 Directory.add({
 	name: { type: String, label: 'Directory Name', required: true, initial: true, index: true },
-	lead: { type: String, label: 'Description', required: true, initial: true },
+	lead: { type: String, label: 'Description', required: false, initial: true },
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
 

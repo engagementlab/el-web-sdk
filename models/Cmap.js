@@ -34,13 +34,18 @@ var Cmap = new keystone.List('Cmap',
  */
 Cmap.add({
 		name: { type: String, default: "CMAP Page", hidden: true, required: true },
+		
 		logo: { type: Types.CloudinaryImage, label: "CMAP logo", folder: "site/cmap", autoCleanup: true },
-		programDescription: { type: Types.Textarea, label: "Lead" },
+
+		programDescription: { type: Types.Markdown, label: "Lead" },
 		apply1: { type: Types.Markdown, label: "Is CMAP the right program for you? (Paragraph 1)" },
 		apply2: { type: Types.Markdown, label: "Is CMAP the right program for you? (After Paragraph 1)" },
+		
 		curriculum: { type: String, label: "Curriculum" },
+		
 		structure: { type: Types.Markdown, label: "The Structure" },
 		courses: { type: Types.Markdown, label: "Core Courses" },
+		
 		createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 	},
 	
@@ -49,6 +54,17 @@ Cmap.add({
 		subheaders: { type: Types.TextArray, label: "Subheaders", note: "Please! add 4" },
 		elements: { type: Types.TextArray, label: "Element descriptions", note: "Please for the love of all things add 4" }
 	});
+
+/**
+ * Hooks
+ * =============
+ */
+Cmap.schema.pre('save', function(next) {
+	// TODO: Implement as global md sanitizer
+	this.programDescription.html = this.programDescription.html.replace(/<p[^>]+?>|<p>|<\/p>/g, '');
+
+	next();
+});
 
 /**
  * Model Registration

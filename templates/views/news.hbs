@@ -102,19 +102,20 @@
 							<div class="row grid-space-10">
 								<div class="col-sm-5 col-md-5">
 									<div class="overlay-container">
-										<a href="{{vanity_url}}"><img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
+										<a href="{{url}}"><img class="media-object" src="{{logo.url}}" alt="{{name.text}}">
 										</a>
 									</div>
 								</div>
 								<div class="col-sm-5 col-md-5">
 
-									<h6 class="media-heading"><a href="{{vanity_url}}">{{name.text}}</a></h6>
+									<h6 class="media-heading"><a href="{{url}}">{{name.text}}</a></h6>
 									<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>{{date start.local format='MM/DD/YYYY'}}</p>									
 								
 								</div>
 							</div>
 							{{!-- event end --}}
 						{{/each}}
+						<a href="http://www.eventbrite.com/o/engagement-lab-6103617323">More events <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 					{{else}}
 						<div class="row grid-space-10 no-events">
 							No upcoming events. Check back soon!

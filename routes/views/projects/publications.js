@@ -55,7 +55,7 @@ exports = module.exports = function(req, res) {
                         return pub.category == category;
                     });
                     
-                    if(category === 'Article') {
+                    if(category === 'Articles and Chapter') {
                         // Sort articles by date
                         filteredPubs = filteredPubs.sort(function(a, b) {
                             return new Date(b.date) - new Date(a.date);
@@ -73,7 +73,7 @@ exports = module.exports = function(req, res) {
                     // Assemble publications along with applicable sections
                     locals.publications[category] = {
                         records: filteredPubs,
-                        isJournal: (category === 'Article')
+                        isArticle: (category === 'Articles and Chapters')
                     };
                     
 

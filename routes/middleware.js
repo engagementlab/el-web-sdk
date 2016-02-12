@@ -22,7 +22,7 @@ var querySub =  Subdirectory.model.where("key")
                 ]);
 querySub.select('key name');
 
-var publicationsCats = ['book', 'guide', 'article'];
+var publicationsCats = ['Books', 'Guides', 'Articles and Chapters'];
 
 /**
 	Initialises the standard view locals
@@ -53,9 +53,9 @@ exports.initLocals = function(req, res, next) {
         var publicationsSub = _.map(publicationsCats, function(cat) {
 
             return {
-                label: (cat.charAt(0).toUpperCase() + cat.slice(1)) + 's',
+                label: cat,
                 key: 'publications',
-                href: '/publications/#' + cat + 's'
+                href: '/publications/#' + cat.replace(/ /g, '-').toLowerCase()
             };
 
         });

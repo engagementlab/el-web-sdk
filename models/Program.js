@@ -70,7 +70,7 @@ Program.schema.pre('save', function(next) {
     // Save state for post hook
     this.wasNew = this.isNew;
     this.wasModified = this.isModified();
-
+    
     next();
 
 });

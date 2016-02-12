@@ -27,14 +27,14 @@ exports = module.exports = function(req, res) {
     // Init locals
     locals.section = 'programs';
 
-    // Load the current project
+    // CMAP query
     view.on('init', function(next) {
 
-        var q = Cmap.model.findOne({}, {}, {
+        var cmapQuery = Cmap.model.findOne({}, {}, {
             sort: { 'createdAt': -1 }
         });
 
-        q.exec(function(err, result) {
+        cmapQuery.exec(function(err, result) {
 
             // Get page elements
             locals.cmap = result;
@@ -47,39 +47,55 @@ exports = module.exports = function(req, res) {
                 });
             }
 
-            // Get faculty
-            Person.model.find({ 'cmapPerson': true }).sort([
-                ['sortOrder', 'ascending']
-            ]).exec(function(err, result){
-
-                if (err) throw err;
-                locals.people = result;
-
-                // Get projects
-                Project.model.find({
-                    'enabled': true,
-                    'cmapProject': true
-                }).sort([
-                    ['sortOrder', 'ascending']
-                ]).exec(function(err, resultProject) {
-                    _.map(resultProject, function(proj) {
-
-                        // Get image code
-                        proj.href = '/' + req.params.directory + 
-                        '/' + req.params.subdirectory + 
-                        '/' + proj.key;
-                        proj.description = proj.description;
-
-                        return proj;
-
-                    });
-
-                    locals.projects = resultProject;
-                    next(err);
-
-                });
-            });
+            next(err);
         });
+
+    });
+
+    view.on('init', function(next) {
+
+        // Get faculty
+        Person.model.find({ 'cmapPerson': true })
+        .sort([
+            ['sortOrder', 'ascending']
+        ])
+        .exec(function(err, result) {
+            locals.people = result;
+
+            next(err);
+        });
+
+    });
+
+    view.on('init', function(next) {
+
+        // Get projects flagged for CMAP
+        Project.model.find({
+            'enabled': true,
+            'cmapProject': true
+        })
+        .sort([
+            ['sortOrder', 'ascending']
+        ])
+        .populate('subdirectory')
+        .exec(function(err, resultProject) {
+            _.map(resultProject, function(proj) {
+
+                // Create link
+                proj.href = '/projects' +
+                '/' + proj.subdirectory.key + 
+                '/' + proj.key;
+                proj.description = proj.description;
+
+                return proj;
+
+            });
+
+            locals.projects = resultProject;
+            next(err);
+
+        });
+    
     });
 
     // Render the view
