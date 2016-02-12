@@ -14,7 +14,7 @@ var keystone = require('keystone');
 var validator = require('validator');
 var Listing = require('./Listing');
 var Types = keystone.Field.Types;
-var slack = require('../slack');
+var slack = keystone.get('slack');
 
 /**
  * @module project
@@ -275,7 +275,7 @@ Project.schema.pre('save', function(next) {
 Project.schema.post('save', function(next) {
 
     // Make a post to slack when this Project is updated
-    slack.post(Project.model, this, true);
+    slack.Post(Project.model, this, true);
 
 });
 

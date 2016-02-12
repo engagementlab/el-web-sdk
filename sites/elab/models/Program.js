@@ -16,7 +16,7 @@ var keystone = require('keystone');
 var validator = require('validator');
 var Listing = require('./Listing');
 var Types = keystone.Field.Types;
-var slack = require('../slack');
+var slack = keystone.get('slack');
 
 /**
  * @module program
