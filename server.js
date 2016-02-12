@@ -4,12 +4,15 @@ require('dotenv').load();
 
 var express = require('express'),
 		server = express(),
+		compression = require('compression'),
+		colors = require('colors'),
 		// https://www.npmjs.com/package/express-vhost
 		virtual = require('express-vhost'),
 		siteConfig = require('./sites/config');
 
 var mountSiteModule = function(site) {
 	var appInstance = express();
+	appInstance.use(compression());
 	
 	var sitePath = require.resolve(site),
 			siteInst = require(site),
@@ -33,16 +36,17 @@ var mountSiteModule = function(site) {
 			keystoneApp
 		);
 
-		console.log('> Site "' + site + '" mounted!');
+		console.log('> Site ' + colors.rainbow(site) + ' mounted!'.italic);
 	
 	});
  
 };
 
+// Starts the server using express-vhost as middleware, trusting our nginx proxy
 server.use(virtual.vhost(server.enabled('trust proxy')));
 server.listen(3000, function() {
 
-	console.log('Server started! Please wait for sites to mount.');
+	console.log('## Server started! Please wait for sites to mount. ##'.bold.bgWhite.red);
 
 	// Bootstrap our site modules here
 	mountSiteModule('engagement-lab-home');
