@@ -10,9 +10,11 @@
  *
  */
 
-
+// Ignore for staging env (heroku)
+if (process.env.NODE_ENV !== 'staging') {
  // Load .env vars
-require('dotenv').load();
+	require('dotenv').load();
+}
 
 var express = require('express'),
 		server = express(),
@@ -20,6 +22,8 @@ var express = require('express'),
 		virtual = require('express-vhost'),
 		siteConfig = require('./sites/config'),
 		SiteFactory = require('./sites/factory');
+
+var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
 
 colors = require('colors');
 
@@ -31,11 +35,11 @@ colors = require('colors');
  *     mountSiteModule('engagement-lab-home');
  *
  * @class Main
- * @name server/mountSiteModule
+ * @name server/mount
  * @param {String} site The name of the module, found in sites/[sitedir]/package.json
  * @see https://www.npmjs.com/package/express-vhost
  */
-var mountSiteModule = function(site) {
+var mount = function(site) {
 
 	var appInstance = express().use(compression());
 	
@@ -74,12 +78,12 @@ var mountSiteModule = function(site) {
 
 // Starts the server using express-vhost as middleware, trusting our nginx proxy
 server.use(virtual.vhost(server.enabled('trust proxy')));
-server.listen(3000, function() {
+server.listen(serverPort, function() {
 
 	console.log('## Server started! Please wait for sites to mount... ##'.bold.bgWhite.red);
 
 	// Bootstrap our site modules here
-	mountSiteModule('engagement-lab-home');
-	mountSiteModule('civic-media-project');
+	mount('engagement-lab-home');
+	mount('civic-media-project');
 
 });

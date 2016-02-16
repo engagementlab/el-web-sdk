@@ -1,10 +1,10 @@
-/* 
- * Engagement Lab Website
- * Developed by Engagement Lab, 2015
-==============
- Gruntfile.js
- Grunt task config.
-==============
+/*!
+ * Engagement Lab Site Framework
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * Gruntfile.js
+ * Grunt task config.
+ * ==============
 */
 'use strict()';
 
@@ -35,20 +35,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-    
-    concat: {
-      dist: {
-          src: ['public/css/**/*.css', 
-		            'public/plugins/**/*.css',
-		            'public/fonts/**/*.css',
-		            'public/fonts/*.css',
-		            'public/bower_components/**/dist/css/*.min.css',
-		            '!public/bower_components/glidejs/dist/css/glide.theme.min.css', // We are using our own glide theme; exclude
-		            '!public/static', // Do not use any static css
-		            'public/styles/site.css'],
-          dest: 'public/release/tmp/concat.css'
-      }
-    },
 		
 		cssmin: {
 		  target: {
@@ -69,6 +55,9 @@ module.exports = function(grunt) {
 		execute: {
 			news: {
 				src: ['jobs/news.js']
+			},
+			readme: {
+				src: ['jobs/readme.js']
 			}
 		},
 

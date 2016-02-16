@@ -1,21 +1,15 @@
-/* 
- * Engagement Lab Website
- * Developed by Engagement Lab, 2015
-==============
- news.js
- Blog and events (news) retrieval job.
-
- Created by Johnny Richardson on 12/15/15.
-==============
+/*!
+ * Engagement Lab Site Framework
+ * Developed by Engagement Lab, 2016
+ * ==============
 */
 
-/**
-  .
-  @class news
-  @namespace jobs
-  @constructor
-  @static
-**/
+ /**
+ * Blog and events (news) retrieval job. Requires setup of Eventbrite API account.
+ *
+ * @class Jobs
+ * @name jobs/news
+ */
 require('dotenv').load();
 var _ = require('underscore');
 
