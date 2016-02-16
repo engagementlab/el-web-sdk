@@ -10,11 +10,8 @@
  *
  */
 
-// Ignore for staging env (heroku)
-if (process.env.NODE_ENV !== 'staging') {
- // Load .env vars
-	require('dotenv').load();
-}
+// Load .env vars
+require('dotenv').load();
 
 var express = require('express'),
 		server = express(),
@@ -51,7 +48,7 @@ var mount = function(site) {
 		// Only engagement-lab-home has no configData.subdomain
 		var siteDomain = (configData.subdomain === undefined) ? 'localhost' : (configData.subdomain + '.localhost');
 
-		// Initialize keystone instance and get mounted app
+		// Initialize keystone instance and then register the mounted app
 		new SiteFactory({ 
 
 				config: configData,
