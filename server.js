@@ -43,10 +43,10 @@ var mount = function(site) {
 	var siteInst = require(site);
 
 	siteConfig(siteInst, function(configData) {
-
+		
 		// Configure the site's domain
 		// Only engagement-lab-home has no configData.subdomain
-		var siteDomain = (configData.subdomain === undefined) ? 'localhost' : (configData.subdomain + '.localhost');
+		var siteDomain = (configData.subdomain === undefined) ? process.env.ROOT_DOMAIN : (configData.subdomain + '.' + process.env.ROOT_DOMAIN);
 
 		// Initialize keystone instance and then register the mounted app
 		new SiteFactory({ 
