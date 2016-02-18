@@ -67,7 +67,7 @@
 			'custom engine':
 				handlebars.create({
 					layoutsDir: siteRoot + 'templates/layouts',
-					partialsDir: siteRoot + 'templates/partials',
+					partialsDir: [ { dir: siteRoot + '../../public', namespace: 'core' }, '../templates/partials', siteRoot + 'templates/partials'],
 					defaultLayout: 'base',
 					helpers: hbsHelpers,
 					extname: '.hbs'
@@ -93,6 +93,21 @@
 
 		});
 
+		// Used only for production, otherwise sessions are stored in-memory
+		if (process.env.NODE_ENV === 'production') {
+
+			keystoneInst.set('session store', 'connect-mongostore');
+			keystoneInst.set('session store options', {
+				"db": {
+					"name": siteConfig.database,
+					"servers": [
+						{ "host": "127.0.0.1", "port": 27017 }
+					]
+				}
+			});
+
+		}
+
 		// Slack API instantiation
 		slackInstance = new Slack(process.env.SLACK_API_KEY);
 		slackInstance.setWebhook(process.env.SLACK_HOOK_URI);
@@ -108,7 +123,7 @@
 			access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 		});
 
-		// slack needs to be be accessible anywhere
+		// slack needs to be be accessible anywhere (using our keystone-slacker package)
 		var keystoneSlacker = new KeystoneSlacker(slackInstance, keystoneInst);
 		keystoneInst.set('slack', keystoneSlacker);
 

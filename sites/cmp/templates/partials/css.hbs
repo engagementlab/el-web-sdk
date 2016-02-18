@@ -23,7 +23,13 @@
 <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
 <link rel="apple-touch-icon-precomposed" href="/images/favicons/favicon_57.png">
 
-{{#ifeq environment "development"}}
+{{#ifeq environment "production"}}
+
+	{{!-- PRODUCTION --}}
+	<link href="/release/bootstrap.min.css" rel="stylesheet">
+	<link href="/release/production.css" rel="stylesheet">
+
+{{else}}
 
 	{{!-- DEVELOPMENT --}}
 	<!-- Custom fonts -->
@@ -43,11 +49,5 @@
 
 	{{!-- Bower plugins --}}
 	<link rel="stylesheet" href="/bower_components/glidejs/dist/css/glide.core.css">
-
-{{else}}
-
-	{{!-- PRODUCTION --}}
-	<link href="/release/bootstrap.min.css" rel="stylesheet">
-	<link href="/release/style.min.css" rel="stylesheet">
 
 {{/ifeq}}

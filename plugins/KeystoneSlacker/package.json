@@ -1,9 +1,0 @@
-{
-  "name": "keystone-slacker",
-  "description": "Slack plugin for KeystoneJS.",
-  "version": "0.0.3",
-  "main": "app.js",
-  "dependencies": {
-    "sentencer": "^0.1.5"
-  }
-}

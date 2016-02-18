@@ -20,7 +20,7 @@ module.exports = function(grunt) {
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
 
-	var options = {
+	var gruntJobsConfig = {
 		config: {
 			src: ['./grunt/*.js', './sites/**/grunt/*.js']
 		},
@@ -31,25 +31,9 @@ module.exports = function(grunt) {
 			serve: {
 				script: 'server.js',
 				options: {
-					ignore: ['node_modules/**']
+					ignore: ['node_modules/**', 'jobs/**', 'grunt/**', 'sites/**/node_modules/**', 'sites/**/grunt/**']
 				}
 			}
-		},
-		
-		cssmin: {
-		  target: {
-		  	options: { keepSpecialComments: 0 },
-		    files: { 'public/release/style.min.css': ['public/release/tmp/concat.css'],
-						     'public/release/bootstrap.min.css': ['public/styles/bootstrap/bootstrap.css']
-						   }
-		    /*files: [{
-		      expand: true,
-		      cwd: 'release/css',
-		      src: [],
-		      dest: 'release/style',
-		      ext: '.min.css'
-		    }]*/
-		  }
 		},
 
 		execute: {
@@ -102,6 +86,7 @@ module.exports = function(grunt) {
 	  },
 
 	  bump: {
+	    
 	    options: {
 	      files: ['package.json'],
 	      commit: true,
@@ -113,12 +98,13 @@ module.exports = function(grunt) {
 	      push: true,
 	      pushTo: 'origin'
 	    }
+	  
 	  }
 	};
 
-	var configs = require('load-grunt-configs')(grunt, options);
+	var configs = require('load-grunt-configs')(grunt, gruntJobsConfig);
 	
-	// Project configuration.
+	// Project configurations
 	grunt.initConfig(configs);
 
 	// load jshint
