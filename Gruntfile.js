@@ -63,6 +63,12 @@ module.exports = function(grunt) {
 	        question: "You are about to deploy the master branch HEAD to the production server.\nThis will also run the 'compile' task and reboot keystone.\n\n\nAre you sure?",
 	        input: '_key:y'
 	      }
+	    },
+	    staging: {
+	      options: { 
+	        question: "You are about to deploy the master branch HEAD to the staging server.\n\nAre you sure?",
+	        input: '_key:y'
+	      }
 	    }
 	  },
 
@@ -150,10 +156,21 @@ module.exports = function(grunt) {
 	]);
 
 	// Task to deploy to production
-	grunt.registerTask('deploy', [
-		'confirm:production',
-		'pm2deploy:production'
+	grunt.registerTask('deploy', function(target) {
+		var tasks = [
+			'confirm',
+			'pm2deploy'
+		];
+
+	  if (target == null)
+	    grunt.warn('Must specify staging or production.');
+	  
+	  grunt.task.run.apply(grunt.task, tasks.map(function(task) {
+	    return task + ':' + target;
+	  }));
+
 		//'bump'
-	]);
+	
+	});
 
 };
