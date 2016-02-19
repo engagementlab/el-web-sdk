@@ -8,7 +8,7 @@ module.exports = {
 	},
 	express: {
 		files: [
-			'keystone.js',
+			'server.js',
 			'public/js/lib/**/*.{js,json}'
 		],
 		tasks: ['jshint:server', 'concurrent:dev']

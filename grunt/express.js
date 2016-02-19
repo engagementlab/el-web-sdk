@@ -4,7 +4,7 @@ module.exports = {
 	},
 	dev: {
 		options: {
-			script: 'keystone.js',
+			script: 'server.js',
 			debug: true
 		}
 	}

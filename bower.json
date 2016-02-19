@@ -1,7 +1,7 @@
 {
   "name": "engagement-lab",
   "description": "",
-  "main": "keystone.js",
+  "main": "server.js",
   "version": "0.0.4",
   "authors": [
     "Johnny Richardson <johnny@elab.emerson.edu>",
