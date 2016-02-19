@@ -1,10 +1,10 @@
-/* 
- * Engagement Lab Website
- * Developed by Engagement Lab, 2015
-==============
- Gruntfile.js
- Grunt task config.
-==============
+/*!
+ * Engagement Lab Site Framework
+ * Developed by Engagement Lab, 2016
+ * ==============
+ * Gruntfile.js
+ * Grunt task config.
+ * ==============
 */
 'use strict()';
 
@@ -20,70 +20,28 @@ module.exports = function(grunt) {
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
 
-	var options = {
+	var gruntJobsConfig = {
 		config: {
-			src: './grunt/*.js'
+			src: ['./grunt/*.js', './sites/**/grunt/*.js']
 		},
 		
 		pkg: grunt.file.readJSON('package.json'),
 		
 		nodemon: {
 			serve: {
-				script: 'keystone.js',
+				script: 'server.js',
 				options: {
-					ignore: ['node_modules/**']
+					ignore: ['node_modules/**', 'jobs/**', 'grunt/**', 'sites/**/node_modules/**', 'sites/**/grunt/**']
 				}
 			}
-		},
-		
-		uglify: {
-		  plugins: {
-		    files: {
-		      'public/release/production.js': 
-		      [
-            'public/js/jquery/*.min.js', // Core
-            'public/js/bootstrap/*.min.js',
-            'public/plugins/*.js',  // Plugins
-            'public/plugins/**/*.js',
-            'public/bower_components/**/dist/*.min.js'
-			    ]
-		    }
-		  }
-		},
-    
-    concat: {
-      dist: {
-          src: ['public/css/**/*.css', 
-		            'public/plugins/**/*.css',
-		            'public/fonts/**/*.css',
-		            'public/fonts/*.css',
-		            'public/bower_components/**/dist/css/*.min.css',
-		            '!public/bower_components/glidejs/dist/css/glide.theme.min.css', // We are using our own glide theme; exclude
-		            '!public/static', // Do not use any static css
-		            'public/styles/site.css'],
-          dest: 'public/release/tmp/concat.css'
-      }
-    },
-		
-		cssmin: {
-		  target: {
-		  	options: { keepSpecialComments: 0 },
-		    files: { 'public/release/style.min.css': ['public/release/tmp/concat.css'],
-						     'public/release/bootstrap.min.css': ['public/styles/bootstrap/bootstrap.css']
-						   }
-		    /*files: [{
-		      expand: true,
-		      cwd: 'release/css',
-		      src: [],
-		      dest: 'release/style',
-		      ext: '.min.css'
-		    }]*/
-		  }
 		},
 
 		execute: {
 			news: {
 				src: ['jobs/news.js']
+			},
+			readme: {
+				src: ['jobs/readme.js']
 			}
 		},
 
@@ -103,6 +61,12 @@ module.exports = function(grunt) {
 	    production: {
 	      options: { 
 	        question: "You are about to deploy the master branch HEAD to the production server.\nThis will also run the 'compile' task and reboot keystone.\n\n\nAre you sure?",
+	        input: '_key:y'
+	      }
+	    },
+	    staging: {
+	      options: { 
+	        question: "You are about to deploy the master branch HEAD to the staging server.\n\nAre you sure?",
 	        input: '_key:y'
 	      }
 	    }
@@ -128,6 +92,7 @@ module.exports = function(grunt) {
 	  },
 
 	  bump: {
+	    
 	    options: {
 	      files: ['package.json'],
 	      commit: true,
@@ -139,12 +104,13 @@ module.exports = function(grunt) {
 	      push: true,
 	      pushTo: 'origin'
 	    }
+	  
 	  }
 	};
 
-	var configs = require('load-grunt-configs')(grunt, options);
+	var configs = require('load-grunt-configs')(grunt, gruntJobsConfig);
 	
-	// Project configuration.
+	// Project configurations
 	grunt.initConfig(configs);
 
 	// load jshint
@@ -190,10 +156,21 @@ module.exports = function(grunt) {
 	]);
 
 	// Task to deploy to production
-	grunt.registerTask('deploy', [
-		'confirm:production',
-		'pm2deploy:production'
+	grunt.registerTask('deploy', function(target) {
+		var tasks = [
+			'confirm',
+			'pm2deploy'
+		];
+
+	  if (target == null)
+	    grunt.warn('Must specify staging or production.');
+	  
+	  grunt.task.run.apply(grunt.task, tasks.map(function(task) {
+	    return task + ':' + target;
+	  }));
+
 		//'bump'
-	]);
+	
+	});
 
 };

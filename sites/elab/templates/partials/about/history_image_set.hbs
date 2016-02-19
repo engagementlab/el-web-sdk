@@ -1,0 +1,11 @@
+{{#if images}}
+	<div class="container-fluid no-gutter">
+		<div class="row">
+			{{#each images}}
+				<div class="col-md-4">
+					<img src="{{{cloudinaryUrl width=720 height=540 crop='scale' quality=80}}}" class="history-image">
+				</div>
+			{{/each}}
+		</div>
+	</div>
+{{/if}}

@@ -1,0 +1,12 @@
+{
+	"name": "Engagement Lab",
+	"directory": "elab",
+	"database": "engagement-lab",
+	"admin_nav": { 
+									"projects": ["projects", "publications"],
+									"programs": "programs",
+									"shared": ["resources"],
+									"about": ["About", "partners", "Academics", "people"],
+									"structure": ["directories", "subdirectories", "users"]
+								}
+}
