@@ -40,15 +40,21 @@
 	var twitterInstance;
 
 	// Create mongo connection and then init the keystone instance when it is opened
-	mongooseInst.createConnection(
+	var mongoConnection = mongooseInst.createConnection(
 		'mongodb://localhost/' + siteConfig.database
-	).once('open', function() {
+	)
+	.once('error', function(err) { console.error(err); })
+	.once('open', function() {
 
 		console.log('Initializing '.underline + 
 								colors.cyan.underline(siteConfig.name) + 
 								' site module.'.underline);
 		
 		keystoneInst.init({
+
+			// Use custom mongoose instance
+			'mongoose': mongooseInst,
+			'model prefix': siteConfig.database,
 			
 			'name': siteConfig.name,
 			'brand': 'Engagement Lab',
@@ -72,9 +78,6 @@
 					helpers: hbsHelpers,
 					extname: '.hbs'
 				}).engine,
-
-			// Use custom mongoose instance
-			'mongoose': mongooseInst,
 
 			'locals': {
 
