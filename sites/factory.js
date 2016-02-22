@@ -54,7 +54,7 @@
 
 			// Use custom mongoose instance
 			'mongoose': mongooseInst,
-			'model prefix': siteConfig.database,
+			// 'model prefix': siteConfig.database,
 			
 			'name': siteConfig.name,
 			'brand': 'Engagement Lab',
