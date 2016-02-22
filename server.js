@@ -18,7 +18,8 @@ var express = require('express'),
 		compression = require('compression'),
 		virtual = require('express-vhost'),
 		siteConfig = require('./sites/config'),
-		SiteFactory = require('./sites/factory');
+		SiteFactory = require('./sites/factory'),
+		helmet = require('helmet');
 
 var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
 
@@ -39,7 +40,10 @@ colors = require('colors');
 var mount = function(site) {
 
 	var appInstance = express().use(compression());
-	
+
+	// Allow certain domains to frame site
+	appInstance.use(helmet.frameguard('allow-from', 'http://riskhorizon.org'));
+
 	var siteInst = require(site);
 
 	siteConfig(siteInst, function(configData) {
@@ -75,6 +79,7 @@ var mount = function(site) {
 
 // Starts the server using express-vhost as middleware, trusting our nginx proxy
 server.use(virtual.vhost(server.enabled('trust proxy')));
+
 server.listen(serverPort, function() {
 
 	console.log('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
