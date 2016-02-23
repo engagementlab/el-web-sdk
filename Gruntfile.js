@@ -105,6 +105,7 @@ module.exports = function(grunt) {
 	      pushTo: 'origin'
 	    }
 	  
+	  
 	  }
 	};
 
@@ -157,19 +158,25 @@ module.exports = function(grunt) {
 
 	// Task to deploy to production
 	grunt.registerTask('deploy', function(target) {
+
 		var tasks = [
 			'confirm',
 			'pm2deploy'
 		];
+		var tasksMapped = [];
 
 	  if (target == null)
 	    grunt.warn('Must specify staging or production.');
-	  
-	  grunt.task.run.apply(grunt.task, tasks.map(function(task) {
-	    return task + ':' + target;
-	  }));
 
-		//'bump'
+	  // Version needs to be bumped first
+		tasksMapped.push('bump');
+	  tasksMapped.push(
+	  	tasks.map(function(task) {
+	    	return task + ':' + target;
+	  	})
+	  );
+	  
+	  grunt.task.run.apply(grunt.task, tasksMapped);
 	
 	});
 
