@@ -163,20 +163,20 @@ module.exports = function(grunt) {
 			'confirm',
 			'pm2deploy'
 		];
-		var tasksMapped = [];
 
 	  if (target == null)
 	    grunt.warn('Must specify staging or production.');
 
-	  // Version needs to be bumped first
-		tasksMapped.push('bump');
-	  tasksMapped.push(
-	  	tasks.map(function(task) {
-	    	return task + ':' + target;
-	  	})
-	  );
-	  
-	  grunt.task.run.apply(grunt.task, tasksMapped);
+    tasks = tasks.map(function(task) {
+    	return task + ':' + target;
+  	})
+
+	  // Version needs to be bumped first after confirming
+		tasks.splice(1, 0, 'bump');
+
+		console.log(tasks)
+
+	  grunt.task.run.apply(grunt.task, tasks);
 	
 	});
 
