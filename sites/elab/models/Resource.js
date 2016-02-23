@@ -119,7 +119,7 @@ Resource.schema.pre('save', function(next) {
 Resource.schema.post('save', function(next) {
 
   // Make a post to slack when this Resource is updated
-  slack.post(Resource.model, this, true);
+  slack.Post(Resource.model, this, true);
 
 });
 

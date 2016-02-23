@@ -25,10 +25,11 @@
 			hbsHelpers = require('../templates/helpers')();
 
 	// Global dependencies
-	var tamabehavior = require('../tamabehavior');
-	var Slack = require('slack-node');
-	var Twitter = require('twitter');
-	var KeystoneSlacker = require('keystone-slacker');
+	var tamabehavior = require('../tamabehavior'),
+	Slack = require('slack-node'),
+	Twitter = require('twitter'),
+	KeystoneSlacker = require('keystone-slacker'),
+	FrameworkMiddleware = require(__dirname + '/middleware');
 
 	var siteConfig = params.config, 
 			siteRoot =  __dirname + '/' + siteConfig.directory + '/',
@@ -142,6 +143,9 @@
 		 
 		// Configure Admin UI
 		keystoneInst.set('nav', siteConfig.admin_nav);
+
+		var middleware = new FrameworkMiddleware();
+		keystoneInst.pre('routes', middleware.urlWhitelist(siteConfig.allowed_domains));
 
 		// Mount to '/' (root of virtual host's subdomain)
 		keystoneInst.mount('/', appInst, {

@@ -2,6 +2,7 @@
 	"name": "Engagement Lab",
 	"directory": "elab",
 	"database": "engagement-lab",
+	"allowed_domains": ["www.riskhorizon.org"],
 	"admin_nav": { 
 									"projects": ["projects", "publications"],
 									"programs": "programs",

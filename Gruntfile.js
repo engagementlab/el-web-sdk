@@ -45,33 +45,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-	  confirm: {
-	    restore: {
-	      options: { 
-	        question: 'Easy, action, easy! You will be overriding the current database with the data in /dump/engagement-lab. Proceed?',
-	        input: '_key:y'
-	      }
-	    },
-	    shutdown: {
-	      options: { 
-	        question: 'You are about to SHUT DOWN the production server. Are you sure?!',
-	        input: '_key:y'
-	      }
-	    },
-	    production: {
-	      options: { 
-	        question: "You are about to deploy the master branch HEAD to the production server.\nThis will also run the 'compile' task and reboot keystone.\n\n\nAre you sure?",
-	        input: '_key:y'
-	      }
-	    },
-	    staging: {
-	      options: { 
-	        question: "You are about to deploy the master branch HEAD to the staging server.\n\nAre you sure?",
-	        input: '_key:y'
-	      }
-	    }
-	  },
-
 		mongobin: {
 
 	    options: {
@@ -167,14 +140,13 @@ module.exports = function(grunt) {
 	  if (target == null)
 	    grunt.warn('Must specify staging or production.');
 
+	  // Set task deployment target
     tasks = tasks.map(function(task) {
     	return task + ':' + target;
   	})
 
 	  // Version needs to be bumped first after confirming
 		tasks.splice(1, 0, 'bump');
-
-		console.log(tasks)
 
 	  grunt.task.run.apply(grunt.task, tasks);
 	
