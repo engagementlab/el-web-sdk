@@ -38,7 +38,7 @@ colors = require('colors');
  */
 var mount = function(site) {
 
-	var appInstance = express()
+	var appInstance = express();
 	appInstance.use(compression());
 
 	var siteInst = require(site);
@@ -92,6 +92,6 @@ server.listen(serverPort, function() {
 
 	// Bootstrap our site modules here
 	mount('engagement-lab-home');
-	// mount('civic-media-project');
+	// mount('el-bot');
 
 });

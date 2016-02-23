@@ -1,6 +1,5 @@
 {
-  "name": "engagement-lab-home",
-  "description": "The Engagement Lab's home page.",
+  "name": "el-bot",
   "version": "0.0.1",
   "main": "app.js",
   "dependencies": {

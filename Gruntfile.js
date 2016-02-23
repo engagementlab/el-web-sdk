@@ -26,15 +26,6 @@ module.exports = function(grunt) {
 		},
 		
 		pkg: grunt.file.readJSON('package.json'),
-		
-		nodemon: {
-			serve: {
-				script: 'server.js',
-				options: {
-					ignore: ['node_modules/**', 'jobs/**', 'grunt/**', 'sites/**/node_modules/**', 'sites/**/grunt/**']
-				}
-			}
-		},
 
 		execute: {
 			news: {
