@@ -27,6 +27,15 @@ keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
+// TODO: Clickjacking protection
+/*keystone.pre('routes', function(req, res, next) {
+
+    // Allow certain domains to frame site
+    res.setHeader('X-Frame-Options', 'ALLOW-FROM www.riskhorizon.org');
+
+    next();
+})*/
+
 // Import Route Controllers
 var routes = {
     views: importRoutes('./views')

@@ -60,6 +60,7 @@
 			'brand': 'Engagement Lab',
 			'module root': siteRoot,
 
+			'frame guard': false,
 			'auto update': true,
 			'session': true,
 			'auth': true,

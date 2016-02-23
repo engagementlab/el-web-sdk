@@ -18,8 +18,7 @@ var express = require('express'),
 		compression = require('compression'),
 		virtual = require('express-vhost'),
 		siteConfig = require('./sites/config'),
-		SiteFactory = require('./sites/factory'),
-		helmet = require('helmet');
+		SiteFactory = require('./sites/factory');
 
 var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
 
@@ -39,10 +38,8 @@ colors = require('colors');
  */
 var mount = function(site) {
 
-	var appInstance = express().use(compression());
-
-	// Allow certain domains to frame site
-	appInstance.use(helmet.frameguard('allow-from', 'http://riskhorizon.org'));
+	var appInstance = express()
+	appInstance.use(compression());
 
 	var siteInst = require(site);
 
