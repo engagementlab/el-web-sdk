@@ -54,8 +54,7 @@ var mount = function(site) {
 
 				config: configData,
 				app: appInstance,
-				keystone: siteInst.keystone,
-				mongoose: siteInst.mongoose
+				keystone: siteInst.keystone
 
 			}, function(keystoneApp) {
 
@@ -74,24 +73,66 @@ var mount = function(site) {
  
 };
 
-// Starts the server using express-vhost as middleware, trusting our nginx proxy
-server.use(virtual.vhost(server.enabled('trust proxy')));
+/**
+ * Start the server. 
+ * This will mount all site modules in ./sites/ or only those specified by the '--sites' CLI argument (e.g. --sites=site-1,site-2).
+ *
+ * ### Examples:
+ *
+ *     launch();
+ *
+ * @class Main
+ * @name server/launch
+ */
+var launch = function() {
 
-server.listen(serverPort, function() {
+	// Starts the server using express-vhost as middleware, trusting our nginx proxy
+	server.use(virtual.vhost(server.enabled('trust proxy')));
 
-	console.log('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
-	console.log('██╔════╝████╗  ██║██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗'.bgCyan.black);
-	console.log('█████╗  ██╔██╗ ██║██║  ███╗███████║██║  ███╗█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║     ███████║██████╔╝'.bgCyan.black);
-	console.log('██╔══╝  ██║╚██╗██║██║   ██║██╔══██║██║   ██║██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║       ██║     ██╔══██║██╔══██╗'.bgCyan.black);
-	console.log('███████╗██║ ╚████║╚██████╔╝██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║       ███████╗██║  ██║██████╔╝'.bgCyan.black);
-	console.log('╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚═════╝'.bgCyan.black);
+	server.listen(serverPort, function() {
 
-	console.log('=== Site Bootstrapping Framework ==='.bgBlack.cyan);
+		console.log('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
+		console.log('██╔════╝████╗  ██║██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗'.bgCyan.black);
+		console.log('█████╗  ██╔██╗ ██║██║  ███╗███████║██║  ███╗█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║     ███████║██████╔╝'.bgCyan.black);
+		console.log('██╔══╝  ██║╚██╗██║██║   ██║██╔══██║██║   ██║██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║       ██║     ██╔══██║██╔══██╗'.bgCyan.black);
+		console.log('███████╗██║ ╚████║╚██████╔╝██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║       ███████╗██║  ██║██████╔╝'.bgCyan.black);
+		console.log('╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚═════╝'.bgCyan.black);
 
-	console.log('## Server started! Please wait for sites to mount... ##'.bold.bgWhite.red);
+		console.log('=== Site Bootstrapping Framework ==='.bgBlack.cyan);
+		console.log('## Server started! Please wait for sites to mount...'.bold.bgWhite.red);
 
-	// Bootstrap our site modules here
-	mount('engagement-lab-home');
-	// mount('el-bot');
+		/*!
+		 * Bootstrap our site modules here.
+		 * This will either load all sites or those specified by the '--sites' CLI argument.
+		 */
+		var sitesArg = process.argv[2];
 
-});
+		// Check if any sites specified by CLI
+		if(sitesArg !== undefined) {
+
+			// Site are a comma-sep list
+			var arrSites = sitesArg.replace('--sites=', '').split(',');
+
+			console.log('## -> Only the following site modules will be mounted: '.bgWhite.red + arrSites.join(', ').bgWhite.red);
+
+			// Mount each site
+			for(var ind in arrSites)
+				mount(arrSites[ind]);
+
+		}
+		else {
+			console.log('## -> All site modules will be mounted. '.bgWhite.red);
+
+			// Mount all sites
+			mount('engagement-lab-home');
+			mount('el-bot');
+		}
+
+		console.log('##'.bold.bgWhite.red);		
+
+	});
+
+};
+
+// Start server
+launch();

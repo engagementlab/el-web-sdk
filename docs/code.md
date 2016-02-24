@@ -16,6 +16,15 @@ See: https://www.npmjs.com/package/express-vhost
 
 * **String** *site* The name of the module, found in sites/[sitedir]/package.json
 
+## server/launch
+
+Start the server. 
+This will mount all site modules in ./sites/ or only those specified by the '--sites' CLI argument (e.g. --sites=site-1,site-2).
+
+### Examples:
+
+    launch();
+
 <!-- End server.js -->
 
 <!-- Start sites/config.js -->
@@ -48,7 +57,7 @@ Initialize an instance of KeystoneJS and mounts it to the pre-defined ExpressJS 
 
 ### Examples:
 
-   siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone, mongoose: siteInst.mongoose } );
+   siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone } );
 
 See: http://www.keystonejs.com/docs/configuration/
 
@@ -80,4 +89,20 @@ Repository readme creation job. Outputs any code comments compatible with markdo
 See: https://github.com/cbou/markdox
 
 <!-- End jobs/readme.js -->
+
+<!-- Start Gruntfile.js -->
+
+## grunt
+
+Load all of our grunt tasks.
+
+### Examples:
+
+   All tasks are loaded from ./grunt/*.js and ./sites/**grunt/*.js
+
+### Return:
+
+* Grunt config
+
+<!-- End Gruntfile.js -->
 

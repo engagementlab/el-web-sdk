@@ -1,8 +1,8 @@
 module.exports = {
 
 	readme: {
-		src: ['README.md', 'output.md'],
-		dest: 'concat.md'
+		src: ['docs/INSTALLING.md', 'docs/CODE.md'],
+		dest: 'README.md'
 	},
 
   dist: {

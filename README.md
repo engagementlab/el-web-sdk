@@ -10,7 +10,7 @@ We built this app using the lovely and talented [KeystoneJS](https://github.com/
 
 Feel free to fork!
 
-Need docs? Please see below.
+Need code docs? We [got 'em](https://documentup.com/engagementgamelab/EL-Website/#framework-api) (or see below).
 
 ## Documentation
 
@@ -103,22 +103,29 @@ Finally, let's use grunt to start up the server:
 grunt
 ```
 
+This command will lint our code, initialize the development server via nodemon, and start node-inspector.
+By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.
+```
+grunt --sites=site-1,site-2
+````
+
 If you get some kind of error, kill grunt and just run `node keystone`. You may have a config issue.
 
 Using a browser, navigate to `localhost:3000` to visit the website
 
-To visit the dashboard, navigate to `localhost:3000/keystone`. The login credentials are:
+To visit the CMS dashboard for any site module, navigate to `[site domain].localhost:3000/keystone`. The default login credentials are:
 ```
 user: user@elab.emerson.edu
 pass: engagement
 ```
+* *** These login credentials should be removed for a prodution server. *** *
 
 ### Production Server Installation:
 ## Pre-requisites
 
 As with the development server, you will need [MongoDB](https://mongodb.org) installed. [nvm](https://github.com/creationix/nvm) is recommended but optional.
 
-You will also need grunt installed. Please see [INSTALLING](INSTALLING.md) for install steps.
+You will also need grunt installed. Please see above for install steps.
 
 ## pm2
 
@@ -170,4 +177,114 @@ _Disclaimer_: When you run ``ssh-keygen`` you should not assign a password to yo
 
 ## Run it!
 
-If your ``ecosystem.json`` is setup correctly, that's all you should need to do. Run ``grunt deploy`` and let the magic happen.
+If your ``ecosystem.json`` is setup correctly, that's all you should need to do. Run ``grunt deploy:environment_name`` and let the magic happen.
+
+# Framework API
+
+
+<!-- Start server.js -->
+
+## server/mount
+
+Mount a sub-module in /sites as a virtual host.
+
+### Examples:
+
+    mountSiteModule('engagement-lab-home');
+
+See: https://www.npmjs.com/package/express-vhost
+
+### Params:
+
+* **String** *site* The name of the module, found in sites/[sitedir]/package.json
+
+## server/launch
+
+Start the server. 
+This will mount all site modules in ./sites/ or only those specified by the '--sites' CLI argument (e.g. --sites=site-1,site-2).
+
+### Examples:
+
+    launch();
+
+<!-- End server.js -->
+
+<!-- Start sites/config.js -->
+
+## sites/config
+
+Load the config data for the argued site module.
+
+### Examples:
+
+		var siteConfig = require('./sites/config');
+   siteConfig( require('site-package-name'), function callback() {} );
+
+### Params:
+
+* **Object** *siteInst* The site module instance
+* **Function** *callback* 
+
+### Return:
+
+* **Object** data Site's config data (from config.json)
+
+<!-- End sites/config.js -->
+
+<!-- Start sites/factory.js -->
+
+## sites/factory
+
+Initialize an instance of KeystoneJS and mounts it to the pre-defined ExpressJS app.
+
+### Examples:
+
+   siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone } );
+
+See: http://www.keystonejs.com/docs/configuration/
+
+### Params:
+
+* **Object** *params* The needed site config and Keystone, Express app, and Mongoose instance refs.
+* **Function** *callback* 
+
+### Return:
+
+* **Object** keystone.app Keystone's Express app reference
+
+<!-- End sites/factory.js -->
+
+<!-- Start jobs/news.js -->
+
+## jobs/news
+
+Blog and events (news) retrieval job. Requires setup of Eventbrite API account.
+
+<!-- End jobs/news.js -->
+
+<!-- Start jobs/readme.js -->
+
+## jobs/readme
+
+Repository readme creation job. Outputs any code comments compatible with markdox as markdown file.
+
+See: https://github.com/cbou/markdox
+
+<!-- End jobs/readme.js -->
+
+<!-- Start Gruntfile.js -->
+
+## grunt
+
+Load all of our grunt tasks.
+
+### Examples:
+
+   All tasks are loaded from ./grunt/*.js and ./sites/**grunt/*.js
+
+### Return:
+
+* Grunt config
+
+<!-- End Gruntfile.js -->
+

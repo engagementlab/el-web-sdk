@@ -14,8 +14,8 @@
 'use strict'
 var markdox = require('markdox');
 
-var files = ['server.js', 'sites/config.js', 'sites/factory.js', 'jobs/news.js', 'jobs/readme.js'];
+var files = ['server.js', 'sites/config.js', 'sites/factory.js', 'jobs/news.js', 'jobs/readme.js', 'Gruntfile.js'];
 
-markdox.process(files, 'docs/code.md', function(){
-  console.log('File `docs/code.md` generated with success');
+markdox.process(files, 'docs/CODE.md', function(){
+  console.log('File `docs/CODE.md` generated with success');
 });

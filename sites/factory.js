@@ -9,7 +9,7 @@
  *
  * ### Examples:
  *
- *    siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone, mongoose: siteInst.mongoose } );
+ *    siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone } );
  *
  * @class Sites
  * @name sites/factory

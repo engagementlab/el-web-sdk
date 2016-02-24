@@ -8,10 +8,17 @@
 */
 'use strict()';
 
-var config= {
-	port: 3000
-};
-
+/**
+ * Load all of our grunt tasks.
+ *
+ * ### Examples:
+ *
+ *    All tasks are loaded from ./grunt/*.js and ./sites/**grunt/*.js
+ *
+ * @class Grunt
+ * @name grunt
+ * @return Grunt config
+ */
 module.exports = function(grunt) {
 
 	// Load grunt tasks automatically
@@ -21,64 +28,29 @@ module.exports = function(grunt) {
 	require('time-grunt')(grunt);
 
 	var gruntJobsConfig = {
+		
 		config: {
 			src: ['./grunt/*.js', './sites/**/grunt/*.js']
 		},
 		
-		pkg: grunt.file.readJSON('package.json'),
+		pkg: grunt.file.readJSON('package.json')
 
-		execute: {
-			news: {
-				src: ['jobs/news.js']
-			},
-			readme: {
-				src: ['jobs/readme.js']
-			}
-		},
-
-		mongobin: {
-
-	    options: {
-	      host: '127.0.0.1',
-	      port: '27017',
-	      db: 'engagement-lab'
-	    },
-	    restore: {
-	      task: 'restore',
-	      path: './dump/engagement-lab',
-	      db: 'engagement-lab-staging',
-	      drop: true
-	    },
-	    dump: {
-	        out: './dump/daily_bk/'
-	    }
-
-	  },
-
-	  bump: {
-	    
-	    options: {
-	      files: ['package.json'],
-	      commit: true,
-	      commitMessage: 'Production Release v%VERSION%',
-	      commitFiles: ['package.json'],
-	      createTag: true,
-	      tagName: 'v%VERSION%',
-	      tagMessage: 'Version %VERSION%',
-	      push: true,
-	      pushTo: 'origin'
-	    }
-	  
-	  
-	  }
 	};
 
+	// Load all of our tasks from ./grunt/*.js and ./sites/**/grunt/*.js
 	var configs = require('load-grunt-configs')(grunt, gruntJobsConfig);
 	
 	// Project configurations
 	grunt.initConfig(configs);
 
-	// load jshint
+	// Default option to connect server (development)
+	grunt.registerTask('default', 'Start the dev server', [
+		'periodic:news',
+		'jshint',
+		'concurrent:dev'
+	]);
+
+	// JS linting tasks
 	grunt.registerTask('lint', [
 		'jshint'
 	]);
@@ -99,13 +71,6 @@ module.exports = function(grunt) {
 	  grunt.log.writeln('>>>>>>>> Packages installed, code minified for production! <<<<<<<<');
 	});
 
-	// Default option to connect server (development)
-	grunt.registerTask('default', [
-		'periodic:news',
-		'jshint',
-		'concurrent:dev'
-	]);
-
 	// Experimental: clean/compile all css to minified file
 	grunt.registerTask('css_compile', [
 		'concat',
@@ -120,16 +85,17 @@ module.exports = function(grunt) {
 		'alldone'
 	]);
 
-	// Task to deploy to production
-	grunt.registerTask('deploy', function(target) {
+	// Task to deploy to production or staging
+	grunt.registerTask('deploy', function() {
 
+		var target = grunt.option('target');
 		var tasks = [
 			'confirm',
 			'pm2deploy'
 		];
 
-	  if (target == null)
-	    grunt.warn('Must specify staging or production.');
+	  if(target === undefined)
+	    grunt.fatal('Must specify --target=staging|production');
 
 	  // Set task deployment target
     tasks = tasks.map(function(task) {
