@@ -10,7 +10,7 @@ We built this app using the lovely and talented [KeystoneJS](https://github.com/
 
 Feel free to fork!
 
-Need code docs? We got 'em (.
+Need code docs? We [got 'em](https://documentup.com/engagementgamelab/EL-Website/#framework-apii) (or see below).
 
 ## Documentation
 
@@ -179,4 +179,4 @@ _Disclaimer_: When you run ``ssh-keygen`` you should not assign a password to yo
 
 If your ``ecosystem.json`` is setup correctly, that's all you should need to do. Run ``grunt deploy:environment_name`` and let the magic happen.
 
-# Framework API
+## Framework API
