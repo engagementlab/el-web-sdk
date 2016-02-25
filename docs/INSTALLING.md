@@ -10,7 +10,7 @@ We built this app using the lovely and talented [KeystoneJS](https://github.com/
 
 Feel free to fork!
 
-Need code docs? We [got 'em](https://documentup.com/engagementgamelab/EL-Website/#framework-apii) (or see below).
+Need code docs? We [got 'em](https://documentup.com/engagementgamelab/EL-Website/#framework-api) (or see below).
 
 ## Documentation
 

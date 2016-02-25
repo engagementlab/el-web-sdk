@@ -9,7 +9,7 @@
  *
  * ### Examples:
  *
- *    siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone } );
+ *    siteFactory( { name: siteName, config: configData, app: appInstance, keystone: siteInst.keystone } );
  *
  * @class Sites
  * @name sites/factory
@@ -32,7 +32,7 @@
 	FrameworkMiddleware = require('./middleware');
 
 	var siteConfig = params.config, 
-			siteRoot =  __dirname + '/' + siteConfig.directory + '/',
+			siteRoot =  require.resolve(params.moduleName).replace('app.js', ''),
 			appInst = params.app,
 			keystoneInst = params.keystone;
 

@@ -36,12 +36,12 @@ colors = require('colors');
  * @param {String} site The name of the module, found in sites/[sitedir]/package.json
  * @see https://www.npmjs.com/package/express-vhost
  */
-var mount = function(site) {
+var mount = function(siteModuleName) {
 
 	var appInstance = express();
 	appInstance.use(compression());
 
-	var siteInst = require(site);
+	var siteInst = require(siteModuleName);
 
 	siteConfig(siteInst, function(configData) {
 		
@@ -52,6 +52,7 @@ var mount = function(site) {
 		// Initialize keystone instance and then register the mounted app
 		new SiteFactory({ 
 
+				moduleName: siteModuleName,
 				config: configData,
 				app: appInstance,
 				keystone: siteInst.keystone
@@ -64,7 +65,10 @@ var mount = function(site) {
 					keystoneApp
 				);
 
-				console.log('> Site ' + colors.rainbow(site) + ' mounted!'.italic);
+				// Run any of this site's custom start logic
+				siteInst.start(appInstance, server);
+
+				console.log('> Site ' + colors.rainbow(siteModuleName) + ' mounted!'.italic);
 
 		});
 
@@ -125,7 +129,7 @@ var launch = function() {
 
 			// Mount all sites
 			mount('engagement-lab-home');
-			mount('el-bot');
+			// mount('el-bot');
 		}
 
 		console.log('##'.bold.bgWhite.red);		
