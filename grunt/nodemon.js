@@ -1,10 +1,24 @@
 module.exports = function(grunt, options) {
 
 	var siteModules = [];
+	var ignoreFilter = [];
+	var watchFilter = [];
+
+	var sitesArg = grunt.option('sites');
 
 	// Use site modules arg only if defined
-	if(grunt.option('sites') !== undefined)
-		siteModules = ['--sites=' + grunt.option('sites')];
+	if(sitesArg !== undefined) {
+		siteModules = ['--sites=' + sitesArg];
+		ignoreFilter = ['/*'];
+
+		// Site are a comma-sep list
+		var arrSites = sitesArg.replace('--sites=', '').split(',');
+
+		// Watch all site modules
+		for(var ind in arrSites)
+			watchFilter.push('node_modules/' + arrSites[ind] + '/**');
+
+	}
 
 	return {
 	
@@ -24,9 +38,11 @@ module.exports = function(grunt, options) {
 			options: {
 				args: siteModules,
 				nodeArgs: ['--debug'],
-				ignore: ['node_modules/**', 'jobs/**', 'grunt/**', 'sites/**/node_modules/**', 'sites/**/grunt/**', 'sites/**/public/plugins/**', 'sites/**/public/styles/*.css']
+				ignore: ignoreFilter,
+				watch: watchFilter
 			}
 		}
+		// , 'sites/**/node_modules/**'
 
 	}
 

@@ -32,8 +32,10 @@
 	FrameworkMiddleware = require('./middleware');
 
 	var siteConfig = params.config, 
-			siteRoot =  require.resolve(params.moduleName).replace('app.js', ''),
+			moduleRoot =  require.resolve(params.moduleName).replace('app.js', ''),
+      siteRoot =  __dirname + '/' + siteConfig.directory + '/',
 			appInst = params.app,
+			appServer = params.server,
 			keystoneInst = params.keystone;
 
 	var slackInstance;
@@ -48,7 +50,7 @@
 	keystoneInst.init({
 
 		'brand': 'Engagement Lab',
-		'module root': siteRoot,
+		'module root': moduleRoot,
 		'mongo': 'mongodb://localhost/' + siteConfig.database,
 
 		'frame guard': false,
@@ -58,14 +60,14 @@
 		'user model': 'User',
 
 		// Setup SASS and Handlebars
-		'sass': [siteRoot + '../../public', siteRoot + 'public'],
-		'static': [siteRoot + '../../public', siteRoot + 'public'],
-		'views': siteRoot + 'templates/views',
+		'sass': [__dirname  + '/../public', moduleRoot + 'public'],
+		'static': [__dirname  + '/../public', moduleRoot + 'public'],
+		'views': moduleRoot + 'templates/views',
 		'view engine': 'hbs',
 		'custom engine':
 			handlebars.create({
-				layoutsDir: siteRoot + 'templates/layouts',
-				partialsDir: [ { dir: siteRoot + '../../public', namespace: 'core' }, '../templates/partials', siteRoot + 'templates/partials'],
+				layoutsDir: moduleRoot + 'templates/layouts',
+				partialsDir: [ { dir: __dirname  + '/../public', namespace: 'core' }, __dirname  + '/../templates/partials', moduleRoot + 'templates/partials'],
 				defaultLayout: 'base',
 				helpers: hbsHelpers,
 				extname: '.hbs'
@@ -122,6 +124,9 @@
 	var keystoneSlacker = new KeystoneSlacker(slackInstance, keystoneInst);
 	keystoneInst.set('slack', keystoneSlacker);
 
+	// Save global server instance reference to keystone, in case needed by module
+	keystoneInst.set('appServer', appServer)
+
 	keystoneInst.set('twitter', twitterInstance);
 	keystoneInst.set('tamabehavior', tamabehavior);
 
@@ -129,7 +134,7 @@
 	keystoneInst.import('models');
 
 	// Load this site's routes
-	keystoneInst.set('routes', require(siteRoot + 'routes'));
+	keystoneInst.set('routes', require(moduleRoot + 'routes'));
 	 
 	// Configure Admin UI
 	keystoneInst.set('nav', siteConfig.admin_nav);

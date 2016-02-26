@@ -14,7 +14,8 @@
 require('dotenv').load();
 
 var express = require('express'),
-		server = express(),
+		app = express(),
+		virtualServer = require('http').createServer(app),
 		compression = require('compression'),
 		virtual = require('express-vhost'),
 		siteConfig = require('./sites/config'),
@@ -55,6 +56,7 @@ var mount = function(siteModuleName) {
 				moduleName: siteModuleName,
 				config: configData,
 				app: appInstance,
+				server: virtualServer,
 				keystone: siteInst.keystone
 
 			}, function(keystoneApp) {
@@ -66,7 +68,7 @@ var mount = function(siteModuleName) {
 				);
 
 				// Run any of this site's custom start logic
-				siteInst.start(appInstance, server);
+				siteInst.start();
 
 				console.log('> Site ' + colors.rainbow(siteModuleName) + ' mounted!'.italic);
 
@@ -91,9 +93,9 @@ var mount = function(siteModuleName) {
 var launch = function() {
 
 	// Starts the server using express-vhost as middleware, trusting our nginx proxy
-	server.use(virtual.vhost(server.enabled('trust proxy')));
+	app.use(virtual.vhost(app.enabled('trust proxy')));
 
-	server.listen(serverPort, function() {
+	virtualServer.listen(serverPort, function() {
 
 		console.log('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
 		console.log('██╔════╝████╗  ██║██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗'.bgCyan.black);

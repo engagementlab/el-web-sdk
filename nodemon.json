@@ -1,4 +1,10 @@
 {
-  "verbose": true,
-  "ignore": ["public/files"]
+  "ignore": [	"public/files", 
+  						"node_modules/**", 
+  						"jobs/**", 
+  						"grunt/**", 
+  						"sites/**/grunt/**", 
+  						"sites/**/public/plugins/**", 
+  						"sites/**/public/styles/*.css"
+  					]
 }
