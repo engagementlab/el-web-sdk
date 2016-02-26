@@ -78,7 +78,7 @@ Program.schema.pre('save', function(next) {
 Program.schema.post('save', function(next) {
 
     // Make a post to slack when this Program is updated
-    slack.post(Program.schema, this, true);
+    slack.Post(Program.schema, this, true);
 
 });
 

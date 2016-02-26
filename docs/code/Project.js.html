@@ -266,7 +266,7 @@ Project.schema.pre('save', function(next) {
     }
 
     // Make a post to slack when this Project is updated
-    slack.post(Project.model, this, true);
+    slack.Post(Project.model, this, true);
 
     next();
 

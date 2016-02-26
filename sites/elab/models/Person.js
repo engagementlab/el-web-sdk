@@ -73,7 +73,7 @@ Person.schema.post('save', function(next) {
     // Make a post to slack when this Person is updated
     var person = this;
     
-    slack.post(
+    slack.Post(
     	Person.model, this, true, 
     	function() { return person.name.first + ' ' + person.name.last; }
     );

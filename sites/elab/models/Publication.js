@@ -95,7 +95,7 @@ Publication.schema.post('save', function(next) {
   var publication = this;
 
   // Make a post to slack when this Publication is updated    
-  slack.post(
+  slack.Post(
   	Publication.model, this, true, 
   	function() { return publication.title; }
   );

@@ -104,7 +104,7 @@ Publication.schema.pre('save', function(next) {
   }*/ 
 
   // Make a post to slack when this Publication is updated
-  slack.post(Publication.schema, this, true);
+  slack.Post(Publication.schema, this, true);
 
 	next();
 });
