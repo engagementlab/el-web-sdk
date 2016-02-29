@@ -39,11 +39,11 @@ colors = require('colors');
  */
 var mount = function(siteModuleName) {
 
-	var appInstance = express();
-	appInstance.use(compression());
-
 	var siteInst = require(siteModuleName);
 
+	var appInstance = siteInst.server();
+	appInstance.use(compression());
+	
 	siteConfig(siteInst, function(configData) {
 		
 		// Configure the site's domain
