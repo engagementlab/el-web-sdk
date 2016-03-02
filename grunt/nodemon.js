@@ -15,8 +15,10 @@ module.exports = function(grunt, options) {
 		var arrSites = sitesArg.replace('--sites=', '').split(',');
 
 		// Watch all site modules
-		for(var ind in arrSites)
+		for(var ind in arrSites) {
 			watchFilter.push('node_modules/' + arrSites[ind] + '/**');
+			watchFilter.push('node_modules/' + arrSites[ind] + '/**/**');
+		}
 
 	}
 
