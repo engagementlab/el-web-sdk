@@ -32,8 +32,14 @@ module.exports = function(grunt) {
 		config: {
 			src: ['./grunt/*.js', './sites/**/grunt/*.js', './node_modules/emerging-citizens/grunt/*.js']
 		},
+		
+		pkg: grunt.file.readJSON('package.json')
 
-		sftp: {
+	};
+
+	if(process.env.NODE_ENV == 'production') {
+		gruntJobsConfig['sftp'] = 
+		{
 		  options: {
 		      host: 'catan.dev.emerson.edu',
 		      username: 'node',
@@ -48,11 +54,8 @@ module.exports = function(grunt) {
 		      	"./": "dump/daily_bk/engagement-lab/**"
 		      }
 		  }
-		},
-		
-		pkg: grunt.file.readJSON('package.json')
-
-	};
+		};
+	}
 
 	// Load all of our tasks from ./grunt/*.js and ./sites/**/grunt/*.js
 	var configs = require('load-grunt-configs')(grunt, gruntJobsConfig);
