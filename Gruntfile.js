@@ -65,7 +65,6 @@ module.exports = function(grunt) {
 
 	// Default option to connect server (development)
 	grunt.registerTask('default', 'Start the dev server', [
-		'periodic:news',
 		'jshint',
 		'concurrent:dev'
 	]);
