@@ -17,7 +17,7 @@
       "ref": "origin/master",
       "path": "/srv/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; grunt compile ; grunt periodic; pm2 startOrRestart ecosystem.json --env production",
+      "post-deploy" : "npm install ; grunt compile ; pm2 startOrRestart ecosystem.json --env production",
       "env": {
         "NODE_ENV": "production"
       }
@@ -30,7 +30,7 @@
       "ref": "origin/virtual-hosts",
       "path": "/srv/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install; grunt periodic; pm2 startOrRestart ecosystem.json --env staging",
+      "post-deploy" : "npm install; pm2 startOrRestart ecosystem.json --env staging",
       "env": {
         "NODE_ENV": "staging"
       }

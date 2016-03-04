@@ -80,7 +80,8 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('backupdata', [
-		'mongobin:dump'
+		'mongobin:dump',
+		'sftp:backup'
 	]);
 	grunt.registerTask('importdata', [
 		'confirm:restore',
