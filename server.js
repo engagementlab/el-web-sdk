@@ -68,7 +68,7 @@ var mount = function(siteModuleName) {
 				);
 
 				// Run any of this site's custom start logic
-				siteInst.start();
+				siteInst.start(appInstance);
 
 				console.log('> Site ' + colors.rainbow(siteModuleName) + ' mounted!'.italic);
 

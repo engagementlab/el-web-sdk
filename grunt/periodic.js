@@ -22,7 +22,7 @@ module.exports = {
 
   backup: {
   	when: 'daily',
-  	tasks: ['backupdata']
+  	tasks: ['backupdata', 'copydata']
   }
 
 };

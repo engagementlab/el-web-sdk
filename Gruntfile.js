@@ -32,6 +32,23 @@ module.exports = function(grunt) {
 		config: {
 			src: ['./grunt/*.js', './sites/**/grunt/*.js', './node_modules/emerging-citizens/grunt/*.js']
 		},
+
+		sftp: {
+		  options: {
+		      host: 'catan.dev.emerson.edu',
+		      username: 'node',
+				  privateKey: grunt.file.read("/home/node/.ssh/id_rsa"),
+		      showProgress: true,
+		      path: '/home/node/backups/engagement-lab/',
+		      srcBasePath: "dump/daily_bk/engagement-lab/",
+		      createDirectories: true
+		  },
+		  backup: {
+		      files: {
+		      	"./": "dump/daily_bk/engagement-lab/**"
+		      }
+		  }
+		},
 		
 		pkg: grunt.file.readJSON('package.json')
 
@@ -65,6 +82,10 @@ module.exports = function(grunt) {
 	grunt.registerTask('importdata', [
 		'confirm:restore',
 		'mongobin:restore'
+	]);
+	// Copies backed up data
+	grunt.registerTask('copydata', [
+		'sftp:backup'
 	]);
 
 	grunt.registerTask('alldone', function() {
