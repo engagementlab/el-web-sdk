@@ -2,18 +2,17 @@
  * Engagement Lab Website
  * Developed by Engagement Lab, 2015
  * ==============
- * About page view controller.
+ * CommunityPlanIt registration page view controller.
  *
  * Help: http://keystonejs.com/docs/getting-started/#routesviews-firstview
  *
- * @class about
+ * @class communityplanit
  * @author Johnny Richardson
  *
  * ==========
  */
 var keystone = require('keystone');
-var About = keystone.list('About');
-var Partner = keystone.list('Partner');
+// var Partner = keystone.list('Partner');
 var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
@@ -21,9 +20,8 @@ exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res),
         locals = res.locals;
 
-    // Init locals
-    locals.section = 'about';
-
+        locals.section = 'commmunityplanit:boston';
+/*
     view.on('init', function(next) {
 
         var queryAbout = About.model.findOne({}, {}, {
@@ -56,9 +54,9 @@ exports = module.exports = function(req, res) {
                 next(err);
             });
         });
-    });
+    });*/
 
     // Render the view
-    view.render('about');
+    view.render('communityplanit');
 
 };

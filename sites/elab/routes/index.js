@@ -38,6 +38,7 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 var routes = {
+    api: importRoutes('./api'),
     views: importRoutes('./views')
 };
 
@@ -67,6 +68,10 @@ exports = module.exports = function(app) {
     app.get('/press', routes.views.press);
 
     app.all('/tamagagement', routes.views.tamagagement);
+
+    // CommunityPlanIt masked page (boston.communityplanit.org)
+    app.all('/cpiboston', routes.views.communityplanit);
+    app.all('/api/cpi/register', keystone.middleware.api, routes.api.communityplanit.create);
     
     // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
     // app.get('/protected', middleware.requireUser, routes.views.protected);

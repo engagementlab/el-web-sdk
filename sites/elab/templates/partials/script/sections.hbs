@@ -178,5 +178,40 @@
 		
 		{{/ifeq}}
 
+		{{!-- CPI Registration Template Script --}}
+		{{#ifeq section 'commmunityplanit:boston'}}
+
+		$('#submit_btn').click(function(event) {
+	
+			$("#register_form").validate({
+				
+				submitHandler: function() {
+
+				  var data = $("#register_form :input[type!='hidden']").serializeArray();
+					
+					$.ajax({
+					  type: "POST",
+					  url: "/api/cpi/register/",
+					  data: data,
+					  success: function(msg) {
+					  	$('#form_container').fadeOut(500, function() {
+					  		
+						  	$('#done_container').hide().fadeIn(500);
+					  	
+					  	});
+					  },
+					  error: function(XMLHttpRequest, textStatus, errorThrown) {
+					  	$('#form_errors').show();
+					  }
+					});
+
+				}
+
+			});
+
+		});
+		
+		{{/ifeq}}
+
 	})
 </script>
