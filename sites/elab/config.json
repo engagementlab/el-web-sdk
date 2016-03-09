@@ -2,7 +2,7 @@
 	"name": "Engagement Lab Home",
 	"directory": "elab",
 	"database": "engagement-lab",
-	"allowed_domains": ["www.riskhorizon.org"],
+	"allowed_domains": ["www.riskhorizon.org", "boston.communityplanit.org"],
 	"admin_nav": { 
 									"projects": ["projects", "publications"],
 									"programs": "programs",
