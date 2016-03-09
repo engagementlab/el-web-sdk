@@ -12,7 +12,8 @@
  * ==========
  */
 var keystone = require('keystone');
-// var Partner = keystone.list('Partner');
+var CPIContent = keystone.list('CPIContent');
+var CPIPartner = keystone.list('CPIPartner');
 var _ = require('underscore');
 
 exports = module.exports = function(req, res) {
@@ -21,31 +22,20 @@ exports = module.exports = function(req, res) {
         locals = res.locals;
 
         locals.section = 'commmunityplanit:boston';
-/*
+
     view.on('init', function(next) {
 
-        var queryAbout = About.model.findOne({}, {}, {
+        var queryCPI = CPIContent.model.findOne({}, {}, {
             sort: {
                 'createdAt': -1
             }
         });
 
-        queryAbout.exec(function(err, resultAbout) {
+        queryCPI.exec(function(err, resultCPI) {
 
-            locals.about = resultAbout;
-            locals.about.historyImages1 = [];
-            locals.about.historyImages2 = [];
-            for (var i = 0; i < resultAbout.historyImages.length; i++) {
-                if (i > 5) {
-                    break;
-                } else if (i < 3) {
-                    locals.about.historyImages1.push(resultAbout.historyImages[i]);
-                } else {
-                    locals.about.historyImages2.push(resultAbout.historyImages[i]);
-                }
-            }
+            locals.content = resultCPI;
 
-            var queryPartners = Partner.model.find({}).sort([
+            var queryPartners = CPIPartner.model.find({}).sort([
                 ['sortOrder', 'ascending']
             ]);
 
@@ -54,7 +44,7 @@ exports = module.exports = function(req, res) {
                 next(err);
             });
         });
-    });*/
+    });
 
     // Render the view
     view.render('communityplanit');

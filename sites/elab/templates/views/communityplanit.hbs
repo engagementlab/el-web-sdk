@@ -11,24 +11,36 @@
 */
 --}}
 
-{{!-- <section class="section">
-    <div class="container">
-        <div class="row pb-40">
-            <div class="col-md-12">
-                <div class="embed-responsive embed-responsive-16by9">
-                    
-                    <iframe src="https://player.vimeo.com/video/154233162" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-                </div>
-            </div>
-        </div>
-    </div>
-</section> --}}
+<div class="banner clearfix">
+	<div class="container-fluid">
+		<div class="row" id="project_header">
+			<div class="banner pv-40" style="background-image:url('http://res.cloudinary.com/engagement-lab-home/image/upload/c_fill,h_450,q_90,w_1425/v1/site/research/projects/mnimdzwpqyzvct72wz7z.png');">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-8 text-center col-md-offset-2 pv-20">
+							<h2 class="title" id="project-title">Community PlanIt</h2>
+						</div> <!-- .col-md-8 -->
+					</div> <!-- .row -->
+				</div> <!-- .container -->
+			</div> <!-- .banner -->
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+	<div id="page-start"></div>
+</div>
 
-<div class="banner border-clear light-gray-bg">
-    <div class="container">
+<section class="section light-gray-bg clearfix">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h3>About <i>Community PlanIt</i></h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-md-8">
+				{{content.blurb}}
 
         <div class="col-md-12">
-            <h1 class="page-title text-center">Register</h1>
+            <h1 class="page-title text-center">Sign-up</h1>
         </div>
 
         <div id="form_container" class="row">
@@ -75,7 +87,7 @@
 				    </div>
 
 				    <div class="form-group submit c100 " data-cid="c100" style="position: relative;">
-				        <label class="control-label sr-only" for="c100" style="display: block;">Submit Button</label>
+				        <label class="control-label sr-only" for="c100" style="display: block;">Sign-up</label>
 
 				        <div class="progress" style="display: none; z-index: -1; position: absolute;">
 				            <div class="progress-bar progress-bar-striped active" role="progressbar" style="width:100%">
@@ -83,7 +95,7 @@
 				        </div>
 
 				        <button id="submit_btn" type="submit" class="btn btn-primary btn-lg" style="z-index: 1;">
-				            <span class="fa fa-hand-o-right" aria-hidden="true"></span> Register
+				            <span class="fa fa-hand-o-right" aria-hidden="true"></span> Sign-up
 				        </button>
 
 				        <p class="error bg-warning" style="display:none;">
@@ -101,6 +113,22 @@
         <div id="done_container" class="row" style="display: none">
         	Thank you for registering!
         </div>
+
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<img id="side-image" src="http://res.cloudinary.com/engagement-lab-home/image/upload/c_scale,w_300/v1457558676/site/cpi/climate_smart.png" alt="Community PlanIt">
+
+				<div class="embed-responsive embed-responsive-16by9">
+					<iframe src="{{content.videoURL}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+				<p><br /><a href="https://communityplanit.org/how-to-play/"><i class="fa fa-external-link"></i>&nbsp;How to play</a></p>
+			</div>
+		</div> <!-- .row -->
+	</div> <!-- .container -->
+</section>
+
+<div class="banner border-clear light-gray-bg">
+    <div class="container">
     </div>
 </div>
 
@@ -114,20 +142,7 @@
                 <h1 class="page-title text-center">Our Partners</h1>
             </div>
 
-            {{!-- Partners slider --}} {{!--
-            <div class="col-sm-12 col-md-8 col-md-offset-2">
-                <div id="partners_glider" class="glide">
-                    <div class="glide__wrapper">
-
-                        <ul class="glide__track" style="margin-left:-40px">
-                            {{#each partners}}
-                            <li class="glide__slide">{{> about/partner_info partner=this}}</li>
-                            {{/each}}
-                        </ul>
-
-                    </div>
-                </div>
-            </div> --}} {{!-- Partner icons --}}
+            {{!-- Partner icons --}}            
             <div class="col-md-12 pv-20">
                 <div class="clients-container">
                     <div class="clients">

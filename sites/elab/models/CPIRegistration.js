@@ -21,7 +21,7 @@ var Types = keystone.Field.Types;
  */
 var CPIRegistration = new keystone.List('CPIRegistration', 
 	{	
-		label: 'CommunityPlanIt Registrations',
+		label: 'Community PlanIt Registrations',
 		hidden: false,
 		autokey: { path: 'key', from: 'email', unique: true },
 		nocreate: true

@@ -8,6 +8,7 @@
 									"programs": "programs",
 									"shared": ["resources"],
 									"about": ["About", "partners", "Academics", "people"],
-									"structure": ["directories", "subdirectories", "users"]
+									"structure": ["directories", "subdirectories", "users"],
+									"Community PlanIt": ["CPIContent", "CPIPartner", "CPIRegistration"]
 								}
 }
