@@ -86,7 +86,9 @@
 		'cloudinary prefix': 'keystone',
 
 		// prefix each image public_id with [{prefix}]/{list.path}/{field.path}/
-		'cloudinary folders': true
+		'cloudinary folders': true,
+
+		'cloudinary secure': true
 
 	});
 
