@@ -33,7 +33,7 @@ var CPIContent = new keystone.List('CPIContent',
  * @main Listing
  */
 CPIContent.add({
-	blurb: { type: String, label: 'Blurb Text', required: true, initial: true },
+	blurb: { type: Types.Markdown, label: 'Blurb Text', required: true, initial: true },
 	videoURL: { type: String, label: 'Video URL', required: true, initial: true }
 });
 
