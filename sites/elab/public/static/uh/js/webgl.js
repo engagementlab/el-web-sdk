@@ -86,7 +86,7 @@ embedWebGL = function() {
 	frame.onload = function() {
     fullscreenWebGL();		
 	}
-	frame.src="http://engagementlab.itch.io/unlocking-health/";
+	frame.src="https://engagementlab.itch.io/unlocking-health/";
 };
 
 clearWebGL = function() {
