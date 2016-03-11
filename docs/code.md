@@ -57,7 +57,7 @@ Initialize an instance of KeystoneJS and mounts it to the pre-defined ExpressJS 
 
 ### Examples:
 
-   siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone } );
+   siteFactory( { name: siteName, config: configData, app: appInstance, keystone: siteInst.keystone } );
 
 See: http://www.keystonejs.com/docs/configuration/
 
@@ -76,7 +76,12 @@ See: http://www.keystonejs.com/docs/configuration/
 
 ## jobs/news
 
-Blog and events (news) retrieval job. Requires setup of Eventbrite API account.
+Blog and events (news) retrieval job. Requires setup of Eventbrite API account. Should be run as cron task via grunt/execute.
+
+### Examples:
+
+   // Runs news job every hour from 9a-10p M-F
+   0 9-22 * * 1-5 /srv/website/grunt news >/dev/null 2>&1
 
 <!-- End jobs/news.js -->
 

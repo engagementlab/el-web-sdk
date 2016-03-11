@@ -115,6 +115,7 @@ module.exports = function(grunt) {
 
 		var target = grunt.option('target');
 		var tasks = [
+			'execute:readme',
 			'confirm',
 			'pm2deploy'
 		];
@@ -128,7 +129,7 @@ module.exports = function(grunt) {
   	})
 
 	  // Version needs to be bumped first after confirming
-		tasks.splice(1, 0, 'bump');
+		tasks.splice(1, 1, 'bump');
 
 	  grunt.task.run.apply(grunt.task, tasks);
 	
