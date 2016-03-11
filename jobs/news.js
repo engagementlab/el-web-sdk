@@ -5,7 +5,13 @@
 */
 
  /**
- * Blog and events (news) retrieval job. Requires setup of Eventbrite API account.
+ * Blog and events (news) retrieval job. Requires setup of Eventbrite API account. Should be run as cron task via grunt/execute.
+ * 
+ * ### Examples:
+ *
+ *    // Runs news job every hour from 9a-10p M-F
+ *    0 9-22 * * 1-5 /srv/website/grunt news >/dev/null 2>&1
+ *
  *
  * @class Jobs
  * @name jobs/news

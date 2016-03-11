@@ -37,6 +37,7 @@ module.exports = function(grunt) {
 
 	};
 
+	// Copies our nightly backup to the dev server
 	if(process.env.NODE_ENV == 'production') {
 		gruntJobsConfig['sftp'] = 
 		{
