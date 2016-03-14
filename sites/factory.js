@@ -38,6 +38,14 @@
 			appServer = params.server,
 			keystoneInst = params.keystone;
 
+	var hbsInstance = handlebars.create({
+											layoutsDir: moduleRoot + 'templates/layouts',
+											partialsDir: [ { dir: __dirname  + '/../public', namespace: 'core' }, __dirname  + '/../templates/partials', moduleRoot + 'templates/partials'],
+											defaultLayout: 'base',
+											helpers: hbsHelpers,
+											extname: '.hbs'
+										});
+
 	var slackInstance;
 	var twitterInstance;
 
@@ -46,7 +54,6 @@
 							' site module.'.underline);
 
 	// Init the keystone instance when it is opened
-		
 	keystoneInst.init({
 
 		'brand': 'Engagement Lab',
@@ -64,14 +71,8 @@
 		'static': [__dirname  + '/../public', moduleRoot + 'public'],
 		'views': moduleRoot + 'templates/views',
 		'view engine': 'hbs',
-		'custom engine':
-			handlebars.create({
-				layoutsDir: moduleRoot + 'templates/layouts',
-				partialsDir: [ { dir: __dirname  + '/../public', namespace: 'core' }, __dirname  + '/../templates/partials', moduleRoot + 'templates/partials'],
-				defaultLayout: 'base',
-				helpers: hbsHelpers,
-				extname: '.hbs'
-			}).engine,
+		'handlebars': hbsInstance,
+		'custom engine': hbsInstance.engine,
 
 		'locals': {
 
