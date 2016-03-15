@@ -15,7 +15,7 @@
 
 		// skel
 			skel: {
-				prefix: '/static/riskhorizon/css/style',
+				prefix: 'https://elab.emerson.edu/static/riskhorizon/css/style',
 				resetCSS: true,
 				useOrientation: true,
 				boxModel: 'border',
