@@ -18,6 +18,7 @@ var FrameworkMiddleware = (function() {
 
 	    // Allow certain domains to frame site
 	    res.setHeader('Content-Security-Policy', 'frame-ancestors ' + domains.join(' '));
+	    res.setHeader('Access-Control-Allow-Origin', domains.join(' '));
 
 	    next();
 	  

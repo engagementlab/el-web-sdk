@@ -132,6 +132,7 @@ module.exports = function(grunt) {
 			'pm2deploy'
 		];
 
+		grunt.fatal('stop')
 	  if(target === undefined)
 	    grunt.fatal('Must specify --target=staging|production');
 
@@ -140,8 +141,9 @@ module.exports = function(grunt) {
 	  	return task + ':' + target;
 		});
 
+
 	  // Version needs to be bumped first after confirming
-		if(skipVersion !== undefined)
+		if(skipVersion === undefined)
 			tasks.push('bump');
 		else
 			grunt.warn("Skipping 'bump' task.");
