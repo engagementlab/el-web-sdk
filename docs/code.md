@@ -109,5 +109,14 @@ Load all of our grunt tasks.
 
 * Grunt config
 
+## grunt/deploy
+
+Task to deploy to production or staging
+
+### Examples:
+
+   // Deploys to production pm2 config
+   grunt deploy --target=production
+
 <!-- End Gruntfile.js -->
 

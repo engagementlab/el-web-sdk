@@ -110,10 +110,22 @@ module.exports = function(grunt) {
 		'alldone'
 	]);
 
-	// Task to deploy to production or staging
+	/**
+	* Task to deploy to production or staging
+	* 
+	* ### Examples:
+	*
+	*    // Deploys to production pm2 config
+	*    grunt deploy --target=production
+	*
+	*
+	* @class Grunt
+	* @name grunt/deploy
+	*/
 	grunt.registerTask('deploy', function() {
-
+	
 		var target = grunt.option('target');
+		var skipVersion = grunt.option('skipversion');
 		var tasks = [
 			'execute:readme',
 			'confirm',
@@ -124,15 +136,18 @@ module.exports = function(grunt) {
 	    grunt.fatal('Must specify --target=staging|production');
 
 	  // Set task deployment target
-    tasks = tasks.map(function(task) {
-    	return task + ':' + target;
-  	})
+	  tasks = tasks.map(function(task) {
+	  	return task + ':' + target;
+		});
 
 	  // Version needs to be bumped first after confirming
-		tasks.splice(1, 1, 'bump');
+		if(skipVersion !== undefined)
+			tasks.push('bump');
+		else
+			grunt.warn("Skipping 'bump' task.");
 
 	  grunt.task.run.apply(grunt.task, tasks);
-	
+
 	});
 
 };
