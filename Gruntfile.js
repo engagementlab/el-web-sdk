@@ -132,7 +132,6 @@ module.exports = function(grunt) {
 			'pm2deploy'
 		];
 
-		grunt.fatal('stop')
 	  if(target === undefined)
 	    grunt.fatal('Must specify --target=staging|production');
 
