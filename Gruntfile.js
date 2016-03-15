@@ -145,7 +145,7 @@ module.exports = function(grunt) {
 		if(skipVersion === undefined)
 			tasks.push('bump');
 		else
-			grunt.log("Skipping 'bump' task.");
+			grunt.log.writeln("Skipping 'bump' task.");
 
 	  grunt.task.run.apply(grunt.task, tasks);
 
