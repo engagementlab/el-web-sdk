@@ -481,5 +481,13 @@ module.exports = function() {
         return _helpers.trim(_helpers.pluralize(str));
     }
 
+    //  ### convert non-https url to https
+    // Replace http with https
+    //
+    //  @str: The url
+    _helpers.secureUrl = function(str) {
+        return str.replace('http://', 'https://');
+    }
+
     return _helpers;
 };
