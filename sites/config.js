@@ -22,6 +22,7 @@
 
 	var siteDir = siteInst.keystone._options['module root'];
 	
+
 	require('fs').readFile(siteDir + '/config.json', {encoding: 'utf8'}, function (err, data) {
 	  if (err) throw err;
 	  callback(JSON.parse(data));

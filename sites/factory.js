@@ -33,7 +33,6 @@
 
 	var siteConfig = params.config, 
 			moduleRoot =  require.resolve(params.moduleName).replace('app.js', ''),
-      siteRoot =  __dirname + '/' + siteConfig.directory + '/',
 			appInst = params.app,
 			appServer = params.server,
 			keystoneInst = params.keystone;
@@ -141,6 +140,8 @@
 	 
 	// Configure Admin UI
 	keystoneInst.set('nav', siteConfig.admin_nav);
+	if(siteConfig.admin_nav !== undefined)
+		keystoneInst.set('nav', siteConfig.admin_nav);
 
 	var middleware = new FrameworkMiddleware();
 	if(siteConfig.allowed_domains !== undefined)
