@@ -25,11 +25,10 @@
 			hbsHelpers = require('../templates/helpers')();
 
 	// Global dependencies
-	var tamabehavior = require('../tamabehavior'),
-	Slack = require('slack-node'),
-	Twitter = require('twitter'),
-	KeystoneSlacker = require('keystone-slacker'),
-	FrameworkMiddleware = require('./middleware');
+	var Slack = require('slack-node'),
+			Twitter = require('twitter'),
+			KeystoneSlacker = require('keystone-slacker'),
+			FrameworkMiddleware = require('./middleware');
 
 	var siteConfig = params.config, 
 			moduleRoot =  require.resolve(params.moduleName).replace('app.js', ''),
@@ -130,7 +129,6 @@
 	keystoneInst.set('appServer', appServer)
 
 	keystoneInst.set('twitter', twitterInstance);
-	keystoneInst.set('tamabehavior', tamabehavior);
 
 	// Load this site's models
 	keystoneInst.import('models');
