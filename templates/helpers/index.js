@@ -1,7 +1,6 @@
 var moment = require('moment');
 var _ = require('underscore');
 var hbs = require('handlebars');
-var keystone = require('keystone');
 var cloudinary = require('cloudinary');
 var pluralize = require('pluralize');
 
@@ -62,13 +61,13 @@ module.exports = function() {
     };
 
     // Used to generate the link for the admin edit post button
-    _helpers.adminEditableUrl = function(user, options) {
+/*    _helpers.adminEditableUrl = function(user, options) {
         var rtn = keystone.app.locals.editable(user, {
             'list': 'Post',
             'id': options
         });
         return rtn;
-    };
+    };*/
 
     // ### Date Helper
     // A port of the Ghost Date formatter similar to the keystonejs - jade interface

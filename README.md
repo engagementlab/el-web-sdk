@@ -68,6 +68,12 @@ cd node_modules/keystone && npm install browserify
 cd ../..
 ```
 
+If you get an error like "Error: Cannot find module 'unicode/category/So'", run:
+```
+npm install unicode
+npm install
+```
+
 Install [nodemon](http://nodemon.io/) globally if not installed:
 ```
 npm install -g nodemon
