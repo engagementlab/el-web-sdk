@@ -35,9 +35,10 @@ colors = require('colors');
  * @class Main
  * @name server/mount
  * @param {String} site The name of the module, found in sites/[sitedir]/package.json
+ * @param {Boolean} is there only one site being mounted?
  * @see https://www.npmjs.com/package/express-vhost
  */
-var mount = function(siteModuleName) {
+var mount = function(siteModuleName, singleDomain) {
 
 	var siteInst = require(siteModuleName);
 
@@ -48,7 +49,8 @@ var mount = function(siteModuleName) {
 		
 		// Configure the site's domain
 		// Only engagement-lab-home has no configData.subdomain
-		var siteDomain = (configData.subdomain === undefined) ? process.env.ROOT_DOMAIN : (configData.subdomain + '.' + process.env.ROOT_DOMAIN);
+		// Don't use subdomain if this is a single-domain site
+		var siteDomain = (configData.subdomain === undefined || singleDomain) ? process.env.ROOT_DOMAIN : (configData.subdomain + '.' + process.env.ROOT_DOMAIN);
 
 		// Initialize keystone instance and then register the mounted app
 		new SiteFactory({ 
@@ -122,8 +124,11 @@ var launch = function() {
 			console.log('## -> Only the following site modules will be mounted: '.bgWhite.red + arrSites.join(', ').bgWhite.red);
 
 			// Mount each site
-			for(var ind in arrSites)
-				mount(arrSites[ind]);
+			for(var ind in arrSites) {
+				var singleDomain = arrSites.length === 1;
+				
+				mount(arrSites[ind], singleDomain);
+			}
 
 		}
 		else {
