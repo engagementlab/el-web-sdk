@@ -15,6 +15,7 @@ See: https://www.npmjs.com/package/express-vhost
 ### Params:
 
 * **String** *site* The name of the module, found in sites/[sitedir]/package.json
+* **Boolean** *is* there only one site being mounted?
 
 ## server/launch
 
