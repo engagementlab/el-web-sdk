@@ -72,7 +72,7 @@ var mount = function(siteModuleName, singleDomain) {
 				// Run any of this site's custom start logic
 				siteInst.start(appInstance);
 
-				console.log('> Site ' + colors.rainbow(siteModuleName) + ' mounted!'.italic);
+				console.log('> Site ' + colors.rainbow(siteModuleName) + ' mounted'.italic + ' at ' + siteDomain);
 
 		});
 
