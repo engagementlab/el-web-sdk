@@ -30,7 +30,11 @@ module.exports = function(grunt) {
 	var gruntJobsConfig = {
 		
 		config: {
-			src: ['./grunt/*.js', './sites/**/grunt/*.js', './node_modules/emerging-citizens/grunt/*.js']
+			src: [
+						'./grunt/*.js', 
+						'./sites/**/grunt/*.js', 
+						'./node_modules/emerging-citizens/grunt/*.js', 
+						'./node_modules/boston-civic-media/grunt/*.js']
 		},
 		
 		pkg: grunt.file.readJSON('package.json')
