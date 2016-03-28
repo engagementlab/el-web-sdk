@@ -27,7 +27,7 @@
       "user": "node",
       "host": "199.94.80.19",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
-      "ref": "origin/virtual-hosts",
+      "ref": "origin/master",
       "path": "/srv/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
       "post-deploy" : "npm install; pm2 server.js -- engagement-lab-home,boston-civic-media --env staging",
