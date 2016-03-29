@@ -10,7 +10,7 @@ We built this app using the lovely and talented [KeystoneJS](https://github.com/
 
 Feel free to fork!
 
-Need code docs? We [got 'em](https://documentup.com/engagementgamelab/EL-Website/#framework-apii) (or see below).
+Need code docs? We [got 'em](https://documentup.com/engagementgamelab/EL-Website/#framework-api) (or see below).
 
 ## Documentation
 
@@ -28,7 +28,7 @@ nvm install v0.12.7
 
 Install grunt command line tools:
 ```
-npm install -g grunt-cli
+sudo npm install -g grunt-cli
 ```
 
 Open bash profile (if it doesn't exist, run ```touch ~/.bash_profile```):
@@ -66,12 +66,6 @@ If you get an error about browserify during install, you may need to run:
 ```
 cd node_modules/keystone && npm install browserify
 cd ../..
-```
-
-If you get an error like "Error: Cannot find module 'unicode/category/So'", run:
-```
-npm install unicode
-npm install
 ```
 
 Install [nodemon](http://nodemon.io/) globally if not installed:
@@ -132,14 +126,6 @@ pass: engagement
 As with the development server, you will need [MongoDB](https://mongodb.org) installed. [nvm](https://github.com/creationix/nvm) is recommended but optional.
 
 You will also need grunt installed. Please see above for install steps.
-
-## Reverse proxy
-
-As noted in express's "[Production best practices](http://expressjs.com/en/advanced/best-practice-performance.html)", it is a good idea generally to run an express-based app begin a reverse proxy. Handing over tasks that do not require knowledge of application state to a reverse proxy frees up Express to perform specialized application tasks.
-
-I highly recommend using [nginx](https://www.nginx.com/resources/admin-guide/installing-nginx-open-source/) since it's lightweight and absurdly fast. 
-
-I have created a sample nginx site config [here](https://github.com/engagementgamelab/EL-Website/wiki/Sample-nginx-configuration).
 
 ## pm2
 
@@ -211,6 +197,7 @@ See: https://www.npmjs.com/package/express-vhost
 ### Params:
 
 * **String** *site* The name of the module, found in sites/[sitedir]/package.json
+* **Boolean** *is* there only one site being mounted?
 
 ## server/launch
 
@@ -253,7 +240,7 @@ Initialize an instance of KeystoneJS and mounts it to the pre-defined ExpressJS 
 
 ### Examples:
 
-   siteFactory( { config: configData, app: appInstance, keystone: siteInst.keystone } );
+   siteFactory( { name: siteName, config: configData, app: appInstance, keystone: siteInst.keystone } );
 
 See: http://www.keystonejs.com/docs/configuration/
 
@@ -272,7 +259,12 @@ See: http://www.keystonejs.com/docs/configuration/
 
 ## jobs/news
 
-Blog and events (news) retrieval job. Requires setup of Eventbrite API account.
+Blog and events (news) retrieval job. Requires setup of Eventbrite API account. Should be run as cron task via grunt/execute.
+
+### Examples:
+
+   // Runs news job every hour from 9a-10p M-F
+   0 9-22 * * 1-5 /srv/website/grunt news >/dev/null 2>&1
 
 <!-- End jobs/news.js -->
 
@@ -299,6 +291,15 @@ Load all of our grunt tasks.
 ### Return:
 
 * Grunt config
+
+## grunt/deploy
+
+Task to deploy to production or staging
+
+### Examples:
+
+   // Deploys to production pm2 config
+   grunt deploy --target=production
 
 <!-- End Gruntfile.js -->
 

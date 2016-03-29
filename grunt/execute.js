@@ -5,6 +5,9 @@ module.exports = {
   },
   readme: {
     src: ['jobs/readme.js']
+  },
+  cloudinary: {
+    src: ['jobs/cdn.js']
   }
 
 };
