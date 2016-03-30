@@ -28,7 +28,7 @@ nvm install v0.12.7
 
 Install grunt command line tools:
 ```
-sudo npm install -g grunt-cli
+npm install -g grunt-cli
 ```
 
 Open bash profile (if it doesn't exist, run ```touch ~/.bash_profile```):

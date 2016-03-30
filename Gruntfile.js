@@ -34,7 +34,8 @@ module.exports = function(grunt) {
 						'./grunt/*.js', 
 						'./sites/**/grunt/*.js', 
 						'./node_modules/emerging-citizens/grunt/*.js', 
-						'./node_modules/boston-civic-media/grunt/*.js']
+						'./node_modules/boston-civic-media/grunt/*.js'
+					 ]
 		},
 		
 		pkg: grunt.file.readJSON('package.json')
