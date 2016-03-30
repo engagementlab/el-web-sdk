@@ -55,7 +55,6 @@
     "grunt-periodic": "^1.0.0",
     "grunt-pm2-deploy": "^0.2.0",
     "grunt-ssh": "^0.12.9",
-    "grunt-ssh-deploy": "^0.4.1",
     "grunt-uncss": "^0.4.4",
     "grunt-version": "^1.0.0",
     "heapdump": "^0.3.7",

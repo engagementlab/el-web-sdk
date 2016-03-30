@@ -127,6 +127,14 @@ As with the development server, you will need [MongoDB](https://mongodb.org) ins
 
 You will also need grunt installed. Please see above for install steps.
 
+## Reverse proxy
+
+As noted in express's "[Production best practices](http://expressjs.com/en/advanced/best-practice-performance.html)", it is a good idea generally to run an express-based app begin a reverse proxy. Handing over tasks that do not require knowledge of application state to a reverse proxy frees up Express to perform specialized application tasks.
+
+I highly recommend using [nginx](https://www.nginx.com/resources/admin-guide/installing-nginx-open-source/) since it's lightweight and absurdly fast. 
+
+I have created a sample nginx site config [here](https://github.com/engagementgamelab/EL-Website/wiki/Sample-nginx-configuration).
+
 ## pm2
 
 We at the Engagement Lab use [pm2](http://pm2.keymetrics.io/) to handle our Node production deployments. You don't have to, of course. When you fork the repo, you can always clone/pull and install, though I can't imagine why you'd go that route. To each their own, I guess?
