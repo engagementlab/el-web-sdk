@@ -54,7 +54,7 @@
 	// Init the keystone instance when it is opened
 	keystoneInst.init({
 
-		'brand': 'Engagement Lab',
+		'brand': siteConfig.name,
 		'module root': moduleRoot,
 		'mongo': 'mongodb://localhost/' + siteConfig.database,
 
