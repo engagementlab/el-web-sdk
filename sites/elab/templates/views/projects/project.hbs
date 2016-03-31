@@ -75,7 +75,7 @@
 								
 								{{!-- Do not use Glider.js for only one image  --}}
 								{{# each projectImageObjects}}
-									<img src="{{{cloudinaryUrl img width=500 quality=60}}}" alt="{{caption}}">
+									<img src="{{{cloudinaryUrl img width=500 quality=80}}}" alt="{{caption}}">
 									<div class="caption lead">{{caption}}</div>
 								{{/each}}
 
@@ -94,7 +94,7 @@
 									        <ul class="glide__track" style="margin-left:-40px">
 														{{# each projectImageObjects}}
 															<li class="glide__slide">
-																<img src="{{{cloudinaryUrl img width=500 quality=60}}}" alt="{{@key}}">
+																<img src="{{{cloudinaryUrl img width=500 quality=80}}}" alt="{{@key}}">
 																<div class="caption lead">{{caption}}</div>
 															</li>
 														{{/each}}

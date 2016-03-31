@@ -33,6 +33,16 @@ module.exports = function() {
         }
     };
 
+    // standard hbs negative equality check, pass in two values from template
+    // {{#ifnoteq keyToCheck data.myKey}} [requires an else blockin template regardless]
+    _helpers.ifnoteq = function(a, b, options) {
+        if (a != b) {
+            return options.fn(this);
+        } else {
+            return options.inverse(this);
+        }
+    };
+
     /**
      * KeystoneJS specific helpers
      * ===========================
