@@ -21,11 +21,10 @@ var Types = keystone.Field.Types;
  */
 var Job = new keystone.List('Job', 
 	{
-		label: 'Job Page',
-		singular: 'Job Page',
-		track: true
-		// nodelete: true,
-		// nocreate: true
+		label: 'Jobs',
+		singular: 'Job',
+		track: true,
+		autokey: { from: 'title', path: 'key', unique: true }
 	});
 
 /**
@@ -33,9 +32,8 @@ var Job = new keystone.List('Job',
  * @main Job
  */
 Job.add({
-	name: { type: String, default: "Job Page", hidden: true, required: true, initial: true },
-	title: { type: Types.Textarea, label: "Title", required: true, initial: true },
-	description: { type: Types.Textarea, label: "Description", required: true, initial: true},
+	title: { type: String, label: "Title", required: true, initial: true },
+	description: { type: Types.Markdown, label: "Description", required: true, initial: true},
 	createdAt: { type: Date, default: Date.now, noedit: true, hidden: true }
 });
 
@@ -43,5 +41,5 @@ Job.add({
  * Model Registration
  */
 Job.defaultSort = '-createdAt';
-Job.defaultColumns = 'name, updatedAt';
+Job.defaultColumns = 'title, updatedAt';
 Job.register();

@@ -7,7 +7,7 @@
 									"projects": ["projects", "publications"],
 									"programs": "programs",
 									"shared": ["resources"],
-									"about": ["About", "partners", "Academics", "people"],
+									"about": ["About", "partners", "Academics", "people", "jobs"],
 									"structure": ["directories", "subdirectories", "users"],
 									"Community PlanIt": ["CPIContent", "CPIPartner", "CPIRegistration"]
 								}

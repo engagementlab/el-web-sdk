@@ -52,7 +52,7 @@ exports = module.exports = function(app) {
     app.get('/riskhorizon', routes.views.html.riskhorizon);
 
     app.get('/about', routes.views.about);
-    app.get('/jobs', routes.views.job);
+    app.get('/jobs', routes.views.jobs);
     app.get('/people', routes.views.people);
     app.get('/people/:person', routes.views.person);
 

@@ -1,0 +1,42 @@
+{{!< default}}
+{{!--
+/**
+* Engagement Lab Website
+* Developed by Engagement Lab, 2015
+* ==============
+*
+* Jobs Page Template
+* - See Job model for fields
+* - Use {{jsonPrint about}} to print entire json...DEBUG ONLY
+* ==========
+*/
+--}}
+
+<section class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				{{> page/name name="Job Openings"}}
+			</div>
+			<p>
+				<i class="text-default fa  fa-info-circle pl-10 pr-5"></i>Please send all inquiries to info at elab.emerson.edu
+			</p>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{{#if job}}
+					{{#each job}}
+						<h3>{{title}}</h3>
+						{{{description.html}}}
+						<hr />
+					{{/each}}
+				
+				{{else}}
+					<h3>No current openings! Check back often!</h3>
+				
+				{{/if}}
+				
+			</div>
+		</div>
+	</div>
+</section>
