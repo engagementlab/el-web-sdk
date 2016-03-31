@@ -37,6 +37,9 @@ exports = module.exports = function(req, res) {
         // Setup the locals to be used inside view
         queryJobs.exec(function(err, resultJob) {
             locals.job = resultJob;
+            // console.log (locals.job);
+            // console.log (err);
+
             // locals.leadership = categorize(result, 'leadership');
             // locals.team  = categorize(result, 'team');
             // locals.fellows = categorize(result, 'fellows');
