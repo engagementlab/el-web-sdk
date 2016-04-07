@@ -6,5 +6,6 @@
   						"sites/**/grunt/**", 
   						"sites/**/public/plugins/**", 
   						"sites/**/public/styles/*.css"
-  					]
+  					],
+  "verbose": true
 }

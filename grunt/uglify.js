@@ -55,7 +55,6 @@ module.exports = function(grunt, options) {
         'node_modules/' + arrSites[ind] + '/public/js/*.js'
 
       );
-      grunt.log.writeln("sitesArg", core);
     
     }
 

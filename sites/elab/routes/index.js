@@ -70,8 +70,10 @@ exports = module.exports = function(app) {
 
     app.all('/tamagagement', routes.views.tamagagement);
 
-    // CommunityPlanIt masked page (boston.communityplanit.org)
-    app.all('/climatesmartboston', routes.views.communityplanit);
+    // CommunityPlanIt redirect (boston.communityplanit.org)
+    app.all('/climatesmartboston', function(req, res, next) {
+        res.redirect('https://boston.communityplanit.org');
+    });
     app.all('/api/cpi/register', keystone.middleware.api, routes.api.communityplanit.create);
     
     // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

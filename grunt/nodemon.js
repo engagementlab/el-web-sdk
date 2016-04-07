@@ -40,11 +40,10 @@ module.exports = function(grunt, options) {
 			options: {
 				args: siteModules,
 				nodeArgs: ['--debug'],
-				ignore: ignoreFilter,
+				verbose: true,
 				watch: watchFilter
 			}
 		}
-		// , 'sites/**/node_modules/**'
 
 	}
 
