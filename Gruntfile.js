@@ -146,8 +146,8 @@ module.exports = function(grunt) {
 		});
 
 
-	  // Version needs to be bumped first after confirming
-		if(skipVersion === undefined)
+	  // Version needs to be bumped first after confirming, unlesss skipped or staging deploy
+		if(skipVersion === undefined && target !== 'staging')
 			tasks.push('bump');
 		else
 			grunt.log.writeln("Skipping 'bump' task.");
