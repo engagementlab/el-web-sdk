@@ -72,7 +72,7 @@ exports = module.exports = function(app) {
 
     // CommunityPlanIt redirect (boston.communityplanit.org)
     app.all('/climatesmartboston', function(req, res, next) {
-        res.redirect('https://boston.communityplanit.org');
+        res.redirect('https://www.communityplanit.org/bostonclimate/');
     });
     app.all('/api/cpi/register', keystone.middleware.api, routes.api.communityplanit.create);
     
