@@ -1,6 +1,6 @@
 {
   "name": "engagement-lab",
-  "version": "0.2.23",
+  "version": "0.2.24",
   "private": true,
   "dependencies": {
     "async": "^1.4.2",
