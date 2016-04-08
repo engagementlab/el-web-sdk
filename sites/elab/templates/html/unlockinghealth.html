@@ -1,205 +1,252 @@
-<html id="full">
+<!DOCTYPE html>
+<html>
+
 <head>
-    <link rel="stylesheet" href="/static/uh/css/bootstrap.css">
-    <link rel="stylesheet" href="/static/uh/css/media.css">
-    <link rel="stylesheet" href="/static/uh/css/remodal.css">
-    <link rel="stylesheet" href="/static/uh/css/remodal-default-theme.css">
-    <link rel="stylesheet" href="/static/uh/fonts/glyphicons-halflings-regular.woff">
-    <link rel="stylesheet" href="/static/uh/fonts/glyphicons-halflings-regular.woff2">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <title>Unlocking Health</title>
-    </head>
-    
-    <body>
-        
-        <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid" id="full">
-                <div class="navbar-header"><a class="navbar-brand" href="#"><img src="/static/uh/images/unlocking_health.png" style="height: 40px; width: 120px; margin-top:-10px; margin-left: -10px; padding: 0px;"></a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Bootstrap -->
+    <link href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133221/unlockinghealth/css/bootstrap.css" media="screen" rel="stylesheet">
+    <link href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133719/unlockinghealth/css/maincss.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Include the basic styles -->
+    <link type="text/css" rel="Stylesheet" href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133221/unlockinghealth/css/bjqs.css" />
+
+    <!-- Include the jQuery library (local or CDN) -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/jquery.scrollto/2.1.2/jquery.scrollTo.min.js"></script>
+
+    <script src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133221/unlockinghealth/js/bootstrap.min.js"></script>
+    <script src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133221/unlockinghealth/js/webgl.min.js"></script>
+
+    <!-- Include the plugin *after* the jQuery library -->
+    <script src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133221/unlockinghealth/js/bjqs.min.js"></script>
+
+</head>
+
+<body class="template">
+    <!--NAVBAR-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle
+                navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-id="play">Play</a>
+                    </li>
+                    <li>
+                        <a href="#" data-id="about">About</a>
+                    </li>
+                    <li>
+                        <a href="#" data-id="tips">Tips for Playing</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <!--need to get rid of padding after the navbar-->
+    <div class="jumbotron" id="backgroundImg">
+        <!--Unlocking Health Photo Here-->
+        <div class="banner">
+            <div class="bannerImg">
+                <br>
+                <div id="UHbanner"></div>
+                <p id="bannertext">An exploration and strategy game for teaching the
+                    <br>principles of Results Based Financing</p>
+
+            </div>
+        </div>
+
+    </div>
+
+    <a id="play"></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 download" id="mac">
+                <br>
+                <div class="iconhere" id="macicon"></div>
+                <br>
+                <h3>download for mac</h3>
+                <p class="maintext">Approx. 26 minutes to download file over standard DSL connection (1.5mbps)</p>
+                <br>
+                <a href="https://elabhome.blob.core.windows.net/downloads/UnlockingHealth_Mac.zip">
+                    <button class="btn btn-default center-block" type="button">download</button>
+                </a>
+                <br>
+                <p class="greytext">Screen Resolution 800x600
+                    <br> CPU SSE2 instruction set support
+                    <br> Graphics card DX9 (shader model 2.0) capabilities
+                    <br> Mac OS X 10.7 or greater
+                    <br> 2GB of RAM</p>
+                <br>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6 download" id="windows">
+                <br>
+                <div class="iconhere" id="windicon"></div>
+                <br>
+                <h3>download for windows</h3>
+                <p class="maintext">Approx. 26 minutes to download file over standard DSL connection (1.5mbps)</p>
+                <br>
+                <a href="https://elabhome.blob.core.windows.net/downloads/UnlockingHealth_PC.zip">
+                    <button class="btn btn-default center-block" type="button">download</button>
+                </a>
+                <br>
+                <p class="greytext">Screen Resolution 800x600
+                    <br> CPU SSE2 instruction set support
+                    <br> Graphics card DX9 (shader model 2.0) capabilities
+                    <br> 2GB of RAM</p>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 download" id="online">
+                <br>
+                <div class="iconhere" id="onlineicon"></div>
+                <br>
+                <p class="greytext">have a high speed internet connection?</p>
+                <h3>play online</h3>
+                <br>
+
+                <div id="browsers">
+                    <p>Your browser is not compatible with this version, but you can install Chrome or Firefox:
+                        <br />
+                        <a href="https://www.google.com/chrome/browser/desktop/" target="_blank" class="hvr-grow"><img src="images/chrome.png" />
+                        </a>
+                        <a href="https://www.mozilla.org/firefox/new/" target="_blank" class="hvr-grow"><img src="images/firefox.png" />
+                        </a>
+                    </p>
+                    <p>Or download the game for PC or Mac!</p>
+                </div>
+
+                <div id="playnow">
+                    <button class="btn btn-default center-block" type="button">play online
                     </button>
+                    <br>
+                    <p class="greytext">A fast connection (at least 10mbps) is recommended. Please be patient as the game may take 1-5 minutes to download inside browser. You can test your connection speed <a href="http://testmy.net/SmarTest/down">here</a>.</p>
+                    <br>
                 </div>
-                <div class="collapse navbar-collapse navbar-menubuilder">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#whatis">What is Unlocking Health?</a>
-                        </li>
-                        <li class="visible-md-block visible-lg-block" id="play"><a href="#playnow">Play Now</a>
-                        </li>
-                        <li><a class="visible-md-block visible-lg-block" href="#tech">Download</a>
-                        </li>
-                        <li><a href="#about">About</a>
-                        </li>
-                    </ul>
-                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-6 download" id="mobile">
+                <br>
+                <div class="iconhere" id="mobileicon"></div>
+                <br>
+                <h3>download on mobile</h3>
+                <br>
+                <p>Coming Soon in Fall 2016!</p>
+                <br>
+                <!-- <button class="btn btn-default center-block" type=
+                "button">download app</button><br><br> -->
             </div>
         </div>
 
         <div class="row">
-            <div class="jumbotron" id="main">
-                <div id="tagline" class="contentbox">
-                    <img src="/static/uh/images/unlocking_health.png" class="img-responsive" style="">
-                    <h2>An exploration and strategy game for teaching the principles of Results Based Financing</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="whatis">
-            <div class="contentbox" id="what">
-                <h2>Welcome to Zariba!</h2>
-                <p>You are an international consultant charged with creating a program proposal for the people of Zariba that will improve health care and raise key indicators specified by the Ministry of Health.<p> Find your way around the country and talk to local people to get a nuanced picture of the situation from a wide array of perspectives. Set health priorities with government ministry officials, then help implement, monitor, and adapt the plan in context as operational obstacles inevitably arise. <p>Strive to meet target health indicator goals over the course of three years in the game and unlock health for the people of Zariba!</p>
-            </div>
-        </div>
-        <div class="row caro">
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                  <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                    <li data-target="#myCarousel" data-slide-to="3"></li>
-                </ol>
-
-                  <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox" id="contents">
-                    <div class="item active">
-                        <div class="carouselcontent" >
-                            <img src="/static/uh/images/image1.png" class="img-responsive">
-                        </div>
-                    </div>
-
-                    <div class="item" id="">
-                        <div class="carouselcontent " >
-                            <img src="/static/uh/images/image2.png" class="img-responsive">
-                        </div>
-                    </div>
-
-                    <div class="item" id="">
-                        <div class="carouselcontent" >
-                            <img src="/static/uh/images/image3.png" class="img-responsive">
-                        </div>
-                    </div>
-
-                    <div class="item" id="">
-                        <div class="carouselcontent" >
-                            <img src="/static/uh/images/image4.png" class="img-responsive">
-                        </div>
-                    </div>
-                </div>
-                  <!-- Left and right controls -->
-                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                    <span class="glyphicon" aria-hidden="true"><</span>
+            <div class="col-sm-12 col-md-12 col-lg-12" id="webgl" style="display: none">
+                <iframe id="game_embed" width="100%" height="760" frameBorder="0" sandbox="allow-scripts allow-same-origin allow-modals" allowfullscreen="true">
+                    <p>
+                        <a href="https://developer.mozilla.org/en-US/docs/Glossary">
+                  Fallback link for browsers that, unlikely, don't support frames
                 </a>
-                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                    <span class="glyphicon" aria-hidden="true">></span> 
-                </a>
-            </div>
-        </div>
-        <div class="row visible-md-block visible-lg-block" id="playnow">
-            <div class="contentbox">
-                <p><a href="#" data-remodal-target="modal" class="hvr-grow" id="play">Play now</a><br />in your browser.</p>
-                <p>A fast connection (at least 10mbps) is recommended. Please be patient as the game may take 1-5 minutes to download inside browser. You can test your connection speed <a href="http://testmy.net/SmarTest/down" target="_blank">here</a>.</p>
-
-                <div class="remodal" data-remodal-id="modal" data-remodal-options="closeOnOutsideClick: false">
-                 <iframe id="game_embed"
-                 width="100%" height="660" frameBorder="0"
-                 sandbox="allow-scripts allow-same-origin allow-modals" allowfullscreen="true" seamless="seamless" scrolling="no">
-                  <p>
-                    <a href="https://developer.mozilla.org/en-US/docs/Glossary">
-                      Your browser does not support frames. Please download Firefox.
-                    </a>
-                  </p>
+                    </p>
                 </iframe>
-                  <button data-remodal-action="close" class="remodal-close"></button>
-                </div>
             </div>
         </div>
-        <div class="row" id="browsers">
-            <div class="jumbotron" id="tech">
-                <div class="container-fluid">
-                    <div class="contentbox">
-                    <h2>Play Now</h2>
-                    <p>Your browser is not compatible with the in-browser version of the game. We recommend installing Chrome or Firefox:</p>
-                     <a href="https://www.google.com/chrome/browser/desktop/" target="_blank" class="hvr-grow"><img src="/static/uh/images/chrome.png" /></a>
-                     <a href="https://www.mozilla.org/firefox/new/" target="_blank" class="hvr-grow"><img src="/static/uh/images/firefox.png" /></a>
-                    <p>You can also download the game for PC or Mac below:</p>
-                    </div>
+
+        <a id="about"></a>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12" id="footer">
+                <div>
+                    <h1>Welcome to Zariba!</h1>
+                    <p>You are an international consultant charged with creating a program proposal fo the people of Zariba that will improve health care and raise key indicators specified by the Ministry of Health.</p>
+                    <p>Find your way around the country and talk to local people to get a nuanced picture of the situation from a wide array of perspectives. Set health priorities with government ministry officials, then help implement, monitor, and adapt the plan in context as operational obstacles inevitably arise.</p>
+                    <p id="p3">Strive to meet target health indicator goals over the course of three years in the game and unlock health for the people of Zariba!</p>
                 </div>
-            </div>
-        </div>
-        <div class="row" id="32bit">
-            <div class="jumbotron" id="tech">
-                <div class="container-fluid">
-                    <div class="contentbox">
-                    <h2>Play Now</h2>
-                    <p>Your PC is not compatible with the <em>in-browser version</em> of the game, as it is not running a 64-bit version of Windows.</p>
-                    <p>You can still download the game client for PC or Mac below:</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row visible-md-block visible-lg-block"> 
-            <div class="jumbotron" id="tech">
-                <div class="container-fluid">
-                    <div class="col-lg-2 col-sm-0">
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div id="title" class="clearbox"><h3>Windows</h3></div>
-                        <p style="font-style:italic">Approx 28 minutes to download file over standard DSL connection (1.5mbps)</p>
-                        <div id="download"> <a href="https://elabhome.blob.core.windows.net/downloads/UnlockingHealth_PC.zip"><button  type="button" class="btn btn-default">Download Here</button></a></div>
-                        <ul>
-                            <li>Screen Resolution 800x600</li>
-                            <li>CPU: SSE2 instruction set support</li>
-                            <li>Graphics card: DX9 (shader model 2.0) capabilities</li>
-                            <li>Microsoft Windows XP or greater</li>
-                            <li>2GB of RAM </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div id="title" class="clearbox"><h3>Mac OS</h3></div>
-                        <p style="font-style:italic">Approx. 26 minutes to download file over standard DSL connection (1.5mbps)</p>
-                        <div id="download"> <a href="https://elabhome.blob.core.windows.net/downloads/UnlockingHealth_Mac.zip"><button type="button" class="btn btn-default">Download Here</button></a> </div>
-                        <ul>
-                            <li>Screen Resolution 800x600</li>
-                            <li>CPU: SSE2 instruction set support</li>
-                            <li>Graphics card: DX9 (shader model 2.0) capabilities</li>
-                            <li>Mac OS X 10.7 or greater</li>
-                            <li>2GB of RAM </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-sm-0">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row visible-md-block visible-lg-block" id="install">
-                <div class="row">
-              <!--   <div class="clearbox"><h3> Installation Instructions </h3></div> -->
-                    <ul>
-                        <li><span>Click the 'download here' button. You will see a window pop up asking if you want to "open" or "save" the file. Choose Save.</span></li>
-                        <li><span>Choose a location to save the file</span></li>
-                        <li><span>Your browser will then begin downloading the file. When the file is done downloading, double-click on the name of the file.</span></li>
-                        <li><span>.ZIP files must be unzipped before they can be used. Click on the.zip file to open it. Then, drag the file from the compressed folder to a new location.</span> </li>
-                        <li><span> Once you have the file in your desired location, click the file to launch the game. No need to install.</span> </li>
+
+                <a id="tips"></a>
+                <div id="tips-slideshow">
+                    <ul class="bjqs">
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/0.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/1.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/2.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/3.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/4.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/5.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/6.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/7.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/8.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/9.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/10.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/11.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/12.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/13.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/14.jpg">
+                        </li>
+                        <li><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/15.jpg">
+                        </li>
                     </ul>
                 </div>
-        </div>
-        <div class="row visible-sm-block visible-xs-block" id="install_mobile">
-            <br />
-            <div class="contentbox">
-            <h3>Mobile version coming soon!</h3>
-            <p><img src="/static/uh/images/store_banner.png" alt="Mobile version coming soon" /></p>
-            </div>
-        </div>
-        <div class="row" id="about">
-            <div class="contentbox" id="what">
-                <h2>About</h2>
-                <p>Unlocking Health was designed and developed by <a href="http://elab.emerson.edu">The Engagement Lab at Emerson College</a> in partnership with <a href="http://www.worldbank.org/">The World Bank Institute</a> (c) 2015</p>
-            </div>
-        </div>
-    
-        <script src="/static/uh/js/jquery-1.11.3.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-        <script src="/static/uh/js/remodal.min.js"></script> 
-        <script src="/static/uh/js/bigscreen.min.js"></script>
-        <script src="/static/uh/js/webgl.min.js"></script>
 
-    </body>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function($) {
+
+            $('#playnow button').on('click', function() {
+                $('#webgl').slideDown();
+                $.scrollTo($('#webgl'), {
+                    axis: 'y',
+                    duration: 800
+                });
+                embedWebGL();
+            });
+
+            $('ul.nav a').on('click', function(evt) {
+                console.log(evt)
+                $.scrollTo($('#' + $(evt.currentTarget).data('id')), {
+                    axis: 'y',
+                    duration: 800
+                });
+            });
+
+            $('#tips-slideshow').bjqs({
+                width: 980,
+                height: 660,
+                animtype: 'fade', // accepts 'fade' or 'slide'
+                animduration: 450, // how fast the animation are
+                animspeed: 7500, // the delay between each slide
+                automatic: true, // automatic
+                showcontrols: false,
+                showmarkers: false,
+                responsive: true
+            });
+        });
+    </script>
+</body>
+
 </html>
