@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- Bootstrap -->
     <link href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133221/unlockinghealth/css/bootstrap.css" media="screen" rel="stylesheet">
-    <link href="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133719/unlockinghealth/css/maincss.css" rel="stylesheet" type="text/css">
+    <link href="http://res.cloudinary.com/engagement-lab-home/raw/upload/v1460133719/unlockinghealth/css/maincss.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Include the basic styles -->
@@ -120,9 +120,9 @@
                 <div id="browsers">
                     <p>Your browser is not compatible with this version, but you can install Chrome or Firefox:
                         <br />
-                        <a href="https://www.google.com/chrome/browser/desktop/" target="_blank" class="hvr-grow"><img src="images/chrome.png" />
+                        <a href="https://www.google.com/chrome/browser/desktop/" target="_blank" class="hvr-grow"><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/images/chrome.png" />
                         </a>
-                        <a href="https://www.mozilla.org/firefox/new/" target="_blank" class="hvr-grow"><img src="images/firefox.png" />
+                        <a href="https://www.mozilla.org/firefox/new/" target="_blank" class="hvr-grow"><img src="https://res.cloudinary.com/engagement-lab-home/raw/upload/v1460063581/unlockinghealth/images/firefox.png" />
                         </a>
                     </p>
                     <p>Or download the game for PC or Mac!</p>
@@ -143,7 +143,7 @@
                 <br>
                 <h3>download on mobile</h3>
                 <br>
-                <p>Coming Soon in Fall 2016!</p>
+                <p>Coming Soon!</p>
                 <br>
                 <!-- <button class="btn btn-default center-block" type=
                 "button">download app</button><br><br> -->
@@ -170,6 +170,10 @@
                     <p>You are an international consultant charged with creating a program proposal fo the people of Zariba that will improve health care and raise key indicators specified by the Ministry of Health.</p>
                     <p>Find your way around the country and talk to local people to get a nuanced picture of the situation from a wide array of perspectives. Set health priorities with government ministry officials, then help implement, monitor, and adapt the plan in context as operational obstacles inevitably arise.</p>
                     <p id="p3">Strive to meet target health indicator goals over the course of three years in the game and unlock health for the people of Zariba!</p>
+                    <hr style="width: 50%">    
+                    <p>Unlocking Health was commissioned by the <a href="https://olc.worldbank.org">Open Learning Campus</a> with financial support from the Government of Korea.</p>
+                    <p>This game was developed in collaboration with the Health, Nutrition and Population Global Practice of the World Bank</p>
+                    <p>and was designed and created by the Engagement Lab at Emerson College. Originally released in 2016.</p>
                 </div>
 
                 <a id="tips"></a>
@@ -215,7 +219,11 @@
     </div>
 
     <script type="text/javascript">
+
         $(document).ready(function($) {
+            if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                $('#online').remove();
+            }
 
             $('#playnow button').on('click', function() {
                 $('#webgl').slideDown();
