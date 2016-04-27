@@ -18,12 +18,14 @@ var express = require('express'),
 		virtualServer = require('http').createServer(app),
 		compression = require('compression'),
 		virtual = require('express-vhost'),
+		logger = require('winston'),
 		siteConfig = require('./sites/config'),
 		SiteFactory = require('./sites/factory');
 
 var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
 
 colors = require('colors');
+
 
 /**
  * Mount a sub-module in /sites as a virtual host.
@@ -72,7 +74,7 @@ var mount = function(siteModuleName, singleDomain) {
 				// Run any of this site's custom start logic
 				siteInst.start(appInstance);
 
-				console.log('> Site ' + colors.rainbow(siteModuleName) + ' mounted'.italic + ' at ' + siteDomain);
+				logger.info('> Site ' + colors.rainbow(siteModuleName) + ' mounted'.italic + ' at ' + siteDomain);
 
 		});
 
@@ -99,15 +101,15 @@ var launch = function() {
 
 	virtualServer.listen(serverPort, function() {
 
-		console.log('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
-		console.log('██╔════╝████╗  ██║██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗'.bgCyan.black);
-		console.log('█████╗  ██╔██╗ ██║██║  ███╗███████║██║  ███╗█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║     ███████║██████╔╝'.bgCyan.black);
-		console.log('██╔══╝  ██║╚██╗██║██║   ██║██╔══██║██║   ██║██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║       ██║     ██╔══██║██╔══██╗'.bgCyan.black);
-		console.log('███████╗██║ ╚████║╚██████╔╝██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║       ███████╗██║  ██║██████╔╝'.bgCyan.black);
-		console.log('╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚═════╝'.bgCyan.black);
+		logger.info('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
+		logger.info('██╔════╝████╗  ██║██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗'.bgCyan.black);
+		logger.info('█████╗  ██╔██╗ ██║██║  ███╗███████║██║  ███╗█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║     ███████║██████╔╝'.bgCyan.black);
+		logger.info('██╔══╝  ██║╚██╗██║██║   ██║██╔══██║██║   ██║██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║       ██║     ██╔══██║██╔══██╗'.bgCyan.black);
+		logger.info('███████╗██║ ╚████║╚██████╔╝██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║       ███████╗██║  ██║██████╔╝'.bgCyan.black);
+		logger.info('╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚═╝  ╚═╝╚═════╝'.bgCyan.black);
 
-		console.log('=== Site Bootstrapping Framework ==='.bgBlack.cyan);
-		console.log('## Server started! Please wait for sites to mount...'.bold.bgWhite.red);
+		logger.info('=== Site Bootstrapping Framework ==='.bgBlack.cyan);
+		logger.info('## Server started! Please wait for sites to mount...'.bold.bgWhite.red);
 
 		/*!
 		 * Bootstrap our site modules here.
@@ -121,7 +123,7 @@ var launch = function() {
 			// Site are a comma-sep list
 			var arrSites = sitesArg.replace('--sites=', '').split(',');
 
-			console.log('## -> Only the following site modules will be mounted: '.bgWhite.red + arrSites.join(', ').bgWhite.red);
+			logger.info('## -> Only the following site modules will be mounted: '.bgWhite.red + arrSites.join(', ').bgWhite.red);
 
 			// Mount each site
 			for(var ind in arrSites) {
@@ -132,14 +134,14 @@ var launch = function() {
 
 		}
 		else {
-			console.log('## -> All site modules will be mounted. '.bgWhite.red);
+			logger.info('## -> All site modules will be mounted. '.bgWhite.red);
 
 			// Mount all sites
 			mount('engagement-lab-home');
 			// mount('el-bot');
 		}
 
-		console.log('##'.bold.bgWhite.red);		
+		logger.info('##'.bold.bgWhite.red);		
 
 	});
 
