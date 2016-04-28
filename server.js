@@ -26,7 +26,6 @@ var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
 
 colors = require('colors');
 
-
 /**
  * Mount a sub-module in /sites as a virtual host.
  *
@@ -42,7 +41,7 @@ colors = require('colors');
  */
 var mount = function(siteModuleName, singleDomain) {
 
-	var siteInst = require(siteModuleName);
+	var siteInst = require(siteModuleName)(__dirname);
 
 	var appInstance = siteInst.server();
 	appInstance.use(compression());
