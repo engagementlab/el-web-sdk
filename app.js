@@ -11,7 +11,8 @@
  */
 
 // Load .env vars
-require('dotenv').load();
+if(process.env.NODE_ENV !== 'test')
+	require('dotenv').load();
 
 var express = require('express'),
 		app = express(),

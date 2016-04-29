@@ -1,1 +1,5 @@
 language: node_js
+env:
+  - CXX=g++-4.9.1
+before_script:
+  - "npm link sites/elab"
