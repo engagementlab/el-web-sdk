@@ -134,8 +134,6 @@
 	// Load this site's models
 	keystoneInst.import('models');
 
-	logger.info("Module root = " + moduleRoot);
-
 	// Load this site's routes
 	keystoneInst.set('routes', require(moduleRoot + 'routes'));
 	 

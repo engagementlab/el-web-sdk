@@ -16,7 +16,7 @@ var keystone = require('keystone');
 var Project = keystone.list('Project');
 var NewsBox = keystone.list('NewsBox');
 var Resource = keystone.list('Resource');
-var Syllabi = keystone.list('Syllabi');
+// var Syllabi = keystone.list('Syllabi');
 var _ = require('underscore');
 
 // News data propagated by ./jobs/news
@@ -58,7 +58,7 @@ exports = module.exports = function(req, res) {
     });
 
     // Boston Civic Media homepage
-    view.on('init', function(next) {
+    /*view.on('init', function(next) {
          //locals.featured_content = [];
         locals.featured_syllabi = [];
 
@@ -81,7 +81,7 @@ exports = module.exports = function(req, res) {
             //     next();
             // });
     });
-    next();
+    next();*/
 
 
     // Render the view
