@@ -1,5 +1,7 @@
 language: node_js
 env:
   - CXX=g++-4.9.1
+services:
+  - mongodb
 before_script:
   - "npm link sites/elab"
