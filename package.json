@@ -63,7 +63,6 @@
     "grunt-ssh": "^0.12.9",
     "grunt-uncss": "^0.4.4",
     "grunt-version": "^1.0.0",
-    "heapdump": "^0.3.7",
     "inherits": "^2.0.1",
     "isarray": "0.0.1",
     "jshint-stylish": "^0.1.3",
