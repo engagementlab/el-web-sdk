@@ -20,6 +20,7 @@
     "helmet": "^1.1.0",
     "json-fs-store": "^1.0.0",
     "keystone-slacker": "git://github.com/engagementgamelab/keystone-slacker.git",
+    "mocha": "^2.4.5",
     "moment": "^2.10.6",
     "mongoose-redis-cache": "0.0.3",
     "mongoose-validator": "^1.2.4",
@@ -37,7 +38,9 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "core-util-is": "^1.0.2",
+    "expect.js": "^0.3.1",
     "fstream": "^1.0.8",
     "grunt": "^0.4.4",
     "grunt-bump": "^0.7.0",
@@ -51,6 +54,7 @@
     "grunt-execute": "^0.2.2",
     "grunt-express-server": "^0.4.17",
     "grunt-forever": "^0.4.7",
+    "grunt-mocha-test": "^0.12.7",
     "grunt-mongo-bin": "^0.1.0",
     "grunt-node-inspector": "^0.4.1",
     "grunt-nodemon": "^0.2.1",
@@ -68,6 +72,7 @@
     "markdox": "^0.1.10",
     "minimatch": "^3.0.0",
     "open": "0.0.5",
+    "superagent": "^1.8.3",
     "time-grunt": "^0.3.1"
   },
   "engines": {
@@ -75,7 +80,8 @@
     "npm": "3.8.5"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "./node_modules/.bin/mocha -R spec --timeout 50000"
   },
   "main": "server.js"
 }

@@ -9,7 +9,7 @@ serverStart = function() {
 appStart = function(app) {
 };
 
-module.exports = function() {
+module.exports = function(frameworkDir) {
 
 	var keystoneInst = require('keystone');
 	var tamabehavior = require('./tamabehavior');
@@ -25,4 +25,4 @@ module.exports = function() {
 		server: serverStart,
 		start: appStart	
 	}
-}();
+};
