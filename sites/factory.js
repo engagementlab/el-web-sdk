@@ -44,7 +44,7 @@
 											extname: '.hbs'
 										});
 
-	var logger = require('logger');
+	var logger = require('winston');
 	var slackInstance;
 	var twitterInstance;
 
