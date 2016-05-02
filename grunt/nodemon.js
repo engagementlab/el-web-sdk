@@ -8,6 +8,7 @@ module.exports = function(grunt, options) {
 
 	// Use site modules arg only if defined
 	if(sitesArg !== undefined) {
+		
 		siteModules = ['--sites=' + sitesArg];
 		ignoreFilter = ['/*'];
 

@@ -1,7 +1,7 @@
 {
   "apps" : [{
     "name": "EL Website",
-    "script": "server.js",
+    "script": "server.js --sites=engagement-lab-home",
     "env_production": {
       "NODE_ENV": "production"
     },

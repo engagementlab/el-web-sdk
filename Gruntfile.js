@@ -115,6 +115,11 @@ module.exports = function(grunt) {
 		'alldone'
 	]);
 
+	// Task to run tests
+	grunt.registerTask('tests', [
+		'test:all'
+	]);
+
 	/**
 	* Task to deploy to production or staging
 	* 
