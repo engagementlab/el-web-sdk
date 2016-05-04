@@ -20,6 +20,7 @@
     "helmet": "^1.1.0",
     "json-fs-store": "^1.0.0",
     "keystone-slacker": "git://github.com/engagementgamelab/keystone-slacker.git",
+    "merge": "^1.2.0",
     "mocha": "^2.4.5",
     "moment": "^2.10.6",
     "mongoose-redis-cache": "0.0.3",

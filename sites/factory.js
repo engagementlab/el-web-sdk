@@ -20,13 +20,10 @@
  */
  var SiteFactory = (function(params, callback) { 
 
- 	// Load handlebars and our helpers
-	var handlebars = require('express-handlebars'),
-			hbsHelpers = require('../templates/helpers')();
-
 	// Global dependencies
 	var Slack = require('slack-node'),
 			Twitter = require('twitter'),
+			merge = require('merge'),
 			KeystoneSlacker = require('keystone-slacker'),
 			FrameworkMiddleware = require('./middleware');
 
@@ -35,6 +32,14 @@
 			appInst = params.app,
 			appServer = params.server,
 			keystoneInst = params.keystone;
+
+ 	// Load handlebars and our helpers
+	var handlebars = require('express-handlebars'),
+			coreHelpers = require('../templates/helpers')(),
+			moduleHelpers = require(moduleRoot + 'templates/helpers')();
+
+	// Merge core and module helpers if former is defined
+	var hbsHelpers = (moduleHelpers !== undefined) ? merge(coreHelpers, moduleHelpers) : coreHelpers;
 
 	var hbsInstance = handlebars.create({
 											layoutsDir: moduleRoot + 'templates/layouts',
