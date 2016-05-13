@@ -50,6 +50,7 @@ module.exports = function(grunt, options) {
         'node_modules/' + arrSites[ind] + '/public/bower_components/**/dist/**.min.js', // Bower
         'node_modules/' + arrSites[ind] + '/public/bower_components/**/compiled/**.min.js', // Bower
         'node_modules/' + arrSites[ind] + '/public/bower_components/**/js/**.min.js', // Bower
+        'node_modules/' + arrSites[ind] + '/public/bower_components/**/**.min.js', // Bower
         'node_modules/' + arrSites[ind] + '/public/plugins/*.js',  // Plugins
         'node_modules/' + arrSites[ind] + '/public/plugins/**/*.js',
         'node_modules/' + arrSites[ind] + '/public/js/*.js'
