@@ -152,10 +152,14 @@ module.exports = function(grunt) {
 
 
 	  // Version needs to be bumped first after confirming, unlesss skipped or staging deploy
-		if(skipVersion === undefined && target !== 'staging')
+		if(skipVersion === undefined && target !== 'staging') {
 			tasks.push('bump');
-		else
+			tasks.push('notify:deploy_prod');
+		}
+		else {
 			grunt.log.writeln("Skipping 'bump' task.");
+			tasks.push('notify:deploy_staging');
+		}
 
 	  grunt.task.run.apply(grunt.task, tasks);
 
