@@ -12,10 +12,16 @@ appStart = function(app) {
 module.exports = function(frameworkDir) {
 
 	var keystoneInst = require('keystone');
-	var tamabehavior = require('./tamabehavior');
+	var tamabehavior = require('./tamabehavior');	
 
+	// Add main dependencies and EL web framework dependencies
+	// require('app-module-path').addPath(__dirname + '/node_modules'); 
+	require('app-module-path').addPath(frameworkDir + '/node_modules'); 
+	
 	// Obtain app root path and set as keystone's module root
-	keystoneInst.set('module root', __dirname);
+	var appRootPath = require('app-root-path').path;
+	var keystoneInst = require('keystone');	
+	keystoneInst.set('module root', appRootPath);
 
 	// lolz
 	keystoneInst.set('tamabehavior', tamabehavior);	

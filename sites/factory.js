@@ -53,7 +53,7 @@
 	var slackInstance;
 	var twitterInstance;
 
-	console.log('Initializing '.underline + 
+	logger.info('Initializing '.underline + 
 							colors.cyan.underline(siteConfig.name) + 
 							' site module.'.underline);
 
@@ -62,6 +62,7 @@
 
 		'brand': siteConfig.name,
 		'module root': moduleRoot,
+		// 'model prefix': (siteConfig.db_prefix !== undefined) ? siteConfig.db_prefix : siteConfig.database,
 		'mongo': 'mongodb://localhost/' + siteConfig.database,
 
 		'frame guard': false,

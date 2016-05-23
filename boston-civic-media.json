@@ -1,0 +1,55 @@
+{
+  "apps" : [{
+    "name": "Emerging Citizens",
+    "script": "server.js",
+    "env_production": {
+      "NODE_ENV": "production"
+    },
+    "env_staging": {
+      "NODE_ENV": "staging"
+    }
+  }],
+  "deploy" : {
+    "production" : {
+      "user": "node",
+      "host": "",
+      "repo": "git@github.com:engagementgamelab/EL-Website.git",
+      "ref": "origin/master",
+      "path": "/srv/emerging-citizens",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
+      "post-deploy" : "npm install ; grunt compile ; pm2 startOrRestart ecosystem.json --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+
+    "web" : {
+      "user": "node",
+      "host": "199.94.80.19",
+      "repo": "git@github.com:engagementgamelab/EL-Website.git",
+      "ref": "origin/master",
+      "path": "/srv/website",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
+      "post-deploy" : "npm i ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart server.js -- engagement-lab-home,boston-civic-media --env staging",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    },
+    
+    "staging" : {
+    
+      "user": "node",
+      "host": "199.94.80.19",
+      "repo": "git@github.com:engagementgamelab/boston-civic-media.git",
+      "ref": "origin/master",
+      "path": "/srv/website",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
+      "post-deploy" : "npm i ; cd /srv/website/current/ ; pm2 restart server.js -- engagement-lab-home,boston-civic-media --env staging",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+
+    },
+
+  }
+}
