@@ -42,7 +42,7 @@ var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
  */
 var mount = function(siteModuleName, singleDomain, callback) {
 
-	var siteInst = require(siteModuleName)(__dirname);
+	var siteInst = require(siteModuleName)(__dirname, !singleDomain);
 
 	var appInstance = siteInst.server();
 	appInstance.use(compression());
@@ -120,7 +120,7 @@ var launch = function(callback) {
 		 * This will either load all sites or those specified by the '--sites' CLI argument.
 		 */
 		var sitesArg = process.argv[2];
-		
+		console.log(process)
 		// Check if any sites specified by CLI (ignore for testing)
 		if(sitesArg !== undefined && process.argv[1].indexOf('mocha') === -1) {
 
