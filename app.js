@@ -54,7 +54,6 @@ var mount = function(siteModuleName, singleDomain, callback) {
 		// Don't use subdomain if this is a single-domain site
 		var siteDomain = (configData.subdomain === undefined || singleDomain) ? process.env.ROOT_DOMAIN : (configData.subdomain + '.' + process.env.ROOT_DOMAIN);
 
-
 		// Initialize keystone instance and then register the mounted app
 		new SiteFactory({ 
 
@@ -120,7 +119,7 @@ var launch = function(callback) {
 		 * This will either load all sites or those specified by the '--sites' CLI argument.
 		 */
 		var sitesArg = process.argv[2];
-		console.log(process)
+		
 		// Check if any sites specified by CLI (ignore for testing)
 		if(sitesArg !== undefined && process.argv[1].indexOf('mocha') === -1) {
 
