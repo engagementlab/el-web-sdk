@@ -6,7 +6,7 @@
  * Grunt task config.
  * ==============
 */
-'use strict()';
+'use strict';
 
 /**
  * Load all of our grunt tasks.
@@ -21,22 +21,36 @@
  */
 module.exports = function(grunt) {
 
+  var sitesArg = grunt.option('sites');
+
 	// Load grunt tasks automatically
 	require('load-grunt-tasks')(grunt);
 
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
 
+	var jobDirs = [
+									'./grunt/*.js', 
+									'./sites/**/grunt/*.js'
+								];
+
+  // Use site modules arg only if defined
+  if(sitesArg !== undefined) {
+
+    // Site are a comma-sep list
+    var arrSites = sitesArg.replace('--sites=', '').split(',');
+
+	  // Load any site module grunt configs
+	  for(var ind in arrSites) {
+			jobDirs.push('./node_modules/' + arrSites[ind] + '/grunt/*.js');
+			grunt.log.writeln('Loading grunt configs for ' + arrSites[ind]);
+	  }
+
+	}
+
 	var gruntJobsConfig = {
 		
-		config: {
-			src: [
-						'./grunt/*.js', 
-						'./sites/**/grunt/*.js', 
-						'./node_modules/emerging-citizens/grunt/*.js', 
-						'./node_modules/boston-civic-media/grunt/*.js'
-					 ]
-		},
+		config: { src: jobDirs },
 		
 		pkg: grunt.file.readJSON('package.json')
 
@@ -112,6 +126,7 @@ module.exports = function(grunt) {
 		'uglify',
 		'concat',
 		'cssmin',
+		'execute:cloudinary',
 		'alldone'
 	]);
 
