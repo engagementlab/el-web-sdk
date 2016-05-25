@@ -15,6 +15,8 @@ var cloudinary = require('cloudinary');
 
 var sitesArr = process.argv.slice(2, process.argv.length);
 
+// console.log(sitesArr)
+
 for(var siteInd in sitesArr) {
 
 	var files = sitesArr[siteInd].split(',');
@@ -27,7 +29,7 @@ for(var siteInd in sitesArr) {
 			filesArr[fileInd], 
 	    
 	    function(result) { 
-	    	console.log('File "' + filesArr[fileInd] + '" uploaded to ' + result.secure_url);
+	    	console.log('File "' + result.public_id + '" uploaded to ' + result.secure_url);
 	    },
 	    
 	    { 
