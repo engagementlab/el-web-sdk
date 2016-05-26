@@ -15,7 +15,7 @@
       "host": "104.236.109.221",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
       "ref": "origin/master",
-      "path": "/srv/emerging-citizens",
+      "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
       "post-deploy" : "npm install ; grunt compile --sites=emerging-citizens ; pm2 restart server.js -- emerging-citizens --env production",
       "env": {
@@ -53,7 +53,7 @@
       "ref": "origin/master",
       "path": "/srv/emerging-citizens",
       "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
-      "post-deploy" : "npm i ; cd /srv/framework/current/ ; pm2 restart server.js -- emerging-citizens --env production"
+      "post-deploy" : "npm i ; cd /srv/framework/current/; npm link /srv/emerging-citizens/current ; pm2 restart server.js -- emerging-citizens --env production"
     }
 
   }
