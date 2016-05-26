@@ -12,12 +12,12 @@
   "deploy" : {
     "production" : {
       "user": "node",
-      "host": "",
+      "host": "104.236.109.221",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
       "ref": "origin/master",
       "path": "/srv/emerging-citizens",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; grunt compile ; pm2 startOrRestart ecosystem.json --env production",
+      "post-deploy" : "npm install ; grunt compile --sites=emerging-citizens ; pm2 restart server.js -- emerging-citizens --env production",
       "env": {
         "NODE_ENV": "production"
       }
@@ -44,6 +44,16 @@
       "path": "/srv/emerging-citizens",
       "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
       "post-deploy" : "npm i ; cd /srv/framework/current/ ; pm2 restart server.js -- emerging-citizens --env staging"
+    },
+
+    "link-prod" : {
+      "user": "node",
+      "host": "104.236.109.221",
+      "repo": "git@github.com:engagementgamelab/emerging-citizens.git",
+      "ref": "origin/master",
+      "path": "/srv/emerging-citizens",
+      "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
+      "post-deploy" : "npm i ; cd /srv/framework/current/ ; pm2 restart server.js -- emerging-citizens --env production"
     }
 
   }
