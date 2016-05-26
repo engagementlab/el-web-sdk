@@ -18,6 +18,7 @@
     "tests"
   ],
   "dependencies": {
-    "glidejs": "^2.0.6"
+    "glidejs": "^2.0.6",
+    "isotope": "^3.0.0"
   }
 }
