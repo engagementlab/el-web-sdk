@@ -18,7 +18,7 @@
       "ref": "origin/master",
       "path": "/srv/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
-      "post-deploy" : "npm i ; npm link sites/elab ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart server.js -- engagement-lab-home,boston-civic-media --env staging",
+      "post-deploy" : "npm i ; npm link sites/elab ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart 0 --env staging",
       "env": {
         "NODE_ENV": "staging"
       }
@@ -32,7 +32,7 @@
       "ref": "origin/master",
       "path": "/srv/boston-civic-media",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm i ; cd /srv/website/current/; npm link /srv/boston-civic-media/current ; grunt compile --sites=engagement-lab-home,boston-civic-media  ; pm2 restart server.js -- engagement-lab-home,boston-civic-media --env staging",
+      "post-deploy" : "npm i ; cd /srv/website/current/; npm link /srv/boston-civic-media/current ; grunt compile --sites=engagement-lab-home,boston-civic-media  ; pm2 restart 0 --env staging",
       "env": {
         "NODE_ENV": "staging"
       }

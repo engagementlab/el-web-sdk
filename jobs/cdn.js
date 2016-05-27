@@ -34,7 +34,8 @@ for(var siteInd in sitesArr) {
 	    
 	    { 
 	    	public_id: folderName + '/' + filesArr[fileInd].substr(filesArr[fileInd].lastIndexOf('/') + 1),
-	    	resource_type: "raw" 
+	    	resource_type: "raw",
+	    	tags: [folderName]
 		  }
 	  );
 
