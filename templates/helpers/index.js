@@ -142,6 +142,9 @@ module.exports = function() {
             context = this;
         }
 
+        // Enable WebP image format where available
+        options.hash['fetch_format'] = 'auto';
+
         // safe guard to ensure context is never null
         context = context === null ? undefined : context;
 
