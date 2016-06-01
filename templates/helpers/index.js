@@ -156,6 +156,32 @@ module.exports = function() {
         }
     };
 
+    // ### CDN Asset Helper
+    // Retrieve latest url of a CDN asset
+    //
+    // *Usage examples:*
+    // `{{{cdnAsset site='my-site=module' type='js'}}}`
+    //
+    // Returns an src-string for a cloudinary resource
+
+    _helpers.cdnAsset = function(context, options) {
+        
+        if (!options && context.hasOwnProperty('hash')) {
+            // strategy is to place context kwargs into options
+            options = context;
+            // bind our default inherited scope into context
+            context = this;
+        }
+
+        if (options) {
+            var publicId = options.hash.site + '/production.' + options.hash.type;
+            var url = cloudinary.url(publicId, { resource_type: 'raw', secure: true });
+ 
+            return url;
+        }
+        
+    };
+
     // ### Content Url Helpers
     // KeystoneJS url handling so that the routes are in one place for easier
     // editing.  Should look at Django/Ghost which has an object layer to access
