@@ -32,3 +32,20 @@ imageLoaded = function(parentElem, callback) {
 	});
 
 };
+
+lastImageLoaded = function(parentElem, callback) {
+
+	parentElem.find('img').last().on('load', function() {
+
+		// Image loaded, callback fires
+		callback();
+
+	})
+	.each(function() {
+
+		// Force image to dispatch 'load' (cache workaround)
+	  if(this.complete) $(this).load();
+
+	});
+
+};
