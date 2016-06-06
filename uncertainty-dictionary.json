@@ -1,0 +1,43 @@
+{
+  "apps" : [{
+    "name": "Emerging Citizens",
+    "script": "server.js",
+    "env_production": {
+      "NODE_ENV": "production"
+    },
+    "env_staging": {
+      "NODE_ENV": "staging"
+    }
+  }],
+  "deploy" : {
+
+    "web" : {
+      "user": "node",
+      "host": "199.94.80.19",
+      "repo": "git@github.com:engagementgamelab/EL-Website.git",
+      "ref": "origin/master",
+      "path": "/srv/website",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
+      "post-deploy" : "npm i ; grunt compile --sites=uncertainty-dictionary ; pm2 restart 0 --env staging",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+    },
+    
+    "staging" : {
+    
+      "user": "node",
+      "host": "199.94.80.19",
+      "repo": "git@github.com:engagementgamelab/uncertainty-dictionary.git",
+      "ref": "origin/master",
+      "path": "/srv/uncertainty-dictionary",
+      "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
+      "post-deploy" : "npm i ; cd /srv/website/current/; npm link /srv/uncertainty-dictionary/current ; grunt compile --sites=uncertainty-dictionary  ; pm2 restart 0 --env staging",
+      "env": {
+        "NODE_ENV": "staging"
+      }
+
+    },
+
+  }
+}

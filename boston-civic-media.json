@@ -47,7 +47,7 @@
       "ref": "origin/master",
       "path": "/srv/boston-civic-media",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm i ; cd /srv/website/current/; npm link /srv/boston-civic-media/current ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart 0 --env production",
+      "post-deploy" : "npm i ; cd /srv/website/current/; npm link /srv/boston-civic-media/current ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart 'EL Website' --env production",
       "env": {
         "NODE_ENV": "staging"
       }
