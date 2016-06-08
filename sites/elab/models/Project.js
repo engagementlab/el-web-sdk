@@ -84,7 +84,8 @@ Project.add({
             type: Types.CloudinaryImage,
             label: 'Side Column Image (small)',
             folder: 'site/research/projects',
-            autoCleanup: true
+            autoCleanup: true,
+            note: 'Dimensions should be 360x360.'
         }
     },
 
