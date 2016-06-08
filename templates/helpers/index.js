@@ -524,7 +524,11 @@ module.exports = function() {
     //
     //  @str: The url
     _helpers.secureUrl = function(str) {
-        return str.replace('http://', 'https://');
+        
+        if(str !== undefined)
+            return str.replace('http://', 'https://');
+        else
+            return str;
     }
 
     return _helpers;
