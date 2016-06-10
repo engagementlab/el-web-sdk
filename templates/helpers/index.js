@@ -3,6 +3,7 @@ var _ = require('underscore');
 var hbs = require('handlebars');
 var cloudinary = require('cloudinary');
 var pluralize = require('pluralize');
+var randomNum = require('random-number');
 
 // Declare Constants
 var CLOUDINARY_HOST = 'http://res.cloudinary.com';
@@ -162,7 +163,7 @@ module.exports = function() {
     // *Usage examples:*
     // `{{{cdnAsset site='my-site=module' type='js'}}}`
     //
-    // Returns an src-string for a cloudinary resource
+    // Returns CDN asset url w/ random version # to flush cache
 
     _helpers.cdnAsset = function(context, options) {
         
@@ -175,7 +176,10 @@ module.exports = function() {
 
         if (options) {
             var publicId = options.hash.site + '/production.' + options.hash.type;
-            var url = cloudinary.url(publicId, { resource_type: 'raw', secure: true });
+            var random = randomNum({integer: true, min: 1000, max: 100000000});
+            
+            var url = cloudinary.url(publicId, { resource_type: 'raw', secure: true })
+                      .replace('v1', 'v'+random);
  
             return url;
         }
