@@ -17,7 +17,7 @@
       "ref": "origin/master",
       "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; grunt compile --sites=emerging-citizens ; pm2 restart server.js -- emerging-citizens --env production",
+      "post-deploy" : "npm install ; grunt compile --sites=emerging-citizens ; pm2 restart 0 -- emerging-citizens --env production",
       "env": {
         "NODE_ENV": "production"
       }
@@ -30,7 +30,7 @@
       "ref": "origin/master",
       "path": "/srv/framework",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.';",
-      "post-deploy" : "npm i ; grunt compile --sites=emerging-citizens ; pm2 restart server.js -- emerging-citizens --env staging",
+      "post-deploy" : "npm i ; grunt compile --sites=emerging-citizens ; pm2 restart 0 -- emerging-citizens --env staging",
       "env": {
         "NODE_ENV": "staging"
       }
@@ -43,7 +43,7 @@
       "ref": "origin/master",
       "path": "/srv/emerging-citizens",
       "pre-deploy-local" : "echo 'NPM linking emerging-citizens and restarting app.';",
-      "post-deploy" : "npm i ; cd /srv/framework/current/ ; pm2 restart server.js -- emerging-citizens --env staging"
+      "post-deploy" : "npm i ; cd /srv/framework/current/ ; pm2 restart 0 -- emerging-citizens --env staging"
     },
 
     "production" : {
