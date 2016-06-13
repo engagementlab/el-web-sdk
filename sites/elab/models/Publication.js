@@ -50,6 +50,16 @@ Publication.add({
 		label: 'Links to purchase book',
 		note: 'Must be in format "http://www.something.org"'
 	},
+	file: {
+		type: Types.AzureFile,
+		label: 'File',
+		filenameFormatter: function(item, filename) {
+			return item.key + require('path').extname(filename);
+		},
+		containerFormatter: function(item, filename) {
+			return 'elabpublication';
+		}
+	},
 
 	// This field is required in the save hook below instead of here as keystone dependsOn workaround
 	blurb: { type: Types.Textarea, label: 'Blurb Text', 
