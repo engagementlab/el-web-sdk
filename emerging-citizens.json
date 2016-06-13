@@ -10,7 +10,7 @@
     }
   }],
   "deploy" : {
-    "production" : {
+    "web-production" : {
       "user": "node",
       "host": "104.236.109.221",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
@@ -23,7 +23,7 @@
       }
     },
 
-    "staging" : {
+    "web-staging" : {
       "user": "node",
       "host": "159.203.174.12",
       "repo": "git@github.com:engagementgamelab/EL-Website.git",
@@ -36,7 +36,7 @@
       }
     },
 
-    "link" : {
+    "staging" : {
       "user": "node",
       "host": "159.203.174.12",
       "repo": "git@github.com:engagementgamelab/emerging-citizens.git",
@@ -46,7 +46,7 @@
       "post-deploy" : "npm i ; cd /srv/framework/current/ ; pm2 restart server.js -- emerging-citizens --env staging"
     },
 
-    "link-prod" : {
+    "production" : {
       "user": "node",
       "host": "104.236.109.221",
       "repo": "git@github.com:engagementgamelab/emerging-citizens.git",
