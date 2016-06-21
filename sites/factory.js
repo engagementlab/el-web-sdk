@@ -149,10 +149,11 @@
 		keystoneInst.set('nav', siteConfig.admin_nav);
 
 	var middleware = new FrameworkMiddleware();
-	if(siteConfig.allowed_domains !== undefined) {
-		// keystoneInst.set('allowed_domains', siteConfig.allowed_domains);
+	
+	if(siteConfig.allowed_domains !== undefined)
 		keystoneInst.pre('routes', middleware.urlWhitelist(siteConfig.allowed_domains));
-	}
+	else
+		keystoneInst.set('cors allow origin', true);
 
 	// Mount to '/' (root of virtual host's subdomain)
 	keystoneInst.mount('/', appInst, {
