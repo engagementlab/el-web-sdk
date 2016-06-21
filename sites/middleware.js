@@ -16,6 +16,8 @@ var FrameworkMiddleware = (function() {
 
 	 	return function(req, res, next) {
 
+	 		console.log('ORIGIN', req.headers.host)
+
 	    // Allow certain domains to frame site
 	    res.setHeader('Content-Security-Policy', 'frame-ancestors ' + domains.join(' '));
 	    res.setHeader('Access-Control-Allow-Origin', domains.join(' '));
