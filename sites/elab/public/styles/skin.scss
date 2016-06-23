@@ -242,7 +242,7 @@ fieldset[disabled] .btn-default {
 	&.focus,
 	&:active,
 	&.active,
-	.open > .dropdown-toggle& {
+	.open > .dropdown-toggle {
 		color: #ffffff;
 		background-color: $base-color-hover;
 		border-color: darken($base-color, 12%);
