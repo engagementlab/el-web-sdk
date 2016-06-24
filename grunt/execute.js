@@ -3,7 +3,24 @@ module.exports = function(grunt, options) {
 
   "use strict";
 
+  // Obtain sites this job is running for
   var sitesArg = grunt.option('sites');
+
+  // Obtain env to generate filename
+  var env = grunt.option('env');
+
+  if(env === undefined) {
+    
+    grunt.log.writeln('No env provided, checking NODE_ENV');
+    
+    if(process.env.NODE_ENV !== undefined)
+      env = process.env.NODE_ENV;
+    else {
+      grunt.log.subhead('No env provided, defaulting to production!');
+      env = 'production'
+    }
+
+  }
 
   var config = {
   	  
@@ -36,25 +53,15 @@ module.exports = function(grunt, options) {
       config['cloudinary']['options']['args'].push(
     		[
     			arrSites[ind],
-	        './node_modules/' + arrSites[ind] + '/public/release/production.js',
-	        './node_modules/' + arrSites[ind] + '/public/release/production.css'
+	        './node_modules/' + arrSites[ind] + '/public/release/' + env + '.js',
+	        './node_modules/' + arrSites[ind] + '/public/release/' + env + '.css'
         ]
       )
     
     }
 
   }
-/*  else
-  {
-      config['cloudinary']['options']['args'].push(
-
-      	arrSites[ind],
-        '../node_modules/' + arrSites[ind] + '/release/production.js',
-        '../node_modules/' + arrSites[ind] + '/release/production.css'
-
-      );
-  }
-*/
+  
 	return config;
 
 };

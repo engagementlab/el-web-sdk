@@ -166,22 +166,29 @@ module.exports = function() {
     // Returns CDN asset url w/ random version # to flush cache
 
     _helpers.cdnAsset = function(context, options) {
-        
         if (!options && context.hasOwnProperty('hash')) {
             // strategy is to place context kwargs into options
             options = context;
             // bind our default inherited scope into context
             context = this;
         }
-
+        
         if (options) {
-            var publicId = options.hash.site + '/production.' + options.hash.type;
+
+            var env = options.hash.env;
+
+            // Fallback to prod file
+            if(env === undefined)
+                env = 'production';
+
+            var publicId = [options.hash.site, '/', env, '.', options.hash.type].join('');
             var random = randomNum({integer: true, min: 1000, max: 100000000});
             
             var url = cloudinary.url(publicId, { resource_type: 'raw', secure: true })
                       .replace('v1', 'v'+random);
  
             return url;
+
         }
         
     };
