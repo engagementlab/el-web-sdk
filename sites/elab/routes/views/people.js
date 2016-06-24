@@ -41,6 +41,8 @@ exports = module.exports = function(req, res) {
             locals.team  = categorize(result, 'team');
             locals.fellows = categorize(result, 'fellows');
             locals.students = categorize(result, 'students');
+            locals.assistants = categorize(result, 'assistants');
+            locals.cmap = categorize(result, 'CMAP');
             locals.alumni = categorize(result, 'alumni');
 
             next(err);
