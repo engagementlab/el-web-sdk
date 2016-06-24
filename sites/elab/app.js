@@ -16,7 +16,7 @@ module.exports = function(frameworkDir, shared) {
 
 	// Add main dependencies and EL web framework dependencies if not mounted with EL framework API
 	// if(!shared) {
-		// require('app-module-path').addPath(__dirname + '/node_modules'); 
+		require('app-module-path').addPath(__dirname + '/node_modules'); 
 		require('app-module-path').addPath(frameworkDir + '/node_modules'); 
 	// }
 	
