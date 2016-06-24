@@ -5,14 +5,12 @@
  * Developed by Engagement Lab, 2015
  * ==============
  * 
- * Project Page Template 
- * - See Project model for fields
+ * People Page Template 
+ * - See People model for fields
  * - Use {{jsonPrint project}} to print entire json...DEBUG ONLY
  * ==========
  */
 --}}
-
-<!-- TEAM START -->
 
 <!-- main-container start -->
 <!-- ================ -->
@@ -21,15 +19,9 @@
 	<div class="container-fluid">
 		<div class="row">
 
-			<!-- main start -->
-			<!-- ================ -->
 			<div class="main col-md-12">
 
-				<!-- page-title start -->
-				<!-- ================ -->
 				<h1 class="page-title text-center">Our Team</h1>
-				<!-- page-title end -->
-
 
 				<h3 class="text-center pv-30">Leadership</h3>
 				<div class="row grid-space-10 team-row1">
@@ -55,38 +47,40 @@
 				<h3 class="text-center pv-30">Faculty Fellows</h3>
 				<div class="row grid-space-10 team-row3">
 
-					{{!-- Show assistants --}}
+					{{!-- Show fellows --}}
 					{{#each fellows}}
 						{{> people/person person=this}}
 					{{/each}}
 
 				</div>
+				
+				{{#if cmap}}
+					<div class="separator-4"></div>
+					<h3 class="text-center pv-30">CMAP Students</h3>
+					<div class="row grid-space-10 team-row4">
 
-				<div class="separator-4"></div>
-				<h3 class="text-center pv-30">CMAP Students</h3>
-				<div class="row grid-space-10 team-row4">
+						{{!-- Show cmap students --}}
+						{{#each cmap}}
+							{{> people/person person=this}}
+						{{/each}}
 
-					{{!-- Show fellows --}}
-					{{#each cmap}}
-						{{> people/person person=this}}
-					{{/each}}
+					</div>
+				{{/if}}
 
-				</div>
 
-				<div class="separator-4"></div>
-				<h3 class="text-center pv-30">Lab Assistants</h3>
-				<div class="row grid-space-10 team-row4">
+				{{#if assistants}}
+					<div class="separator-4"></div>
+					<h3 class="text-center pv-30">Lab Assistants</h3>
+					<div class="row grid-space-10 team-row4">
 
-					{{!-- Show fellows --}}
-					{{#each assistants}}
-						{{> people/person person=this}}
-					{{/each}}
+						{{!-- Show lab assistants --}}
+						{{#each assistants}}
+							{{> people/person person=this}}
+						{{/each}}
 
-				</div>
-			<!-- main end -->
+					</div>
+				{{/if}}
 				
 		</div>
 	</div>
 </section>
-
-<!-- main-container end -->
