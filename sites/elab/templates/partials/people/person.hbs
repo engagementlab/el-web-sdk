@@ -19,7 +19,13 @@
 			
 			<div class="body">
 				<h3 class="margin-clear theme-primary">{{person.name.first}} {{person.name.last}}</h3>
-				<p>{{person.title}}</p>
+				
+				{{#if person.title}}
+					<p>{{person.title}}</p>
+				{{/if}}
+				{{#if person.cohort}}
+					<p>{{person.cohort}}</p>
+				{{/if}}
 			</div>
 		</a>
 

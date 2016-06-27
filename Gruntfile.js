@@ -106,6 +106,7 @@ module.exports = function(grunt) {
 		'confirm:restore',
 		'mongobin:restore'
 	]);
+	
 	// Copies backed up data
 	grunt.registerTask('copydata', [
 		'sftp:backup'
