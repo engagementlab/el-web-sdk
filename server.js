@@ -9,7 +9,7 @@
  *		===	Site Bootstrapping Framework ===
  *
  */
-if(process.env.NODE_ENV !== 'development')
+if(process.env.NODE_ENV && process.env.NODE_ENV !== 'development')
 	require('newrelic');
 
 var app = require('./app')();
