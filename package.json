@@ -26,6 +26,7 @@
     "moment": "^2.10.6",
     "mongoose-redis-cache": "0.0.3",
     "mongoose-validator": "^1.2.4",
+    "newrelic": "^1.28.2",
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.7",
     "nodemon": "^1.9.2",
