@@ -130,7 +130,6 @@ module.exports = function() {
     // `{{#each images}} {{cloudinaryUrl width=640 height=480}} {{/each}}`
     //
     // Returns an src-string for a cloudinary image
-
     _helpers.cloudinaryUrl = function(context, options) {
 
         // if we dont pass in a context and just kwargs
@@ -152,10 +151,14 @@ module.exports = function() {
         if ((context) && (context.public_id)) {
             var imageName = context.public_id.concat('.', context.format);
             return cloudinary.url(imageName, options.hash).replace('http', 'https');
-        } else {
-            return null;
+        } else if(typeof(context) === 'string') {
+            return cloudinary.image(context, options.hash).replace('http', 'https');
         }
     };
+
+    _helpers.cloudinaryImg = function(context, options) {
+        return _helpers.cloudinaryUrl(context, options);
+    }
 
     // ### CDN Asset Helper
     // Retrieve latest url of a CDN asset
