@@ -77,7 +77,7 @@ html, body, .container {
 
 .separator-4, .separator-5 {
   width: 100%;
-  margin: 10px auto 10px;
+  margin: 10px auto 30px;
   position: relative;
   height: 3px;
   -webkit-backface-visibility: hidden;
@@ -444,6 +444,18 @@ ul.resources {
   }
 }
 
+/* PERSON */
+.person-bio-left{
+  margin-top:20px;
+}
+#person_category {
+  text-align: center;
+  padding-bottom: 5%;
+}
+.glide__arrows.people {
+  top:25%;
+}
+
 /* PEOPLE */
 .team-member {
   cursor: pointer;
@@ -496,6 +508,7 @@ section.publications .subSection {
 .book-box {
   height: 480px;
   text-align: center;
+  @include scaleXY(0.9, 0.9);
   @include transition(all 0.5s ease);
 
   img {
@@ -511,10 +524,15 @@ section.publications .subSection {
   }
 }
 .book-box:hover {
-  @include scaleXY(1.02, 1.02);
+  @include scaleXY(1.00, 1.00);
   img {
-    @include scaleXY(1.03, 1.03);
+    @include scaleXY(1.01, 1.01);
   }
+}
+
+.listing {
+  width: 80%;
+  float: left;
 }
 
 /* NEWS */
@@ -662,10 +680,12 @@ ul.twitter-feed {
 }
 
 .project-box {
+  @include scaleXY(0.9, 0.9);
   .body {
     padding-left: 0;
     padding-right: 0;
-    margin-bottom: 20px;
+    margin: 20px auto;
+
   }
 }
 
@@ -680,9 +700,9 @@ a .project-box {
 }
 
 .project-box:hover {
-  @include scaleXY(1.02, 1.02);
+  @include scaleXY(1.00, 1.00);
   img {
-    @include scaleXY(1.05, 1.05);
+    @include scaleXY(1.02, 1.02);
   }
 }
 

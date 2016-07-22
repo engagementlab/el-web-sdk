@@ -1,15 +1,16 @@
 .logos-footer {
+	margin-top:3%;
+
 	#logo {
 		width: 96px;
 	}
 	#logo-emerson {
 		max-width: 400px;
-		img { margin-right: 2em; }
+		margin-left:2em;
 	}
 	img {
 		display: initial;
 		opacity: 0.5;
-		margin-left: 2em;
 		margin-bottom: 1em;
 	}
 }
@@ -17,6 +18,5 @@
 @media (max-width: 768px) {
 	.logos-footer {
 		#logo-emerson { max-width: 240px; }
-		img { margin-left: 0; }
 	}
 }
