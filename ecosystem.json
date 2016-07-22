@@ -17,7 +17,7 @@
       "ref": "origin/master",
       "path": "/srv/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; npm link /srv/website/current/sites/elab ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart 'EL Website' --env production",
+      "post-deploy" : "npm install ; npm link /srv/website/current/sites/elab ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart 'server' --env production",
       "env": {
         "NODE_ENV": "production"
       }
