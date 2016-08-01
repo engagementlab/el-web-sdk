@@ -1,6 +1,6 @@
-# Engagement Lab Website Framework
+ brew cask install macdown.# Engagement Lab Website Framework
 [![Code Climate](https://codeclimate.com/github/engagementgamelab/EL-Website/badges/gpa.svg)](https://codeclimate.com/github/engagementgamelab/EL-Website)
-[![Dependency Status](https://david-dm.org/engagementgamelab/EL-Webite.svg)](https://david-dm.org/engagementgamelab/EL-Website)
+[![Dependency Status](https://david-dm.org/engagementgamelab/EL-Webite/status.svg)](https://david-dm.org/engagementgamelab/EL-Website)
 
 The Engagement Lab's CMS-driven website framework.
 
@@ -51,10 +51,10 @@ git clone https://github.com/engagementgamelab/EL-Website.git
 cd EL-Website
 ```
 
-Get node v0.12.7:
+Get node v4.4.2:
 
 ```
-nvm install 0.12.7
+nvm install 4.4.2
 ```
 
 Install packages:
@@ -134,6 +134,20 @@ As noted in express's "[Production best practices](http://expressjs.com/en/advan
 I highly recommend using [nginx](https://www.nginx.com/resources/admin-guide/installing-nginx-open-source/) since it's lightweight and absurdly fast. 
 
 I have created a sample nginx site config [here](https://github.com/engagementgamelab/EL-Website/wiki/Sample-nginx-configuration).
+
+## SSL using Lets Encrypt
+
+All of our production-level sites use Lets Encrypt for SSL certification. Please see [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04) for a summary of how this is configured in nginx.
+
+You can also see how this is configured to use SSL certs in the example nginx site config above, noting that you will also need a directory with root-access called ``/tmp/letsencrypt-auto`` and a location rule for ``"/.well-known/acme-challenge"`` that uses that dir as its root.
+
+_Important_: you will need to setup a cron job such as the one below to keep certificates from expiring. MAKE SURE you test the command to ensure it will run properly. ***Certificate expiration will cause downtime.***
+
+```
+# SSL auto-renew check (every Monday 2:30am)
+30 2 * * 1 /opt/letsencrypt/letsencrypt-auto renew --webroot --webroot-path=/tmp/letsencrypt-auto >> /var/log/le-renew.log
+35 2 * * 1 /etc/init.d/nginx reload
+```
 
 ## pm2
 
