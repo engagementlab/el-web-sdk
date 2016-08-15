@@ -24,22 +24,22 @@ module.exports = function(grunt, options) {
 
   var config = {
   	  
-  	  news: {
-  	    src: ['jobs/news.js']
-  	  },
-  	
-  	  readme: {
-  	    src: ['jobs/readme.js']
-  	  },
-  	
-  	  cloudinary: {
-  	  	options: {
-  	  		args: []
-  	  	},
-  	    src: ['jobs/cdn.js']
-  	  }
-  	
-  	};
+	  news: {
+	    src: ['jobs/news.js']
+	  },
+	
+	  readme: {
+	    src: ['jobs/readme.js']
+	  },
+	
+	  cloudinary: {
+	  	options: {
+	  		args: []
+	  	},
+	    src: ['jobs/cdn.js']
+	  }
+	
+	};
 
   // Use site modules arg only if defined
   if(sitesArg !== undefined) {

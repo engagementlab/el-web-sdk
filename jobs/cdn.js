@@ -15,17 +15,16 @@ var cloudinary = require('cloudinary');
 
 var sitesArr = process.argv.slice(2, process.argv.length);
 
-// console.log(sitesArr)
-
 for(var siteInd in sitesArr) {
 
-	var files = sitesArr[siteInd].split(',');
-	var filesArr = files.slice(1, sitesArr[siteInd].length);
-	var folderName = files[0];
+	let files = sitesArr[siteInd].split(',');
+	let filesArr = files.slice(1, sitesArr[siteInd].length);
+	let folderName = files[0];
 
 	for(var fileInd in filesArr) {
 
 		cloudinary.uploader.upload(
+
 			filesArr[fileInd], 
 	    
 	    function(result) { 
@@ -38,6 +37,7 @@ for(var siteInd in sitesArr) {
 	    	tags: [folderName],
 	    	invalidate: true
 		  }
+	  
 	  );
 
 	}
