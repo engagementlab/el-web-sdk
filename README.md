@@ -1,4 +1,4 @@
-# Engagement Lab Website Framework
+ brew cask install macdown.# Engagement Lab Website Framework
 [![Code Climate](https://codeclimate.com/github/engagementgamelab/EL-Website/badges/gpa.svg)](https://codeclimate.com/github/engagementgamelab/EL-Website)
 [![Dependency Status](https://david-dm.org/engagementgamelab/EL-Webite/status.svg)](https://david-dm.org/engagementgamelab/EL-Website)
 

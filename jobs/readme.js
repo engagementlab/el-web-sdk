@@ -11,7 +11,7 @@
  * @name jobs/readme
  * @see https://github.com/cbou/markdox
  */
-'use strict'
+'use strict';
 var markdox = require('markdox');
 
 var files = ['server.js', 'sites/config.js', 'sites/factory.js', 'jobs/news.js', 'jobs/readme.js', 'Gruntfile.js'];

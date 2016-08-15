@@ -16,6 +16,8 @@
  * @class Jobs
  * @name jobs/news
  */
+'use strict';
+
 require('dotenv').load();
 var _ = require('underscore');
 

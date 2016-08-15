@@ -10,6 +10,8 @@
  * @class Jobs
  * @name jobs/cdn
  */
+'use strict';
+
 require('dotenv').load();
 var cloudinary = require('cloudinary');
 
