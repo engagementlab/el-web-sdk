@@ -181,7 +181,7 @@ module.exports = function() {
             var env = options.hash.env;
 
             // Fallback to prod file
-            if(env === undefined)
+            if(!env)
                 env = 'production';
 
             var publicId = [options.hash.site, '/', env, '.', options.hash.type].join('');
