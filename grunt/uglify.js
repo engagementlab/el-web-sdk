@@ -37,7 +37,7 @@ module.exports = function(grunt, options) {
   };
 
   // Use site modules arg only if defined
-  if(sitesArg !== undefined) {
+  if(sitesArg) {
 
     // Site are a comma-sep list
     var arrSites = sitesArg.replace('--sites=', '').split(',');
@@ -61,6 +61,6 @@ module.exports = function(grunt, options) {
 
   }
 
-  return {'sites': sites, 'core': core};
+  return {'core': core};
 
 };
