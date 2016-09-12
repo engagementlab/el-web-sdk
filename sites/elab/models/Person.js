@@ -37,7 +37,7 @@ Person.add({
 	name: { type: Types.Name, label: 'Name', required: true, initial: true, index: true },
 
 	title: { type: String, label: 'Title',
-		dependsOn: { category: ['leadership', 'team', 'faculty fellows', 'CMAP'] }, initial: true },
+		dependsOn: { category: ['leadership', 'team', 'faculty fellows', 'CMAP', 'lab assistants'] }, initial: true },
 	cohort: { type: String, label: 'Cohort Year',
 		dependsOn: { category: 'CMAP' }, initial: true },
 
