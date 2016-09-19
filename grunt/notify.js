@@ -1,6 +1,5 @@
 module.exports = {
 
-
     deploy_prod: {
       options: {
         message: 'Production deploy!'

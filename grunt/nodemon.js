@@ -9,9 +9,10 @@ module.exports = function(grunt, options) {
 	ignoreFilter.push('node_modules/.bin/');
 
 	// Use site modules arg only if defined
-	if(sitesArg !== undefined) {
+	if(sitesArg) {
 		
 		siteModules = ['--sites=' + sitesArg];
+		
 		// Site are a comma-sep list
 		var arrSites = sitesArg.replace('--sites=', '').split(',');
 

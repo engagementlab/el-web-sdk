@@ -158,7 +158,7 @@ module.exports = function(grunt) {
 			'pm2deploy'
 		];
 
-	  if(target === undefined)
+	  if(!target)
 	    grunt.fatal('Must specify --target=staging|production');
 
 	  // Set task deployment target
@@ -166,9 +166,8 @@ module.exports = function(grunt) {
 	  	return task + ':' + target;
 		});
 
-
 	  // Version needs to be bumped first after confirming, unlesss skipped or staging deploy
-		if(skipVersion === undefined && target !== 'staging') {
+		if(!skipVersion && target !== 'staging') {
 			tasks.push('bump');
 			tasks.push('notify:deploy_prod');
 		}
