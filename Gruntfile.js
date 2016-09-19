@@ -167,14 +167,17 @@ module.exports = function(grunt) {
 		});
 
 	  // Version needs to be bumped first after confirming, unlesss skipped or staging deploy
-		if(!skipVersion && target !== 'staging') {
-			tasks.push('bump');
-			tasks.push('notify:deploy_prod');
+		if(!skipVersion) {
+			tasks.push('bump:'+'target');
 		}
 		else {
 			grunt.log.writeln("Skipping 'bump' task.");
-			tasks.push('notify:deploy_staging');
 		}
+
+		if(target === 'staging')
+			tasks.push('notify:deploy_staging');
+		else
+			tasks.push('notify:deploy_prod');
 
 	  grunt.task.run.apply(grunt.task, tasks);
 
