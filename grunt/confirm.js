@@ -21,15 +21,15 @@ module.exports = function(grunt, options) {
       input: '_key:y'
     }
   },
-  web-staging = {
+  web_staging = {
     options: { 
-      question: "You are about to deploy the master branch HEAD for the main 'EL Web' repo to '" + sitesArg + "''s staging server. This will cause a reboot.\n\nAre you sure?",
+      question: "You are about to deploy the master branch HEAD for the main 'EL Web' repo to " + sitesArg + "'s staging server. This will cause a reboot.\n\nAre you sure?",
       input: '_key:y'
     }
   },
-  web-production = {
+  web_production = {
     options: { 
-      question: "You are about to deploy the master branch HEAD for the main 'EL Web' repo to '" + sitesArg + "''s production server. This will cause a reboot.\n\nAre you sure?",
+      question: "You are about to deploy the master branch HEAD for the main 'EL Web' repo to " + sitesArg + "'s production server. This will cause a reboot.\n\nAre you sure?",
       input: '_key:y'
     }
   };
@@ -38,6 +38,8 @@ module.exports = function(grunt, options) {
     'restore': restore,
     'production': production,
     'staging': staging,
+    'web-production': web_production,
+    'web-staging': web_staging
   }
 
 };
