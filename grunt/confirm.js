@@ -17,7 +17,19 @@ module.exports = function(grunt, options) {
   },
   staging = {
     options: { 
-      question: "You are about to deploy the master branch HEAD for repo '" + sitesArg + "' to the staging server.\n\nAre you sure?",
+      question: "You are about to deploy the master branch HEAD for repo '" + sitesArg + "' to the staging server. This will cause a reboot.\n\nAre you sure?",
+      input: '_key:y'
+    }
+  },
+  web-staging = {
+    options: { 
+      question: "You are about to deploy the master branch HEAD for the main 'EL Web' repo to '" + sitesArg + "''s staging server. This will cause a reboot.\n\nAre you sure?",
+      input: '_key:y'
+    }
+  },
+  web-production = {
+    options: { 
+      question: "You are about to deploy the master branch HEAD for the main 'EL Web' repo to '" + sitesArg + "''s production server. This will cause a reboot.\n\nAre you sure?",
       input: '_key:y'
     }
   };
