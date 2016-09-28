@@ -164,14 +164,15 @@ module.exports = function() {
     // Retrieve latest url of a CDN asset
     //
     // *Usage examples:*
-    // `{{{cdnAsset site='my-site=module' type='js'}}}`
+    // `{{{cdnAsset product='my-site=module' type='js'}}}`
     //
-    // Returns CDN asset url w/ random version # to flush cache
-
+    // Returns CDN asset url (w/ random version # to flush cache if missing path)
     _helpers.cdnAsset = function(context, options) {
+
         if (!options && context.hasOwnProperty('hash')) {
-            // strategy is to place context kwargs into options
+            // place context kwargs into options
             options = context;
+            
             // bind our default inherited scope into context
             context = this;
         }
@@ -184,12 +185,24 @@ module.exports = function() {
             if(!env)
                 env = 'production';
 
-            var publicId = [options.hash.site, '/', env, '.', options.hash.type].join('');
-            var random = randomNum({integer: true, min: 1000, max: 100000000});
+            var publicId;
+            var url;
+
+            // Get file URL either by entire path, or just by product and environment
+            if(options.hash.path) {
+                publicId = [options.hash.product, '/', options.hash.path, '.', options.hash.type].join('');
+                url = cloudinary.url(publicId, { resource_type: 'raw', secure: true });
+            }
+            else {
+                publicId = [options.hash.product, '/', env, '.', options.hash.type].join('');
+
+                // Randomize file version to force flush of cache
+                var random = randomNum({integer: true, min: 1000, max: 100000000});
+                
+                url = cloudinary.url(publicId, { resource_type: 'raw', secure: true })
+                          .replace('v1', 'v'+random);
+            }
             
-            var url = cloudinary.url(publicId, { resource_type: 'raw', secure: true })
-                      .replace('v1', 'v'+random);
- 
             return url;
 
         }
