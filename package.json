@@ -42,9 +42,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "browserify": "^13.1.0",
     "chai": "^3.5.0",
-    "coffeeify": "^2.0.1",
     "core-util-is": "^1.0.2",
     "expect.js": "^0.3.1",
     "fstream": "^1.0.8",
