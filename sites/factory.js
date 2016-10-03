@@ -35,7 +35,7 @@
 
  	// Load handlebars and our helpers
 	var handlebars = require('express-handlebars'),
-			coreHelpers = require('../templates/helpers')(),
+			coreHelpers = require('../public/js/helpers'),
 			moduleHelpers = require(moduleRoot + 'templates/helpers')();
 
 	// Merge core and module helpers if former is defined
