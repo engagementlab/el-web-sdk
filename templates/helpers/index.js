@@ -351,11 +351,11 @@ module.exports = function() {
     //  @obj: The data object to print
     //
     //  *Usage example:*
-    //  `{{jsonPrint data}}
+    //  {{{jsonPrint data}}}
 
     _helpers.jsonPrint = function(obj) {
 
-        return JSON.stringify(obj, null, 2);
+        return '<div style="background:white">' + JSON.stringify(obj, null, 2) + '</div>';
     }
 
     //  ### href link helper
