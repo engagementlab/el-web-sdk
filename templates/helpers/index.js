@@ -14,7 +14,6 @@ var scriptTemplate = _.template('<script src="<%= src %>"></script>');
 var cssLinkTemplate = _.template('<link href="<%= href %>" rel="stylesheet">');
 var cloudinaryUrlLimit = _.template(CLOUDINARY_HOST + '/<%= cloudinaryUser %>/image/upload/c_limit,f_auto,h_<%= height %>,w_<%= width %>/<%= publicId %>.jpg');
 
-
 module.exports = function() {
 
     var _helpers = {};
@@ -72,13 +71,7 @@ module.exports = function() {
     };
 
     // Used to generate the link for the admin edit post button
-/*    _helpers.adminEditableUrl = function(user, options) {
-        var rtn = keystone.app.locals.editable(user, {
-            'list': 'Post',
-            'id': options
-        });
-        return rtn;
-    };*/
+
 
     // ### Date Helper
     // A port of the Ghost Date formatter similar to the keystonejs - jade interface
