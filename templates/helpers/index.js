@@ -180,11 +180,15 @@ module.exports = function() {
 
             var publicId;
             var url;
+            var type = options.hash.fetch ? options.hash.fetch : 'raw';
 
             // Get file URL either by entire path, or just by product and environment
             if(options.hash.path) {
                 publicId = [options.hash.product, '/', options.hash.path, '.', options.hash.type].join('');
-                url = cloudinary.url(publicId, { resource_type: 'raw', secure: true });
+                
+                url = cloudinary.url(publicId, { resource_type: type, secure: true });
+
+                console.log(url)
             }
             else {
                 publicId = [options.hash.product, '/', env, '.', options.hash.type].join('');
@@ -192,8 +196,10 @@ module.exports = function() {
                 // Randomize file version to force flush of cache
                 var random = randomNum({integer: true, min: 1000, max: 100000000});
                 
-                url = cloudinary.url(publicId, { resource_type: 'raw', secure: true })
+                url = cloudinary.url(publicId, { resource_type: type, secure: true })
                           .replace('v1', 'v'+random);
+
+                console.log(url)
             }
             
             return url;
