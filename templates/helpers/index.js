@@ -187,8 +187,6 @@ module.exports = function() {
                 publicId = [options.hash.product, '/', options.hash.path, '.', options.hash.type].join('');
                 
                 url = cloudinary.url(publicId, { resource_type: type, secure: true });
-
-                console.log(url)
             }
             else {
                 publicId = [options.hash.product, '/', env, '.', options.hash.type].join('');
@@ -198,8 +196,6 @@ module.exports = function() {
                 
                 url = cloudinary.url(publicId, { resource_type: type, secure: true })
                           .replace('v1', 'v'+random);
-
-                console.log(url)
             }
             
             return url;
