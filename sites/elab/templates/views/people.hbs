@@ -23,7 +23,7 @@
 
 				<h1 class="page-title text-center">Our Team</h1>
 
-				<h3 class="text-center pv-30">Leadership</h3>
+				<h3 class="text-center pv-30">Faculty Leadership</h3>
 				<div class="row grid-space-10 team-row1">
 						{{!-- Show leadership --}}
 						{{#each leadership}}
@@ -33,11 +33,22 @@
 				</div>
 
 				<div class="separator-4"></div>
-				<h3 class="text-center pv-30">Team</h3>
+				<h3 class="text-center pv-30">Advisory Board</h3>
 				<div class="row grid-space-10 team-row2">
 
 					{{!-- Show lab team --}}
-					{{#each team}}
+					{{#each board}}
+						{{> people/person person=this}}
+					{{/each}}
+
+				</div>
+
+				<div class="separator-4"></div>
+				<h3 class="text-center pv-30">Staff</h3>
+				<div class="row grid-space-10 team-row3">
+
+					{{!-- Show lab team --}}
+					{{#each staff}}
 						{{> people/person person=this}}
 					{{/each}}
 
@@ -45,7 +56,7 @@
 
 				<div class="separator-4"></div>
 				<h3 class="text-center pv-30">Faculty Fellows</h3>
-				<div class="row grid-space-10 team-row3">
+				<div class="row grid-space-10 team-row4">
 
 					{{!-- Show fellows --}}
 					{{#each fellows}}
@@ -57,7 +68,7 @@
 				{{#if cmap}}
 					<div class="separator-4"></div>
 					<h3 class="text-center pv-30">CMAP Students</h3>
-					<div class="row grid-space-10 team-row4">
+					<div class="row grid-space-10 team-row5">
 
 						{{!-- Show cmap students --}}
 						{{#each cmap}}
@@ -71,7 +82,7 @@
 				{{#if labassistants}}
 					<div class="separator-4"></div>
 					<h3 class="text-center pv-30">Lab Assistants</h3>
-					<div class="row grid-space-10 team-row4">
+					<div class="row grid-space-10 team-row6">
 
 						{{!-- Show lab assistants --}}
 						{{#each labassistants}}

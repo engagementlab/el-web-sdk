@@ -5,7 +5,7 @@
 	"allowed_domains": ["www.riskhorizon.org", "boston.communityplanit.org", "www.civicmediaproject.com", "civicmediaproject.com", "www.civicmediaproject.net", "civicmediaproject.net"],
 	"admin_nav": { 
 									"projects": ["projects", "publications"],
-									"programs": "programs",
+									"programs": ["programs", "Cmap"],
 									"shared": ["resources"],
 									"about": ["About", "partners", "Academics", "people", "jobs"],
 									"structure": ["directories", "subdirectories", "users"],

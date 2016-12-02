@@ -37,15 +37,15 @@ Person.add({
 	name: { type: Types.Name, label: 'Name', required: true, initial: true, index: true },
 
 	title: { type: String, label: 'Title',
-		dependsOn: { category: ['leadership', 'team', 'faculty fellows', 'CMAP', 'lab assistants'] }, initial: true },
-	cohort: { type: String, label: 'Cohort Year',
-		dependsOn: { category: 'CMAP' }, initial: true },
+		dependsOn: { category: ['leadership', 'team', 'faculty fellows', 'lab assistants'] }, initial: true },
+	cohort: { type: String, label: 'Year(s)',
+		dependsOn: { category: ['CMAP', 'advisory board'] }, initial: true },
 
 	bio: { type: Types.Markdown, label: 'Bio', required: true, initial: true },
 	image: { type: Types.CloudinaryImage, label: 'Image', folder: 'site/team', note: 'Must be in square format. Will display as 192px by 192px.' },
 	cmapPerson: { type: Types.Boolean, label: 'Show on CMAP page' },
   
-  category: { type: Types.Select, options: 'leadership, team, faculty fellows, CMAP, lab assistants', default: 'team', required: true, initial: true },
+  category: { type: Types.Select, options: 'faculty leadership, advisory board, staff, faculty fellows, CMAP, lab assistants', default: 'team', required: true, initial: true },
 	twitterURL: { type: Types.Url, label: 'Twitter' },	
 	fbURL: { type: Types.Url, label: 'Facebook' },	
 	linkedInURL: { type: Types.Url, label: 'LinkedIn' },	

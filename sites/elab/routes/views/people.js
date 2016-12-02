@@ -37,10 +37,10 @@ exports = module.exports = function(req, res) {
         // Setup the locals to be used inside view
         q.exec(function(err, result) {
 
-            locals.leadership = categorize(result, 'leadership');
-            locals.team  = categorize(result, 'team');
+            locals.leadership = categorize(result, 'faculty leadership');
+            locals.staff  = categorize(result, 'staff');
             locals.fellows = categorize(result, 'faculty fellows');
-            // locals.students = categorize(result, 'students');
+            locals.board = categorize(result, 'advisory board');
             locals.labassistants = categorize(result, 'lab assistants');
             locals.cmap = categorize(result, 'CMAP');
             locals.alumni = categorize(result, 'alumni');
