@@ -10,6 +10,7 @@
 		<script src="https://elab.emerson.edu/static/riskhorizon/js/jquery.poptrox.min.js"></script>
 		<script src="https://elab.emerson.edu/static/riskhorizon/js/skel.min.js"></script>
 		<script src="https://elab.emerson.edu/static/riskhorizon/js/init.js"></script>
+		<script type="text/javascript" src="/static/riskhorizon/swfobject.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="https://elab.emerson.edu/static/riskhorizon/css/skel-noscript.css" />
 			<link rel="stylesheet" href="https://elab.emerson.edu/static/riskhorizon/css/style.css" />
@@ -91,14 +92,46 @@
 				</style>
 				
 				<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-				<script type="text/javascript" src="https://elab.emerson.edu/static/riskhorizon/swfobject.js"></script>
 				<script type="text/javascript">
 					swfobject.registerObject("unityPlayer", "11.0.0");
+
+					// swfobject.embedSWF("https://elab.emerson.edu/static/riskhorizon/RH_Beta_062814.swf", "embed", 768, 576, 10);
 				</script>
 
-				<iframe src="https://engagementlab.itch.io/risk-horizon"
-                 width="100%" height="610" frameBorder="0" seamless="seamless" scrolling="no"></iframe>
-
+	<div id="contentgame">
+						<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="768" height="576" id="unityPlayer">
+							<param name="movie" value="https://elab.emerson.edu/static/riskhorizon/RH_Beta_062814.swf" />
+							<param name="scale" value="noscale" />
+							<param name="wmode" value="direct" />
+							<param name="bgcolor" value="#ffffff" />
+							<param name="devicefont" value="false" />
+							<param name="swliveconnect" value="false" />
+							<param name="allowfullscreen" value="true" />
+							<param name="allowscriptaccess" value="always" />
+							<param name="allownetworking" value="all" />
+							<param name="menu" value="false"/>
+							<param name="flashvars" value="unitydebug=false&amp;deeptrace=false" />
+							<!--[if !IE]>-->
+							<object type="application/x-shockwave-flash" data="https://elab.emerson.edu/static/riskhorizon/RH_Beta_062814.swf" width="768" height="576">
+								<param name="scale" value="noscale" />
+								<param name="wmode" value="direct" />
+								<param name="bgcolor" value="#ffffff" />
+								<param name="devicefont" value="false" />
+								<param name="swliveconnect" value="false" />
+								<param name="allowfullscreen" value="true" />
+								<param name="allowscriptaccess" value="always" />
+								<param name="allownetworking" value="all" />
+								<param name="menu" value="false"/>
+								<param name="flashvars" value="unitydebug=false&amp;deeptrace=false" />
+							<!--<![endif]-->
+								<a href="http://www.adobe.com/go/getflashplayer">
+									<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+								</a>
+							<!--[if !IE]>-->
+							</object>
+							<!--<![endif]-->
+						</object>
+					</div>
 
 			</section>
 				
