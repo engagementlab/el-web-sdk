@@ -19,9 +19,9 @@ var sitesArr = process.argv.slice(2, process.argv.length);
 
 for(var siteInd in sitesArr) {
 
-	let files = sitesArr[siteInd].split(',');
-	let filesArr = files.slice(1, sitesArr[siteInd].length);
-	let folderName = files[0];
+	var files = sitesArr[siteInd].split(',');
+	var filesArr = files.slice(1, sitesArr[siteInd].length);
+	var folderName = files[0];
 
 	for(var fileInd in filesArr) {
 
