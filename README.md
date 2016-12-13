@@ -82,9 +82,11 @@ open .env
 Then paste in the following content:
 ```
 NODE_ENV=development
+ROOT_DOMAIN=localhost
 KEYSTONE_DEV=true npm start
 COOKIE_SECRET=5@[,CNwnN#03d!yV|.HnRF*10>]yo%PdI]zXoOBSb-mVB.O`Z*f/Akq%{Rhq37Mh
 ```
+The root domain determines the site your local server will load at, and localhost is generally what people call this. So your site would load at 'localhost:3000' as described below. 
 
 There is additional required config you will need for this file, but it contains confidential auth keys, so you'll find it only in the Google Doc 'Server Config' in the Lab's shared folder 'Master Projects/Website/Development'.
 
