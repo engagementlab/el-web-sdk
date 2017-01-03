@@ -1,7 +1,7 @@
 {
   "apps" : [{
     "name": "EL Website",
-    "script": "server.js --sites=engagement-lab-home,boston-civic-media",
+    "script": "server.js --sites=engagement-lab-home,boston-civic-media,city-accelerator-website",
     "env_production": {
       "NODE_ENV": "production"
     },
@@ -17,7 +17,7 @@
       "ref": "origin/master",
       "path": "/srv/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; npm link /srv/website/current/sites/elab ; grunt compile --sites=engagement-lab-home,boston-civic-media ; pm2 restart 'server' --env production",
+      "post-deploy" : "npm install ; npm link /srv/website/current/sites/elab ; grunt compile --sites=engagement-lab-home ; pm2 restart 'server' --env production",
       "env": {
         "NODE_ENV": "production"
       }
@@ -30,7 +30,7 @@
       "ref": "origin/master",
       "path": "/srv/website",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
-      "post-deploy" : "npm install ; grunt compile ; pm2 start server.js -- engagement-lab-home,boston-civic-media --env staging",
+      "post-deploy" : "npm install ; grunt compile ; pm2 start server.js -- engagement-lab-home,boston-civic-media,city-accelerator-website --env staging",
       "env": {
         "NODE_ENV": "staging"
       }
