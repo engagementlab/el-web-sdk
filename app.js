@@ -121,7 +121,7 @@ var launch = function(callback) {
 		var sitesArg = process.argv[2];
 		
 		// Check if any sites specified by CLI (ignore for testing)
-		if(sitesArg !== undefined && process.argv[1].indexOf('mocha') === -1) {
+		if(sitesArg && process.argv[1].indexOf('mocha') === -1) {
 
 			// Site are a comma-sep list
 			var arrSites = sitesArg.replace('--sites=', '').split(',');
@@ -136,16 +136,9 @@ var launch = function(callback) {
 			}
 
 		}
-		else {
-			logger.info('## -> All site modules will be mounted. '.bgWhite.red);
-
-			// Mount all sites
-			mount('engagement-lab-home', false, function() { 
-																											if(callback !== undefined)
-																												callback(); 
-																										});
-			// mount('el-bot');
-		}
+		else 
+			throw new Error("A site module(s) must be specified!");
+		
 
 		logger.info('##'.bold.bgWhite.red);		
 

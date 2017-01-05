@@ -1,9 +1,0 @@
-{
-  "name": "el-bot",
-  "version": "0.0.1",
-  "main": "app.js",
-  "dependencies": {
-    "express": "^4.13.3",
-    "keystone": "0.3.15"
-  }
-}
