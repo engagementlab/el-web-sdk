@@ -107,6 +107,9 @@
 	appInst.engine('hbs', hbsInstance.engine);
 	appInst.set('view engine', 'hbs');
 
+	// Load this site's models
+	keystoneInst.import('models');
+
 	// keystoneInst.initDatabaseConfig();
 	keystoneInst.initExpressSession();
 
@@ -159,9 +162,6 @@
 	keystoneInst.set('appServer', appServer)
 
 	keystoneInst.set('twitter', twitterInstance);
-
-	// Load this site's models
-	keystoneInst.import('models');
 
 	// Load this site's routes
 	keystoneInst.set('routes', require(moduleRoot + 'routes'));
