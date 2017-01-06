@@ -23,9 +23,11 @@
 	// Global dependencies
 	var Slack = require('slack-node'),
 			Twitter = require('twitter'),
-			merge = require('merge'),
+			merge = require('merge'), 
+			compression = require('compression'),
 			KeystoneSlacker = require('keystone-slacker'),
-			FrameworkMiddleware = require('./middleware');
+			FrameworkMiddleware = require('./middleware'),
+			express = require('express');
 
 	var siteConfig = params.config, 
 			moduleRoot =  require.resolve(params.moduleName).replace('app.js', ''),
@@ -98,6 +100,27 @@
 
 	});
 
+	appInst.use(express.static(__dirname  + '/../public'));
+	appInst.use(express.static(moduleRoot + '/public'));
+
+	appInst.set('views', moduleRoot + 'templates/views/');
+	appInst.engine('hbs', hbsInstance.engine);
+	appInst.set('view engine', 'hbs');
+
+	// keystoneInst.initDatabaseConfig();
+	keystoneInst.initExpressSession();
+
+	appInst.use(compression());	
+	appInst.use('/keystone', keystoneInst.Admin.Server.createStaticRouter(keystoneInst));
+
+	appInst.use(keystoneInst.get('session options').cookieParser);
+
+	appInst.use(keystoneInst.expressSession);
+	appInst.use(keystoneInst.session.persist);
+	appInst.use(require('connect-flash')());
+
+	appInst.use('/keystone', keystoneInst.Admin.Server.createDynamicRouter(keystoneInst));
+
 	// Used only for production, otherwise sessions are stored in-memory
 	if (process.env.NODE_ENV === 'production') {
 
@@ -142,6 +165,7 @@
 
 	// Load this site's routes
 	keystoneInst.set('routes', require(moduleRoot + 'routes'));
+	appInst.use(require(moduleRoot + 'routes'));
 	 
 	// Configure Admin UI
 	keystoneInst.set('nav', siteConfig.admin_nav);
@@ -155,11 +179,14 @@
 	else
 		keystoneInst.set('cors allow origin', true);
 
-	// Mount to '/' (root of virtual host's subdomain)
-	keystoneInst.mount('/', appInst, {
-    onMount: function() {
-		  callback(keystoneInst.app);
-    }
+	keystoneInst.openDatabaseConnection(function () {
+		var server = appInst.listen(process.env.PORT || 3001, function () {
+			console.log(keystoneInst.app)
+			callback(keystoneInst.app);
+			console.log('-------------------------------');
+			console.log('Express server ready on port %d', server.address().port);
+			console.log('-------------------------------');
+		});
 	});
 		
 });

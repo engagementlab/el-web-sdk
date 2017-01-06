@@ -17,7 +17,6 @@ if(process.env.NODE_ENV !== 'test')
 var express = require('express'),
 		app = express(),
 		virtualServer = require('http').createServer(app),
-		compression = require('compression'),
 		virtual = require('express-vhost'),
 		logger = require('winston'),
 		siteConfig = require('./sites/config'),
@@ -40,12 +39,11 @@ var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
  * @param {Boolean} is there only one site being mounted?
  * @see https://www.npmjs.com/package/express-vhost
  */
-var mount = function(siteModuleName, singleDomain, callback) {
+var mount = function(siteModuleName, singleDomain, callback, start) {
 
 	var siteInst = require(siteModuleName)(__dirname, !singleDomain);
 
 	var appInstance = siteInst.server();
-	appInstance.use(compression());
 	
 	siteConfig(siteInst, function(configData) {
 		
@@ -73,6 +71,8 @@ var mount = function(siteModuleName, singleDomain, callback) {
 
 				// Run any of this site's custom start logic
 				siteInst.start(appInstance);
+
+				start();
 
 				logger.info('> Site ' + colors.rainbow(siteModuleName) + ' mounted'.italic + ' at ' + siteDomain);
  
@@ -102,8 +102,6 @@ var launch = function(callback) {
 	// Starts the server using express-vhost as middleware, trusting our nginx proxy
 	app.use(virtual.vhost(app.enabled('trust proxy')));
 
-	virtualServer.listen(serverPort, function() {
-
 		logger.info('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
 		logger.info('██╔════╝████╗  ██║██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗'.bgCyan.black);
 		logger.info('█████╗  ██╔██╗ ██║██║  ███╗███████║██║  ███╗█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║     ███████║██████╔╝'.bgCyan.black);
@@ -132,7 +130,9 @@ var launch = function(callback) {
 			for(var ind in arrSites) {
 				var singleDomain = arrSites.length === 1;
 				
-				mount(arrSites[ind], singleDomain);
+				mount(arrSites[ind], singleDomain, undefined, function() {
+					virtualServer.listen(serverPort);
+				});
 			}
 
 		}
@@ -142,7 +142,7 @@ var launch = function(callback) {
 
 		logger.info('##'.bold.bgWhite.red);		
 
-	});
+	// });
 
 };
 
