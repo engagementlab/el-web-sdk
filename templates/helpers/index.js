@@ -357,7 +357,7 @@ module.exports = function() {
 
     _helpers.jsonPrint = function(obj) {
 
-        return '<div style="background:white">' + JSON.stringify(obj, null, 2) + '</div>';
+        return '<div class="debug-data" style="min-width:1000px">' + JSON.stringify(obj, null, 2) + '</div>';
     }
 
     //  ### href link helper

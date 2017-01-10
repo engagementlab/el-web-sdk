@@ -25,7 +25,8 @@
 			Twitter = require('twitter'),
 			merge = require('merge'),
 			KeystoneSlacker = require('keystone-slacker'),
-			FrameworkMiddleware = require('./middleware');
+			FrameworkMiddleware = require('./middleware'),
+			compression = require('compression');
 
 	var siteConfig = params.config, 
 			moduleRoot =  require.resolve(params.moduleName).replace('app.js', ''),
@@ -56,6 +57,8 @@
 	logger.info('Initializing '.underline + 
 							colors.cyan.underline(siteConfig.name) + 
 							' site module.'.underline);
+
+	appInst.use(compression());
 
 	// Init the keystone instance when it is opened
 	keystoneInst.init({
@@ -139,7 +142,6 @@
 
 	// Load this site's models
 	keystoneInst.import('models');
-
 	// Load this site's routes
 	keystoneInst.set('routes', require(moduleRoot + 'routes'));
 	 
@@ -155,9 +157,20 @@
 	else
 		keystoneInst.set('cors allow origin', true);
 
+	keystoneInst.pre('routes', middleware.initLocals);
+	keystoneInst.pre('routes', middleware.initErrorHandlers);
+	keystoneInst.pre('routes', middleware.checkDebug);
+
 	// Mount to '/' (root of virtual host's subdomain)
 	keystoneInst.mount('/', appInst, {
     onMount: function() {
+
+    	/*console.log(keystoneInst)
+
+			keystoneInst.app.get('/data', function(req, res, next, id) {
+				console.log(req.data)
+				next();
+			});*/
 		  callback(keystoneInst.app);
     }
 	});

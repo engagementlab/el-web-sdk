@@ -1,0 +1,49 @@
+{{!< default}}
+{{!-- 
+/**
+	* Engagement Lab Bootstrap Framework
+	* Developed by Engagement Lab, 2016-2017
+	* ==============
+	* 
+	* Global document includes partial 
+	* ==========
+	*/
+--}}
+
+{{!-- CORE DOCS --}}
+<script type="text/javascript" src="/js/jquery/jquery-2.1.4.js"></script>
+{{#ifeq environment "development"}}
+  <link href="/styles/jsoneditor.min.css" rel="stylesheet" type="text/css">
+  <script src="/js/jsoneditor.min.js" def></script>
+{{/ifeq}}
+
+<script>
+	$(document).ready(function() {
+
+		{{#ifeq environment "development"}}
+			var options = {
+			    modes: ['view', 'code', 'text']
+			};
+			var debugOutputs = $('.debug-data');
+
+			// LOAD ACE EDITOR IF DEBUGGING PRESENT
+			if(debugOutputs.length > 0) {
+
+				$.each(debugOutputs, function(ind, view) {
+					var data = JSON.parse($(view).text());
+					$(view).empty();
+
+					var editor = new JSONEditor($(view)[0], options);
+					editor.set(data);
+				});
+			
+			}
+		{{/ifeq}}
+	});
+</script>
+
+{{#ifeq environment "development"}}
+	{{#if datadump}}
+		{{{jsonPrint this}}}
+	{{/if}}
+{{/ifeq}}

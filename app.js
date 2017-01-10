@@ -17,7 +17,6 @@ if(process.env.NODE_ENV !== 'test')
 var express = require('express'),
 		app = express(),
 		virtualServer = require('http').createServer(app),
-		compression = require('compression'),
 		virtual = require('express-vhost'),
 		logger = require('winston'),
 		siteConfig = require('./sites/config'),
@@ -43,9 +42,7 @@ var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
 var mount = function(siteModuleName, singleDomain, callback) {
 
 	var siteInst = require(siteModuleName)(__dirname, !singleDomain);
-
 	var appInstance = siteInst.server();
-	appInstance.use(compression());
 	
 	siteConfig(siteInst, function(configData) {
 		
