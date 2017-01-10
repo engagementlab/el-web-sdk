@@ -15,9 +15,10 @@
 {{#ifeq environment "development"}}
   <link href="/styles/jsoneditor.min.css" rel="stylesheet" type="text/css">
   <script src="/js/jsoneditor.min.js" def></script>
+  
+	<textarea id="json-debug" style="display:none">{{jsonStr this}}</textarea>
 {{/ifeq}}
 
-<textarea id="json-debug">{{jsonStr this}}</textarea>
 
 <script>
 	$(document).ready(function() {
