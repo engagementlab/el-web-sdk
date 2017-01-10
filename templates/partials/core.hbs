@@ -17,6 +17,8 @@
   <script src="/js/jsoneditor.min.js" def></script>
 {{/ifeq}}
 
+<textarea id="json-debug">{{jsonStr this}}</textarea>
+
 <script>
 	$(document).ready(function() {
 
@@ -24,6 +26,7 @@
 			var options = {
 			    modes: ['view', 'code', 'text']
 			};
+
 			var debugOutputs = $('.debug-data');
 
 			// LOAD ACE EDITOR IF DEBUGGING PRESENT
@@ -38,6 +41,21 @@
 				});
 			
 			}
+
+			// PRINT ALL CURRENT PAGE DATA TO CONSOLE IF REQUESTED
+			if(window.location.search.slice(1) === 'data') {
+			
+				var jsonText = $('#json-debug').text();
+				jsonText = jsonText.substring(1, jsonText.length-1);
+				var json = JSON.parse(jsonText);
+
+				console.group("PAGE DATA OUTPUT");
+				console.dir(json);
+				console.groupEnd();
+				debugger;
+			
+			}
+
 		{{/ifeq}}
 	});
 </script>

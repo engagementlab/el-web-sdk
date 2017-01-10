@@ -360,6 +360,19 @@ module.exports = function() {
         return '<div class="debug-data" style="min-width:1000px">' + JSON.stringify(obj, null, 2) + '</div>';
     }
 
+    //  ### json stringify
+    // Used to stringify JSON object to template
+    //
+    //  @obj: The data object to stringify
+    //
+    //  *Usage example:*
+    //  {{jsonStr data}}
+
+    _helpers.jsonStr = function(obj) {
+
+        return JSON.stringify(obj, null, 2);
+    }
+
     //  ### href link helper
     // Used for creating an href link with a URL
     //
