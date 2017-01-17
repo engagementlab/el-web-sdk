@@ -7,7 +7,7 @@
 
 var FrameworkMiddleware = (function() { 
 
-	let url = require('url')
+	var url = require('url')
 
 	/**
 		Initializes the standard view locals

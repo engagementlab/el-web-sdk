@@ -11,7 +11,7 @@ module.exports = function(grunt, options) {
   },
   production = {
     options: { 
-      question: "You are about to tag a new production release and deploy the master branch HEAD for repo '" + sitesArg + "' to the production server.\nThis will also run the 'compile' task and reboot keystone.\n\n\nAre you sure?",
+      question: "You are about to tag a new production release and deploy the production branch HEAD for repo '" + sitesArg + "' to the production server.\nThis will also run the 'compile' task and reboot keystone.\n\n\nAre you sure?",
       input: '_key:y'
     }
   },
