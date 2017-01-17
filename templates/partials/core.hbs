@@ -17,13 +17,16 @@
   <script src="/js/jsoneditor.min.js" def></script>
   
 	<textarea id="json-debug" style="display:none">{{jsonStr this}}</textarea>
+
 {{/ifeq}}
 
 
 <script>
-	$(document).ready(function() {
 
-		{{#ifeq environment "development"}}
+	{{#ifeq environment "development"}}
+
+		var dataViewInit = function() {
+			
 			var options = {
 			    modes: ['view', 'code', 'text']
 			};
@@ -41,24 +44,29 @@
 					editor.set(data);
 				});
 			
-			}
+				}
+		}
+		$(document).ready(function() {
 
-			// PRINT ALL CURRENT PAGE DATA TO CONSOLE IF REQUESTED
-			if(window.location.search.slice(1) === 'data') {
-			
-				var jsonText = $('#json-debug').text();
-				jsonText = jsonText.substring(1, jsonText.length-1);
-				var json = JSON.parse(jsonText);
+				// PRINT ALL CURRENT PAGE DATA TO CONSOLE IF REQUESTED
+				if(window.location.hash === '#data') {
+				
+					var jsonText = $('#json-debug').text();
+					jsonText = jsonText.substring(1, jsonText.length-1);
+					var json = JSON.parse(jsonText);
 
-				console.group("PAGE DATA OUTPUT");
-				console.dir(json);
-				console.groupEnd();
-				debugger;
-			
-			}
+					console.group("PAGE DATA OUTPUT");
+					console.dir(json);
+					console.groupEnd();
+					debugger;
+				
+				}
 
-		{{/ifeq}}
-	});
+				dataViewInit();
+
+		});
+		
+	{{/ifeq}}
 </script>
 
 {{#ifeq environment "development"}}
