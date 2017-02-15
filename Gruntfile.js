@@ -30,8 +30,7 @@ module.exports = function(grunt) {
 	require('time-grunt')(grunt);
 
 	var jobDirs = [
-									'./grunt/*.js', 
-									'./sites/**/grunt/*.js'
+									'./grunt/*.js'
 								];
 
   // Use site modules arg only if defined
@@ -77,7 +76,7 @@ module.exports = function(grunt) {
 		};
 	}
 
-	// Load all of our tasks from ./grunt/*.js and ./sites/**/grunt/*.js
+	// Load all of our tasks from ./grunt/*.js and site modules
 	var configs = require('load-grunt-configs')(grunt, gruntJobsConfig);
 	
 	// Project configurations
@@ -120,6 +119,12 @@ module.exports = function(grunt) {
 	grunt.registerTask('css_compile', [
 		'concat',
 		'cssmin'
+	]);
+
+	grunt.registerTask('sync', [
+		'prompt:sync',
+		'execute:ssh_tunnel',
+		'mongobin:dump'
 	]);
 
 	// Task to compile script/styles
