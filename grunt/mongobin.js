@@ -26,23 +26,28 @@
   // Site are a comma-sep list
   var arrSites = sitesArg.replace('--sites=', '').split(',');
   var database =  JSON.parse(require('fs').readFileSync('./node_modules/' + arrSites[0] + '/config.json')).database;
+  var dbPort = '27017';
 
-  config.options = {
-    host: '127.0.0.1',
-    port: '4321'
-  };
-
-  config.restore = {
-    task: 'restore',
-    path: './dump/engagement-lab',
-    drop: true
-  };
+  if(options.args && options.args[0] !== 'local') 
+    dbPort = '4321';
 
   config.dump = {
+
     host: '127.0.0.1',
     port: '4321',
     db: database,
     out: './dump/'
+
+  };
+
+  config.restore = {
+
+    host: '127.0.0.1',
+    port: dbPort,
+    db: database,
+    path: './dump/' + database,
+    drop: true
+
   };
 
   return config;

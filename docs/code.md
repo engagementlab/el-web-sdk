@@ -95,6 +95,26 @@ Load all of our grunt tasks.
 
 * Grunt config
 
+if(process.env.NODE_ENV == 'production') {
+		gruntJobsConfig['sftp'] = 
+		{
+		  options: {
+		      host: 'catan.dev.emerson.edu',
+		      username: 'node',
+				  privateKey: grunt.file.read("/home/node/.ssh/id_rsa"),
+		      showProgress: true,
+		      path: '/home/node/backups/engagement-lab/',
+		      srcBasePath: "dump/daily_bk/engagement-lab/",
+		      createDirectories: true
+		  },
+		  backup: {
+		      files: {
+		      	"./": "dump/daily_bk/engagement-lab/**"
+		      }
+		  }
+		};
+	}
+
 ## grunt/deploy
 
 Task to deploy to production or staging

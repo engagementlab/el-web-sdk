@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 	};
 
 	// Copies our nightly backup to the dev server
-	if(process.env.NODE_ENV == 'production') {
+	/*if(process.env.NODE_ENV == 'production') {
 		gruntJobsConfig['sftp'] = 
 		{
 		  options: {
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 		      }
 		  }
 		};
-	}
+	}*/
 
 	// Load all of our tasks from ./grunt/*.js and site modules
 	var configs = require('load-grunt-configs')(grunt, gruntJobsConfig);
@@ -122,9 +122,12 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('sync', [
-		'prompt:sync',
-		'execute:ssh_tunnel',
-		'mongobin:dump'
+		'prompt:from_to',
+		'execute:ssh_tunnel_from',
+		'mongobin:dump',
+		'execute:ssh_tunnel_to',
+		'prompt:confirm_restore',
+		'mongobin:restore'
 	]);
 
 	// Task to compile script/styles

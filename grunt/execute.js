@@ -39,8 +39,17 @@ module.exports = function(grunt, options) {
 	    src: ['jobs/cdn.js']
 	  },
   
-    ssh_tunnel: {
+    ssh_tunnel_from: {
       options: {
+        args: ['from'],
+        module: true
+      },
+      src: ['jobs/tunnel.js']
+    },
+  
+    ssh_tunnel_to: {
+      options: {
+        args: ['to'],
         module: true
       },
       src: ['jobs/tunnel.js']
