@@ -70,7 +70,7 @@ module.exports = function(grunt, options) {
             type: 'list',
             message: 'What environment to deploy to?',
             default: 'local',
-            choices: grunt.config.get('site_targets'),
+            choices: hostChoices,
             filter: function(value) { return (value==='local') ? 'local' : deployConfig[value].host; }
           },
         ]

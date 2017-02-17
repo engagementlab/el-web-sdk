@@ -167,7 +167,7 @@ module.exports = function(grunt) {
 		];
 
 	  if(!target)
-	    grunt.fatal('Must specify --target=staging|production');
+	  	tasks.unshift('prompt:app_target');
 
 	  // Set task deployment target
 	  tasks = tasks.map(function(task) {
