@@ -65,7 +65,7 @@
 
 		'brand': siteConfig.name,
 		'module root': moduleRoot,
-		// 'model prefix': (siteConfig.db_prefix !== undefined) ? siteConfig.db_prefix : siteConfig.database,
+		'model prefix': (siteConfig.db_prefix !== undefined) ? siteConfig.db_prefix : null,
 		'mongo': 'mongodb://localhost/' + siteConfig.database,
 
 		'frame guard': false,
@@ -144,7 +144,7 @@
 	keystoneInst.import('models');
 	// Load this site's routes
 	keystoneInst.set('routes', require(moduleRoot + 'routes'));
-	 
+
 	// Configure Admin UI
 	keystoneInst.set('nav', siteConfig.admin_nav);
 	if(siteConfig.admin_nav !== undefined)
