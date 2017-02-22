@@ -1,10 +1,22 @@
-module.exports = {
-	dist: {
+module.exports = function(grunt, options) {
+
+  "use strict";
+
+  var sitesArg = grunt.option('sites');
+  var destPath = __dirname + '/../node_modules/' + sitesArg + '/public/styles/core.css';
+  var srcPath = __dirname + '/../node_modules/' + sitesArg + '/public/styles/core.scss';
+
+	var dist = {
     options: {
       style: 'expanded'
     },
     files: {
-      'public/styles/site.css': 'public/styles/site.scss',
+      
     }
   }
+
+  dist.files[destPath] = srcPath;
+
+  return {'dist': dist};
+
 };

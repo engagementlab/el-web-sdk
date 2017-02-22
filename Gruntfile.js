@@ -132,6 +132,7 @@ module.exports = function(grunt) {
 
 	// Task to compile script/styles
 	grunt.registerTask('compile', [
+		'sass:dist',
 		'uglify',
 		'concat',
 		'cssmin',

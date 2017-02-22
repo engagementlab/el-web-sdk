@@ -1,4 +1,4 @@
-# Engagement Lab Website Framework
+ brew cask install macdown.# Engagement Lab Website Framework
 [![Code Climate](https://codeclimate.com/github/engagementgamelab/EL-Website/badges/gpa.svg)](https://codeclimate.com/github/engagementgamelab/EL-Website)
 [![Dependency Status](https://david-dm.org/engagementgamelab/EL-Webite/status.svg)](https://david-dm.org/engagementgamelab/EL-Website)
 
@@ -82,11 +82,9 @@ open .env
 Then paste in the following content:
 ```
 NODE_ENV=development
-ROOT_DOMAIN=localhost
 KEYSTONE_DEV=true npm start
 COOKIE_SECRET=5@[,CNwnN#03d!yV|.HnRF*10>]yo%PdI]zXoOBSb-mVB.O`Z*f/Akq%{Rhq37Mh
 ```
-The root domain determines the site your local server will load at, and localhost is generally what people call this. So your site would load at 'localhost:3000' as described below. 
 
 There is additional required config you will need for this file, but it contains confidential auth keys, so you'll find it only in the Google Doc 'Server Config' in the Lab's shared folder 'Master Projects/Website/Development'.
 
@@ -253,6 +251,15 @@ See: http://www.keystonejs.com/docs/configuration/
 
 * **Object** keystone.app Keystone's Express app reference
 
+## callback()
+
+console.log(keystoneInst)
+
+			keystoneInst.app.get('/data', function(req, res, next, id) {
+				console.log(req.data)
+				next();
+			});
+
 <!-- End sites/factory.js -->
 
 <!-- Start jobs/news.js -->
@@ -291,6 +298,26 @@ Load all of our grunt tasks.
 ### Return:
 
 * Grunt config
+
+if(process.env.NODE_ENV == 'production') {
+		gruntJobsConfig['sftp'] = 
+		{
+		  options: {
+		      host: 'catan.dev.emerson.edu',
+		      username: 'node',
+				  privateKey: grunt.file.read("/home/node/.ssh/id_rsa"),
+		      showProgress: true,
+		      path: '/home/node/backups/engagement-lab/',
+		      srcBasePath: "dump/daily_bk/engagement-lab/",
+		      createDirectories: true
+		  },
+		  backup: {
+		      files: {
+		      	"./": "dump/daily_bk/engagement-lab/**"
+		      }
+		  }
+		};
+	}
 
 ## grunt/deploy
 
