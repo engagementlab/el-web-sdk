@@ -34,7 +34,7 @@
   config.dump = {
 
     host: '127.0.0.1',
-    port: '4321',
+    port: dbPort,
     db: database,
     out: './dump/'
 
