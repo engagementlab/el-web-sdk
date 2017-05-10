@@ -4,7 +4,9 @@
   "license": "MIT",
   "author": "Johnny Richardson <johnny@elab.emerson.edu> (https://github.com/johnnycrich)",
   "contributors": [
-    "Erica Salling <erica@elab.emerson.edu>"
+    "Erica Salling <erica@elab.emerson.edu>",
+    "Jay Vachon <jaylvachon@gmail.com> (http://jayvachon.com/)",
+    "Matt Benson"
   ],
   "private": true,
   "dependencies": {
