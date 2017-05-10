@@ -1,6 +1,11 @@
 {
   "name": "engagement-lab",
-  "version": "0.2.7",
+  "version": "0.2.8",
+  "license": "MIT",
+  "author": "Johnny Richardson <johnny@elab.emerson.edu> (https://github.com/johnnycrich)",
+  "contributors": [
+    "Erica Salling <erica@elab.emerson.edu>"
+  ],
   "private": true,
   "dependencies": {
     "async": "^1.4.2",
