@@ -135,13 +135,14 @@ module.exports = function() {
             context = this;
         }
 
-        // Enable WebP image format where available
-        options.hash['fetch_format'] = 'auto';
-
         // safe guard to ensure context is never null
         context = context === null ? undefined : context;
 
-        if ((context) && (context.public_id)) {
+        // Enable WebP image format where available
+        if(options.hash['format'] !== 'svg')
+            options.hash['fetch_format'] = 'auto';
+
+        if(context.public_id) {
             var imageName = context.public_id.concat('.', context.format);
             return cloudinary.url(imageName, options.hash).replace('http', 'https');
         } else if(typeof(context) === 'string') {
