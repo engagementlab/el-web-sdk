@@ -135,13 +135,14 @@ module.exports = function() {
             context = this;
         }
 
-        // Enable WebP image format where available
-        options.hash['fetch_format'] = 'auto';
-
         // safe guard to ensure context is never null
         context = context === null ? undefined : context;
 
-        if ((context) && (context.public_id)) {
+        // Enable WebP image format where available
+        if(options.hash['format'] !== 'svg')
+            options.hash['fetch_format'] = 'auto';
+
+        if(context.public_id) {
             var imageName = context.public_id.concat('.', context.format);
             return cloudinary.url(imageName, options.hash).replace('http', 'https');
         } else if(typeof(context) === 'string') {
@@ -564,6 +565,20 @@ module.exports = function() {
             return str.replace('http://', 'https://');
         else
             return str;
+    }
+
+    //  ### Remove wrapping <p> from markup html string
+    //
+    //  @str: The string
+    _helpers.removePara = function(str) {
+        
+        if(str) {
+            var re = new RegExp("<\s*p[^>]*>(.*?)<\s*/\s*p>");
+            var arr = re.exec(str);
+
+            if(arr)
+                return arr[1];
+        }
     }
 
     return _helpers;
