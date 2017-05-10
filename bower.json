@@ -2,7 +2,7 @@
   "name": "engagement-lab",
   "description": "",
   "main": "server.js",
-  "version": "0.2.8",
+  "version": "1.0.8",
   "authors": [
     "Johnny Richardson <johnny@elab.emerson.edu>",
     "Erica Salling <erica@elab.emerson.edu>"
