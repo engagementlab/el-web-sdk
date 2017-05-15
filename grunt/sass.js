@@ -8,7 +8,9 @@ module.exports = function(grunt, options) {
 
 	var dist = {
     options: {
-      style: 'expanded'
+      style: 'expanded',
+      trace: true,
+      sourceMap: true
     },
     files: {
       
