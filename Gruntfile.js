@@ -30,8 +30,7 @@ module.exports = function(grunt) {
 	require('time-grunt')(grunt);
 
 	var jobDirs = [
-									'./grunt/*.js', 
-									'./sites/**/grunt/*.js'
+									'./grunt/*.js'
 								];
 
   // Use site modules arg only if defined
@@ -57,7 +56,7 @@ module.exports = function(grunt) {
 	};
 
 	// Copies our nightly backup to the dev server
-	if(process.env.NODE_ENV == 'production') {
+	/*if(process.env.NODE_ENV == 'production') {
 		gruntJobsConfig['sftp'] = 
 		{
 		  options: {
@@ -75,9 +74,9 @@ module.exports = function(grunt) {
 		      }
 		  }
 		};
-	}
+	}*/
 
-	// Load all of our tasks from ./grunt/*.js and ./sites/**/grunt/*.js
+	// Load all of our tasks from ./grunt/*.js and site modules
 	var configs = require('load-grunt-configs')(grunt, gruntJobsConfig);
 	
 	// Project configurations
@@ -122,8 +121,18 @@ module.exports = function(grunt) {
 		'cssmin'
 	]);
 
+	grunt.registerTask('sync', [
+		'prompt:from_to',
+		'execute:ssh_tunnel_from',
+		'mongobin:dump',
+		'execute:ssh_tunnel_to',
+		'prompt:confirm_restore',
+		'mongobin:restore'
+	]);
+
 	// Task to compile script/styles
 	grunt.registerTask('compile', [
+		'sass:dist',
 		'uglify',
 		'concat',
 		'cssmin',
@@ -159,7 +168,7 @@ module.exports = function(grunt) {
 		];
 
 	  if(!target)
-	    grunt.fatal('Must specify --target=staging|production');
+	  	tasks.unshift('prompt:app_target');
 
 	  // Set task deployment target
 	  tasks = tasks.map(function(task) {

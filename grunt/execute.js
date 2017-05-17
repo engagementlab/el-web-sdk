@@ -9,7 +9,7 @@ module.exports = function(grunt, options) {
   // Obtain env to generate filename
   var env = grunt.option('env');
 
-  if(env === undefined) {
+  if(!env) {
     
     grunt.log.writeln('No env provided, checking NODE_ENV');
     
@@ -17,7 +17,7 @@ module.exports = function(grunt, options) {
       env = process.env.NODE_ENV;
     else {
       grunt.log.subhead('No env provided, defaulting to production!');
-      env = 'production'
+      env = 'production';
     }
 
   }
@@ -37,7 +37,23 @@ module.exports = function(grunt, options) {
 	  		args: []
 	  	},
 	    src: ['jobs/cdn.js']
-	  }
+	  },
+  
+    ssh_tunnel_from: {
+      options: {
+        args: ['from'],
+        module: true
+      },
+      src: ['jobs/tunnel.js']
+    },
+  
+    ssh_tunnel_to: {
+      options: {
+        args: ['to'],
+        module: true
+      },
+      src: ['jobs/tunnel.js']
+    }
 	
 	};
 

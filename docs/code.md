@@ -47,6 +47,15 @@ See: http://www.keystonejs.com/docs/configuration/
 
 * **Object** keystone.app Keystone's Express app reference
 
+## callback()
+
+console.log(keystoneInst)
+
+			keystoneInst.app.get('/data', function(req, res, next, id) {
+				console.log(req.data)
+				next();
+			});
+
 <!-- End sites/factory.js -->
 
 <!-- Start jobs/news.js -->
@@ -85,6 +94,26 @@ Load all of our grunt tasks.
 ### Return:
 
 * Grunt config
+
+if(process.env.NODE_ENV == 'production') {
+		gruntJobsConfig['sftp'] = 
+		{
+		  options: {
+		      host: 'catan.dev.emerson.edu',
+		      username: 'node',
+				  privateKey: grunt.file.read("/home/node/.ssh/id_rsa"),
+		      showProgress: true,
+		      path: '/home/node/backups/engagement-lab/',
+		      srcBasePath: "dump/daily_bk/engagement-lab/",
+		      createDirectories: true
+		  },
+		  backup: {
+		      files: {
+		      	"./": "dump/daily_bk/engagement-lab/**"
+		      }
+		  }
+		};
+	}
 
 ## grunt/deploy
 

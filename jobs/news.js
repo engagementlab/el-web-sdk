@@ -18,7 +18,7 @@
  */
 'use strict';
 
-require('dotenv').load();
+require('dotenv').load({path: __dirname + '/../.env'});
 var _ = require('underscore');
 
 // HTTP requester
@@ -26,7 +26,7 @@ var request = require('request');
 // RSS reader
 var feed = require("feed-read");
 // File manipulation
-var store = require('json-fs-store')('./tmp');
+var store = require('json-fs-store')(__dirname + '/../tmp');
 
 var embedlyKey = process.env.EMBEDLY_API_KEY;
 
@@ -66,8 +66,10 @@ request(eventsParams.host + eventsParams.path, function(error, response, body) {
 
         // Output data after all articles retrieved via embedly
         var queryDone = _.after(rss.length, function() {
-            fileContent.news = articles;
             
+            let sortedNews = _.sortBy(articles, 'published').reverse();
+            fileContent.news = sortedNews;
+
             // Store as json
             store.add(fileContent, function(err) {
                 // err if the save failed
@@ -76,21 +78,28 @@ request(eventsParams.host + eventsParams.path, function(error, response, body) {
         });        
 
         // Get embed data for article
-        getEmbed = function(article) {
+        const getEmbed = function(article) {
 
             request('http://api.embed.ly/1/extract?key=' + embedlyKey + '&url=' + article.link, function(error, response, articleBody) {
 
-                var articleJson = JSON.parse(articleBody);
+                if(error)
+                    throw new Error(error);
+                else if(response.statusCode !== 200)
+                    throw new Error("Unable to get data from embedly!");
 
-                // Form data for template 
-                articles.push({
+                var articleJson = JSON.parse(articleBody);
+                var data =  {
                                 content: articleJson.description,
                                 title: articleJson.title.replace(' - Engagement Lab @ Emerson College', ''),
                                 published: articleJson.published,
                                 author: articleJson.authors[0].name,
-                                image: articleJson.images[0].url,
                                 url: articleJson.url 
-                            });
+                            };
+                if(articleJson.images && articleJson.images.length > 0)
+                    data.image = articleJson.images[0].url;
+
+                // Form data for template 
+                articles.push(data);
                 
                 queryDone();
 

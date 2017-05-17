@@ -2,10 +2,10 @@
   "name": "engagement-lab",
   "description": "",
   "main": "server.js",
-  "version": "0.0.4",
+  "version": "1.0.8",
   "authors": [
     "Johnny Richardson <johnny@elab.emerson.edu>",
-    "Jay Vachon <jay@elab.emerson.edu>"
+    "Erica Salling <erica@elab.emerson.edu>"
   ],
   "license": "MIT",
   "homepage": "https://github.com/engagementgamelab/EL-Website",

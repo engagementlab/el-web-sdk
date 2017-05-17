@@ -18,12 +18,11 @@
  * @param {Function} callback 
  * @return {Object} data Site's config data (from config.json)
  */
- module.exports = function(siteInst, callback) {
+ module.exports = function(siteInst, sitePath, callback) {
 
 	var siteDir = siteInst.keystone._options['module root'];
 	
-
-	require('fs').readFile(siteDir + '/config.json', {encoding: 'utf8'}, function (err, data) {
+	require('fs').readFile(sitePath + '/config.json', {encoding: 'utf8'}, function (err, data) {
 	  if (err) throw err;
 	  callback(JSON.parse(data));
 

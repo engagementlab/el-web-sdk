@@ -64,7 +64,7 @@
 
 		'brand': siteConfig.name,
 		'module root': moduleRoot,
-		// 'model prefix': (siteConfig.db_prefix !== undefined) ? siteConfig.db_prefix : siteConfig.database,
+		'model prefix': (siteConfig.db_prefix !== undefined) ? siteConfig.db_prefix : null,
 		'mongo': 'mongodb://localhost/' + siteConfig.database,
 
 		'frame guard': false,
@@ -84,7 +84,7 @@
 		'locals': {
 
 			_: require('underscore'),
-			env: keystoneInst.get('env'),
+			env: process.env.NODE_ENV,
 			utils: keystoneInst.utils,
 			editable: keystoneInst.content.editable
 
@@ -181,7 +181,6 @@
 
 	keystoneInst.openDatabaseConnection(function () {
 		var server = appInst.listen(process.env.PORT || 3001, function () {
-			console.log(keystoneInst.app)
 			callback(keystoneInst.app);
 			console.log('-------------------------------');
 			console.log('Express server ready on port %d', server.address().port);
