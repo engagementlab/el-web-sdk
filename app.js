@@ -60,18 +60,16 @@ var mount = function(siteModuleName, singleDomain, callback, start) {
 				server: virtualServer,
 				keystone: siteInst.keystone
 
-			}, function(keystoneApp) {
+			}, function() {
 
 				// Register this app as a virtual host
 				virtual.register(
 					siteDomain,
-					keystoneApp
+					appInstance
 				);
 
 				// Run any of this site's custom start logic
 				siteInst.start(appInstance);
-
-				// start();
 
 				logger.info('> Site ' + colors.rainbow(siteModuleName) + ' mounted'.italic + ' at ' + siteDomain);
  
@@ -104,6 +102,8 @@ var launch = function(callback) {
 	// Starts the server using express-vhost as middleware, trusting our nginx proxy
 	app.use(virtual.vhost(app.enabled('trust proxy')));
 
+	virtualServer.listen(serverPort, function() {
+
 		logger.info('███████╗███╗   ██╗ ██████╗  █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗    ██╗      █████╗ ██████╗'.bgCyan.black);
 		logger.info('██╔════╝████╗  ██║██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝    ██║     ██╔══██╗██╔══██╗'.bgCyan.black);
 		logger.info('█████╗  ██╔██╗ ██║██║  ███╗███████║██║  ███╗█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║       ██║     ███████║██████╔╝'.bgCyan.black);
@@ -132,9 +132,7 @@ var launch = function(callback) {
 			for(var ind in arrSites) {
 				var singleDomain = arrSites.length === 1;
 				
-				mount(arrSites[ind], singleDomain, undefined, function() {
-					virtualServer.listen(serverPort);
-				});
+				mount(arrSites[ind], singleDomain);
 			}
 
 		}
@@ -144,7 +142,7 @@ var launch = function(callback) {
 
 		logger.info('##'.bold.bgWhite.red);		
 
-	// });
+	});
 
 };
 
