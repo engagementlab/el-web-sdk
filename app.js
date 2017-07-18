@@ -24,7 +24,7 @@ var express = require('express'),
 
 colors = require('colors');
 
-var serverPort = (process.env.NODE_ENV === 'staging') ? 3001 : 3000;
+var serverPort = process.env.PORT || 3001;
 
 /**
  * Mount a sub-module in /sites as a virtual host.
