@@ -447,6 +447,9 @@ module.exports = function() {
         var fileType = file.filetype;
         var cssType;
 
+        if (fileType === undefined)
+            return 'file';
+
         if (fileType.indexOf('audio/') !== -1)
             cssType = 'audio';
 
