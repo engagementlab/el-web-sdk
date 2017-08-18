@@ -251,15 +251,6 @@ See: http://www.keystonejs.com/docs/configuration/
 
 * **Object** keystone.app Keystone's Express app reference
 
-## callback()
-
-console.log(keystoneInst)
-
-			keystoneInst.app.get('/data', function(req, res, next, id) {
-				console.log(req.data)
-				next();
-			});
-
 <!-- End sites/factory.js -->
 
 <!-- Start jobs/news.js -->
