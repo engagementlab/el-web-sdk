@@ -1,16 +1,14 @@
  brew cask install macdown.# Engagement Lab Website Framework
-[![Code Climate](https://codeclimate.com/github/engagementgamelab/EL-Website/badges/gpa.svg)](https://codeclimate.com/github/engagementgamelab/EL-Website)
-[![Dependency Status](https://david-dm.org/engagementgamelab/EL-Webite/status.svg)](https://david-dm.org/engagementgamelab/EL-Website)
+[![Code Climate](https://codeclimate.com/github/engagementgamelab/el-web-sdk/badges/gpa.svg)](https://codeclimate.com/github/engagementgamelab/el-web-sdk)
+[![Dependency Status](https://david-dm.org/engagementgamelab/EL-Webite/status.svg)](https://david-dm.org/engagementgamelab/el-web-sdk)
 
-The Engagement Lab's CMS-driven website framework.
-
-This repo also houses all code for the Lab's homepage, viewable at [elab.emerson.edu](http://elab.emerson.edu).
+The Engagement Lab's CMS-driven web framework.
 
 We built this app using the lovely and talented [KeystoneJS](https://github.com/keystonejs/keystone).
 
 Feel free to fork!
 
-Need code docs? We [got 'em](https://documentup.com/engagementgamelab/EL-Website/#framework-api) (or see below).
+Need code docs? We [got 'em](https://documentup.com/engagementgamelab/el-web-sdk/#framework-api) (or see below).
 
 ## Documentation
 
@@ -47,8 +45,8 @@ Restart your terminal.
 ## Installing
 Get the repo:
 ```
-git clone https://github.com/engagementgamelab/EL-Website.git
-cd EL-Website
+git clone https://github.com/engagementgamelab/el-web-sdk.git
+cd el-web-sdk
 ```
 
 Get node v4.4.2:
@@ -88,7 +86,7 @@ COOKIE_SECRET=5@[,CNwnN#03d!yV|.HnRF*10>]yo%PdI]zXoOBSb-mVB.O`Z*f/Akq%{Rhq37Mh
 
 There is additional required config you will need for this file, but it contains confidential auth keys, so you'll find it only in the Google Doc 'Server Config' in the Lab's shared folder 'Master Projects/Website/Development'.
 
-If you are forking this repo outside of the Engagement Lab, you'll need config values for the following keys, depending on the features you are using:
+If you are forking this repo outside of the Engagement Lab, you may need config values for the following optional keys, depending on the features you are using:
 ```
 CLOUDINARY_URL  
 EMBEDLY_API_KEY  
@@ -97,23 +95,25 @@ AZURE_STORAGE_ACCESS_KEY
 SLACK_HOOK_URI
 SLACK_API_KEY
 ```
+###Site modules and booting
+You will now need to install "site modules" to use the SDK. These modules contain the non-generic backend logic and frontend UI for our various products. You can read sample instructions on how to do this step [here](https://gist.github.com/johnnycrich/07a64494ca051ea20caa8c82d83928e1).
 
-Finally, let's use grunt to start up the server:
+Once one or more modules are installed, run:
 ```
-grunt
+grunt --sites=site-1
+```
+or 
+```
+grunt --sites=site-1,site-2
 ```
 
 This command will lint our code, initialize the development server via nodemon, and start node-inspector.
-By default, running the server mounts all site modules under /sites. This can be overriden via the '--sites' CLI argument, which will mount only those specified.
-```
-grunt --sites=site-1,site-2
-````
 
-If you get some kind of error, kill grunt and just run `node keystone`. You may have a config issue.
+If you get some kind of error, kill grunt and just run `node server.js --sites=site-1,etc`. You may have a config issue.
 
-Using a browser, navigate to `localhost:3000` to visit the website
+Using a browser, navigate to `localhost:3000` to visit the website. If you have multiple sites mounted, they each require a unique subdomain specified in each module's `config.json`.
 
-To visit the CMS dashboard for any site module, navigate to `[site domain].localhost:3000/keystone`. The default login credentials are:
+To visit the CMS dashboard for any site module, navigate to `[optional site domain].localhost:3000/keystone`. The default login credentials are:
 ```
 user: user@elab.emerson.edu
 pass: engagement
@@ -133,7 +133,7 @@ As noted in express's "[Production best practices](http://expressjs.com/en/advan
 
 I highly recommend using [nginx](https://www.nginx.com/resources/admin-guide/installing-nginx-open-source/) since it's lightweight and absurdly fast. 
 
-I have created a sample nginx site config [here](https://github.com/engagementgamelab/EL-Website/wiki/Sample-nginx-configuration).
+I have created a sample nginx site config [here](https://github.com/engagementgamelab/el-web-sdk/wiki/Sample-nginx-configuration).
 
 ## SSL using Lets Encrypt
 
@@ -174,7 +174,7 @@ Your ``ecosystem.json`` file already looks something like this, just plug what y
     "production" : {
       "user": "[PRODUCTION USER]",
       "host": "[PRODUCTION IP]",
-      "repo": "git@github.com:engagementgamelab/EL-Website.git [OR YOUR FORK URL]",
+      "repo": "git@github.com:engagementgamelab/el-web-sdk.git [OR YOUR FORK URL]",
       "ref": "origin/master",
       "path": "[PRODUCTION PATH]",
       "pre-deploy-local" : "echo 'Cloning and running npm install. Be patient.'",
@@ -216,7 +216,7 @@ Load the config data for the argued site module.
 
 ### Examples:
 
-		var siteConfig = require('./sites/config');
+    var siteConfig = require('./sites/config');
    siteConfig( require('site-package-name'), function callback() {} );
 
 ### Params:
@@ -255,10 +255,10 @@ See: http://www.keystonejs.com/docs/configuration/
 
 console.log(keystoneInst)
 
-			keystoneInst.app.get('/data', function(req, res, next, id) {
-				console.log(req.data)
-				next();
-			});
+      keystoneInst.app.get('/data', function(req, res, next, id) {
+        console.log(req.data)
+        next();
+      });
 
 <!-- End sites/factory.js -->
 
@@ -300,24 +300,24 @@ Load all of our grunt tasks.
 * Grunt config
 
 if(process.env.NODE_ENV == 'production') {
-		gruntJobsConfig['sftp'] = 
-		{
-		  options: {
-		      host: 'catan.dev.emerson.edu',
-		      username: 'node',
-				  privateKey: grunt.file.read("/home/node/.ssh/id_rsa"),
-		      showProgress: true,
-		      path: '/home/node/backups/engagement-lab/',
-		      srcBasePath: "dump/daily_bk/engagement-lab/",
-		      createDirectories: true
-		  },
-		  backup: {
-		      files: {
-		      	"./": "dump/daily_bk/engagement-lab/**"
-		      }
-		  }
-		};
-	}
+    gruntJobsConfig['sftp'] = 
+    {
+      options: {
+          host: 'catan.dev.emerson.edu',
+          username: 'node',
+          privateKey: grunt.file.read("/home/node/.ssh/id_rsa"),
+          showProgress: true,
+          path: '/home/node/backups/engagement-lab/',
+          srcBasePath: "dump/daily_bk/engagement-lab/",
+          createDirectories: true
+      },
+      backup: {
+          files: {
+            "./": "dump/daily_bk/engagement-lab/**"
+          }
+      }
+    };
+  }
 
 ## grunt/deploy
 
