@@ -1,7 +1,4 @@
- brew cask install macdown.# Engagement Lab Website Framework
-[![Code Climate](https://codeclimate.com/github/engagementgamelab/el-web-sdk/badges/gpa.svg)](https://codeclimate.com/github/engagementgamelab/el-web-sdk)
-[![Dependency Status](https://david-dm.org/engagementgamelab/EL-Webite/status.svg)](https://david-dm.org/engagementgamelab/el-web-sdk)
-
+# Engagement Lab Website Framework
 The Engagement Lab's CMS-driven web framework.
 
 We built this app using the lovely and talented [KeystoneJS](https://github.com/keystonejs/keystone).
