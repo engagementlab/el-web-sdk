@@ -92,7 +92,7 @@ AZURE_STORAGE_ACCESS_KEY
 SLACK_HOOK_URI
 SLACK_API_KEY
 ```
-###Site modules and booting
+### Site modules and booting
 You will now need to install "site modules" to use the SDK. These modules contain the non-generic backend logic and frontend UI for our various products. You can read sample instructions on how to do this step [here](https://gist.github.com/johnnycrich/07a64494ca051ea20caa8c82d83928e1).
 
 Once one or more modules are installed, run:
