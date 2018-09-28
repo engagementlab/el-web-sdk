@@ -7,8 +7,7 @@ module.exports = function(grunt, options) {
 
 	var devTasks = [
 		'nodemon:serve', 
-		'watch',
-		'node-inspector'
+		'watch'
 	];
 
 	var config = {

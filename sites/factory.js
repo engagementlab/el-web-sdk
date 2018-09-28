@@ -59,6 +59,16 @@
 							colors.cyan.underline(siteConfig.name) + 
 							' site module.'.underline);
 
+
+	appInst.locals = {
+
+		_: require('underscore'),
+		env: process.env.NODE_ENV,
+		utils: keystoneInst.utils,
+		editable: keystoneInst.content.editable
+
+	};
+	
 	// Init the keystone instance when it is opened
 	keystoneInst.init({
 
@@ -80,15 +90,6 @@
 		'view engine': 'hbs',
 		'handlebars': hbsInstance,
 		'custom engine': hbsInstance.engine,
-
-		'locals': {
-
-			_: require('underscore'),
-			env: process.env.NODE_ENV,
-			utils: keystoneInst.utils,
-			editable: keystoneInst.content.editable
-
-		},
 
 		// prefix all built-in tags with 'keystone_'
 		'cloudinary prefix': 'keystone',

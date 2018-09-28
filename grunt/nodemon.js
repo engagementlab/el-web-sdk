@@ -30,7 +30,7 @@ module.exports = function(grunt, options) {
 		debug: {
 			script: 'server.js',
 			options: {
-				nodeArgs: ['--debug'],
+				nodeArgs: ['--inspect'],
 				verbose: true,
 				env: {
 					port: 3000
@@ -42,7 +42,7 @@ module.exports = function(grunt, options) {
 			script: 'server.js',
 			options: {
 				args: siteModules,
-				nodeArgs: ['--debug'],
+				nodeArgs: ['--inspect'],
 				verbose: true,
 				ignore: ignoreFilter,
 				watch: watchFilter,
