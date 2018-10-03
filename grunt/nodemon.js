@@ -3,10 +3,11 @@ module.exports = function(grunt, options) {
 	var siteModules = [];
 	var ignoreFilter = [];
 	var watchFilter = [];
+	var fs = require('fs');
 
 	var sitesArg = grunt.option('sites');
 
-	ignoreFilter.push('node_modules/.bin/');
+	// ignoreFilter.push('node_modules/.bin/');
 
 	// Use site modules arg only if defined
 	if(sitesArg) {
@@ -19,8 +20,10 @@ module.exports = function(grunt, options) {
 		// Watch all site modules
 		for(var ind in arrSites) {
 			ignoreFilter.push('node_modules/' + arrSites[ind] + '/.git/');
-			watchFilter.push('node_modules/' + arrSites[ind] + '/**');
-			watchFilter.push('node_modules/' + arrSites[ind] + '/**/**');
+			ignoreFilter.push('node_modules/' + arrSites[ind] + '/node_modules/');
+			// watchFilter.push('node_modules/' + arrSites[ind] + '/**');
+			// watchFilter.push('node_modules/' + arrSites[ind] + '/**/**');
+			watchFilter.push(fs.realpathSync('node_modules/' + arrSites[ind] + '/'));
 		}
 
 	}
@@ -46,6 +49,7 @@ module.exports = function(grunt, options) {
 				verbose: true,
 				ignore: ignoreFilter,
 				watch: watchFilter,
+				ext: "js,hbs",
 		    callback: function (nodemon) {
 	        nodemon.on('log', function (event) {
 	          console.log(event.colour);
