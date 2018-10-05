@@ -21,8 +21,6 @@ module.exports = function(grunt, options) {
 		for(var ind in arrSites) {
 			ignoreFilter.push('node_modules/' + arrSites[ind] + '/.git/');
 			ignoreFilter.push('node_modules/' + arrSites[ind] + '/node_modules/');
-			// watchFilter.push('node_modules/' + arrSites[ind] + '/**');
-			// watchFilter.push('node_modules/' + arrSites[ind] + '/**/**');
 			watchFilter.push(fs.realpathSync('node_modules/' + arrSites[ind] + '/'));
 		}
 
