@@ -6,7 +6,8 @@ module.exports = function(grunt, options) {
     grunt.fatal('Must specify sites to run using: --sites=site-module,site-module-optional');
 
 	var devTasks = [
-		'nodemon:serve'
+		'nodemon:serve',
+		'watch'
 	];
 
 	var config = {
