@@ -137,10 +137,7 @@ var launch = function(callback) {
 
 		}
 		else 
-			throw new Error("A site module(s) must be specified!");
-		
-
-		logger.info('##'.bold.bgWhite.red);		
+			throw new Error("A site module(s) must be specified!");	
 
 	});
 
