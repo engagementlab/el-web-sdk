@@ -72,8 +72,8 @@
 		'user model': 'User',
 
 		// Setup SASS and Handlebars
-		'sass': [__dirname  + '/../public', moduleRoot + 'public'],
-		'static': [__dirname  + '/../public', moduleRoot + 'public'],
+		// 'sass': [__dirname  + '/../public', moduleRoot + 'public'],
+		// 'static': [__dirname  + '/../public', moduleRoot + 'public'],
 		'views': moduleRoot + 'templates/views',
 		'view engine': 'hbs',
 		'handlebars': hbsInstance,
